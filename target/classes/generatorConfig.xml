@@ -1,0 +1,105 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE generatorConfiguration-->
+        <!--PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+<!--<generatorConfiguration>-->
+    <!--&lt;!&ndash;mysql 连接数据库jar 这里选择自己本地位置&ndash;&gt;-->
+    <!--<classPathEntry location="C:\Users\danchun\.m2\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar" />-->
+    <!--<context id="testTables" targetRuntime="MyBatis3">-->
+        <!--<commentGenerator>-->
+            <!--&lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt;-->
+            <!--<property name="suppressAllComments" value="true" />-->
+        <!--</commentGenerator>-->
+        <!--&lt;!&ndash;数据库连接的信息：驱动类、连接地址、用户名、密码 &ndash;&gt;-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://xiaoshuxian.xyz:3306/mall?serverTimezone=UTC" userId="root"-->
+                        <!--password="xian1183089686">-->
+        <!--</jdbcConnection>-->
+        <!--&lt;!&ndash; 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和-->
+           <!--NUMERIC 类型解析为java.math.BigDecimal &ndash;&gt;-->
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false" />-->
+        <!--</javaTypeResolver>-->
+
+        <!--&lt;!&ndash; targetProject:生成PO类的位置 &ndash;&gt;-->
+        <!--<javaModelGenerator targetPackage="com.store.entity"-->
+                            <!--targetProject="src/main/java">-->
+            <!--&lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;-->
+            <!--<property name="enableSubPackages" value="false" />-->
+            <!--&lt;!&ndash; 从数据库返回的值被清理前后的空格 &ndash;&gt;-->
+            <!--<property name="trimStrings" value="true" />-->
+        <!--</javaModelGenerator>-->
+        <!--&lt;!&ndash; targetProject:mapper映射文件生成的位置-->
+           <!--如果maven工程只是单独的一个工程，targetProject="src/main/java"-->
+           <!--若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：-->
+           <!--targetProject="ecps-manager-mapper"，下同&ndash;&gt;-->
+        <!--<sqlMapGenerator targetPackage="mapper"-->
+                         <!--targetProject="src/main/resources">-->
+            <!--&lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;-->
+            <!--<property name="enableSubPackages" value="false" />-->
+        <!--</sqlMapGenerator>-->
+        <!--&lt;!&ndash; targetPackage：mapper接口生成的位置 &ndash;&gt;-->
+        <!--<javaClientGenerator type="XMLMAPPER"-->
+                             <!--targetPackage="com.store.dao"-->
+                             <!--targetProject="src/main/java">-->
+            <!--&lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;-->
+            <!--<property name="enableSubPackages" value="false" />-->
+        <!--</javaClientGenerator>-->
+        <!--&lt;!&ndash; 指定数据库表 &ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="account"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="categoty"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="evaluation"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="order_"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="post"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="product"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="productimage"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="property"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="propertyValue"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="shoppingcart"></table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<table tableName="store"></table>&ndash;&gt;-->
+
+        <!--<table tableName="account" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="categoty" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="evaluation" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="order_" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="post" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="product" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="productimage" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="property" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="propertyValue" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="shoppingcart" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <!--<table tableName="store" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+    <!--</context>-->
+<!--</generatorConfiguration>-->

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.store.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.store.entity.Product" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="categoryId" property="categoryid" jdbcType="INTEGER" />
+    <id column="storeId" property="storeid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="originalPrice" property="originalprice" jdbcType="REAL" />
+    <result column="promotePrice" property="promoteprice" jdbcType="REAL" />
+    <result column="stock" property="stock" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="createDate" property="createdate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, categoryId, storeId, name, originalPrice, promotePrice, stock, description, createDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.store.entity.ProductKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+      and categoryId = #{categoryid,jdbcType=INTEGER}
+      and storeId = #{storeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.store.entity.ProductKey" >
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+      and categoryId = #{categoryid,jdbcType=INTEGER}
+      and storeId = #{storeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.store.entity.Product" >
+    insert into product (id, categoryId, storeId, 
+      name, originalPrice, promotePrice, 
+      stock, description, createDate
+      )
+    values (#{id,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, #{storeid,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{originalprice,jdbcType=REAL}, #{promoteprice,jdbcType=REAL}, 
+      #{stock,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.store.entity.Product" >
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="categoryid != null" >
+        categoryId,
+      </if>
+      <if test="storeid != null" >
+        storeId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="originalprice != null" >
+        originalPrice,
+      </if>
+      <if test="promoteprice != null" >
+        promotePrice,
+      </if>
+      <if test="stock != null" >
+        stock,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createdate != null" >
+        createDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="storeid != null" >
+        #{storeid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="originalprice != null" >
+        #{originalprice,jdbcType=REAL},
+      </if>
+      <if test="promoteprice != null" >
+        #{promoteprice,jdbcType=REAL},
+      </if>
+      <if test="stock != null" >
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.store.entity.Product" >
+    update product
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="originalprice != null" >
+        originalPrice = #{originalprice,jdbcType=REAL},
+      </if>
+      <if test="promoteprice != null" >
+        promotePrice = #{promoteprice,jdbcType=REAL},
+      </if>
+      <if test="stock != null" >
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        createDate = #{createdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and categoryId = #{categoryid,jdbcType=INTEGER}
+      and storeId = #{storeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.store.entity.Product" >
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      originalPrice = #{originalprice,jdbcType=REAL},
+      promotePrice = #{promoteprice,jdbcType=REAL},
+      stock = #{stock,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and categoryId = #{categoryid,jdbcType=INTEGER}
+      and storeId = #{storeid,jdbcType=INTEGER}
+  </update>
+</mapper>
