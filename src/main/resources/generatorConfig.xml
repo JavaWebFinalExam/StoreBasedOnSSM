@@ -13,7 +13,7 @@
         <!--&lt;!&ndash;数据库连接的信息：驱动类、连接地址、用户名、密码 &ndash;&gt;-->
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
                         <!--connectionURL="jdbc:mysql://xiaoshuxian.xyz:3306/mall?serverTimezone=UTC" userId="root"-->
-                        <!--password="xian1183089686">-->
+                        <!--password="">-->
         <!--</jdbcConnection>-->
         <!--&lt;!&ndash; 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和-->
            <!--NUMERIC 类型解析为java.math.BigDecimal &ndash;&gt;-->
