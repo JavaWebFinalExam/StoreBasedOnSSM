@@ -372,7 +372,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545100018495" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545100385543" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -650,7 +650,7 @@
       <workItem from="1544339141457" duration="31000" />
       <workItem from="1544579263737" duration="1881000" />
       <workItem from="1544583097857" duration="32000" />
-      <workItem from="1545096114421" duration="3377000" />
+      <workItem from="1545096114421" duration="3744000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1543882175439</created>
@@ -682,7 +682,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291153000" />
+    <option name="totallyTimeSpent" value="291520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
