@@ -1,6 +1,7 @@
 package com.store.dao;
 
 import com.store.entity.Evaluation;
+import org.apache.ibatis.annotations.Param;
 
 public interface EvaluationMapper {
     int deleteByPrimaryKey(Integer id);
@@ -8,6 +9,8 @@ public interface EvaluationMapper {
     int insert(Evaluation record);
 
     int insertSelective(Evaluation record);
+
+    void insertByUserId(@Param("content")String content,@Param("userId")Integer userId,@Param("productId")Integer productId);
 
     Evaluation selectByPrimaryKey(Integer id);
 

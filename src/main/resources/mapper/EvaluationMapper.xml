@@ -57,6 +57,14 @@
       </if>
     </trim>
   </insert>
+  //根据用户id和商品id插入评价
+  <insert id="insertByUserId">
+    insert into evaluation (content, productId,
+      userId)
+    values (#{content,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER},
+      #{userid,jdbcType=INTEGER})
+  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.store.entity.Evaluation" >
     update evaluation
     <set >
