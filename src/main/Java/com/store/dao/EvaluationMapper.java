@@ -10,7 +10,7 @@ public interface EvaluationMapper {
 
     int insertSelective(Evaluation record);
 
-    void insertByUserId(@Param("userId")int userId,@Param("productId")int productId);
+    void insertByUserId(@Param("content")String content,@Param("userId")Integer userId,@Param("productId")Integer productId);
 
     Evaluation selectByPrimaryKey(Integer id);
 

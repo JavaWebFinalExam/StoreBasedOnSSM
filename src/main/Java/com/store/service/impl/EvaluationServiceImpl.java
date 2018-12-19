@@ -13,8 +13,8 @@ public class EvaluationServiceImpl implements EvaluationService {
 
     //根据用户id和商品id插入评价
     @Override
-    public void insertByUserId(int userId,int productId){
-        evaluationMapper.insertByUserId(userId,productId);
+    public void insertByUserId(String content,Integer userId,Integer productId){
+        evaluationMapper.insertByUserId(content,userId,productId);
     }
 
 }
