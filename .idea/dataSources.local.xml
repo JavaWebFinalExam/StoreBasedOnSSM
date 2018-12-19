@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="bookstore@47.107.120.64" uuid="67c63f1d-27f3-47f9-ae49-1129b5427cce">
+    <data-source name="mall@47.107.120.64" uuid="154593ea-fa2f-4b56-9f92-f5a8e116fee5">
       <database-info product="MySQL" version="8.0.13" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="8.0.13">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -9,7 +9,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <introspection-schemas>*:bookstore</introspection-schemas>
+      <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>
 </project>
