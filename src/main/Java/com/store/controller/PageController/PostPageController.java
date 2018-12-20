@@ -83,7 +83,4 @@ ProductimageService productimageService;
         mv.setViewName("");
         return mv;
     }
-
-    
-
 }
