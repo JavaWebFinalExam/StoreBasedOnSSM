@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  //根据用户id和商品id插入评价
+
   <insert id="insertByUserId">
     insert into evaluation (content, productId,
       userId)
@@ -87,4 +87,10 @@
       userId = #{userid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getUsersPostNum" parameterType="int" resultType="int">
+    select COUNT(*)
+    from evaluation
+    where userId = #{userId};
+  </select>
 </mapper>

@@ -25,4 +25,8 @@ public class PostServiceImpl implements PostService {
         }
     }
 
+    @Override
+    public int getUsersPostNum(int userId){
+        return postMapper.getUsersPostNum(userId);
+    }
 }

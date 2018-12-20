@@ -103,4 +103,10 @@
       createDate = #{createdate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getUsersPostNum" parameterType="int" resultType="int">
+    select COUNT(*)
+    from post
+    where userId = #{userId};
+  </select>
 </mapper>

@@ -14,4 +14,6 @@ public interface PostMapper {
     int updateByPrimaryKeySelective(Post record);
 
     int updateByPrimaryKey(Post record);
+
+    int getUsersPostNum(int userId);
 }

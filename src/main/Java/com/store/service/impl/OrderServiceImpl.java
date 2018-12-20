@@ -11,9 +11,14 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderMapper orderMapper;
 
+    @Override
     public Order selectByPrimaryKey(Integer id){
         return orderMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public int getUsersOrderNum(int userId){
+        return orderMapper.getUsersOrderNum(userId);
+    }
 
 }

@@ -6,4 +6,6 @@ public interface OrderService {
 
     Order selectByPrimaryKey(Integer id);
 
+    int getUsersOrderNum(int userId);
+
 }
