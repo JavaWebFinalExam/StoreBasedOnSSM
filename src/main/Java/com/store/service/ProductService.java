@@ -6,6 +6,12 @@ import com.store.entity.ProductKey;
 import java.util.List;
 
 public interface ProductService {
+
+
+    List<Product> selectByStoreId(Integer storeId);
+
     Product selectById(Integer id);
+
     List<Product> getProductsByCategoryId (int categoryId);
+
 }

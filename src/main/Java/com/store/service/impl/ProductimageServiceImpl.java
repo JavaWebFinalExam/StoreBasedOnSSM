@@ -16,5 +16,9 @@ public class ProductimageServiceImpl implements ProductimageService {
         return productimageMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public String selectImageByProductId(Integer productId){
+        return productimageMapper.selectImageByProductId(productId);
+    }
 
 }
