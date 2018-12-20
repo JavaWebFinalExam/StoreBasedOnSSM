@@ -15,13 +15,16 @@
   <sql id="Base_Column_List" >
     id, categoryId, storeId, name, originalPrice, promotePrice, stock, description, createDate
   </sql>
-  //根据商品Id查询商品
-  <select id="selectById" resultMap="Product">
+  <select id="selectById" resultMap="Product" parameterType="java.lang.Integer">
     select *
     from product
     where id = #{id,jdbcType=INTEGER}
   </select>
-
+<select id="selectByStoreId" resultMap="Product" parameterType="java.lang.Integer">
+    select *
+    from product
+    where storeId = #{storeId,jdbcType=INTEGER}
+</select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.store.entity.ProductKey" >
     select 
     <include refid="Base_Column_List" />
