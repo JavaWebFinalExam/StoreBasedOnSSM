@@ -10,6 +10,6 @@ public interface ProductService {
 
     List<Product> selectByStoreId(Integer storeId);
 
-    List <Product> selectById(Integer id);
+    Product selectById(Integer id);
 
 }
