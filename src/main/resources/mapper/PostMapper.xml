@@ -19,15 +19,15 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="selectById" resultMap="Post" parameterType="java.lang.Integer">
+  <select id="selectByThemeId" resultMap="Post" parameterType="java.lang.Integer">
     select *
     from post
     where themeId=#{themeId,jdbcType=INTEGER}
   </select>
-  <select id="getAllThemePost" resultMap="Post" parameterType="boolean">
+  <select id="getAllThemePost" resultMap="Post">
       select *
     from post
-    where theme=#{theme,jdbcType=INTEGER}
+    where theme=true
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

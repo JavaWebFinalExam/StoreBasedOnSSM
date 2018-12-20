@@ -28,7 +28,7 @@ public class EvaluationController {
         HttpSession session = request.getSession();
         try {
             //从input中获取值
-            String content = request.getParameter("content");
+            String content = "" + map.get("content");
             Integer userId=Integer.valueOf("" + session.getAttribute("userId"));
             Integer productId = Integer.valueOf("" + map.get("productId"));
             evaluationService.insertByUserId(content,userId,productId);
