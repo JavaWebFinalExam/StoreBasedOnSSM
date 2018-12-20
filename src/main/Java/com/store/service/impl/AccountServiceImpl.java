@@ -41,4 +41,18 @@ public class AccountServiceImpl implements AccountService {
         return false;
     }
 
+    @Override
+    public boolean register(String username, String password){
+
+        Account admin = accountMapper.selectByUsername(username);
+        if(admin==null)
+        {
+            accountMapper.insertAdmin(username, password);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

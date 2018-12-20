@@ -60,4 +60,5 @@ public class Product extends ProductKey {
     public void setCreatedate(String createdate) {
         this.createdate = createdate == null ? null : createdate.trim();
     }
+
 }

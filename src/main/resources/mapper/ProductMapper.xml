@@ -15,7 +15,7 @@
   <sql id="Base_Column_List" >
     id, categoryId, storeId, name, originalPrice, promotePrice, stock, description, createDate
   </sql>
-  //根据商品Id查询商品
+
   <select id="selectById" resultMap="Product">
     select *
     from product
