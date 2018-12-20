@@ -69,6 +69,7 @@ public class AccountController {
 
         Map<String,Object> ResponseMap = new HashMap<>();
 
+        request.getParameter("a");
 
         return ResponseMap;//返回给前端的数据
     }
