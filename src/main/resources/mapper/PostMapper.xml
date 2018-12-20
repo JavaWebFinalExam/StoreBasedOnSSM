@@ -18,6 +18,18 @@
     from post
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectById" resultMap="Post" parameterType="java.lang.Integer">
+    select *
+    from post
+    where themeId=#{themeId,jdbcType=INTEGER}
+  </select>
+  <select id="getAllThemePost" resultMap="Post" parameterType="boolean">
+      select *
+    from post
+    where theme=#{theme,jdbcType=INTEGER}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from post
     where id = #{id,jdbcType=INTEGER}
