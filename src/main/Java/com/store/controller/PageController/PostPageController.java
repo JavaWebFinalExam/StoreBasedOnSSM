@@ -2,11 +2,9 @@ package com.store.controller.PageController;
 
 
 import com.store.dao.ProductimageMapper;
-import com.store.entity.Order;
-import com.store.entity.Product;
-import com.store.entity.Productimage;
-import com.store.entity.Store;
+import com.store.entity.*;
 import com.store.service.*;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +36,8 @@ ProductimageService productimageService;
     OrderService orderService;
     @Autowired
     StoreService storeService;
+    @Autowired
+    PostService postService;
 
     @RequestMapping(
             value="/evaluationPage",
@@ -83,4 +83,36 @@ ProductimageService productimageService;
         mv.setViewName("");
         return mv;
     }
+
+    @RequestMapping(
+            value="/PostPage",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView getPostPage(HttpServletRequest request) {
+    ModelAndView mv = new ModelAndView();
+    List<Post> themePosts = postService.getAllThemePost();
+    mv.addObject("posts",themePosts);
+
+    mv.setViewName("");
+    return mv;
+}
+
+    @RequestMapping(
+            value="/ReplyPostPage",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView getReplyPostPage(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        Integer themeId=Integer.valueOf(""+request.getParameter("storeId"));
+        List<Post> posts = postService.selectByThemeId(themeId);
+        mv.addObject("posts",posts);
+
+        mv.setViewName("");
+        return mv;
+    }
+
 }

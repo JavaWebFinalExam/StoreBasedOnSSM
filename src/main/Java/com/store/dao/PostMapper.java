@@ -13,9 +13,9 @@ public interface PostMapper {
 
     Post selectByPrimaryKey(Integer id);
 
-    List<Post> selectById(Integer id);
+    List<Post> selectByThemeId(Integer themeId);
 
-    List<Post> getAllThemePost(boolean theme);
+    List<Post> getAllThemePost();
 
     int updateByPrimaryKeySelective(Post record);
 

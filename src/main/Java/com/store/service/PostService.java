@@ -7,6 +7,6 @@ import java.util.List;
 public interface PostService {
 
     int getUsersPostNum(int userId);
-    List<Post> getAllThemePost(boolean theme);
-    List<Post> selectById(Integer id);
+    List<Post> getAllThemePost();
+    List<Post> selectByThemeId(Integer id);
 }

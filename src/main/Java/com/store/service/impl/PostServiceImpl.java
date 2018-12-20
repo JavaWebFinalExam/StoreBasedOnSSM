@@ -14,14 +14,14 @@ public class PostServiceImpl implements PostService {
     PostMapper postMapper;
 
     @Override
-    public List<Post> getAllThemePost(boolean theme){
-        return postMapper.getAllThemePost(theme);
+    public List<Post> getAllThemePost(){
+        return postMapper.getAllThemePost();
     }
 
     //根据Post的id查询该帖子的回复
     @Override
-    public List<Post> selectById(Integer id){
-        return postMapper.selectById(id);
+    public List<Post> selectByThemeId(Integer themeId){
+        return postMapper.selectByThemeId(themeId);
     }
 
     @Override
