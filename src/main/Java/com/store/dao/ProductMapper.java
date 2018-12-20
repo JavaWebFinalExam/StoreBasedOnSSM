@@ -3,6 +3,8 @@ package com.store.dao;
 import com.store.entity.Product;
 import com.store.entity.ProductKey;
 
+import java.util.List;
+
 public interface ProductMapper {
     int deleteByPrimaryKey(ProductKey key);
 
@@ -13,6 +15,8 @@ public interface ProductMapper {
     Product selectByPrimaryKey(ProductKey key);
 
     Product selectById(Integer id);
+    
+    List<Product> selectByStoreId(Integer storeId);
 
     int updateByPrimaryKeySelective(Product record);
 
