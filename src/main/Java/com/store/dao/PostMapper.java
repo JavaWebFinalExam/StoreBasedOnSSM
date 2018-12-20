@@ -2,6 +2,8 @@ package com.store.dao;
 
 import com.store.entity.Post;
 
+import java.util.List;
+
 public interface PostMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -10,6 +12,10 @@ public interface PostMapper {
     int insertSelective(Post record);
 
     Post selectByPrimaryKey(Integer id);
+
+    List<Post> selectById(Integer id);
+
+    List<Post> getAllThemePost(boolean theme);
 
     int updateByPrimaryKeySelective(Post record);
 
