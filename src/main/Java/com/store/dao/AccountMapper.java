@@ -1,6 +1,7 @@
 package com.store.dao;
 
 import com.store.entity.Account;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,4 +21,8 @@ public interface AccountMapper {
     List<Account> getAllAccount();
 
     void deleteUserById(int id);
+
+    Account selectByUsername(String username);
+
+    void insertAdmin(@Param("username")String username, @Param("password")String password);
 }

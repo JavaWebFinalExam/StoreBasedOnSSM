@@ -100,4 +100,11 @@
     delete from account
     where id = #{id};
   </delete>
+
+  <select id="selectByUsername" parameterType="String" resultType="Account">
+    select * from account
+    where username = #{username};
+  </select>
+
+
 </mapper>
