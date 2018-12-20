@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-
+  
   <insert id="insertByUserId">
     insert into evaluation (content, productId,
       userId)
