@@ -95,4 +95,9 @@
   <select id="getAllAccount" resultType="Account">
     select * from account;
   </select>
+
+  <delete id="deleteUserById" parameterType="int">
+    delete from account
+    where id = #{id};
+  </delete>
 </mapper>

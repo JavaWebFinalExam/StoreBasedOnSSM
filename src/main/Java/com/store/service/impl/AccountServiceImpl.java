@@ -17,4 +17,14 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> getAllAccount(){
         return accountMapper.getAllAccount();
     }
+
+    @Override
+    public boolean deleteUserById(int id){
+        Account account = accountMapper.selectByPrimaryKey(id);
+        if (null!=account && account.getIdentity()!=3) {
+            accountMapper.deleteUserById(id);
+            return true;
+        }
+        return false;
+    }
 }

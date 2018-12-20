@@ -18,4 +18,6 @@ public interface AccountMapper {
     int updateByPrimaryKey(Account record);
 
     List<Account> getAllAccount();
+
+    void deleteUserById(int id);
 }
