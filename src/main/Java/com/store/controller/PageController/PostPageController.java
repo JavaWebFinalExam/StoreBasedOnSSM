@@ -24,7 +24,7 @@ import java.util.Map;
  * 主要为简斌兵部分
  */
 @Controller
-@RequestMapping("/Evaluation")
+@RequestMapping("/userPage/postPage")
 public class PostPageController {
     @Autowired
     ProductService productService;

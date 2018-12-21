@@ -55,4 +55,9 @@ public class AccountServiceImpl implements AccountService {
             return false;
         }
     }
+
+    @Override
+    public Account selectByUsername(String username){
+        return accountMapper.selectByUsername(username);
+    }
 }
