@@ -9,4 +9,5 @@ public interface AccountService {
     boolean deleteUserById(int id);
     boolean checkLogin(String username,String password);
     boolean register(String username, String password);
+
 }
