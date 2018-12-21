@@ -155,4 +155,7 @@
       and categoryId = #{categoryid,jdbcType=INTEGER}
       and storeId = #{storeid,jdbcType=INTEGER}
   </update>
+
+  <!--以下为后续添加内容-->
+
 </mapper>
