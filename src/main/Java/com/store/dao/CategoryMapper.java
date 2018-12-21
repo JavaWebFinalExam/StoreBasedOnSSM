@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface CategoryMapper {
     List<Category> getAllCategory();
+    void insertCategory(Category category);
 }

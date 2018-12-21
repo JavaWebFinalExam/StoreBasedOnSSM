@@ -22,6 +22,7 @@
         where categoryId = #{categoryId}
     </select>
 
+<<<<<<< HEAD
   <select id="getProductsType" resultMap="Product" parameterType="java.lang.Integer">
         select distinct categoryId
         from product
@@ -37,6 +38,8 @@
     from product
     where storeId = #{storeId,jdbcType=INTEGER}
 </select>
+=======
+>>>>>>> 04ebb688f2cde2eddd49cfafb339a69a43bcb67c
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.store.entity.ProductKey" >
     select 
     <include refid="Base_Column_List" />
@@ -160,4 +163,16 @@
       and categoryId = #{categoryid,jdbcType=INTEGER}
       and storeId = #{storeid,jdbcType=INTEGER}
   </update>
+
+  <!--以下为后续添加内容-->
+  <select id="selectById" resultType="Product" parameterType="java.lang.Integer">
+    select *
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStoreId" resultType="Product" parameterType="java.lang.Integer">
+    select *
+    from product
+    where storeId = #{storeId,jdbcType=INTEGER}
+  </select>
 </mapper>

@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public boolean deleteUserById(int id){
         Account account = accountMapper.selectByPrimaryKey(id);
-        if (null!=account && account.getIdentity()!=3) {
+        if (null!=account) {
             accountMapper.deleteUserById(id);
             return true;
         }

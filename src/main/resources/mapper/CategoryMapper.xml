@@ -7,4 +7,9 @@
         from category;
     </select>
 
+    <insert id="insertCategory" parameterType="Category">
+        insert into category
+        (typeName)
+        values (#{category.typeName});
+    </insert>
 </mapper>

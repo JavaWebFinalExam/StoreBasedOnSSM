@@ -15,4 +15,12 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getAllCategory(){
         return categoryMapper.getAllCategory();
     }
+
+    @Override
+    public void insertCategory(String typeName){
+        Category category = new Category();
+        category.setTypeName(typeName);
+
+        categoryMapper.insertCategory(category);
+    }
 }

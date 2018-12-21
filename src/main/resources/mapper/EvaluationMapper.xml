@@ -87,6 +87,8 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+  <!--以下为后续添加内容-->
+
   <select id="getUsersPostNum" parameterType="int" resultType="int">
     select COUNT(*)
     from evaluation
