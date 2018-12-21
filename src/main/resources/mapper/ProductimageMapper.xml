@@ -16,7 +16,7 @@
     from productimage
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectImageByProductId" resultMap="String" parameterType="java.lang.Integer">
+  <select id="selectImageByProductId" resultType="String" parameterType="java.lang.Integer">
     select path
     from productimage
     where productId= #{productId,jdbcType=INTEGER}

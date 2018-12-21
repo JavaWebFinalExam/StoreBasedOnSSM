@@ -18,6 +18,7 @@
     from post
     where id = #{id,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from post
     where id = #{id,jdbcType=INTEGER}
@@ -103,4 +104,23 @@
       createDate = #{createdate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--以下为我们后续添加的内容-->
+
+  <select id="getUsersPostNum" parameterType="int" resultType="int">
+    select COUNT(*)
+    from post
+    where userId = #{userId};
+  </select>
+
+  <select id="selectByThemeId" resultType="Post" parameterType="java.lang.Integer">
+    select *
+    from post
+    where themeId=#{themeId,jdbcType=INTEGER}
+  </select>
+  <select id="getAllThemePost" resultType="Post">
+      select *
+    from post
+    where theme=true
+  </select>
 </mapper>

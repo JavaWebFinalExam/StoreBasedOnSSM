@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="BookStoreBasedOnSSM:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/BookStoreBasedOnSSM_war</output-path>
-    <root id="archive" name="BookStoreBasedOnSSM_war.war">
-      <element id="artifact" artifact-name="BookStoreBasedOnSSM:war exploded" />
-    </root>
-  </artifact>
-</component>

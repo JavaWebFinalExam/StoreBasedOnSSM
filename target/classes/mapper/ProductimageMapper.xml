@@ -16,6 +16,12 @@
     from productimage
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectImageByProductId" resultType="String" parameterType="java.lang.Integer">
+    select path
+    from productimage
+    where productId= #{productId,jdbcType=INTEGER}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from productimage
     where id = #{id,jdbcType=INTEGER}
@@ -79,4 +85,7 @@
       type = #{type,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--以下为后续添加内容-->
+
 </mapper>
