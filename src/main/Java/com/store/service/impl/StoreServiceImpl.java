@@ -6,6 +6,8 @@ import com.store.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StoreServiceImpl implements StoreService {
     @Autowired
@@ -14,5 +16,10 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Store selectByPrimaryKey(Integer id){
         return storeMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Store> getAllStore(){
+        return storeMapper.getAllStore();
     }
 }

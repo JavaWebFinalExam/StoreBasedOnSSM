@@ -81,4 +81,9 @@
   </update>
 
   <!--以下为后续添加内容-->
+
+  <select id="getAllStore" resultType="Store">
+    select *
+    from store;
+  </select>
 </mapper>
