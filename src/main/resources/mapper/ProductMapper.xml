@@ -22,6 +22,11 @@
         where categoryId = #{categoryId}
     </select>
 
+  <select id="getProductsType" resultMap="Product" parameterType="java.lang.Integer">
+        select distinct categoryId
+        from product
+  </select>
+
   <select id="selectById" resultMap="Product" parameterType="java.lang.Integer">
     select *
     from product
