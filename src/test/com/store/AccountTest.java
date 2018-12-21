@@ -3,7 +3,9 @@ package com.store;
 
 import com.store.dao.AccountMapper;
 import com.store.entity.Account;
+import com.store.entity.Category;
 import com.store.service.AccountService;
+import com.store.service.CategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,7 +22,7 @@ public class AccountTest {
     private AccountService accountService;
 
     @Test
-    public void testCreateUser() throws Exception {
+    public void testGetUser() throws Exception {
         List<Account> users = accountService.getAllAccount();
         for (Account a:users){
             System.out.println(a.getUsername());

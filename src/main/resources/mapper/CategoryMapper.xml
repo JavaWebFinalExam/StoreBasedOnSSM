@@ -7,4 +7,21 @@
         from category;
     </select>
 
+    <insert id="addCategory" parameterType="String">
+        insert into category
+        (typeName)
+        values (#{typeName});
+    </insert>
+
+    <delete id="deleteCategoryById" parameterType="int">
+        delete
+        from category
+        where id = #{id};
+    </delete>
+
+    <update id="updateCategoryById" parameterType="Category">
+        update category
+        set typeName = #{typeName}
+        where id = #{id};
+    </update>
 </mapper>
