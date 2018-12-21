@@ -18,4 +18,6 @@ public interface StoreMapper {
     int updateByPrimaryKey(Store record);
 
     List<Store> getAllStore();
+
+    void deleteStoreById(int id);
 }

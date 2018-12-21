@@ -86,4 +86,11 @@
     select *
     from store;
   </select>
+
+  <delete id="deleteStoreById" parameterType="int">
+    delete
+    from store
+    where id = #{id};
+  </delete>
+
 </mapper>

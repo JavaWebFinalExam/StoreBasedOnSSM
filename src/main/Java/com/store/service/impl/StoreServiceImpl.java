@@ -22,4 +22,17 @@ public class StoreServiceImpl implements StoreService {
     public List<Store> getAllStore(){
         return storeMapper.getAllStore();
     }
+
+    @Override
+    public void deleteStoreById(int id){
+        storeMapper.deleteStoreById(id);
+    }
+
+    @Override
+    public void changeStoreStatus(int id,int status){
+        Store store = storeMapper.selectByPrimaryKey(id);
+        store.setStatus(status);
+
+        storeMapper.updateByPrimaryKeySelective(store);
+    }
 }
