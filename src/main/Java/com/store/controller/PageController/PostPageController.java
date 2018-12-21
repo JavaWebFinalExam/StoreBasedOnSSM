@@ -24,7 +24,7 @@ import java.util.Map;
  * 主要为简斌兵部分
  */
 @Controller
-@RequestMapping("/Evaluation")
+@RequestMapping("/userPage/postPage")
 public class PostPageController {
     @Autowired
     ProductService productService;
@@ -68,19 +68,21 @@ ProductimageService productimageService;
     @ResponseBody
     public ModelAndView getStorePage(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
-        List<Map<String,Object>> products1=new ArrayList<>();
+        List<Map<String,Object>> commoditydDtails=new ArrayList<>();
         Integer storeId=Integer.valueOf(""+request.getParameter("storeId"));
         Store store=storeService.selectByPrimaryKey(storeId);
         List<Product> products2=productService.selectByStoreId(storeId);
         for(Product product:products2){
-            Map<String,Object> user = new HashMap<>();
-            user.put("productName",product.getName());
-            user.put("originalPrice",product.getOriginalprice());
-            user.put("promotePrice",product.getPromoteprice());
-            user.put("productImage",productimageService.selectImageByProductId(product.getId()));
-            products1.add(user);
+            Map<String,Object> products1 = new HashMap<>();
+            products1.put("productName",product.getName());
+            products1.put("originalPrice",product.getOriginalprice());
+            products1.put("promotePrice",product.getPromoteprice());
+            products1.put("productImage",productimageService.selectImageByProductId(product.getId()));
+            commoditydDtails.add(products1);
         }
-        mv.setViewName("");
+        mv.addObject("commoditydDtails",commoditydDtails);
+        mv.addObject("store",store);
+        mv.setViewName("test");
         return mv;
     }
 
