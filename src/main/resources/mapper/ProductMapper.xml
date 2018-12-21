@@ -22,16 +22,6 @@
         where categoryId = #{categoryId}
     </select>
 
-  <select id="selectById" resultMap="Product" parameterType="java.lang.Integer">
-    select *
-    from product
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-<select id="selectByStoreId" resultMap="Product" parameterType="java.lang.Integer">
-    select *
-    from product
-    where storeId = #{storeId,jdbcType=INTEGER}
-</select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.store.entity.ProductKey" >
     select 
     <include refid="Base_Column_List" />
@@ -157,5 +147,14 @@
   </update>
 
   <!--以下为后续添加内容-->
-
+  <select id="selectById" resultType="Product" parameterType="java.lang.Integer">
+    select *
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStoreId" resultType="Product" parameterType="java.lang.Integer">
+    select *
+    from product
+    where storeId = #{storeId,jdbcType=INTEGER}
+  </select>
 </mapper>
