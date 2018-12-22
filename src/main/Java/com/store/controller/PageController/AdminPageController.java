@@ -62,9 +62,10 @@ public class AdminPageController {
 
             usersInfo.add(user);
         }
+        mv.addObject("users",usersInfo);
 
         //设置返回页面
-        mv.setViewName("admin-userCharge");
+        mv.setViewName("admin-chargeUser");
         return mv;
     }
 
@@ -99,6 +100,23 @@ public class AdminPageController {
 
         //设置返回页面
         mv.setViewName("admin-chargeStore");
+        return mv;
+    }
+
+    //帖子管理页面
+    @RequestMapping(
+            value="/postCharge",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView postCharge(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+
+
+
+        //设置返回页面
+        mv.setViewName("admin-chargePost");
         return mv;
     }
 }

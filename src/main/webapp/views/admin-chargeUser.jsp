@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: danchun
   Date: 2018/12/22
-  Time: 14:47
+  Time: 21:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -71,9 +71,7 @@
     <div class="admin-content">
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>Charge Category</small></div>
-                <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
-                </span> 新增分类 </button></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>Charge user</small></div>
             </div>
 
             <hr>
@@ -85,29 +83,35 @@
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
-                                <th class="table-type">分类id</th>
-                                <th class="table-type">分类名称</th>
-                                <th class="table-type">商品属性数</th>
-                                <th class="table-type">拥有商品数</th>
+                                <th class="table-type">id</th>
+                                <th class="table-type">用户名</th>
+                                <th class="table-type">头像</th>
+                                <th class="table-type">账户身份</th>
+                                <th class="table-type">订单数</th>
+                                <th class="table-type">评价数</th>
+                                <th class="table-type">帖子数</th>
+
                                 <th class="table-set">操作</th>
                             </tr>
                             </thead>
                             <tbody>
-
                             <%--循环显示数据--%>
-                            <c:if test="${categories != null}">
-                                <c:forEach var="category" items="${categories}">
+                            <c:if test="${users != null}">
+                                <c:forEach var="user" items="${users}">
                                     <tr>
-                                        <td>${category.id}</td>
-                                        <td>${category.typeName}</td>
-                                        <td>${category.propertyNum}</td>
-                                        <td>${category.productNum}</td>
+                                        <td>${user.id}</td>
+                                        <td>${user.username}</td>
+                                        <td>${user.avatar}</td>
+                                        <td>${user.identity<2?"普通用户":(user.identity>2?"管理员":"商家")}</td>
+                                        <td>${user.orderNum}</td>
+                                        <td>${user.evaluationNum}</td>
+                                        <td>${user.postNum}</td>
 
                                         <td>
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
                                                     <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
-                                                    <button id="${category.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
+                                                    <button id="${user.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
                                                         <span class="am-icon-trash-o"></span> 删除</button>
                                                 </div>
                                             </div>
@@ -136,4 +140,5 @@
 <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
 </body>
 </html>
+
 
