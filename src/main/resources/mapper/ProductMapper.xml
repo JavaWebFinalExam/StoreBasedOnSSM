@@ -157,5 +157,9 @@
   </update>
 
   <!--以下为后续添加内容-->
-
+  <select id="getProductNumByCategoryId" parameterType="int" resultType="int">
+    select COUNT(*)
+    from product
+    where categoryId = #{id};
+  </select>
 </mapper>

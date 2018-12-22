@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -40,5 +41,16 @@ public class CategoryServiceImplTest {
     @Test
     public void deleteCategory(){
         categoryService.deleteCategoryById(85);
+    }
+
+    @Test
+    public void getAllCategoryMessage(){
+        List<Map<String,Object>> messages = categoryService.getAllCategoryInformation();
+
+        for (Map<String,Object> message:messages){
+            for (Object obj:message.values())
+                System.out.print(""+obj+" - ");
+            System.out.println();
+        }
     }
 }

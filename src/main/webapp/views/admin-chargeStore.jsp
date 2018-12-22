@@ -71,7 +71,7 @@
     <div class="admin-content">
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>Charge Category</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">店铺管理</strong> / <small>Charge Store</small></div>
                 <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
                 </span> 新增分类 </button></div>
             </div>

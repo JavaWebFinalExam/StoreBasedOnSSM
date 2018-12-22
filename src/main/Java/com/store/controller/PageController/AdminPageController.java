@@ -76,7 +76,7 @@ public class AdminPageController {
     public ModelAndView categoryCharge(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
 
-        List<Category> categories = categoryService.getAllCategory();
+        mv.addObject("categories",categoryService.getAllCategoryInformation());
 
         //设置返回页面
         mv.setViewName("admin-chargeCategory");
