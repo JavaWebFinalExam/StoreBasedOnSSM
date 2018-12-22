@@ -4,7 +4,7 @@ package com.store.controller.PageController;
 import com.store.dao.ProductimageMapper;
 import com.store.entity.*;
 import com.store.service.*;
-import javafx.geometry.Pos;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
