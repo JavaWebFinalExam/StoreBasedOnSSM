@@ -6,6 +6,8 @@ import com.store.service.ProductimageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductimageServiceImpl implements ProductimageService {
     @Autowired
@@ -17,7 +19,7 @@ public class ProductimageServiceImpl implements ProductimageService {
     }
 
     @Override
-    public String selectImageByProductId(Integer productId){
+    public List<String> selectImageByProductId(Integer productId){
         return productimageMapper.selectImageByProductId(productId);
     }
 

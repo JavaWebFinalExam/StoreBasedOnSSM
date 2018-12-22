@@ -2,6 +2,8 @@ package com.store.dao;
 
 import com.store.entity.Productimage;
 
+import java.util.List;
+
 public interface ProductimageMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -15,5 +17,5 @@ public interface ProductimageMapper {
 
     int updateByPrimaryKey(Productimage record);
 
-    String selectImageByProductId(Integer productId);
+    List<String> selectImageByProductId(Integer productId);
 }

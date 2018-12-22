@@ -3,7 +3,9 @@ package com.store.controller.PageController;
 
 import com.store.entity.Account;
 import com.store.entity.Product;
+import com.store.entity.Productimage;
 import com.store.service.ProductService;
+import com.store.service.ProductimageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.apache.commons.io.FilenameUtils;
@@ -31,6 +33,10 @@ import java.util.*;
 public class OrderPageController {
 @Autowired
     ProductService ProductService;
+@Autowired
+    ProductimageService ProductimageService;
+
+
 
     //商品详情页面
     @RequestMapping(
@@ -44,15 +50,13 @@ public class OrderPageController {
 
         Integer product_id=Integer.valueOf(""+request.getParameter("product_id"));
         Product product=ProductService.selectById(product_id);
+        List<String> productimage=ProductimageService.selectImageByProductId(product_id);
 
 
-        Map<String,Object> productdetail = new HashMap<>();
+        mv.addObject("product",product);
+        mv.addObject("productimage",productimage);
 
 
-
-
-
-        mv.addObject("product",productdetail);
         //设置返回页面
         mv.setViewName("productTest");
         return mv;
