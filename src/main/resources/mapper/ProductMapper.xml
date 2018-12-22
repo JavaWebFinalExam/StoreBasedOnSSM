@@ -162,4 +162,10 @@
     from product
     where categoryId = #{id};
   </select>
+
+  <select id="getProductNumByStoreId" parameterType="int" resultType="int">
+    select COUNT(*)
+    from product
+    where storeId = #{id};
+  </select>
 </mapper>

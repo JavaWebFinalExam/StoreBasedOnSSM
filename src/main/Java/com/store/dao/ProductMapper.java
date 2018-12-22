@@ -25,4 +25,6 @@ public interface ProductMapper {
     List<Product> getProductsByCategoryId(int categoryId);
 
     int getProductNumByCategoryId(int id);
+
+    int getProductNumByStoreId(int id);
 }

@@ -33,6 +33,8 @@ public class AdminPageController {
     PostService postService;
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    StoreService storeService;
 
     //用户管理页面
     @RequestMapping(
@@ -80,6 +82,23 @@ public class AdminPageController {
 
         //设置返回页面
         mv.setViewName("admin-chargeCategory");
+        return mv;
+    }
+
+    //店铺管理页面
+    @RequestMapping(
+            value="/storeCharge",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView storeCharge(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+
+        mv.addObject("stores",storeService.getAllStoreInformation());
+
+        //设置返回页面
+        mv.setViewName("admin-chargeStore");
         return mv;
     }
 }

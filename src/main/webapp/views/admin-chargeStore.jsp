@@ -69,58 +69,42 @@
 
     <!-- content start -->
     <div class="admin-content">
+
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">店铺管理</strong> / <small>Charge Store</small></div>
-                <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
-                </span> 新增分类 </button></div>
+                <div class="am-fl am-cf">
+                    <strong class="am-text-primary am-text-lg">店铺管理</strong> / <small>Charge Store</small>
+                </div>
             </div>
 
             <hr>
 
-            <div class="am-g">
-                <div class="am-u-sm-12 am-u-md-5 am-u-md-push-10"></div>
-                <div class="am-u-sm-12 am-u-md-7 am-u-md-pull-3">
-                    <form class="am-form">
-                        <table class="am-table am-table-striped am-table-hover table-main">
-                            <thead>
-                            <tr>
-                                <th class="table-type">分类id</th>
-                                <th class="table-type">分类名称</th>
-                                <th class="table-type">商品属性数</th>
-                                <th class="table-type">拥有商品数</th>
-                                <th class="table-set">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+            <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-margin gallery-list">
+                <c:if test="${stores != null}">
+                    <c:forEach var="store" items="${stores}">
+                        <li>
+                            <a>
+                                <img class="am-img-thumbnail am-img-bdrs" src="<%=basePath%>${store.image}" alt=""/>
+                                <div class="gallery-title"><h1 style="text-align: center">《${store.name}》</h1></div>
+                                <div class="gallery-desc">
+                                    <p style="font-size: 15px">
+                                        店主：${store.userName}<br>
+                                        商品数量：${store.productNum}<br>
+                                        分类：${store.storeType}<br>
+                                        状态：${store.status==0?"未审核":"审核通过"}<br>
+                                    </p>
+                                </div>
+                                <div class="gallery-desc">
+                                    <p>店铺描述：${store.description}</p><br>
+                                </div>
+                            </a>
+                            <button type="button" class="am-btn am-btn-default am-btn-sm am-fl doc-prompt-toggle" id="doc-prompt-toggle-${store.id}">通过审核</button>
+                            <button type="button" id="${store.id}" class="am-btn am-btn-warning am-btn-sm am-fr delete-btn">删除店铺</button>
+                        </li>
+                    </c:forEach>
+                </c:if>
+            </ul>
 
-                            <%--循环显示数据--%>
-                            <c:if test="${categories != null}">
-                                <c:forEach var="category" items="${categories}">
-                                    <tr>
-                                        <td>${category.id}</td>
-                                        <td>${category.typeName}</td>
-                                        <td>${category.propertyNum}</td>
-                                        <td>${category.productNum}</td>
-
-                                        <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
-                                                    <button id="${category.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
-                                                        <span class="am-icon-trash-o"></span> 删除</button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </c:if>
-
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-            </div>
         </div>
 
         <footer class="admin-content-footer" style="text-align: center">
@@ -128,6 +112,7 @@
             <h3>by 计算机161班</h3>
             <p>肖枢贤 简斌兵 陈俊卿 石立军 黄宁</p>
         </footer>
+
     </div>
     <!-- content end -->
 </div>
