@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: danchun
   Date: 2018/12/22
-  Time: 14:47
+  Time: 21:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -71,9 +71,7 @@
     <div class="admin-content">
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>Charge Category</small></div>
-                <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
-                </span> 新增分类 </button></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">论坛管理</strong> / <small>Charge Post</small></div>
             </div>
 
             <hr>
@@ -85,8 +83,8 @@
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
-                                <th class="table-type">分类id</th>
-                                <th class="table-type">分类名称</th>
+                                <th class="table-type">id</th>
+                                <th class="table-type">用户名</th>
                                 <th class="table-type">商品属性数</th>
                                 <th class="table-type">拥有商品数</th>
                                 <th class="table-set">操作</th>
@@ -136,4 +134,3 @@
 <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
 </body>
 </html>
-

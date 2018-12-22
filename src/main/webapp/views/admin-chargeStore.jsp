@@ -57,10 +57,10 @@
         <div class="am-offcanvas-bar admin-offcanvas-bar">
 
             <ul class="am-list admin-sidebar-list">
-                <li><a href="<%=basePath%>adminPage/"><span class="am-icon-home"></span> 商品分类管理 </a></li>
-                <li><a href="<%=basePath%>adminPage/getAllOrders"><span class="am-icon-table"></span> 店铺管理 </a></li>
-                <li><a href="<%=basePath%>adminPage/addBook"><span class="am-icon-pencil-square-o"></span> 论坛管理 </a></li>
-                <li><a href="<%=basePath%>adminPage/chargeUser"><span class="am-icon-users"></span> 用户管理 </a></li>
+                <li><a href="<%=basePath%>adminPage/categoryCharge/"><span class="am-icon-home"></span> 商品分类管理 </a></li>
+                <li><a href="<%=basePath%>adminPage/storeCharge/"><span class="am-icon-table"></span> 店铺管理 </a></li>
+                <li><a href="<%=basePath%>adminPage/postCharge/"><span class="am-icon-pencil-square-o"></span> 论坛管理 </a></li>
+                <li><a href="<%=basePath%>adminPage/userCharge/"><span class="am-icon-users"></span> 用户管理 </a></li>
             </ul>
 
         </div>
