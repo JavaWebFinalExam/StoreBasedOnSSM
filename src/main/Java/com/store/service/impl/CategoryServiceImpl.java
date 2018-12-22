@@ -30,6 +30,14 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public void insertCategory(String typeName) {
+        Category category = new Category();
+        category.setTypeName(typeName);
+
+        categoryMapper.insertCategory(category);
+    }
+
+    @Override
     public void addCategory(String typeName){
         categoryMapper.addCategory(typeName);
     }

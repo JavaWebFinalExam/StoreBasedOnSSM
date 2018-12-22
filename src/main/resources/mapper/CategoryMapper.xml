@@ -7,6 +7,12 @@
         from category;
     </select>
 
+    <insert id="insertCategory" parameterType="Category">
+        insert into category
+        (typeName)
+        values (#{category.typeName});
+    </insert>
+
     <insert id="addCategory" parameterType="String">
         insert into category
         (typeName)
@@ -24,4 +30,5 @@
         set typeName = #{typeName}
         where id = #{id};
     </update>
+
 </mapper>

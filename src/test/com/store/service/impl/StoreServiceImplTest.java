@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -34,14 +35,23 @@ public class StoreServiceImplTest {
     }
 
     @Test
-    @Rollback(true)
     public void deleteStoreById() {
-        storeService.deleteStoreById(1);
+        storeService.deleteStoreById(156);
     }
 
     @Test
-    @Rollback(true)
     public void changeStoreStatus() {
         storeService.changeStoreStatus(0,1);
+    }
+
+    @Test
+    public void getAllStoreInformation(){
+        List<Map<String,Object>> messages = storeService.getAllStoreInformation();
+
+        for (Map<String,Object> message:messages){
+            for (Object obj:message.values())
+                System.out.print(""+obj+" - ");
+            System.out.println();
+        }
     }
 }

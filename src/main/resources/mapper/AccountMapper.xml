@@ -11,6 +11,10 @@
   <sql id="Base_Column_List" >
     id, username, password, avatar, identity
   </sql>
+  <insert id="insertAdmin">
+        insert into Admin(username, password, manager)
+        value(#{username},#{password},0)
+  </insert>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

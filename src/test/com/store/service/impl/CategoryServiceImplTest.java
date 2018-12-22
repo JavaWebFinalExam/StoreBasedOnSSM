@@ -49,7 +49,7 @@ public class CategoryServiceImplTest {
 
         for (Map<String,Object> message:messages){
             for (Object obj:message.values())
-                System.out.print(""+obj+" - ");
+                System.out.print(""+obj+":");
             System.out.println();
         }
     }
