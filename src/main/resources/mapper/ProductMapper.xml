@@ -15,23 +15,6 @@
   <sql id="Base_Column_List" >
     id, categoryId, storeId, name, originalPrice, promotePrice, stock, description, createDate
   </sql>
-
-  <select id="getProductsByCategoryId" resultType="Product" parameterType="int"><!--id要和dao层接口里面的方法名相同 ， resultType 是返回类型，parameterType是传入参数的类型-->
-        select *
-        from product
-        where categoryId = #{categoryId}
-    </select>
-
-  <select id="selectById" resultType="Product" parameterType="java.lang.Integer">
-    select *
-    from product
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-<select id="selectByStoreId" resultType="Product" parameterType="java.lang.Integer">
-    select *
-    from product
-    where storeId = #{storeId,jdbcType=INTEGER}
-</select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.store.entity.ProductKey" >
     select 
     <include refid="Base_Column_List" />
@@ -167,15 +150,16 @@
     from product
     where storeId = #{storeId,jdbcType=INTEGER}
   </select>
-  <select id="getProductsByCategoryId" resultType="product" parameterType="int"><!--id要和dao层接口里面的方法名相同 ， resultType 是返回类型，parameterType是传入参数的类型-->
+  <select id="getProductsByCategoryId" resultType="Product" parameterType="int"><!--id要和dao层接口里面的方法名相同 ， resultType 是返回类型，parameterType是传入参数的类型-->
         select *
         from product
         where categoryId = #{categoryId}
     </select>
 
-  <select id="getProductsType" resultMap="Product" parameterType="java.lang.Integer">
+  <select id="getProductsType" resultType="Product" parameterType="java.lang.Integer">
         select distinct categoryId
         from product
+  </select>
 
   <select id="getProductNumByCategoryId" parameterType="int" resultType="int">
     select COUNT(*)

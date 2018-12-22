@@ -17,13 +17,6 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="selectImageByProductId" resultType="String" parameterType="java.lang.Integer">
-    select path
-    from productimage
-    where productId= #{productId,jdbcType=INTEGER} and type=0
-    limit 1
-  </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from productimage
     where id = #{id,jdbcType=INTEGER}
