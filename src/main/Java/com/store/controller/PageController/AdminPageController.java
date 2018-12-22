@@ -1,10 +1,8 @@
 package com.store.controller.PageController;
 
 import com.store.entity.Account;
-import com.store.service.AccountService;
-import com.store.service.EvaluationService;
-import com.store.service.OrderService;
-import com.store.service.PostService;
+import com.store.entity.Category;
+import com.store.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +31,8 @@ public class AdminPageController {
     EvaluationService evaluationService;
     @Autowired
     PostService postService;
+    @Autowired
+    CategoryService categoryService;
 
     //用户管理页面
     @RequestMapping(
@@ -63,6 +63,23 @@ public class AdminPageController {
 
         //设置返回页面
         mv.setViewName("admin-userCharge");
+        return mv;
+    }
+
+    //商品分类管理页面
+    @RequestMapping(
+            value="/categoryCharge",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView categoryCharge(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+
+        List<Category> categories = categoryService.getAllCategory();
+
+        //设置返回页面
+        mv.setViewName("admin-chargeCategory");
         return mv;
     }
 }
