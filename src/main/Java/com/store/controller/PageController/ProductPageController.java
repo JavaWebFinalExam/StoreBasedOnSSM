@@ -27,6 +27,7 @@ public class ProductPageController {
     @Autowired
     ProductService productService;
 
+    //获取一个种类的所有图书
     @RequestMapping(
             value="/getProductByType",
             method = RequestMethod.GET,
@@ -37,40 +38,16 @@ public class ProductPageController {
         ModelAndView mv = new ModelAndView();
 
         int categoryId =  Integer.valueOf("" + request.getParameter("categoryId"));
-
         List<Product> products = productService.getProductsByCategoryId(categoryId);
+
         mv.addObject("products",products);
 
         //设置返回页面
-        mv.setViewName("admin-index");
+        mv.setViewName("showProducts");
         return mv;
     }
 
-    //获取书籍种类
-    @RequestMapping(
-            value = "/getProductsType",
-            method = RequestMethod.POST,
-            produces = "application/json;charset=UTF-8")
-    @ResponseBody//响应体  用于向前端返回数据
-    public Map<String,Object> getProductsType(@RequestBody Map<String,Object> map, HttpServletRequest request){
+    //获取商品种类
 
-        Map<String,Object> ResponseMap = new HashMap<>();
-        try {
-            List<Product> productsTypeList = productService.getProductsType();
-            if(productsTypeList.isEmpty()){
-                ResponseMap.put("state",false);
-                ResponseMap.put("message","书籍类型为空");
-                ResponseMap.put("data",productsTypeList);
-            }else{
-                ResponseMap.put("state",true);
-                ResponseMap.put("message","查询成功。");
-                ResponseMap.put("data",productsTypeList);
-            }
-        }catch (Exception e){
-            System.out.println("error");
-            System.out.println(e.getMessage());
-        }
-        return ResponseMap;//返回给前端的数据
-    }
 
 }
