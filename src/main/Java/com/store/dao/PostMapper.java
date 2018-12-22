@@ -22,4 +22,6 @@ public interface PostMapper {
     int updateByPrimaryKey(Post record);
 
     int getUsersPostNum(int userId);
+
+    void deletePostById(int id);
 }

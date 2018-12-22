@@ -36,7 +36,7 @@ public class StoreServiceImplTest {
     @Test
     @Rollback(true)
     public void deleteStoreById() {
-        storeService.deleteStoreById(0);
+        storeService.deleteStoreById(1);
     }
 
     @Test

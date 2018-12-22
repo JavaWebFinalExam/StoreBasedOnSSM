@@ -119,8 +119,12 @@
     where themeId=#{themeId,jdbcType=INTEGER}
   </select>
   <select id="getAllThemePost" resultType="Post">
-      select *
+    select *
     from post
     where theme=true
   </select>
+  <delete id="deletePostById" parameterType="int">
+    delete from post
+    where id = #{id};
+  </delete>
 </mapper>
