@@ -16,6 +16,7 @@
     from productimage
     where id = #{id,jdbcType=INTEGER}
   </select>
+
   <select id="selectImageByProductId" resultType="String" parameterType="java.lang.Integer">
     select path
     from productimage
@@ -88,5 +89,9 @@
   </update>
 
   <!--以下为后续添加内容-->
-
+  <select id="selectImageByProductId" resultType="String" parameterType="java.lang.Integer">
+    select path
+    from productimage
+    where productId= #{productId,jdbcType=INTEGER}
+  </select>
 </mapper>
