@@ -14,4 +14,5 @@ public interface AccountService {
     //注册
     boolean register(String username, String password);
 
+    Account selectByUsername(String username);
 }

@@ -57,6 +57,13 @@
       </if>
     </trim>
   </insert>
+  <insert id="insertByUserId">
+    insert into evaluation (content, productId,
+      userId)
+    values (#{content,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER},
+      #{userid,jdbcType=INTEGER})
+  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.store.entity.Evaluation" >
     update evaluation
     <set >
@@ -79,4 +86,12 @@
       userId = #{userid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--以下为后续添加内容-->
+
+  <select id="getUsersPostNum" parameterType="int" resultType="int">
+    select COUNT(*)
+    from evaluation
+    where userId = #{userId};
+  </select>
 </mapper>

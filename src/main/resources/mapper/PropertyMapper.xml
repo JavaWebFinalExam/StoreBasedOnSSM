@@ -70,5 +70,9 @@
   </update>
 
   <!--以下为后续添加内容-->
-
+  <select id="getPropertyNumByCategoryId" parameterType="int" resultType="int">
+    select COUNT(*)
+    from property
+    where categoryId = #{id};
+  </select>
 </mapper>

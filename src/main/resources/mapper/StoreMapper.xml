@@ -82,4 +82,15 @@
 
   <!--以下为后续添加内容-->
 
+  <select id="getAllStore" resultType="Store">
+    select *
+    from store;
+  </select>
+
+  <delete id="deleteStoreById" parameterType="int">
+    delete
+    from store
+    where id = #{id};
+  </delete>
+
 </mapper>

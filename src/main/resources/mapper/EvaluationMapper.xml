@@ -58,10 +58,9 @@
     </trim>
   </insert>
   <insert id="insertByUserId">
-    insert into evaluation (content, productId,
-      userId)
-    values (#{content,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER},
-      #{userid,jdbcType=INTEGER})
+    insert into evaluation (content, productid,userid)
+    values (#{content,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER},
+      #{userId,jdbcType=INTEGER})
   </insert>
 
   <update id="updateByPrimaryKeySelective" parameterType="com.store.entity.Evaluation" >
