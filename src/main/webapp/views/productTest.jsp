@@ -22,7 +22,7 @@
 
 <br>
 <h1>商品详情</h1>
-${product.name}<br>
+<h1>${product.name}</h1><br>
 ${product.originalprice}<br>
 ${product.promoteprice}<br>
 ${product.stock}<br>

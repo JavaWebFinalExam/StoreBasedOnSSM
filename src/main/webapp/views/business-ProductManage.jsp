@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="<%=basePath%>/views/business/assets/css/admin.css">
     <script src="<%=basePath%>/views/business/assets/js/jquery.min.js"></script>
     <script src="<%=basePath%>/views/business/assets/js/app.js"></script>
+    <script src="<%=basePath%>/views/business/assets/js/clipboard.min.js"></script>
+    <script src="<%=basePath%>/views/business/assets/js/clipboard.js"></script>
+
 </head>
 
 <body>
@@ -38,39 +41,10 @@
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
-
-            <li class="am-dropdown tognzhi" data-am-dropdown>
-                <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o" data-am-dropdown-toggle> 消息管理<span class="am-badge am-badge-danger am-round">6</span></button>
-                <ul class="am-dropdown-content">
-                    <li class="am-dropdown-header">所有消息都在这里</li>
-                    <li><a href="#">未激活会员 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">未激活代理 <span class="am-badge am-badge-danger am-round">69</span></a></a>
-                    </li>
-                    <li><a href="#">未处理汇款</a></li>
-                    <li><a href="#">未发放提现</a></li>
-                    <li><a href="#">未发货订单</a></li>
-                    <li><a href="#">低库存产品</a></li>
-                    <li><a href="#">信息反馈</a></li>
-                </ul>
-            </li>
             <li class="kuanjie">
-                <a href="#">会员管理</a>
-                <a href="#">奖金管理</a>
-                <a href="#">订单管理</a>
-                <a href="#">产品管理</a>
+
                 <a href="#">个人中心</a>
-                <a href="#">系统设置</a>
-            </li>
-            <li class="soso">
-                <p>
-                    <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
-                        <option value="b">全部</option>
-                        <option value="o">产品</option>
-                        <option value="o">会员</option>
-                    </select>
-                </p>
-                <p class="ycfg"><input type="text" class="am-form-field am-input-sm" /></p>
-                <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button></p>
+
             </li>
         </ul>
     </div>
@@ -129,7 +103,8 @@
 
 
         <!--弹窗-->
-        <div class="am-popup am-popup-inner am-scrollable-vertical" id="my-popups">
+        <c:forEach var="product" items="${products}">
+        <div class="am-popup am-popup-inner am-scrollable-vertical" id="my-popups-${product.id}">
             <div class="am-popup-hd">
                 <h4 class="am-popup-title">修改商品</h4>
                 <span data-am-modal-close class="am-close">&times;</span>
@@ -139,7 +114,7 @@
                     <div class="am-form-group">
                         <div class="zuo">商品名称：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请商品名称">
+                            <input type="text" class="am-input-sm" id="name-${product.id}" value="${product.name}">
                         </div>
                     </div>
                     <div class="am-form-group">
@@ -151,29 +126,33 @@
                     <div class="am-form-group">
                         <div class="zuo">商品原价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入商品原价">
+                            <input type="text" class="am-input-sm" id="originalPrice-${product.id}" value="${product.originalprice}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">商品优惠价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入商品优惠价">
+                            <input type="text" class="am-input-sm" id="promoteprice-${product.id}" value="${product.promoteprice}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">商品库存：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入商品库存">
+                            <input type="text" class="am-input-sm" id="stock-${product.id}" value="${product.stock}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
                             <select id="doc-select-1">
-                                <option value="">请选择商品种类</option>
-                                <option value="option1">选项一...</option>
-                                <option value="option2">选项二.....</option>
-                                <option value="option3">选项三........</option>
+                                <c:forEach var="category" items="${categories}">
+                                    <c:if test="${product.categoryid==category.id}">
+                                        <option value="${category.id}">${category.typeName}</option>
+                                    </c:if>
+                                </c:forEach>
+                                <c:forEach var="category" items="${categories}">
+                                    <option value="${category.id}">${category.typeName}</option>
+                                </c:forEach>
                             </select>
                             <span class="am-form-caret"></span>
                         </div>
@@ -181,30 +160,55 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">商品描述：</div>
                         <div class="you">
-                            <textarea class="" rows="2" ></textarea>
+                            <textarea class="" rows="5" id="description-${product.id}">${product.description}</textarea>
                         </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">缩略图：</div>
-                        <div class="you"><input type="file" > </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">商品图片：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file" id="doc-ipt-file-1">
+                            <input type="file">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file">
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="you">
                             <p>
-                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                                <button type="button" class="am-btn am-btn-success am-radius">提交</button>
                             </p>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        </c:forEach>
 
         <!--弹窗结束-->
 
@@ -236,24 +240,24 @@
                     </thead>
                     <tbody>
                     <c:forEach var="product" items="${products}">
-                    <tr>
-                        <td class="am-text-center">${product.id}</td>
-                        <td class="am-hide-sm-only">${product.name}</td>
-                        <td class="am-hide-sm-only">${product.originalprice}</td>
-                        <td class="am-hide-sm-only">${product.promoteprice}</td>
-                        <td class="am-hide-sm-only">${product.stock}</td>
-                        <td class="am-hide-sm-only">${product.description}</td>
+                    <tr id="product-${product.id}">
+                        <td class="am-text-center" id="id-${product.id}">${product.id}</td>
+                        <td class="am-hide-sm-only" id="name-${product.id}">${product.name}</td>
+                        <td class="am-hide-sm-only" id="originalPrice-${product.id}">${product.originalprice}</td>
+                        <td class="am-hide-sm-only" id="promotePrice-${product.id}">${product.promoteprice}</td>
+                        <td class="am-hide-sm-only" id="stock-${product.id}">${product.stock}</td>
+                        <td class="am-hide-sm-only" id="description-${product.id}">${product.description}</td>
                         <c:forEach var="category" items="${categories}">
                             <c:if test="${product.categoryid==category.id}">
-                            <td class="am-hide-sm-only">${category.typeName}</td>
+                            <td class="am-hide-sm-only"><option value="${category.id}" id="category-${product.id}">${category.typeName}</option></td>
                             </c:if>
                         </c:forEach>
                         <td class="am-hide-sm-only">${product.createdate}</td>
                         <td>
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
-                                    <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
-                                    <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round" title="复制" onclick=""><span class="am-icon-copy"></span></button>
+                                    <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups-${product.id}'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round" title="复制" onclick="copyText(this)"><span class="am-icon-copy"></span></button>
                                     <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除"><span class="am-icon-trash-o"></span></button>
                                 </div>
                             </div>
@@ -263,8 +267,18 @@
                     </tbody>
                 </table>
                 <script type="text/javascript">
-                    function copytext(bt) {
-                        
+                    function copyText(bt) {
+                        alert("ssssssss");
+                        let id = bt.id;
+                        let clipboard = new ClipboardJS('#product-' + id);
+                        clipboard.on('success',function(e){
+                            e.clearSelection();
+                            alert('复制成功');
+                        });
+                        clipboard.on('error',function(e){
+                            e.clearSelection();
+                            alert('复制失败');
+                        });
                     }
                 </script>
                 <ul class="am-pagination am-fr">
