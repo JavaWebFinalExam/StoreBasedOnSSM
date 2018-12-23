@@ -1,7 +1,7 @@
 package com.store.dao;
 
 import com.store.entity.Post;
-import javafx.geometry.Pos;
+
 
 import java.util.List;
 

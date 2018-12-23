@@ -1,13 +1,7 @@
 package com.store.controller.PageController;
 
-import com.store.entity.Account;
-import com.store.entity.Order;
-import com.store.entity.Product;
-import com.store.entity.Store;
-import com.store.service.AccountService;
-import com.store.service.OrderService;
-import com.store.service.ProductService;
-import com.store.service.StoreService;
+import com.store.entity.*;
+import com.store.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +32,9 @@ public class BusinessPageController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    CategoryService categoryService;
 
 
     @RequestMapping(value = "/PersonalCenter")
@@ -76,6 +73,24 @@ public class BusinessPageController {
         modelAndView.addObject("username",account.getUsername());
         modelAndView.setViewName("business-OrderManage");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/showProductByStoreId")
+    public ModelAndView showProductByStoreId(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+        int userId = 0;
+        HttpSession session = request.getSession();
+//        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        Account account = accountService.selectById(userId);
+        Store store = storeService.selectByUserId(userId);
+        List<Category> categoryList = categoryService.getAllCategory();
+        List<Product> productList = productService.selectByStoreId(store.getId());
+        modelAndView.addObject("username",account.getUsername());
+        modelAndView.addObject("products",productList);
+        modelAndView.addObject("categories",categoryList);
+        modelAndView.setViewName("business-ProductManage");
+        return modelAndView;
+
     }
 
 
