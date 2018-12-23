@@ -100,5 +100,6 @@
   select *
   from shoppingcart
   where userID=#{userId}
+  order by id asc ;
 </select>
 </mapper>

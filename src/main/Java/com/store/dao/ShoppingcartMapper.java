@@ -3,6 +3,8 @@ package com.store.dao;
 import com.store.entity.Shoppingcart;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface ShoppingcartMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -18,7 +20,9 @@ public interface ShoppingcartMapper {
 
     void addProductToShoppingCart(@Param("id")Integer id, @Param("productId")Integer productId,@Param("userId")Integer userId);
 
-    Shoppingcart selectByUserId(Integer userId);
+    List<Shoppingcart> selectByUserId(Integer userId);
+
+
 
 
 }
