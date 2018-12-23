@@ -4,7 +4,7 @@ import com.store.dao.AccountMapper;
 import com.store.dao.PostMapper;
 import com.store.entity.Post;
 import com.store.service.PostService;
-import javafx.geometry.Pos;
+//import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
