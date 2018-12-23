@@ -10,6 +10,7 @@ public interface OrderService {
 
     int getUsersOrderNum(int userId);
 
+
     List<Order> getAllOrders();
 
     int updateOrder(Order order);
@@ -17,5 +18,7 @@ public interface OrderService {
     int deleteOrderById(int id);
 
     List<Order> selectByProductId(int productId);
+
+    Integer getProductId(Integer order_id);
 
 }

@@ -24,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+
     public List<Order> getAllOrders(){
         return orderMapper.getAllOrders();
     }
@@ -43,4 +44,10 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.selectByProductId(productId);
     }
 
+    @Override
+    public Integer getProductId(Integer order_id){
+        return orderMapper.getProductId(order_id);
+    }
+
 }
+
