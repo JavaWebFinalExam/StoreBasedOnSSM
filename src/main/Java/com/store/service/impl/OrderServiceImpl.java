@@ -21,4 +21,9 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.getUsersOrderNum(userId);
     }
 
+    @Override
+    public Integer getProductId(Integer order_id){
+        return orderMapper.getProductId(order_id);
+    }
 }
+

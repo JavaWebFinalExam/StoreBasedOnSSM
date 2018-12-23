@@ -8,4 +8,5 @@ public interface OrderService {
 
     int getUsersOrderNum(int userId);
 
+    Integer getProductId(Integer order_id);
 }

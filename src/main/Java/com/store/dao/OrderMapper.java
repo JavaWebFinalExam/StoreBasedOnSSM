@@ -9,6 +9,8 @@ public interface OrderMapper {
 
     int insertSelective(Order record);
 
+    Integer getProductId(Integer order_id);
+
     Order selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Order record);
