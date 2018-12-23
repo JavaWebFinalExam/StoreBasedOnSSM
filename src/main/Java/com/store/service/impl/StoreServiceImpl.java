@@ -76,4 +76,9 @@ public class StoreServiceImpl implements StoreService {
         }
         return storeInformations;
     }
+
+    @Override
+    public Store getStoreById(Integer id){
+        return storeMapper.getStoreById(id);
+    }
 }

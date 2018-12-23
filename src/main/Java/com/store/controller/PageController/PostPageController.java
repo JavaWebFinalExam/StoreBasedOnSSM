@@ -38,6 +38,8 @@ ProductimageService productimageService;
     StoreService storeService;
     @Autowired
     PostService postService;
+    @Autowired
+    AccountService accountService;
 
     @RequestMapping(
             value="/evaluationPage",
@@ -55,7 +57,7 @@ ProductimageService productimageService;
         mv.addObject("product",product);
         mv.addObject("productimage",productimage);
 
-        mv.setViewName("test");
+        mv.setViewName("");
         return mv;
 
     }
@@ -70,21 +72,18 @@ ProductimageService productimageService;
         ModelAndView mv = new ModelAndView();
         List<Map<String,Object>> commoditydDtails=new ArrayList<>();
         Integer storeId=Integer.valueOf(""+request.getParameter("storeId"));
-        Store store=storeService.selectByPrimaryKey(storeId);
-        int length=0;
+        Store store=storeService.getStoreById(storeId);
         List<Product> products2=productService.selectByStoreId(storeId);
         for(Product product:products2){
             Map<String,Object> products1 = new HashMap<>();
             products1.put("productName",product.getName());
             products1.put("originalPrice",product.getOriginalprice());
             products1.put("promotePrice",product.getPromoteprice());
-            products1.put("productImage",productimageService.selectImageByProductId(product.getId()));
+            products1.put("productImage",productimageService.getImageIdByProductId(product.getId()));
             commoditydDtails.add(products1);
-            length=length+1;
         }
         mv.addObject("commoditydDtails",commoditydDtails);
         mv.addObject("store",store);
-        mv.addObject("length",length);
         mv.setViewName("user-store");
         return mv;
     }
@@ -98,9 +97,17 @@ ProductimageService productimageService;
     public ModelAndView getPostPage(HttpServletRequest request) {
     ModelAndView mv = new ModelAndView();
     List<Post> themePosts = postService.getAllThemePost();
-    mv.addObject("posts",themePosts);
-
-    mv.setViewName("");
+    List<Map<String,Object>> userPosts=new ArrayList<>();
+        for(Post themePost:themePosts){
+        Map<String,Object> post = new HashMap<>();
+        Account account=accountService.selectById(themePost.getUserid());
+        post.put("userName",account.getUsername());
+        post.put("content",themePost.getContent());
+        post.put("time",themePost.getCreatedate());
+        userPosts.add(post);
+    }
+    mv.addObject("userPosts",userPosts);
+    mv.setViewName("user-themePosts");
     return mv;
 }
 
@@ -116,7 +123,7 @@ ProductimageService productimageService;
         List<Post> posts = postService.selectByThemeId(themeId);
         mv.addObject("posts",posts);
 
-        mv.setViewName("");
+        mv.setViewName("user-replyPost");
         return mv;
     }
 
