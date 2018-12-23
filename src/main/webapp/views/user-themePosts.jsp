@@ -59,22 +59,18 @@
 <c:if test="${userPosts!=null}">
     <c:forEach items="${userPosts}" var="userPost" >
         <article class="am-comment"> <!-- 评论容器 -->
-            <a href="">
-                <img class="am-comment-avatar" alt="404" src=""/> <!-- 评论者头像 -->
-            </a>
-
-            <div class="am-comment-main"> <!-- 评论内容容器 -->
                 <header class="am-comment-hd">
                     <!--<h3 class="am-comment-title">评论标题</h3>-->
                     <div class="am-comment-meta"> <!-- 评论元数据 -->
-                        <a href="#link-to-user" class="am-comment-author">${userPost.userName}</a> <!-- 评论者 -->
+                        <a href="#" class="am-comment-author">${userPost.userName}</a> <!-- 评论者 -->
                         评论于 <time datetime="">${userPost.time}</time>
                     </div>
                 </header>
-
-                <div class="am-comment-bd">${userPost.content}</div> <!-- 评论内容 -->
-            </div>
+                <div class="am-comment-bd"><a href="<%=basePath%>/userPage/postPage/ReplyPostPage?postId=${userPost.postId}">
+                        ${userPost.content}
+                </a></div> <!-- 评论内容 -->
         </article>
+        <hr>
     </c:forEach>
 </c:if>
 

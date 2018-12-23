@@ -33,4 +33,7 @@ public class PostServiceImpl implements PostService {
     public void deletePostById(int id){
         postMapper.deletePostById(id);
     }
+
+
+
 }

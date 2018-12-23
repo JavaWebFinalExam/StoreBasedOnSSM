@@ -10,4 +10,6 @@ public interface PostService {
     List<Post> getAllThemePost();
     List<Post> selectByThemeId(Integer id);
     void deletePostById(int id);
+
+
 }
