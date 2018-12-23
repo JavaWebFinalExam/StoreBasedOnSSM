@@ -63,7 +63,7 @@ public class OrderPageController {
         return mv;
     }
 
-
+        //显示评价
     @RequestMapping(
             value = "/showProductEvaluation",
             method = RequestMethod.GET,
@@ -73,6 +73,7 @@ public class OrderPageController {
     public ModelAndView getEvaluationByProductId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
+
         Evaluation evaluation = EvaluationService.getEvaluationByProductId(product_id);
         mv.addObject("evaluation", evaluation);
 
@@ -84,7 +85,7 @@ public class OrderPageController {
     //将商品加入购物车
     @RequestMapping(
             value = "/addProductToShoppingCart",
-            method = RequestMethod.GET,
+            method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8"
     )
 
@@ -110,6 +111,95 @@ public class OrderPageController {
         }
 
         return ResponseMap;
+    }
+
+    //显示购物车
+    @RequestMapping(
+            value = "/showShoppingCart",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView selectByUserId(HttpServletRequest request){
+        ModelAndView mv = new ModelAndView();
+        HttpSession session = request.getSession();
+
+        int userId = Integer.valueOf("" + session.getAttribute("userId"));
+
+        List<Shoppingcart> shoppingcarts = ShoppingService.selectByUserId(userId);
+        List<Map<String,Object>> products = new ArrayList<>();
+
+        for (Shoppingcart cart:shoppingcarts){
+            Map<String,Object> productPiece = new HashMap<>();
+            Product product=ProductService.selectById(Integer.valueOf("" +cart.getProductid()));
+            //获取单个商品对象
+            productPiece.put("product",product);
+            //获取商品名称
+            productPiece.put("productNum",cart.getProductnum());
+
+            products.add(productPiece);
+            mv.addObject("productPiece",products);
+        }
+
+        //设置返回页面
+        mv.setViewName("shoppingcart");
+        return mv;
+
+    }
+
+
+    //删除购物车
+    @RequestMapping(
+            value = "/deleteShoppingCart",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public Map<String,Object> deleteByPrimaryKey(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String,Object> map, HttpServletRequest request){
+        Map<String, Object> ResponseMap = new HashMap<>();
+
+        Integer shoppingcart_id = Integer.valueOf("" + request.getParameter("shoppingcart_id"));
+        try {
+
+            ShoppingService.deleteByPrimaryKey(shoppingcart_id);
+            ResponseMap.put("state", true);
+            ResponseMap.put("message", "添加成功");
+
+        } catch (Exception e) {
+            System.out.println("error");
+            System.out.println(e.getMessage());
+        }
+
+        return ResponseMap;
+
+    }
+
+    //修改购物车商品数量
+    @RequestMapping(
+            value = "/addProductNumber",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public void  addProductNumber( HttpServletRequest request){
+        Integer shoppingCart_id = Integer.valueOf("" + request.getParameter("shoppingCart_id"));
+        Shoppingcart shoppingcart = ShoppingService.selectByPrimaryKey(shoppingCart_id);
+        shoppingcart.setProductnum(shoppingcart.getProductnum()+1);
+        ShoppingService.updateByPrimaryKeySelective(shoppingcart);
+    }
+
+    //修改购物车商品数量
+    @RequestMapping(
+            value = "/reduceProductNumber",
+            method = RequestMethod.POST,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public void  reduceProductNumber( HttpServletRequest request){
+        Integer shoppingCart_id = Integer.valueOf("" + request.getParameter("shoppingCart_id"));
+        Shoppingcart shoppingcart = ShoppingService.selectByPrimaryKey(shoppingCart_id);
+        shoppingcart.setProductnum(shoppingcart.getProductnum()-1);
+        ShoppingService.updateByPrimaryKeySelective(shoppingcart);
     }
 }
 

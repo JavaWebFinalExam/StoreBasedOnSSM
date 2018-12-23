@@ -87,4 +87,12 @@
     from productimage
     where productId= #{productId,jdbcType=INTEGER}
   </select>
+
+  <select id="getImageIdByProductId" resultType="Integer" parameterType="java.lang.Integer">
+     select id
+    from productimage
+    where productId= #{productId,jdbcType=INTEGER}
+    limit 1
+  </select>
+
 </mapper>

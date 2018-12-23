@@ -40,6 +40,7 @@ public class PostServiceImpl implements PostService {
         postMapper.deletePostById(id);
     }
 
+
     @Override
     public List<Map<String,Object>> getAllPostsInformation(){
         List<Map<String,Object>> posts = new ArrayList<>();
@@ -69,4 +70,5 @@ public class PostServiceImpl implements PostService {
         }
         return posts;
     }
+
 }

@@ -99,4 +99,10 @@
     where userId = #{userId,jdbcType=INTEGER}
   </select>
 
+  <select id="getStoreById" resultType="Store" parameterType="java.lang.Integer">
+    select *
+    from store
+    where id=#{id}
+  </select>
+
 </mapper>

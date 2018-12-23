@@ -16,8 +16,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>${product.name}</h1>
-<h1>${productimage.path}</h1>
+<c:if test="${posts!=null}">
+    <c:forEach items="${posts}" var="post" >
+        <h1>${post.content}</h1>
+    </c:forEach>
+</c:if>
 
 
 </body>

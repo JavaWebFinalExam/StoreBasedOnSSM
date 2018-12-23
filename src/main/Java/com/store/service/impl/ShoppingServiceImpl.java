@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ShoppingServiceImpl implements ShoppingService {
     @Autowired
@@ -16,13 +18,34 @@ public class ShoppingServiceImpl implements ShoppingService {
 @Override
     public void  addProductToShoppingCart(int id,int productId,int userId){
     shoppingcartMapper.addProductToShoppingCart(id,productId,userId);
+    }
 
+@Override
+    public List<Shoppingcart> selectByUserId(Integer userId){
+     return shoppingcartMapper.selectByUserId(userId);
+
+    }
+
+@Override
+    public int  deleteByPrimaryKey(Integer id){
+    if(id!=null) {
+        shoppingcartMapper.deleteByPrimaryKey(id);
+        return 1;
+    }
+    else
+        return 0;
+
+    }
+
+@Override
+    public Shoppingcart selectByPrimaryKey(Integer id){
+    return shoppingcartMapper.selectByPrimaryKey(id);
 }
 
 @Override
-    public Shoppingcart selectByUserId(Integer userId){
-    Shoppingcart shoppingcart=shoppingcartMapper.selectByUserId(userId);
-    return shoppingcart;
-
+    public void updateByPrimaryKeySelective(Shoppingcart record){
+    if(record!=null) {
+        shoppingcartMapper.updateByPrimaryKeySelective(record);
+    }
 }
 }
