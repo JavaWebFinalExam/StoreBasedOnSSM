@@ -21,4 +21,6 @@ public interface StoreMapper {
     List<Store> getAllStore();
 
     void deleteStoreById(int id);
+
+    Store getStoreById(Integer id);
 }

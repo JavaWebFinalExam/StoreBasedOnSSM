@@ -8,4 +8,6 @@ public interface ProductimageService {
     Productimage selectByPrimaryKey(Integer id);
 
     List<String> selectImageByProductId(Integer productId);
+
+    Integer getImageIdByProductId(Integer productId);
 }
