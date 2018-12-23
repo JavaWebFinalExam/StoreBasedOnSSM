@@ -101,7 +101,9 @@ ProductimageService productimageService;
         for(Post themePost:themePosts){
         Map<String,Object> post = new HashMap<>();
         Account account=accountService.selectById(themePost.getUserid());
+        post.put("postId",themePost.getId());
         post.put("userName",account.getUsername());
+        post.put("headPortrait",account.getAvatar());
         post.put("content",themePost.getContent());
         post.put("time",themePost.getCreatedate());
         userPosts.add(post);
@@ -119,10 +121,23 @@ ProductimageService productimageService;
     @ResponseBody
     public ModelAndView getReplyPostPage(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
-        Integer themeId=Integer.valueOf(""+request.getParameter("storeId"));
-        List<Post> posts = postService.selectByThemeId(themeId);
-        mv.addObject("posts",posts);
+        Integer themeId=Integer.valueOf(""+request.getParameter("postId"));
 
+        List<Post> posts = postService.selectByThemeId(themeId);
+
+        List<Map<String,Object>> userPosts=new ArrayList<>();
+        for(Post post:posts ){
+            Map<String,Object> allPost = new HashMap<>();
+            Account account=accountService.selectById(post.getUserid());
+            allPost.put("userName",account.getUsername());
+            allPost.put("headPortrait",account.getAvatar());
+            allPost.put("content",post.getContent());
+            allPost.put("time",post.getCreatedate());
+            userPosts.add(allPost);
+        }
+
+
+        mv.addObject("userPosts",userPosts);
         mv.setViewName("user-replyPost");
         return mv;
     }
