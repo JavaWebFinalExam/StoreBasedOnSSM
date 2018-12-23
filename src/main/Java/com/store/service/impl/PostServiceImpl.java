@@ -4,7 +4,6 @@ import com.store.dao.AccountMapper;
 import com.store.dao.PostMapper;
 import com.store.entity.Post;
 import com.store.service.PostService;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +40,7 @@ public class PostServiceImpl implements PostService {
         postMapper.deletePostById(id);
     }
 
+
     @Override
     public List<Map<String,Object>> getAllPostsInformation(){
         List<Map<String,Object>> posts = new ArrayList<>();
@@ -70,4 +70,5 @@ public class PostServiceImpl implements PostService {
         }
         return posts;
     }
+
 }

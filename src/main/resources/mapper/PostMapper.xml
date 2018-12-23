@@ -129,9 +129,11 @@
     where id = #{id};
   </delete>
 
+
   <select id="selectUnthemeByThemeId" resultType="Post" parameterType="java.lang.Integer">
     select *
     from post
     where themeId=#{themeId,jdbcType=INTEGER} and theme = false;
   </select>
+
 </mapper>

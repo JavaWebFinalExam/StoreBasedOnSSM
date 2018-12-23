@@ -71,7 +71,8 @@
                          alt="404"/>
                 </a>
                 <div class="am_listimg_info" style="text-align: center;color: blue">${commoditydDtail.productName}</div>
-                <div class="am_listimg_info" style="text-align: center;color: red"><small>单价：￥<s>${commoditydDtail.originalPrice}</s></small>${commoditydDtail.promotePrice}</div>
+                <div class="am_listimg_info" style="text-align: center;color: red"><small>原价：￥<s>${commoditydDtail.originalPrice}</s></small></div>
+                <div class="am_listimg_info" style="text-align: center;color: red">优惠价：￥${commoditydDtail.promotePrice}</div>
             </div>
 
         </li>

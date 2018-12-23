@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: xsx10
-  Date: 2018/12/22
-  Time: 15:55
+  Date: 2018/12/23
+  Time: 20:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,7 +16,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>订单管理</title>
+    <title>商品管理</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -39,8 +39,27 @@
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
 
+            <li class="am-dropdown tognzhi" data-am-dropdown>
+                <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o" data-am-dropdown-toggle> 消息管理<span class="am-badge am-badge-danger am-round">6</span></button>
+                <ul class="am-dropdown-content">
+                    <li class="am-dropdown-header">所有消息都在这里</li>
+                    <li><a href="#">未激活会员 <span class="am-badge am-badge-danger am-round">556</span></a></li>
+                    <li><a href="#">未激活代理 <span class="am-badge am-badge-danger am-round">69</span></a></a>
+                    </li>
+                    <li><a href="#">未处理汇款</a></li>
+                    <li><a href="#">未发放提现</a></li>
+                    <li><a href="#">未发货订单</a></li>
+                    <li><a href="#">低库存产品</a></li>
+                    <li><a href="#">信息反馈</a></li>
+                </ul>
+            </li>
             <li class="kuanjie">
+                <a href="#">会员管理</a>
+                <a href="#">奖金管理</a>
+                <a href="#">订单管理</a>
+                <a href="#">产品管理</a>
                 <a href="#">个人中心</a>
+                <a href="#">系统设置</a>
             </li>
             <li class="soso">
                 <p>
@@ -64,20 +83,22 @@
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
                 <li>商品列表</li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">添加新商品</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='<%=basePath%>/views/business/images/msn.gif'><a href="">添加新商品</a></li>
                 <li>商品分类</li>
                 <li>用户评论</li>
+                <li>商品回收站</li>
+                <li>库存管理 </li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
                 <li>订单列表</li>
                 <li>已完成订单</li>
                 <li>未完成订单</li>
+
             </ul>
             <h3 class="am-icon-users"><em></em> <a href="#">会员管理</a></h3>
             <ul>
                 <li>会员列表 </li>
-
             </ul>
         </div>
         <!-- sideMenu End -->
@@ -107,131 +128,94 @@
 
 
 
-        <!--淡出框-->
-        <c:forEach items="${orders}" var="order" >
-        <div class="am-popup am-popup-inner am-scrollable-vertical" id="my-popups-${order.id}">
+        <!--弹窗-->
+        <div class="am-popup am-popup-inner am-scrollable-vertical" id="my-popups">
             <div class="am-popup-hd">
-                <h4 class="am-popup-title">修改订单</h4>
+                <h4 class="am-popup-title">修改商品</h4>
                 <span data-am-modal-close class="am-close">&times;</span>
             </div>
             <div class="am-popup-bd am-scrollable-vertical " style="height: 450px;">
                 <form class="am-form tjlanmu">
                     <div class="am-form-group">
-                        <div class="zuo">商品数量：</div>
+                        <div class="zuo">商品名称：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="productNum_${order.id}" value="${order.productnum}" >
+                            <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请商品名称">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo"> </div>
                         <div class="you">
-                            <%--<input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入标题">--%>
+                            <!-- <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入标题"> -->
                         </div>
                     </div>
                     <div class="am-form-group">
-                        <div class="zuo">收货地址：</div>
+                        <div class="zuo">商品原价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  id="address_${order.id}" value="${order.address}">
+                            <input type="text" class="am-input-sm"  placeholder="请输入商品原价">
                         </div>
                     </div>
                     <div class="am-form-group">
-                        <div class="zuo">收货人：</div>
+                        <div class="zuo">商品优惠价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  id="receiver_${order.id}" value="${order.receiver}">
+                            <input type="text" class="am-input-sm"  placeholder="请输入商品优惠价">
                         </div>
                     </div>
                     <div class="am-form-group">
-                        <div class="zuo">手机号码：</div>
+                        <div class="zuo">商品库存：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="mobile_${order.id}" value="${order.mobile}">
-                        </div>
-                    </div>
-                    <div class="am-form-group">
-                        <div class="zuo">备注信息：</div>
-                        <div class="you">
-                            <input type="text" class="am-input-sm"  id="userMessage_${order.id}" value="${order.userMessage}">
+                            <input type="text" class="am-input-sm"  placeholder="请输入商品库存">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
-                            <select id="status_${order.id}">
-                                <option value="0">请选择订单状态</option>
-                                <option value="0">未完成</option>
-                                <option value="1">已经完成</option>
+                            <select id="doc-select-1">
+                                <option value="">请选择商品种类</option>
+                                <option value="option1">选项一...</option>
+                                <option value="option2">选项二.....</option>
+                                <option value="option3">选项三........</option>
                             </select>
                             <span class="am-form-caret"></span>
                         </div>
                     </div>
-
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品描述：</div>
+                        <div class="you">
+                            <textarea class="" rows="2" ></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">缩略图：</div>
+                        <div class="you"><input type="file" > </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" id="doc-ipt-file-1">
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
                     <div class="am-form-group am-cf">
                         <div class="you">
                             <p>
-                                <button type="button" class="am-btn am-btn-success am-radius" id="${order.id}" onclick="updateOrder(this)">提交</button>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
                             </p>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        </c:forEach>
 
-        <!--修改订单-->
-        <script type="text/javascript">
-            function updateOrder(bt) {
-                let id = bt.id;
-                let productNum = document.getElementById("productNum_" + id).value;
-                let address = document.getElementById("address_" + id).value;
-                let receiver = document.getElementById("receiver_" + id).value;
-                let mobile = document.getElementById("mobile_" + id).value;
-                let userMessage = document.getElementById("userMessage_" + id).value;
-                let status = document.getElementById("status_" + id).value;
-                let order_json = {
-                "id" : id,
-                "productNum" : productNum,
-                "address" : address,
-                "receiver" : receiver,
-                "mobile" : mobile,
-                "userMessage":userMessage,
-                "status" : status
-                }
-
-                let order = JSON.stringify(order_json);
-
-                $.ajax({
-                    url: "<%=basePath%>Order/updateOrder",
-                    cache: true,
-                    type: "post",
-                    datatype: "json",
-                    contentType: "application/json; charset=utf-8",
-                    data: order,
-
-                    success: function (data) {
-                        if (data.status == true) {
-                            window.location.href="<%=basePath%>BusinessPage/showOrdersByStoreId";
-                        } else {
-                            alert(data.message);
-                        }
-                    },
-                    error: function (data) {
-                        console.log(data);
-                        alert("请求出错，请检查网络或服务器是否开启");
-                    }
-                });
-            }
-        </script>
-
-
-        <!--淡出框结束-->
+        <!--弹窗结束-->
 
 
         <div class="admin-biaogelist">
             <div class="listbiaoti am-cf">
                 <ul class="am-icon-flag on">
-                    订单栏目管理
+                    商品栏目管理
                 </ul>
                 <dl class="am-icon-home" style="float: right;">
-                    当前位置： 首页 > <a href="#">订单列表</a>
+                    当前位置： 首页 > <a href="#">商品列表</a>
                 </dl>
 
             </div>
@@ -240,49 +224,37 @@
                     <thead>
                     <tr class="am-success">
                         <th class="table-id am-text-center">ID</th>
-                        <th class="table-author am-hide-sm-only">订单号</th>
-                        <th class="table-author am-hide-sm-only">商品数量</th>
-                        <th class="table-author am-hide-sm-only">收货地址</th>
-                        <th class="table-author am-hide-sm-only">收货人</th>
-                        <th class="table-author am-hide-sm-only">手机号码</th>
-                        <th class="table-author am-hide-sm-only">备注信息</th>
-                        <th class="table-author am-hide-sm-only">创建时间</th>
-                        <th class="table-author am-hide-sm-only">支付时间</th>
-                        <th class="table-author am-hide-sm-only">发货日期</th>
-                        <th class="table-author am-hide-sm-only">确认收货日期</th>
-                        <th class="table-author am-hide-sm-only">订单状态</th>
-                        <th class="table-author am-hide-sm-only">用户id</th>
-                        <th class="table-author am-hide-sm-only">商品id</th>
+                        <th class="table-author am-hide-sm-only">商品</th>
+                        <th class="table-author am-hide-sm-only">原价</th>
+                        <th class="table-author am-hide-sm-only">优惠价</th>
+                        <th class="table-author am-hide-sm-only">库存</th>
+                        <th class="table-title">商品描述</th>
+                        <th class="table-type">种类</th>
+                        <th class="table-date am-hide-sm-only">添加时间</th>
                         <th width="163px" class="table-set">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${orders}" var="order" >
+                    <c:forEach var="product" items="${products}">
                     <tr>
-                        <td class="am-text-center">${order.id}</td>
-                        <td class="am-hide-sm-only">${order.ordercode}</td>
-                        <td class="am-hide-sm-only">${order.productnum}</td>
-                        <td class="am-hide-sm-only">${order.address}</td>
-                        <td class="am-hide-sm-only">${order.receiver}</td>
-                        <td class="am-hide-sm-only">${order.mobile}</td>
-                        <td class="am-hide-sm-only">${order.userMessage}</td>
-                        <td class="am-hide-sm-only">${order.createdate}</td>
-                        <td class="am-hide-sm-only">${order.paydate}</td>
-                        <td class="am-hide-sm-only">${order.deliverydate}</td>
-                        <td class="am-hide-sm-only">${order.confirmdate}</td>
-                        <c:if test="${order.status==0}">
-                            <td class="am-hide-sm-only">未完成</td>
-                        </c:if>
-                        <c:if test="${order.status==1}">
-                            <td class="am-hide-sm-only">已完成</td>
-                        </c:if>
-                        <td class="am-hide-sm-only">${order.userid}</td>
-                        <td class="am-hide-sm-only">${order.productid}</td>
+                        <td class="am-text-center">${product.id}</td>
+                        <td class="am-hide-sm-only">${product.name}</td>
+                        <td class="am-hide-sm-only">${product.originalprice}</td>
+                        <td class="am-hide-sm-only">${product.promoteprice}</td>
+                        <td class="am-hide-sm-only">${product.stock}</td>
+                        <td class="am-hide-sm-only">${product.description}</td>
+                        <c:forEach var="category" items="${categories}">
+                            <c:if test="${product.categoryid==category.id}">
+                            <td class="am-hide-sm-only">${category.typeName}</td>
+                            </c:if>
+                        </c:forEach>
+                        <td class="am-hide-sm-only">${product.createdate}</td>
                         <td>
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
-                                    <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups-${order.id}'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
-                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除" id="${order.id}" onclick="deleteOrder(this)"><span class="am-icon-trash-o"></span></button>
+                                    <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round" title="复制" onclick=""><span class="am-icon-copy"></span></button>
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除"><span class="am-icon-trash-o"></span></button>
                                 </div>
                             </div>
                         </td>
@@ -290,42 +262,11 @@
                     </c:forEach>
                     </tbody>
                 </table>
-
-
                 <script type="text/javascript">
-                    function deleteOrder(bt) {
-                        let id = bt.id;
-                        let order_json = {
-                            "id" : id,
-                        }
-
-                        let order = JSON.stringify(order_json);
-                        alert("确认删除")
-
-                        $.ajax({
-                            url: "<%=basePath%>Order/deleteOrder",
-                            cache: true,
-                            type: "post",
-                            datatype: "json",
-                            contentType: "application/json; charset=utf-8",
-                            data: order,
-
-                            success: function (data) {
-                                if (data.status == true) {
-                                    window.location.href="<%=basePath%>BusinessPage/showOrdersByStoreId";
-                                } else {
-                                    alert(data.message);
-                                }
-                            },
-                            error: function (data) {
-                                console.log(data);
-                                alert("请求出错，请检查网络或服务器是否开启");
-                            }
-                        });
+                    function copytext(bt) {
+                        
                     }
                 </script>
-
-
                 <ul class="am-pagination am-fr">
                     <li class="am-disabled"><a href="#">«</a></li>
                     <li class="am-active"><a href="#">1</a></li>
@@ -349,9 +290,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>

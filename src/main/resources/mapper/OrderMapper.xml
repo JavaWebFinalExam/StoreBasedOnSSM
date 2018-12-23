@@ -21,9 +21,8 @@
     id, orderCode, productNum, address, receiver, mobile, varchar, createDate, payDate, 
     deliveryDate, confirmDate, status, userId, productId
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
+  <select id="selectByPrimaryKey" resultType="com.store.entity.Order"  parameterType="java.lang.Integer" >
+    select *
     from order_
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -34,12 +33,12 @@
   <insert id="insert" parameterType="com.store.entity.Order" >
     insert into order_ (id, orderCode, productNum, 
       address, receiver, mobile, 
-      varchar, createDate, payDate, 
+      userMessage, createDate, payDate,
       deliveryDate, confirmDate, status, 
       userId, productId)
     values (#{id,jdbcType=INTEGER}, #{ordercode,jdbcType=VARCHAR}, #{productnum,jdbcType=INTEGER}, 
       #{address,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{varchar,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, #{paydate,jdbcType=VARCHAR}, 
+      #{userMessage,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, #{paydate,jdbcType=VARCHAR},
       #{deliverydate,jdbcType=VARCHAR}, #{confirmdate,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{userid,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER})
   </insert>
@@ -64,8 +63,8 @@
       <if test="mobile != null" >
         mobile,
       </if>
-      <if test="varchar != null" >
-        varchar,
+      <if test="userMessage != null" >
+        userMessage,
       </if>
       <if test="createdate != null" >
         createDate,
@@ -108,8 +107,8 @@
       <if test="mobile != null" >
         #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="varchar != null" >
-        #{varchar,jdbcType=VARCHAR},
+      <if test="userMessage != null" >
+        #{userMessage,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null" >
         #{createdate,jdbcType=VARCHAR},
@@ -152,8 +151,8 @@
       <if test="mobile != null" >
         mobile = #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="varchar != null" >
-        varchar = #{varchar,jdbcType=VARCHAR},
+      <if test="userMessage != null" >
+        userMessage = #{userMessage,jdbcType=VARCHAR},
       </if>
       <if test="createdate != null" >
         createDate = #{createdate,jdbcType=VARCHAR},
@@ -186,7 +185,7 @@
       address = #{address,jdbcType=VARCHAR},
       receiver = #{receiver,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
-      varchar = #{varchar,jdbcType=VARCHAR},
+      userMessage = #{userMessage,jdbcType=VARCHAR},
       createDate = #{createdate,jdbcType=VARCHAR},
       payDate = #{paydate,jdbcType=VARCHAR},
       deliveryDate = #{deliverydate,jdbcType=VARCHAR},
@@ -206,13 +205,13 @@
   </select>
 
   <!--通过某个商品的所有订单-->
-  <select id="selectByProductId" parameterType="Integer" resultType="com.store.entity.Order">
+  <select id="selectByProductId" parameterType="int" resultType="com.store.entity.Order">
     select *
     from order_
-    where productId = #{productId,jdbcType=Integer}
+    where productId = #{productId}
   </select>
 
-  <select id="getProductId" parameterType="Integer" resultType="java.lang.Integer">
+  <select id="getProductId" parameterType="int" resultType="int">
     select productId
     from order_
     where id = #{order_id};
