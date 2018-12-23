@@ -25,4 +25,6 @@ public interface AccountMapper {
     Account selectByUsername(String username);
 
     void insertAdmin(@Param("username") String username, @Param("password") String password);
+
+
 }

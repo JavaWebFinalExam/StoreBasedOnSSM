@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -46,5 +47,16 @@ public class PostServiceImplTest {
     @Test
     public void deletePostById() {
         postService.deletePostById(1);
+    }
+
+    @Test
+    public void getAllPostsInformation(){
+        List<Map<String,Object>> messages = postService.getAllPostsInformation();
+
+        for (Map<String,Object> message:messages) {
+            for (Object obj : message.values())
+                System.out.print("" + obj + " - ");
+            System.out.println();
+        }
     }
 }

@@ -92,5 +92,17 @@
     from store
     where id = #{id};
   </delete>
+<!--通过userId获取商店对象-->
+  <select id="selectByUserId" parameterType="Integer" resultType="com.store.entity.Store">
+    select *
+    from store
+    where userId = #{userId,jdbcType=INTEGER}
+  </select>
+
+  <select id="getStoreById" resultType="Store" parameterType="java.lang.Integer">
+    select *
+    from store
+    where id=#{id}
+  </select>
 
 </mapper>

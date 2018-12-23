@@ -113,7 +113,7 @@ public class AdminPageController {
     public ModelAndView postCharge(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
 
-
+        mv.addObject("posts",postService.getAllPostsInformation());
 
         //设置返回页面
         mv.setViewName("admin-chargePost");
