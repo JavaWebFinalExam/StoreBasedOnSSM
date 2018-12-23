@@ -1,6 +1,7 @@
 package com.store.service;
 
 
+import com.store.entity.Evaluation;
 
 public interface EvaluationService {
 
@@ -9,4 +10,6 @@ public interface EvaluationService {
 
     //获取用户帖子数量
     int getUsersPostNum(int userId);
+
+    Evaluation getEvaluationByProductId(int productId);
 }

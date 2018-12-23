@@ -92,5 +92,13 @@
   </update>
 
   <!--以下为后续添加内容-->
-
+  <insert id="addProductToShoppingCart" parameterType="int">
+    insert into shoppingcart(id,productId,userID)
+    value (#{id},#{productId},#{userId});
+  </insert>
+<select id="selectByUserId" parameterType="int" resultType="com.store.entity.Shoppingcart">
+  select *
+  from shoppingcart
+  where userID=#{userId}
+</select>
 </mapper>
