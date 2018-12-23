@@ -71,6 +71,7 @@ ProductimageService productimageService;
         List<Map<String,Object>> commoditydDtails=new ArrayList<>();
         Integer storeId=Integer.valueOf(""+request.getParameter("storeId"));
         Store store=storeService.selectByPrimaryKey(storeId);
+        int length=0;
         List<Product> products2=productService.selectByStoreId(storeId);
         for(Product product:products2){
             Map<String,Object> products1 = new HashMap<>();
@@ -79,10 +80,12 @@ ProductimageService productimageService;
             products1.put("promotePrice",product.getPromoteprice());
             products1.put("productImage",productimageService.selectImageByProductId(product.getId()));
             commoditydDtails.add(products1);
+            length=length+1;
         }
         mv.addObject("commoditydDtails",commoditydDtails);
         mv.addObject("store",store);
-        mv.setViewName("test");
+        mv.addObject("length",length);
+        mv.setViewName("user-store");
         return mv;
     }
 
