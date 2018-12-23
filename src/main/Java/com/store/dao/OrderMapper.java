@@ -24,4 +24,6 @@ public interface OrderMapper {
     List<Order> getAllOrders();
 
     List<Order> selectByProductId(int productId);
+
+
 }

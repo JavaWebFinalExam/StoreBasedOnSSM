@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/views/";
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html class="no-js">
@@ -22,19 +22,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="<%=basePath%>/business/assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="<%=basePath%>/business/assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="<%=basePath%>/views/business/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="<%=basePath%>/views/business/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="<%=basePath%>/business/assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="<%=basePath%>/business/assets/css/admin.css">
-    <script src="<%=basePath%>/business/assets/js/jquery.min.js"></script>
-    <script src="<%=basePath%>/business/assets/js/app.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>/views/business/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>/views/business/assets/css/admin.css">
+    <script src="<%=basePath%>/views/business/assets/js/jquery.min.js"></script>
+    <script src="<%=basePath%>/views/business/assets/js/app.js"></script>
 </head>
 
 <body>
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
 <header class="am-topbar admin-header">
-    <div class="am-topbar-brand"><img src="<%=basePath%>/business/assets/i/logo.png"></div>
+    <div class="am-topbar-brand"><img src="<%=basePath%>/views/business/assets/i/logo.png"></div>
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
@@ -119,7 +119,7 @@
                     <div class="am-form-group">
                         <div class="zuo">商品数量：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" name="productNum" value="${order.productnum}" >
+                            <input type="text" class="am-input-sm" id="productNum_${order.id}" value="${order.productnum}" >
                         </div>
                     </div>
                     <div class="am-form-group">
@@ -131,31 +131,31 @@
                     <div class="am-form-group">
                         <div class="zuo">收货地址：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  name="address" value="${order.address}">
+                            <input type="text" class="am-input-sm"  id="address_${order.id}" value="${order.address}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">收货人：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  name="receiver" value="${order.receiver}">
+                            <input type="text" class="am-input-sm"  id="receiver_${order.id}" value="${order.receiver}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">手机号码：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" name="mobile" value="${order.mobile}">
+                            <input type="text" class="am-input-sm" id="mobile_${order.id}" value="${order.mobile}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">备注信息：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  name="userMessage" value="${order.userMessage}">
+                            <input type="text" class="am-input-sm"  id="userMessage_${order.id}" value="${order.userMessage}">
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
-                            <select id="doc-select-1" name="status">
+                            <select id="status_${order.id}">
                                 <option value="0">请选择订单状态</option>
                                 <option value="0">未完成</option>
                                 <option value="1">已经完成</option>
@@ -167,7 +167,7 @@
                     <div class="am-form-group am-cf">
                         <div class="you">
                             <p>
-                                <button type="button" class="am-btn am-btn-success am-radius" id="${order.id}">提交</button>
+                                <button type="button" class="am-btn am-btn-success am-radius" id="${order.id}" onclick="updateOrder(this)">提交</button>
                             </p>
                         </div>
                     </div>
@@ -175,6 +175,51 @@
             </div>
         </div>
         </c:forEach>
+
+        <!--修改订单-->
+        <script type="text/javascript">
+            function updateOrder(bt) {
+                let id = bt.id;
+                let productNum = document.getElementById("productNum_" + id).value;
+                let address = document.getElementById("address_" + id).value;
+                let receiver = document.getElementById("receiver_" + id).value;
+                let mobile = document.getElementById("mobile_" + id).value;
+                let userMessage = document.getElementById("userMessage_" + id).value;
+                let status = document.getElementById("status_" + id).value;
+                let order_json = {
+                "id" : id,
+                "productNum" : productNum,
+                "address" : address,
+                "receiver" : receiver,
+                "mobile" : mobile,
+                "userMessage":userMessage,
+                "status" : status
+                }
+
+                let order = JSON.stringify(order_json);
+
+                $.ajax({
+                    url: "<%=basePath%>Order/updateOrder",
+                    cache: true,
+                    type: "post",
+                    datatype: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: order,
+
+                    success: function (data) {
+                        if (data.status == true) {
+                            window.location.href="<%=basePath%>BusinessPage/showOrdersByStoreId";
+                        } else {
+                            alert(data.message);
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        alert("请求出错，请检查网络或服务器是否开启");
+                    }
+                });
+            }
+        </script>
 
 
         <!--淡出框结束-->
@@ -225,14 +270,19 @@
                         <td class="am-hide-sm-only">${order.paydate}</td>
                         <td class="am-hide-sm-only">${order.deliverydate}</td>
                         <td class="am-hide-sm-only">${order.confirmdate}</td>
-                        <td class="am-hide-sm-only">${order.status}</td>
+                        <c:if test="${order.status==0}">
+                            <td class="am-hide-sm-only">未完成</td>
+                        </c:if>
+                        <c:if test="${order.status==1}">
+                            <td class="am-hide-sm-only">已完成</td>
+                        </c:if>
                         <td class="am-hide-sm-only">${order.userid}</td>
                         <td class="am-hide-sm-only">${order.productid}</td>
                         <td>
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
                                     <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups-${order.id}'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
-                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除"><span class="am-icon-trash-o"></span></button>
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除" id="${order.id}" onclick="deleteOrder(this)"><span class="am-icon-trash-o"></span></button>
                                 </div>
                             </div>
                         </td>
@@ -240,6 +290,42 @@
                     </c:forEach>
                     </tbody>
                 </table>
+
+
+                <script type="text/javascript">
+                    function deleteOrder(bt) {
+                        let id = bt.id;
+                        let order_json = {
+                            "id" : id,
+                        }
+
+                        let order = JSON.stringify(order_json);
+                        alert("确认删除")
+
+                        $.ajax({
+                            url: "<%=basePath%>Order/deleteOrder",
+                            cache: true,
+                            type: "post",
+                            datatype: "json",
+                            contentType: "application/json; charset=utf-8",
+                            data: order,
+
+                            success: function (data) {
+                                if (data.status == true) {
+                                    window.location.href="<%=basePath%>BusinessPage/showOrdersByStoreId";
+                                } else {
+                                    alert(data.message);
+                                }
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                alert("请求出错，请检查网络或服务器是否开启");
+                            }
+                        });
+                    }
+                </script>
+
+
                 <ul class="am-pagination am-fr">
                     <li class="am-disabled"><a href="#">«</a></li>
                     <li class="am-active"><a href="#">1</a></li>
@@ -264,16 +350,19 @@
     </div>
 </div>
 
+
+
+
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="<%=basePath%>/business/assets/js/polyfill/rem.min.js"></script>
-<script src="<%=basePath%>/business/assets/js/polyfill/respond.min.js"></script>
-<script src="<%=basePath%>/business/assets/js/amazeui.legacy.js"></script>
+<script src="<%=basePath%>/views/business/assets/js/polyfill/rem.min.js"></script>
+<script src="<%=basePath%>/views/business/assets/js/polyfill/respond.min.js"></script>
+<script src="<%=basePath%>/views/business/assets/js/amazeui.legacy.js"></script>
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="<%=basePath%>/business/assets/js/amazeui.min.js"></script>
+<script src="<%=basePath%>/views/business/assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
 
 </body>
