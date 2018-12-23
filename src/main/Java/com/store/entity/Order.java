@@ -140,4 +140,24 @@ public class Order {
     public void setProductid(Integer productid) {
         this.productid = productid;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", ordercode='" + ordercode + '\'' +
+                ", productnum=" + productnum +
+                ", address='" + address + '\'' +
+                ", receiver='" + receiver + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", userMessage='" + userMessage + '\'' +
+                ", createdate='" + createdate + '\'' +
+                ", paydate='" + paydate + '\'' +
+                ", deliverydate='" + deliverydate + '\'' +
+                ", confirmdate='" + confirmdate + '\'' +
+                ", status=" + status +
+                ", userid=" + userid +
+                ", productid=" + productid +
+                '}';
+    }
 }

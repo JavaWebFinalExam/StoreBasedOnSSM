@@ -12,4 +12,5 @@ public interface PostService {
     List<Post> selectByThemeId(Integer id);
     void deletePostById(int id);
     List<Map<String,Object>> getAllPostsInformation();
+
 }

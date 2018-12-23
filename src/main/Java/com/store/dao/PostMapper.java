@@ -2,6 +2,7 @@ package com.store.dao;
 
 import com.store.entity.Post;
 
+
 import java.util.List;
 
 public interface PostMapper {

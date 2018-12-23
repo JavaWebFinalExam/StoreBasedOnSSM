@@ -67,15 +67,33 @@ public class AccountController {
     }
 
     //删除用户
-    @RequestMapping(value = "/deleteUserById", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/Admin/deleteUserById", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody//响应体  用于向前端返回数据
     public Map<String,Object> deleteUserById(@RequestBody Map<String,Object> map, HttpServletRequest request){
+        Map<String, Object> ResponseMap = new HashMap<>();
 
-        Map<String,Object> ResponseMap = new HashMap<>();
+        int userId = Integer.parseInt("" + map.get("userId"));
+        String message = "";
 
-        request.getParameter("a");
-
-        return ResponseMap;//返回给前端的数据
+        Account user = accountService.selectById(userId);
+        if (user == null) {
+            ResponseMap.put("state", false);
+            ResponseMap.put("message", "删除失败，用户不存在");
+        } else if (user.getIdentity() != 3){
+            try {
+                accountService.deleteUserById(userId);
+                ResponseMap.put("state", true);
+                ResponseMap.put("message", "删除成功");
+            } catch (Exception e) {
+                e.printStackTrace();
+                ResponseMap.put("state", false);
+                ResponseMap.put("message", "删除失败");
+            }
+        }else {
+            ResponseMap.put("state", false);
+            ResponseMap.put("message", "你没有权限删除一名管理员");
+        }
+        return ResponseMap;
     }
 
     //注销功能
