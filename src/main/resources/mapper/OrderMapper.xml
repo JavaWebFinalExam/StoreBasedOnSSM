@@ -204,4 +204,11 @@
     from order_
     where userId = #{userId};
   </select>
+
+  <!--通过某个商品的所有订单-->
+  <select id="selectByProductId" parameterType="Integer" resultType="com.store.entity.Order">
+    select *
+    from order_
+    where productId = #{productId,jdbcType=Integer}
+  </select>
 </mapper>
