@@ -10,9 +10,11 @@ public interface AccountService {
     //根据id删除用户
     boolean deleteUserById(int id);
     //验证登录
-    boolean checkLogin(String username,String password);
+    boolean checkLogin(String username, String password);
     //注册
     boolean register(String username, String password);
 
     Account selectByUsername(String username);
+
+    Account selectById(int id);
 }

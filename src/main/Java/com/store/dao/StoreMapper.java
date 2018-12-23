@@ -17,6 +17,7 @@ public interface StoreMapper {
 
     int updateByPrimaryKey(Store record);
 
+    Store selectByUserId(int userId);
     List<Store> getAllStore();
 
     void deleteStoreById(int id);

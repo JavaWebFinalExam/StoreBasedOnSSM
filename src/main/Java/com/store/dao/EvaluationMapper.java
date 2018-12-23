@@ -19,4 +19,8 @@ public interface EvaluationMapper {
     int updateByPrimaryKey(Evaluation record);
 
     int getUsersPostNum(int userId);
+
+    Evaluation getEvaluationByProductId(int productId);
+
+
 }

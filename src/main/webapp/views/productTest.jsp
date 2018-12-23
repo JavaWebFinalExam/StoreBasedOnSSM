@@ -13,7 +13,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<h1>商品图片部分</h1>
 <c:if test="${productimage!=null}">
     <c:forEach items="${productimage}" var="oneProductimage" >
         <h1>${oneProductimage}</h1>
@@ -21,12 +21,15 @@
 </c:if>
 
 <br>
+<h1>商品详情</h1>
 ${product.name}<br>
 ${product.originalprice}<br>
 ${product.promoteprice}<br>
 ${product.stock}<br>
 ${product.description}<br>
 ${product.createdate}<br>
+<h1>商品评价</h1>
+${evaluation.content}<br>
 
 
 

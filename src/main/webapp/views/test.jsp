@@ -16,13 +16,8 @@
     <title>Title</title>
 </head>
 <body>
-<c:if test="${commoditydDtails!=null}">
-    <c:forEach items="${commoditydDtails}" var="commoditydDtail" >
-        <h1>${commoditydDtail.productName}</h1>
-        <h1>${commoditydDtail.originalPrice}</h1>
-        <h1>${commoditydDtail.productImage}</h1>
-    </c:forEach>
-</c:if>
+<h1>${product.name}</h1>
+<h1>${productimage.path}</h1>
 
 
 </body>

@@ -21,4 +21,9 @@ public class EvaluationServiceImpl implements EvaluationService {
     public int getUsersPostNum(int userId){
         return evaluationMapper.getUsersPostNum(userId);
     }
+
+    @Override
+    public Evaluation getEvaluationByProductId(int productId){
+        return evaluationMapper.getEvaluationByProductId(productId);
+    }
 }

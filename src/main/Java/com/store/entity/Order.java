@@ -13,7 +13,7 @@ public class Order {
 
     private String mobile;
 
-    private String varchar;
+    private String userMessage;
 
     private String createdate;
 
@@ -77,12 +77,12 @@ public class Order {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getVarchar() {
-        return varchar;
+    public String getUserMessage() {
+        return userMessage;
     }
 
-    public void setVarchar(String varchar) {
-        this.varchar = varchar == null ? null : varchar.trim();
+    public void setUserMessage(String userMessage) {
+        this.userMessage = userMessage == null ? null : userMessage.trim();
     }
 
     public String getCreatedate() {
