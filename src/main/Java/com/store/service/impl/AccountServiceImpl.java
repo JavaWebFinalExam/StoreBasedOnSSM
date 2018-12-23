@@ -60,4 +60,9 @@ public class AccountServiceImpl implements AccountService {
     public Account selectByUsername(String username){
         return accountMapper.selectByUsername(username);
     }
+
+    @Override
+    public Account selectById(int id){
+        return accountMapper.selectByPrimaryKey(id);
+    }
 }

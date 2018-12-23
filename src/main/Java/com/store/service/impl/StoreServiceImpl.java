@@ -4,7 +4,6 @@ import com.store.dao.AccountMapper;
 import com.store.dao.ProductMapper;
 import com.store.dao.StoreMapper;
 import com.store.entity.Store;
-import com.store.service.AccountService;
 import com.store.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +28,11 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
+    public Store selectByUserId(int userId) {
+        return storeMapper.selectByUserId(userId);
+    }
+
+    @Override
     public List<Store> getAllStore(){
         return storeMapper.getAllStore();
     }
@@ -44,6 +48,11 @@ public class StoreServiceImpl implements StoreService {
         store.setStatus(status);
 
         storeMapper.updateByPrimaryKeySelective(store);
+    }
+
+    @Override
+    public int updateStore(Store store){
+        return storeMapper.updateByPrimaryKey(store);
     }
 
     @Override

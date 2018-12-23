@@ -2,6 +2,8 @@ package com.store.dao;
 
 import com.store.entity.Order;
 
+import java.util.List;
+
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,8 @@ public interface OrderMapper {
     int updateByPrimaryKey(Order record);
 
     int getUsersOrderNum(int userId);
+
+    List<Order> getAllOrders();
+
+    List<Order> selectByProductId(int productId);
 }

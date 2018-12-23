@@ -61,4 +61,18 @@ public class Product extends ProductKey {
         this.createdate = createdate == null ? null : createdate.trim();
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", originalprice=" + originalprice +
+                ", promoteprice=" + promoteprice +
+                ", stock=" + stock +
+                ", description='" + description + '\'' +
+                ", createdate='" + createdate + '\'' +
+                '}';
+    }
+
+    public Product() {
+    }
 }

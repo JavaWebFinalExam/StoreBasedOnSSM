@@ -13,6 +13,8 @@ public class Store {
 
     private int status;
 
+    private String image;
+
     public String getName() {
         return name;
     }
@@ -36,8 +38,6 @@ public class Store {
     public void setImage(String image) {
         this.image = image;
     }
-
-    private String image;
 
     public Integer getId() {
         return id;
@@ -69,5 +69,15 @@ public class Store {
 
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
+    }
+
+    public String toString(){
+        return "id is " + id + "\n" +
+                "userId is " + userid + "\n" +
+                "storetype is " + storetype + "\n" +
+                "description is " + description + "\n" +
+                "name is " + name + "\n" +
+                "status is " + status + "\n" +
+                "image is " + image;
     }
 }
