@@ -93,4 +93,10 @@
     from evaluation
     where userId = #{userId};
   </select>
+
+  <select id="getEvaluationByProductId" parameterType="int" resultType="com.store.entity.Evaluation">
+    select *
+    from evaluation
+    where productId=#{productId};
+  </select>
 </mapper>

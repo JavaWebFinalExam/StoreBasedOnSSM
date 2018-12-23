@@ -106,7 +106,6 @@
   </update>
 
   <!--以下为我们后续添加的内容-->
-
   <select id="getUsersPostNum" parameterType="int" resultType="int">
     select COUNT(*)
     from post
@@ -118,13 +117,21 @@
     from post
     where themeId=#{themeId,jdbcType=INTEGER}
   </select>
+
   <select id="getAllThemePost" resultType="Post">
     select *
     from post
-    where theme=true
+    where theme=true;
   </select>
+
   <delete id="deletePostById" parameterType="int">
     delete from post
     where id = #{id};
   </delete>
+
+  <select id="selectUnthemeByThemeId" resultType="Post" parameterType="java.lang.Integer">
+    select *
+    from post
+    where themeId=#{themeId,jdbcType=INTEGER} and theme = false;
+  </select>
 </mapper>

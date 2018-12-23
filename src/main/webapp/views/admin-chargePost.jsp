@@ -79,44 +79,68 @@
             <div class="am-g">
                 <div class="am-u-sm-12 am-u-md-5 am-u-md-push-10"></div>
                 <div class="am-u-sm-12 am-u-md-7 am-u-md-pull-3">
-                    <form class="am-form">
-                        <table class="am-table am-table-striped am-table-hover table-main">
-                            <thead>
-                            <tr>
-                                <th class="table-type">id</th>
-                                <th class="table-type">用户名</th>
-                                <th class="table-type">商品属性数</th>
-                                <th class="table-type">拥有商品数</th>
-                                <th class="table-set">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
 
-                            <%--循环显示数据--%>
-                            <c:if test="${categories != null}">
-                                <c:forEach var="category" items="${categories}">
-                                    <tr>
-                                        <td>${category.id}</td>
-                                        <td>${category.typeName}</td>
-                                        <td>${category.propertyNum}</td>
-                                        <td>${category.productNum}</td>
+                    <div class="am-panel-group" id="accordion">
 
-                                        <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
-                                                    <button id="${category.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
-                                                        <span class="am-icon-trash-o"></span> 删除</button>
+                    <%--循环显示数据--%>
+                    <c:if test="${posts != null}">
+                        <c:forEach var="post" items="${posts}">
+
+                        <div class="am-panel am-panel-default">
+                            <div class="am-panel-hd">
+                                <article class="am-comment">
+                                    <header class="am-comment-hd" data-am-collapse="{parent: '#accordion', target: '#do-not-say-${post.id}'}">
+                                        <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                        <div class="am-comment-meta">
+                                            <a class="am-comment-author">${post.username}</a>
+                                            发表于 <time>${post.createDate}</time>
+                                        </div>
+                                    </header>
+                                    <div class="am-comment-bd">
+                                        ${post.content}
+                                    </div>
+                                    <div class="am-fr">
+                                        <button type="button" id="${post.id}" class="am-btn am-btn-warning am-btn-xs">删除</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <div id="do-not-say-${post.id}" class="am-panel-collapse am-collapse">
+                                <div class="am-panel-bd">
+                                    <ul class="am-comments-list am-comments-list-flip">
+
+                                    <%--循环显示数据--%>
+                                    <c:if test="${post.unthemePosts != null}">
+                                        <c:forEach var="unthemePost" items="${post.unthemePosts}">
+                                        <li class="am-comment">
+                                            <article class="am-comment">
+                                                <header class="am-comment-hd">
+                                                    <!--<h3 class="am-comment-title">评论标题</h3>-->
+                                                    <div class="am-comment-meta">
+                                                        <a class="am-comment-author">${unthemePost.username}</a>
+                                                        评论于 <time>${unthemePost.createDate}</time>
+                                                    </div>
+                                                </header>
+                                                <div class="am-comment-bd">
+                                                    ${unthemePost.content}
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </c:if>
+                                                <div class="am-fr">
+                                                    <button type="button" id="${unthemePost.id}" class="am-btn am-btn-warning am-btn-xs">删除</button>
+                                                </div>
+                                            </article>
+                                        </li>
+                                        </c:forEach>
+                                    </c:if>
 
-                            </tbody>
-                        </table>
-                    </form>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        </c:forEach>
+                    </c:if>
+
+                    </div>
+
                 </div>
             </div>
         </div>

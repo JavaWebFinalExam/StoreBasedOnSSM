@@ -48,14 +48,14 @@ ProductimageService productimageService;
     public ModelAndView getEvaluationPage(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         Integer order_id=Integer.valueOf(""+request.getParameter("order_id"));
-        Order order=orderService.selectByPrimaryKey(order_id);
-        Product product=productService.selectById(order.getProductid());
-        Productimage productimage=productimageService.selectByPrimaryKey(order.getProductid());
+        Integer productId=orderService.getProductId(order_id);
+        Product product=productService.selectById(productId);
+        Productimage productimage=productimageService.selectByPrimaryKey(productId);
 
         mv.addObject("product",product);
         mv.addObject("productimage",productimage);
 
-        mv.setViewName("");
+        mv.setViewName("test");
         return mv;
 
     }

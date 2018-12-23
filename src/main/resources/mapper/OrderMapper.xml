@@ -211,4 +211,10 @@
     from order_
     where productId = #{productId,jdbcType=Integer}
   </select>
+
+  <select id="getProductId" parameterType="Integer" resultType="java.lang.Integer">
+    select productId
+    from order_
+    where id = #{order_id};
+  </select>
 </mapper>

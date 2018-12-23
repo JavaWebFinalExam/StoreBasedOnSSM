@@ -1,6 +1,7 @@
 package com.store.dao;
 
 import com.store.entity.Shoppingcart;
+import org.apache.ibatis.annotations.Param;
 
 public interface ShoppingcartMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +15,10 @@ public interface ShoppingcartMapper {
     int updateByPrimaryKeySelective(Shoppingcart record);
 
     int updateByPrimaryKey(Shoppingcart record);
+
+    void addProductToShoppingCart(@Param("id")Integer id, @Param("productId")Integer productId,@Param("userId")Integer userId);
+
+    Shoppingcart selectByUserId(Integer userId);
+
+
 }

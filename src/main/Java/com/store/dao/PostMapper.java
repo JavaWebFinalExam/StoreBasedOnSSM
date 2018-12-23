@@ -24,4 +24,6 @@ public interface PostMapper {
     int getUsersPostNum(int userId);
 
     void deletePostById(int id);
+
+    List<Post> selectUnthemeByThemeId(int themeId);
 }
