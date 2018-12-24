@@ -30,7 +30,7 @@ public class EvaluationController {
             //从input中获取值
             String content = "" + map.get("content");
             Integer userId=Integer.valueOf("" + session.getAttribute("userId"));
-            Integer productId = Integer.valueOf("" + map.get("productId"));
+            Integer productId = Integer.valueOf("" + session.getAttribute("productId"));
             evaluationService.insertByUserId(content,userId,productId);
             ResponseMap.put("state",true);
             ResponseMap.put("message","添加成功");
