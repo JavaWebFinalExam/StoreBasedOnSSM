@@ -119,7 +119,7 @@
                     <div class="am-form-group">
                         <div class="zuo">商品数量：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="productNum_${order.id}" value="${order.productnum}" >
+                            <input type="text" class="am-input-sm" id="productNum_${order.id}" value="${order.productnum}" required>
                         </div>
                     </div>
                     <div class="am-form-group">
@@ -131,32 +131,32 @@
                     <div class="am-form-group">
                         <div class="zuo">收货地址：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  id="address_${order.id}" value="${order.address}">
+                            <input type="text" class="am-input-sm"  id="address_${order.id}" value="${order.address}" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">收货人：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  id="receiver_${order.id}" value="${order.receiver}">
+                            <input type="text" class="am-input-sm"  id="receiver_${order.id}" value="${order.receiver}" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">手机号码：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="mobile_${order.id}" value="${order.mobile}">
+                            <input type="text" class="am-input-sm" id="mobile_${order.id}" value="${order.mobile}" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">备注信息：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  id="userMessage_${order.id}" value="${order.userMessage}">
+                            <input type="text" class="am-input-sm"  id="userMessage_${order.id}" value="${order.userMessage}" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
                             <select id="status_${order.id}">
-                                <option value="0">请选择订单状态</option>
+                                <option value="0" disabled>请选择订单状态</option>
                                 <option value="0">未完成</option>
                                 <option value="1">已经完成</option>
                             </select>

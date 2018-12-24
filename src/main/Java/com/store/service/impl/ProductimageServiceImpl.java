@@ -28,4 +28,13 @@ public class ProductimageServiceImpl implements ProductimageService {
         return productimageMapper.getImageIdByProductId(productId);
     }
 
+    @Override
+    public int insertProductImage(Productimage productimage){
+        return productimageMapper.insert(productimage);
+    }
+
+    @Override
+    public int updateProductImage(Productimage productimage){
+        return productimageMapper.updateByPrimaryKey(productimage);
+    }
 }

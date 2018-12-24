@@ -10,4 +10,8 @@ public interface ProductimageService {
     List<String> selectImageByProductId(Integer productId);
 
     Integer getImageIdByProductId(Integer productId);
+
+    int insertProductImage(Productimage productimage);
+
+    int updateProductImage(Productimage productimage);
 }

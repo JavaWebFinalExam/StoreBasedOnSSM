@@ -39,7 +39,7 @@
       #{stock,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.store.entity.Product" >
+  <insert id="insertSelective" parameterType="com.store.entity.Product" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into product
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -99,6 +99,10 @@
         #{createdate,jdbcType=VARCHAR},
       </if>
     </trim>
+
+    <selectKey resultType="int" keyProperty="id" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.store.entity.Product" >
     update product

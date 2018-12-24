@@ -33,8 +33,6 @@ public class StoreController {
         //int userId = Integer.parseInt(session.getAttribute("userId").toString());
         int userId = 0;
         Store store = storeService.selectByUserId(userId);
-        ServletContext sc = request.getSession().getServletContext();
-        RequestDispatcher rd = null;
         PrintWriter writer = response.getWriter();
         if (request.getParameter("name")!=null){
             store.setName(request.getParameter("name"));
@@ -58,9 +56,7 @@ public class StoreController {
             e.printStackTrace();
             writer.write("<script language=javascript>alert('修改失败')</script>");
         }
-        rd = sc.getRequestDispatcher("/BusinessPage/PersonalCenter");
-
-        rd.forward(request, response);
+       response.sendRedirect("/BusinessPage/PersonalCenter");
 
     }
 }

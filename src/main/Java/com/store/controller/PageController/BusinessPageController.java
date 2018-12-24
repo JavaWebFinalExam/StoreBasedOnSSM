@@ -53,7 +53,7 @@ public class BusinessPageController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/showOrdersByStoreId")
+    @RequestMapping(value = "/ShowOrdersByStoreId")
     public ModelAndView showAllOrders(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
         int userId = 0;
@@ -75,7 +75,7 @@ public class BusinessPageController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/showProductByStoreId")
+    @RequestMapping(value = "/ShowProductByStoreId")
     public ModelAndView showProductByStoreId(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
         int userId = 0;
@@ -90,7 +90,20 @@ public class BusinessPageController {
         modelAndView.addObject("categories",categoryList);
         modelAndView.setViewName("business-ProductManage");
         return modelAndView;
+    }
 
+    @RequestMapping(value = "/AddProductPage")
+    public ModelAndView AddProductPage(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+        int userId = 0;
+        HttpSession session = request.getSession();
+//      int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        Account account = accountService.selectById(userId);
+        modelAndView.addObject("username",account.getUsername());
+        modelAndView.setViewName("business-AddProduct");
+        List<Category> categoryList = categoryService.getAllCategory();
+        modelAndView.addObject("categories",categoryList);
+        return modelAndView;
     }
 
 

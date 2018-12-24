@@ -21,18 +21,16 @@
     delete from productimage
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.store.entity.Productimage" >
-    insert into productimage (id, productId, path, 
-      type)
-    values (#{id,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, 
-      #{type,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.store.entity.Productimage" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into productimage ( productId, path,type)
+    values (#{productid,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR},#{type,jdbcType=INTEGER})
+    <selectKey resultType="int" keyProperty="id" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
   </insert>
   <insert id="insertSelective" parameterType="com.store.entity.Productimage" >
     insert into productimage
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="productid != null" >
         productId,
       </if>
@@ -44,9 +42,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="productid != null" >
         #{productid,jdbcType=INTEGER},
       </if>

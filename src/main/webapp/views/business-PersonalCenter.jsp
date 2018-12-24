@@ -101,12 +101,7 @@
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
-                            <select id="doc-select-1" name="storeType">
-                                <option value="">${store.storetype}</option>
-                                <option value="option1" >选项一...</option>
-                                <option value="option2" >选项二.....</option>
-                                <option value="option3" >选项三........</option>
-                            </select>
+                            <input type="text" name="storetype" class="am-input-sm" value="${store.storetype}" required>
                             <span class="am-form-caret"></span>
                         </div>
                     </div>
@@ -133,13 +128,13 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">店铺简介：</div>
                         <div class="you">
-                            <textarea class="" rows="10" id="doc-ta-1" name="description">${store.description}</textarea>
+                            <textarea class="" rows="10" id="doc-ta-1" name="description" required>${store.description}</textarea>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="you">
                             <p>
-                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                                <button type="submit" class="am-btn am-btn-success am-radius" >提交</button>
                             </p>
                         </div>
                     </div>
@@ -162,7 +157,7 @@
                         <br>
                         <br>
                         <div class="you" style="height: 45px;">
-                            <input type="file" id="doc-ipt-file-1">
+                            <input type="file" id="doc-ipt-file-1" required>
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
@@ -191,7 +186,7 @@
                     <div class="am-form-group">
                         <div class="zuo">店铺名字：</div>
                         <div class="you">
-                            <input type="text" name="name" class="am-input-sm" id="doc-ipt-pwd-1" placeholder="请输入商品原价" value="${store.name}">
+                            <input type="text" name="name" class="am-input-sm" id="doc-ipt-pwd-1" value="${store.name}" required>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">

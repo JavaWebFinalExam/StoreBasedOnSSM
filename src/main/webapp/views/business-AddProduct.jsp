@@ -40,38 +40,8 @@
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
 
-            <li class="am-dropdown tognzhi" data-am-dropdown>
-                <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o" data-am-dropdown-toggle> 消息管理<span class="am-badge am-badge-danger am-round">6</span></button>
-                <ul class="am-dropdown-content">
-                    <li class="am-dropdown-header">所有消息都在这里</li>
-                    <li><a href="#">未激活会员 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">未激活代理 <span class="am-badge am-badge-danger am-round">69</span></a></a>
-                    </li>
-                    <li><a href="#">未处理汇款</a></li>
-                    <li><a href="#">未发放提现</a></li>
-                    <li><a href="#">未发货订单</a></li>
-                    <li><a href="#">低库存产品</a></li>
-                    <li><a href="#">信息反馈</a></li>
-                </ul>
-            </li>
             <li class="kuanjie">
-                <a href="#">会员管理</a>
-                <a href="#">奖金管理</a>
-                <a href="#">订单管理</a>
-                <a href="#">产品管理</a>
                 <a href="#">个人中心</a>
-                <a href="#">系统设置</a>
-            </li>
-            <li class="soso">
-                <p>
-                    <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
-                        <option value="b">全部</option>
-                        <option value="o">产品</option>
-                        <option value="o">会员</option>
-                    </select>
-                </p>
-                <p class="ycfg"><input type="text" class="am-form-field am-input-sm" /></p>
-                <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button></p>
             </li>
         </ul>
     </div>
@@ -79,7 +49,7 @@
 
 <div class="am-cf admin-main">
     <div class="nav-navicon admin-main admin-sidebar">
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎商家：${username}</div>
         <div class="sideMenu">
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
@@ -87,25 +57,16 @@
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">添加新商品</a></li>
                 <li>商品分类</li>
                 <li>用户评论</li>
-                <li>商品回收站</li>
-                <li>库存管理 </li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
                 <li>订单列表</li>
-                <li>合并订单</li>
-                <li>订单打印</li>
-                <li>添加订单</li>
-                <li>发货单列表</li>
-                <li>换货单列表</li>
+                <li>已完成订单</li>
+                <li>已完成订单</li>
             </ul>
             <h3 class="am-icon-users"><em></em> <a href="#">会员管理</a></h3>
             <ul>
                 <li>会员列表 </li>
-                <li>未激活会员</li>
-                <li>团队系谱图</li>
-                <li>会员推荐图</li>
-                <li>推荐列表</li>
             </ul>
         </div>
         <!-- sideMenu End -->
@@ -135,73 +96,93 @@
 
             <div class="listbiaoti am-cf">
                 <ul class="am-icon-flag on"> 添加商品</ul>
-
                 <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">添加商品</a></dl>
-
-
 
             </div>
 
             <div class="fbneirong">
-                <form class="am-form">
+                <form class="am-form" action="<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path%>/Product/AddProduct" method="post"  enctype="multipart/form-data">
                     <div class="am-form-group am-cf">
                         <div class="zuo">商品：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入商品标题" name="name">
+                            <input type="text" class="am-input-sm"  placeholder="请输入商品标题" name="name" required>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">原价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入原价" name="originalPrice">
+                            <input type="number" class="am-input-sm"  placeholder="请输入原价" name="originalprice" required>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">优惠价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入优惠价" name="PromotePrice">
+                            <input type="number" class="am-input-sm"  placeholder="请输入优惠价" name="promoteprice" required>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">库存：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入库存数量" name="stock">
+                            <input type="number" class="am-input-sm"  placeholder="请输入库存数量" name="stock" required>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">描述：</div>
                         <div class="you">
-                            <textarea class="" rows="2" id="doc-ta-1" name="description"></textarea>
+                            <textarea class="" rows="2" id="doc-ta-1" name="description" required></textarea>
                         </div>
                     </div>
 
                     <div class="am-form-group am-cf">
                         <div class="zuo">种类：</div>
                         <div class="you">
-                            <select id="doc-select-1" name="categoryId">
-                                <option value="">请选择商品种类</option>
-                                <option value="option1">选项一...</option>
-                                <option value="option2">选项二.....</option>
-                                <option value="option3">选项三........</option>
+                            <select id="doc-select-1" name="categoryid">
+                                <c:forEach var="category" items="${categories}">
+                                <option value="${category.id}">${category.typeName}</option>
+                                </c:forEach>
                             </select>
                             <span class="am-form-caret"></span>
                         </div>
                     </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">缩略图：</div>
-                        <div class="you"><input type="file" > </div>
-                    </div>
 
                     <div class="am-form-group am-cf">
-                        <div class="zuo">图片：</div>
+                        <div class="zuo">图片1：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file" >
+                            <input type="file" name="picture1">
+                            <p class="am-form-help" required>请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">图片2：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" name="picture2" required>
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">图片3：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" name="picture3" required>
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">图片4：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" name="picture4" required>
+                            <p class="am-form-help">请选择要上传的文件...</p>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">图片5：</div>
+                        <div class="you" style="height: 45px;">
+                            <input type="file" name="picture5" required>
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="you" style="margin-left: 11%;">
-                            <button type="submit" class="am-btn am-btn-success am-radius">上传并关闭窗口</button>&nbsp; &raquo; &nbsp; <button type="submit" class="am-btn am-btn-secondary am-radius">发布并继续发布</button>
+                            <button type="submit" class="am-btn am-btn-success am-radius">上传商品</button>
                         </div>
                     </div>
                 </form>
@@ -211,7 +192,7 @@
 
             <div class="foods">
                 <ul>
-                    版权所有@2015
+                    版权所有肖枢贤，石立军，陈俊卿，黄宁，简兵兵
                 </ul>
                 <dl>
                     <a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a>
