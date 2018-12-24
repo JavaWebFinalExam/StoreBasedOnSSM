@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,15 +50,16 @@ ProductimageService productimageService;
     @ResponseBody
     public ModelAndView getEvaluationPage(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
+        HttpSession session = request.getSession();
         Integer order_id=Integer.valueOf(""+request.getParameter("order_id"));
         Integer productId=orderService.getProductId(order_id);
         Product product=productService.selectById(productId);
-        Productimage productimage=productimageService.selectByPrimaryKey(productId);
 
+        session.setAttribute("productId",productId);
         mv.addObject("product",product);
-        mv.addObject("productimage",productimage);
+        mv.addObject("productImage",productimageService.getImageIdByProductId(product.getId()));
 
-        mv.setViewName("");
+        mv.setViewName("user-evaluation");
         return mv;
 
     }
