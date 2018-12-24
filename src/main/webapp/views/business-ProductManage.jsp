@@ -29,8 +29,7 @@
     <link rel="stylesheet" href="<%=basePath%>/views/business/assets/css/admin.css">
     <script src="<%=basePath%>/views/business/assets/js/jquery.min.js"></script>
     <script src="<%=basePath%>/views/business/assets/js/app.js"></script>
-    <script src="<%=basePath%>/views/business/assets/js/clipboard.min.js"></script>
-    <script src="<%=basePath%>/views/business/assets/js/clipboard.js"></script>
+
 
 </head>
 
@@ -257,7 +256,6 @@
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
                                     <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups-${product.id}'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
-                                    <button class="am-btn am-btn-default am-btn-xs am-text-warning  am-round" title="复制" onclick="copyText(this)"><span class="am-icon-copy"></span></button>
                                     <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除"><span class="am-icon-trash-o"></span></button>
                                 </div>
                             </div>
@@ -266,21 +264,6 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <script type="text/javascript">
-                    function copyText(bt) {
-                        alert("ssssssss");
-                        let id = bt.id;
-                        let clipboard = new ClipboardJS('#product-' + id);
-                        clipboard.on('success',function(e){
-                            e.clearSelection();
-                            alert('复制成功');
-                        });
-                        clipboard.on('error',function(e){
-                            e.clearSelection();
-                            alert('复制失败');
-                        });
-                    }
-                </script>
                 <ul class="am-pagination am-fr">
                     <li class="am-disabled"><a href="#">«</a></li>
                     <li class="am-active"><a href="#">1</a></li>
