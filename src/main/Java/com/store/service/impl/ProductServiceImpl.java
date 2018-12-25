@@ -12,6 +12,10 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductMapper productMapper;
+    @Override
+    public List<Product> commodityPaging(Integer storeId,int currIndex,int pageSize){
+        return productMapper.commodityPaging(storeId, currIndex, pageSize);
+    }
 
     @Override
     public Product selectById(Integer id){

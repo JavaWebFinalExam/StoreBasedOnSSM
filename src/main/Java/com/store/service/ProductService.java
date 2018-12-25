@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ProductService {
 
+    List<Product> commodityPaging(Integer storeId,int currIndex,int pageSize);
 
     List<Product> selectByStoreId(Integer storeId);
 

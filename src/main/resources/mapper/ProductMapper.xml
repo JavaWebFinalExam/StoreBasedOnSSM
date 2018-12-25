@@ -176,4 +176,12 @@
     from product
     where storeId = #{id};
   </select>
+
+  <!--分页-->
+  <select id="commodityPaging" resultType="Product">
+    select *
+    from product
+    where storeId = #{storeId,jdbcType=INTEGER}
+    limit #{currIndex},#{pageSize}
+  </select>
 </mapper>

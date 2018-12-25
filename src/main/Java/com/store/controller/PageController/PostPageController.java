@@ -74,10 +74,28 @@ ProductimageService productimageService;
         ModelAndView mv = new ModelAndView();
         List<Map<String,Object>> commoditydDtails=new ArrayList<>();
         Integer storeId=Integer.valueOf(""+request.getParameter("storeId"));
+        int currIndex=0;
+        if(request.getParameter("currIndex")==null){
+            currIndex=1;
+        }else{
+            currIndex=Integer.valueOf(""+request.getParameter("currIndex"));
+        }
         Store store=storeService.getStoreById(storeId);
-        List<Product> products2=productService.selectByStoreId(storeId);
+        List<Product> products=productService.selectByStoreId(storeId);
+        int length=0;
+        if(products.size()%12==0){
+            length=products.size()/12;
+        }else {
+            length=products.size()/12+1;
+        }
+        List<Integer> lengths=new ArrayList<>();
+        for(int i=0;i<length;i++){
+            lengths.add(i);
+        }
+        List<Product> products2=productService.commodityPaging(storeId,currIndex,12);
         for(Product product:products2){
             Map<String,Object> products1 = new HashMap<>();
+            products1.put("productId",product.getId());
             products1.put("productName",product.getName());
             products1.put("originalPrice",product.getOriginalprice());
             products1.put("promotePrice",product.getPromoteprice());
@@ -86,6 +104,7 @@ ProductimageService productimageService;
         }
         mv.addObject("commoditydDtails",commoditydDtails);
         mv.addObject("store",store);
+        mv.addObject("lengths",lengths);
         mv.setViewName("user-store");
         return mv;
     }

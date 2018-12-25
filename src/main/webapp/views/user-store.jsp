@@ -63,24 +63,31 @@
     <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
   am-avg-md-3 am-avg-lg-6 am-gallery-default">
         <c:if test="${commoditydDtails!=null}">
-        <c:forEach items="${commoditydDtails}" var="commoditydDtail" >
-        <li>
-            <div class="am-gallery-item am_list_block">
-                <a href="###" class="am_img_bg">
-                    <img class="am_img" src="<%=basePath%>views/image/productSingle/${commoditydDtail.productImage}.jpg"
-                         alt="404"/>
-                </a>
-                <div class="am_listimg_info" style="text-align: center;color: blue">${commoditydDtail.productName}</div>
-                <div class="am_listimg_info" style="text-align: center;color: red"><small>原价：￥<s>${commoditydDtail.originalPrice}</s></small></div>
-                <div class="am_listimg_info" style="text-align: center;color: red">优惠价：￥${commoditydDtail.promotePrice}</div>
-            </div>
+            <c:forEach items="${commoditydDtails}" var="commoditydDtail" >
+                <li>
+                    <div class="am-gallery-item am_list_block">
+                        <a href="/userPage/ordAndCart/productDetail?product_id=${commoditydDtail.productId}" class="am_img_bg">
+                            <img class="am_img" src="<%=basePath%>views/image/productSingle/${commoditydDtail.productImage}.jpg"
+                                 alt="404"/>
+                        </a>
+                        <div class="am_listimg_info" style="text-align: center;color: blue">${commoditydDtail.productName}</div>
+                        <div class="am_listimg_info" style="text-align: center;color: red"><small>原价：￥<s>${commoditydDtail.originalPrice}</s></small></div>
+                        <div class="am_listimg_info" style="text-align: center;color: red">优惠价：￥${commoditydDtail.promotePrice}</div>
+                    </div>
 
-        </li>
-        </c:forEach>
+                </li>
+            </c:forEach>
         </c:if>
     </ul>
 </div>
 
+<ul class="am-pagination am-pagination-centered">
+    <li class="am-disabled"><a href="#">&laquo;</a></li>
+    <c:forEach items="${lengths}" var="length" >
+        <li><a href="/userPage/postPage/storePage?storeId=${store.id}&currIndex=${length+1}">${length+1}</a></li>
+    </c:forEach>
+    <li><a href="#">&raquo;</a></li>
+</ul>
 
 <footer class="am_footer">
     <div class="am_footer_con">
@@ -104,7 +111,6 @@
         </div>
 
     </div>
-    <div class="am_info_line">Copyright(c)2018 <span>PetShow</span> All Rights Reserved </div>
 </footer>
 
 
