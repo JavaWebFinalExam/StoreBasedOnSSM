@@ -67,7 +67,7 @@ public class AccountController {
     }
 
     //删除用户
-    @RequestMapping(value = "/Admin/deleteUserById", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/admin/deleteUserById", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody//响应体  用于向前端返回数据
     public Map<String,Object> deleteUserById(@RequestBody Map<String,Object> map, HttpServletRequest request){
         Map<String, Object> ResponseMap = new HashMap<>();

@@ -23,4 +23,6 @@ public interface StoreService {
     List<Map<String,Object>> getAllStoreInformation();
 
     Store getStoreById(Integer id);
+
+    void checkStore(int id);
 }
