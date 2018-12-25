@@ -23,7 +23,7 @@
     <link href="<%=basePath%>views/assets/css/amazeui.css" rel="stylesheet" type="text/css">
     <link href="<%=basePath%>views/assets/css/personal.css" rel="stylesheet" type="text/css">
     <link href="<%=basePath%>views/assets/css/appstyle.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -72,11 +72,11 @@
                         </div>
                         <div class="clear"></div>
                         <div class="item-comment">
-                            <textarea placeholder="请写下对宝贝的感受吧，对他人帮助很大哦！"></textarea>
+                            <textarea id="user-input" placeholder="请写下对宝贝的感受吧，对他人帮助很大哦！"></textarea>
                         </div>
                     </div>
                     <div class="info-btn">
-                        <div class="am-btn am-btn-danger">发表评论</div>
+                        <div id="say" class="am-btn am-btn-danger">发表评论</div>
                     </div>
                     <script type="text/javascript">
                         $(document).ready(function() {
@@ -94,6 +94,50 @@
     </div>
 </div>
 
+<script>
+    $("#say").click(function () {
+        var user_input = $("#user-input")[0].value;
+
+        if (user_input != "") {
+            console.log(user_input);
+
+            var json_data = {
+                "content": user_input,
+                "productId": ${product.id}
+            };
+
+            //js对象转换成JSON字符串
+            var jason_str = JSON.stringify(json_data);
+
+            console.log(jason_str);
+
+            $.ajax({
+                url: "<%=basePath%>Evaluation/userEvaluation",
+                cache: true,
+                type: "post",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                data: jason_str,
+
+                success: function (data) {
+                    console.log(data.state);
+
+                    if (data.state == true) {
+                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
+                    } else {
+                        alert(data.message);
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                    alert("请求出错，请检查网络或服务器是否开启");
+                }
+            });
+        }else {
+            alert("请求出错！");
+        }
+    });
+</script>
 
 </body>
 </html>
