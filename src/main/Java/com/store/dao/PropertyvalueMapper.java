@@ -15,7 +15,7 @@ public interface PropertyvalueMapper {
 
     int updateByPrimaryKey(Propertyvalue record);
 
-    String getValueByProductId(int productId);
+
 
 
 }

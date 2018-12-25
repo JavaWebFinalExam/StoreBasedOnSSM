@@ -43,6 +43,8 @@ public class OrderPageController {
     CategoryService CategoryService;
     @Autowired
     PropertyService PropertyService;
+    @Autowired
+    AccountService AccountService;
 
 
     //商品详情页面ok
@@ -174,8 +176,6 @@ public class OrderPageController {
         return ResponseMap;
     }
 
-
-
     //购物车页面
     //显示购物车ok
     @RequestMapping(
@@ -210,7 +210,6 @@ public class OrderPageController {
         return mv;
 
     }
-
 
     //删除购物车OK
     @RequestMapping(
@@ -341,36 +340,36 @@ public class OrderPageController {
     }
 
 
-
-
-    //模拟支付
+    //点击模拟支付,输入登陆账号
     @RequestMapping(
-            value = "/onlinePay",
+            value = "/clickOnlinePay",
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8"
     )
-
     @ResponseBody
-    public ModelAndView onlinePay(HttpServletRequest request) {
-        ModelAndView mv = new ModelAndView();
+    public Map<String, Object> clickOnlinePay(HttpServletRequest request)  {
 
+        Map<String, Object> ResponseMap = new HashMap<>();
+        HttpSession session=request.getSession();
+        session.setAttribute("userId",1);
 
-        Integer order_id = Integer.valueOf("" + request.getParameter("order_id"));
-        Order order=OrderService.selectByPrimaryKey(order_id);
-        Product product=ProductService.selectById(order.getProductid());
-        String propertyValue=PropertyService.getValueByProductId(product.getId());
-        Integer value = Integer.valueOf("" +propertyValue);
+        int userId = Integer.valueOf("" + session.getAttribute("userId"));
+        Account account=AccountService.selectById(userId);
+        String payCode="" + request.getParameter("payCode");
+        String passWord=""+account.getPassword();
 
-        int amount=order.getProductnum()*value;
+            if(passWord.equals(payCode)) {
+                ResponseMap.put("state", true);
+                ResponseMap.put("message", "支付成功");
+                return ResponseMap;
+            }
+            else {
+                ResponseMap.put("state", false);
+                ResponseMap.put("message", "支付失败");
+                return ResponseMap;
+            }
 
-
-        mv.addObject("amount", amount);
-
-        //设置返回页面,付完钱了该去哪
-        mv.setViewName("");
-        return mv;
     }
-
 
     //订单页面
     //显示所有订单ok
@@ -447,7 +446,7 @@ public class OrderPageController {
 
     }
 
-    //确认收货
+    //确认收货ok
     @RequestMapping(
             value = "/confirmReceiving",
             method = RequestMethod.POST,
@@ -462,13 +461,13 @@ public class OrderPageController {
 
         //int order_id = Integer.valueOf("" + request.getParameter("order_id"));
 
-        int status=2;//表示确认收获
+        int status=2;//表示确认收货
         Order order=OrderService.selectByPrimaryKey(order_id);
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         try {
             order.setStatus(status);
             order.setConfirmdate(df.format(new Date()));
-            OrderService.updateByPrimaryKeySelective(order);
+            OrderService.updateByPrimaryKeySelective(order);//更改订单状态
             ResponseMap.put("state", true);
             ResponseMap.put("message", "收货成功");
 
@@ -478,23 +477,8 @@ public class OrderPageController {
         }
 
         return ResponseMap;
+        //确认收获后直接跳转评价
     }
 
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

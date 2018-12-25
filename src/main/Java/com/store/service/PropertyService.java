@@ -5,5 +5,5 @@ import com.store.entity.Propertyvalue;
 public interface PropertyService {
 
 
-    String getValueByProductId(int productId);
+
 }
