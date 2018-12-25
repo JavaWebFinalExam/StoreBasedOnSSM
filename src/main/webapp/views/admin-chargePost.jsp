@@ -100,16 +100,17 @@
                                         ${post.content}
                                     </div>
                                     <div class="am-fr">
-                                        <button type="button" id="${post.id}" class="am-btn am-btn-warning am-btn-xs">删除</button>
+                                        <button type="button" id="${post.id}" class="am-btn am-btn-warning am-btn-xs delete-btn">删除</button>
                                     </div>
                                 </article>
                             </div>
+
+                                <%--循环显示数据--%>
+                            <c:if test="${post.unthemePosts[0] != null}">
                             <div id="do-not-say-${post.id}" class="am-panel-collapse am-collapse">
                                 <div class="am-panel-bd">
                                     <ul class="am-comments-list am-comments-list-flip">
 
-                                    <%--循环显示数据--%>
-                                    <c:if test="${post.unthemePosts != null}">
                                         <c:forEach var="unthemePost" items="${post.unthemePosts}">
                                         <li class="am-comment">
                                             <article class="am-comment">
@@ -124,16 +125,16 @@
                                                     ${unthemePost.content}
                                                 </div>
                                                 <div class="am-fr">
-                                                    <button type="button" id="${unthemePost.id}" class="am-btn am-btn-warning am-btn-xs">删除</button>
+                                                    <button type="button" id="${unthemePost.id}" class="am-btn am-btn-warning am-btn-xs delete-btn">删除</button>
                                                 </div>
                                             </article>
                                         </li>
                                         </c:forEach>
-                                    </c:if>
 
                                     </ul>
                                 </div>
                             </div>
+                            </c:if>
                         </div>
 
                         </c:forEach>
@@ -156,5 +157,40 @@
 
 <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
 <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+<script type="text/javascript">
+    $(".delete-btn").click(function () {
+        console.log(this.id);
+        var ID = this.id;
+
+        var json_data = {
+            "postId": ID
+        };
+        var jason_str = JSON.stringify(json_data);
+
+        $.ajax({
+            url :"<%=basePath%>Post/deletePostById",
+            cache : true,
+            type : "post",
+            datatype : "json",
+            contentType : "application/json; charset=utf-8",
+            data : jason_str,
+
+            success : function (data){
+                console.log(data.state + data.message);
+                if (data.state == true){
+                    alert(data.message);
+                    location.reload();
+                } else {
+                    alert(data.message);
+                    location.reload();
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                alert("请求出错，请检查网络或服务器是否开启");
+            }
+        });
+    });
+</script>
 </body>
 </html>

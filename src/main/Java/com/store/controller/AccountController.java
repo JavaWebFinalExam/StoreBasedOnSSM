@@ -104,4 +104,36 @@ public class AccountController {
         return "login";
     }
 
+    //修改用户信息
+    @RequestMapping(value = "/admin/changeUserInformation", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody//响应体  用于向前端返回数据
+    public Map<String,Object> changeUserInformation(@RequestBody Map<String,Object> map, HttpServletRequest request){
+        Map<String, Object> ResponseMap = new HashMap<>();
+
+        int id = Integer.valueOf(""+map.get("userId"));
+        String userName = ""+map.get("userName");
+        int identity = Integer.valueOf(""+map.get("identity"));
+
+        Account account=accountService.selectById(id);
+
+        if (account!=null){
+            account.setUsername(userName);
+            account.setIdentity(identity);
+
+            try {
+                accountService.updateUserInfor(account);
+                ResponseMap.put("state", true);
+                ResponseMap.put("message", "修改成功");
+            } catch (Exception e) {
+                e.printStackTrace();
+                ResponseMap.put("state", false);
+                ResponseMap.put("message", "修改失败");
+            }
+        }else {
+            ResponseMap.put("state", false);
+            ResponseMap.put("message", "修改失败，用户不存在");
+        }
+
+        return ResponseMap;
+    }
 }

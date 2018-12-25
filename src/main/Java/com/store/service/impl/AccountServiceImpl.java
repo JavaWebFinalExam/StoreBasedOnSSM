@@ -66,5 +66,8 @@ public class AccountServiceImpl implements AccountService {
         return accountMapper.selectByPrimaryKey(id);
     }
 
-
+    @Override
+    public void updateUserInfor(Account account){
+        accountMapper.updateByPrimaryKeySelective(account);
+    }
 }
