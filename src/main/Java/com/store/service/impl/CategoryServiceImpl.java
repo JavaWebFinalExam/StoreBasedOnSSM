@@ -50,7 +50,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void changeCategory(int id,String typeName){
         Category category = new Category(id,typeName);
-
         categoryMapper.updateCategoryById(category);
     }
 
@@ -69,7 +68,11 @@ public class CategoryServiceImpl implements CategoryService {
 
             informations.add(information);
         }
-
         return informations;
+    }
+
+    @Override
+    public Category getCategoryById(int id){
+        return categoryMapper.getCategoryById(id);
     }
 }

@@ -11,6 +11,6 @@ public interface CategoryService {
     void addCategory(String typeName);
     void deleteCategoryById(int id);
     void changeCategory(int id,String typeName);
-
+    Category getCategoryById(int id);
     List<Map<String,Object>> getAllCategoryInformation();
 }

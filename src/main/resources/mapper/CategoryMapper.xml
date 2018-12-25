@@ -31,4 +31,13 @@
         where id = #{id};
     </update>
 
+
+    <!--//以下为添加-->
+    <select id="getCategoryById" parameterType="int" resultType="com.store.entity.Category" >
+        select *
+        from category
+        where id= #{id};
+    </select>
+
+
 </mapper>
