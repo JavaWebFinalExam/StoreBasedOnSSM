@@ -82,7 +82,7 @@
   </update>
 
   <!--以下为后续添加内容-->
-  <select id="getValueByProductId" parameterType="int" resultType="String">
+  <select id="getValueByProductId" parameterType="int" resultType="com.store.entity.Propertyvalue">
     select *
     from propertyvalue
     where productId=#{productId};

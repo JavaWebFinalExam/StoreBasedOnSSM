@@ -16,4 +16,6 @@ public interface PropertyMapper {
     int updateByPrimaryKey(Property record);
 
     int getPropertyNumByCategoryId(int id);
+
+    Property getByProductId(int productId);
 }
