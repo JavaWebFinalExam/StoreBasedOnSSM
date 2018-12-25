@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css">
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/admin.css">
 
+    <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
 </head>
 <body>
 <header class="am-topbar am-topbar-inverse admin-header">
@@ -85,7 +87,6 @@
                             <tr>
                                 <th class="table-type">id</th>
                                 <th class="table-type">用户名</th>
-                                <th class="table-type">头像</th>
                                 <th class="table-type">账户身份</th>
                                 <th class="table-type">订单数</th>
                                 <th class="table-type">评价数</th>
@@ -101,7 +102,6 @@
                                     <tr>
                                         <td>${user.id}</td>
                                         <td>${user.username}</td>
-                                        <td>${user.avatar}</td>
                                         <td>${user.identity<2?"普通用户":(user.identity>2?"管理员":"商家")}</td>
                                         <td>${user.orderNum}</td>
                                         <td>${user.evaluationNum}</td>
@@ -110,13 +110,87 @@
                                         <td>
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
+                                                    <button type="button" id="doc-prompt-toggle-${user.id}" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                                                     <button id="${user.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
                                                         <span class="am-icon-trash-o"></span> 删除</button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+
+                                    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${user.id}">
+                                        <div class="am-modal-dialog">
+                                            <div class="am-modal-hd">修改用户信息</div>
+                                            <div class="am-modal-bd">
+                                                <form id="form-${user.id}" class="am-form">
+                                                    <fieldset>
+                                                        <div class="am-form-group am-g">
+                                                            <div class="am-u-lg-4"><label for="doc-input-${user.id}">用户名：</label></div>
+                                                            <div class="am-u-lg-8">
+                                                                <input name="userName" type="text" id="doc-input-${user.id}" value="${user.username}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="am-form-group am-g">
+                                                            <div class="am-u-lg-4"><label for="doc-select-${user.id}">用户身份：</label></div>
+                                                            <div class="am-u-lg-8">
+                                                                <select name="identity" id="doc-select-${user.id}">
+                                                                    <option value="1">普通用户</option>
+                                                                    <option value="2">商家</option>
+                                                                    <option value="3">管理员</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                            <div class="am-modal-footer">
+                                                <span class="am-modal-btn">取消</span>
+                                                <span class="am-modal-btn" id="btn-${user.id}">提交</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(function() {
+                                            $('#doc-prompt-toggle-${user.id}').on('click', function() {
+                                                $('#my-prompt-${user.id}').modal();
+                                            });
+                                            $('#btn-${user.id}').click(function () {
+                                                var userName = $('#doc-input-${user.id}')[0].value;
+                                                var identity = $('#doc-select-${user.id}')[0].value;
+
+                                                var json_data = {
+                                                    "userId": ${user.id},
+                                                    "userName": userName,
+                                                    "identity": identity
+                                                };
+                                                var jason_str = JSON.stringify(json_data);
+
+                                                $.ajax({
+                                                    url :"<%=basePath%>account/admin/changeUserInformation",
+                                                    cache : true,
+                                                    type : "post",
+                                                    datatype : "json",
+                                                    contentType : "application/json; charset=utf-8",
+                                                    data : jason_str,
+
+                                                    success : function (data){
+                                                        console.log(data.state + data.message);
+                                                        if (data.state == true){
+                                                            console.log(data.message);
+                                                            location.reload();
+                                                        } else {
+                                                            alert(data.message);
+                                                            location.reload();
+                                                        }
+                                                    },
+                                                    error:function (data) {
+                                                        console.log(data);
+                                                        alert("请求出错，请检查网络或服务器是否开启");
+                                                    }
+                                                });
+                                            })
+                                        });
+                                    </script>
                                 </c:forEach>
                             </c:if>
 
@@ -135,9 +209,6 @@
     </div>
     <!-- content end -->
 </div>
-
-<script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
-<script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
 
 <script>
     $(".delete-btn").click(function () {
@@ -173,6 +244,7 @@
         });
     });
 </script>
+
 </body>
 </html>
 
