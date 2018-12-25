@@ -49,5 +49,27 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.getProductId(order_id);
     }
 
+    @Override
+    public int insertSelective(Order record){
+        if (record!=null){
+            orderMapper.insertSelective(record);
+            return 1;
+        }
+        else return 0;
+    }
+    @Override
+    public  List<Order> selectByUserId(int userId){
+        return orderMapper.selectByUserId(userId);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(Order record){
+        if (record!=null){
+            orderMapper.updateByPrimaryKeySelective(record);
+            return 1;
+        }
+        else return 0;
+    }
+
 }
 

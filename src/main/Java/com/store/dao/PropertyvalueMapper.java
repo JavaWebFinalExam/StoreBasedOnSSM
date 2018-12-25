@@ -14,4 +14,8 @@ public interface PropertyvalueMapper {
     int updateByPrimaryKeySelective(Propertyvalue record);
 
     int updateByPrimaryKey(Propertyvalue record);
+
+    String getValueByProductId(int productId);
+
+
 }

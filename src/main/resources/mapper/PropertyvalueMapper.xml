@@ -72,6 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.store.entity.Propertyvalue" >
     update propertyvalue
     set productId = #{productid,jdbcType=INTEGER},
@@ -81,5 +82,12 @@
   </update>
 
   <!--以下为后续添加内容-->
+  <select id="getValueByProductId" parameterType="int" resultType="String">
+    select *
+    from propertyvalue
+    where productId=#{productId};
+
+  </select>
+
 
 </mapper>

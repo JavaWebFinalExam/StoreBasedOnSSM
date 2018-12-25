@@ -10,6 +10,7 @@ public interface ShoppingService {
 
     //将商品加入购物车
     void addProductToShoppingCart(int id, int productId,int userId);
+    int insertSelective(Shoppingcart record);
 
     //根据用户ID来返回购物车
     List<Shoppingcart> selectByUserId(Integer userId);
