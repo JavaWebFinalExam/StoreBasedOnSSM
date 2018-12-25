@@ -21,6 +21,8 @@ public class PostController {
     @ResponseBody
     public Map<String,Object> deletePostById(@RequestBody Map<String,Object> map){
         Map<String,Object> ResponseMap = new HashMap<>();
+
+        
         return ResponseMap;
     }
 
