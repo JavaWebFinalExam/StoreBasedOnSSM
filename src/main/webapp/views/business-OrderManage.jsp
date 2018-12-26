@@ -40,8 +40,8 @@
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
 
             <li class="kuanjie">
-                <a href="#">个人中心</a>
-            </li>
+                <a href="/BusinessPage/PersonalCenter">个人中心</a>
+                <<a href="/account/outLogin">退出登录</a>            </li>
             <li class="soso">
                 <p>
                     <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">

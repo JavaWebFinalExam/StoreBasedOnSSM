@@ -39,8 +39,8 @@ public class StoreController {
     public void updateStore(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         response.setContentType("text/html; charset=utf-8");
         HttpSession session = request.getSession();
-        //int userId = Integer.parseInt(session.getAttribute("userId").toString());
-        int userId = 0;
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+//        int userId = 0;
         Store store = storeService.selectByUserId(userId);
         PrintWriter writer = response.getWriter();
         if (request.getParameter("name")!=null){
@@ -159,37 +159,45 @@ public class StoreController {
 
     @RequestMapping(value = "/StoreRegister")
     public void storeRegister(HttpServletRequest request, HttpServletResponse response, Account account, Store store, MultipartFile picture)throws IOException {
-        account.setIdentity(2);
-        int id = accountService.insertStoreAccount(account);
-        store.setUserid(id);
-        store.setStatus(0);
 
-        if (picture != null) {
-            //获取原来的的图片url
-
-            //使用UUID给图片重命名，并去掉四个“-”
-            String name = UUID.randomUUID().toString().replaceAll("-", "");
-            //获取文件的扩展名
-            String ext = FilenameUtils.getExtension(picture.getOriginalFilename());
-            //设置图片上传路径
-            String url = request.getSession().getServletContext().getRealPath("/views/image/storeImages");
-            System.out.println(url);
-            //以绝对路径保存重名命后的图片
-            picture.transferTo(new File(url + "/" + name + "." + ext));
-            //保存到数据库的图片路径
-            String dataPath = "/views/image/storeImages/" + name + "." + ext;
-
-            store.setImage(dataPath);
-            System.out.println("图片路径为：" + store.getImage());
-
-            try {
-                storeService.insertStore(store);
-                System.out.println("更新商店表");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (accountService.selectByUsername(account.getUsername())!=null){
+            response.sendRedirect("/BusinessPage/StoreRegister?exist=1");
         }
-        response.sendRedirect("/adminPage/login");
+        else {
+            account.setIdentity(2);
+            accountService.insertStoreAccount(account);
+            int id = account.getId();
+            System.out.println("账户id为" + id);
+            store.setUserid(id);
+            store.setStatus(0);
+
+            if (picture != null) {
+                //获取原来的的图片url
+
+                //使用UUID给图片重命名，并去掉四个“-”
+                String name = UUID.randomUUID().toString().replaceAll("-", "");
+                //获取文件的扩展名
+                String ext = FilenameUtils.getExtension(picture.getOriginalFilename());
+                //设置图片上传路径
+                String url = request.getSession().getServletContext().getRealPath("/views/image/storeImages");
+                System.out.println(url);
+                //以绝对路径保存重名命后的图片
+                picture.transferTo(new File(url + "/" + name + "." + ext));
+                //保存到数据库的图片路径
+                String dataPath = "/views/image/storeImages/" + name + "." + ext;
+
+                store.setImage(dataPath);
+                System.out.println("图片路径为：" + store.getImage());
+
+                try {
+                    storeService.insertStore(store);
+                    System.out.println("更新商店表");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            response.sendRedirect("/adminPage/login");
+        }
     }
 
 }

@@ -196,7 +196,7 @@ public class OrderPageController {
     public ModelAndView selectByUserId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
-        session.setAttribute("userId",1);//这句代码最后要删
+
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -318,7 +318,7 @@ public class OrderPageController {
         Map<String, Object> responseMap = new HashMap<>();
         Order order = new Order();
         HttpSession session = request.getSession();
-        session.setAttribute("user_Id",1);
+
 
         int userId = Integer.valueOf("" + session.getAttribute("user_Id"));
         Integer product_id = Integer.valueOf("" +  map.get(("product_id")));
@@ -369,7 +369,8 @@ public class OrderPageController {
 
         Map<String, Object> ResponseMap = new HashMap<>();
         HttpSession session=request.getSession();
-        session.setAttribute("userId",1);
+
+
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
         Account account=AccountService.selectById(userId);
@@ -400,7 +401,7 @@ public class OrderPageController {
     public ModelAndView showUserOrders(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
-        session.setAttribute("userId",1);
+
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 

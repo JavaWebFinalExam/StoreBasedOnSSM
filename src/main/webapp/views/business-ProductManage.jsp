@@ -42,7 +42,8 @@
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
             <li class="kuanjie">
 
-                <a href="#">个人中心</a>
+                <a href="/BusinessPage/PersonalCenter">个人中心</a>
+                <<a href="/account/outLogin">退出登录</a>
 
             </li>
         </ul>
@@ -186,7 +187,7 @@
                         <div class="you">
                             <c:forEach var="productImage" items="${productImages}">
                                 <c:if test="${productImage.productid==product.id}">
-                                <img class="am-img-thumbnail am-radius" src="<%=basePath%>views/image/test/${productImage.id}${productImage.path}" width="400" height="400"/><br>
+                                <img class="am-img-thumbnail am-radius" src="<%=basePath%>${productImage.path}" width="400" height="400"/><br>
                                 </c:if>
                             </c:forEach>
                         </div>
