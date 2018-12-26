@@ -22,15 +22,13 @@ public class AccountTest {
     private AccountService accountService;
 
     @Test
-<<<<<<< HEAD
     public void testCreateUser() throws Exception {
 
         accountService.deleteUserById(5);
-        System.out.println(accountService.checkLogin("dan","6130116053"));
+        System.out.println(accountService.checkLogin("dan", "6130116053"));
+    }
 
-=======
     public void testGetUser() throws Exception {
->>>>>>> d993543d2e243572e2a5a47351bee88b1d0be551
         List<Account> users = accountService.getAllAccount();
         for (Account a:users){
             System.out.println(a.getUsername());

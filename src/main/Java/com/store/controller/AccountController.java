@@ -39,7 +39,6 @@ public class AccountController {
             responseMap.put("status",false);
             responseMap.put("message","密码错误或用户不存在");
         }
-
         return responseMap;
     }
 

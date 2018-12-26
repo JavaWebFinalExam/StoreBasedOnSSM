@@ -30,13 +30,14 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-<<<<<<< HEAD
-    public void insertCategory(String typeName){
+    public void insertCategory(String typeName) {
         Category category = new Category();
         category.setTypeName(typeName);
 
         categoryMapper.insertCategory(category);
-=======
+    }
+
+    @Override
     public void addCategory(String typeName){
         categoryMapper.addCategory(typeName);
     }
@@ -70,6 +71,5 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         return informations;
->>>>>>> d993543d2e243572e2a5a47351bee88b1d0be551
     }
 }
