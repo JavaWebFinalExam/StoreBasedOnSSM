@@ -26,7 +26,7 @@
     <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>views/assets/css/cartOptstyle.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="<%=basePath%>views/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.js"></script>
 
 </head>
 
@@ -107,7 +107,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title= "${productPiece.product.name}"class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="<%=basePath%>views/image/productSingle/${productPiece.product.productimage}.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="<%=basePath%>views/image/productSingle/${productPiece.productimage}.jpg" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
@@ -115,14 +115,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="td td-info">
-                            <div class="item-props ">
-                                <span class="sku-line">颜色：12#川南玛瑙</span>
-                                <span class="sku-line">包装：裸装</span>
 
-
-                            </div>
-                        </li>
                         <li class="td td-price">
                             <div class="item-price price-promo-promo">
                                 <div class="price-content">
