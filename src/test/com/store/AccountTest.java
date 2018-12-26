@@ -28,10 +28,7 @@ public class AccountTest {
         System.out.println(accountService.checkLogin("dan", "6130116053"));
     }
 
-<<<<<<< HEAD
     @Test
-=======
->>>>>>> dev
     public void testGetUser() throws Exception {
         List<Account> users = accountService.getAllAccount();
         for (Account a:users){

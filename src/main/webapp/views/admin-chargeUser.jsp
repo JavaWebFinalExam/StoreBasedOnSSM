@@ -165,30 +165,34 @@
                                                 };
                                                 var jason_str = JSON.stringify(json_data);
 
-                                                $.ajax({
-                                                    url :"<%=basePath%>account/admin/changeUserInformation",
-                                                    cache : true,
-                                                    type : "post",
-                                                    datatype : "json",
-                                                    contentType : "application/json; charset=utf-8",
-                                                    data : jason_str,
+                                                if (userName!="") {
+                                                    $.ajax({
+                                                        url: "<%=basePath%>account/admin/changeUserInformation",
+                                                        cache: true,
+                                                        type: "post",
+                                                        datatype: "json",
+                                                        contentType: "application/json; charset=utf-8",
+                                                        data: jason_str,
 
-                                                    success : function (data){
-                                                        console.log(data.state + data.message);
-                                                        if (data.state == true){
-                                                            console.log(data.message);
-                                                            location.reload();
-                                                        } else {
-                                                            alert(data.message);
-                                                            location.reload();
+                                                        success: function (data) {
+                                                            console.log(data.state + data.message);
+                                                            if (data.state == true) {
+                                                                console.log(data.message);
+                                                                location.reload();
+                                                            } else {
+                                                                alert(data.message);
+                                                                location.reload();
+                                                            }
+                                                        },
+                                                        error: function (data) {
+                                                            console.log(data);
+                                                            alert("请求出错，请检查网络或服务器是否开启");
                                                         }
-                                                    },
-                                                    error:function (data) {
-                                                        console.log(data);
-                                                        alert("请求出错，请检查网络或服务器是否开启");
-                                                    }
-                                                });
-                                            })
+                                                    });
+                                                }else {
+                                                    alert("请输入用户名");
+                                                }
+                                            });
                                         });
                                     </script>
                                 </c:forEach>

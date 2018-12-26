@@ -231,7 +231,9 @@
         });
     });
     $('#btn-x').click(function () {
-        $('#form-x').submit();
+        if ($('#doc-input-x1')[0].value!="") {
+            $('#form-x').submit();
+        }
     });
 </script>
 </body>
