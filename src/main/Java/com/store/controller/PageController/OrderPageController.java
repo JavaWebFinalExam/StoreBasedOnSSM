@@ -59,15 +59,24 @@ public class OrderPageController {
     @ResponseBody
     public ModelAndView selectById(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
+        List<Map<String,Object>> commodityCategories=new ArrayList<>();
 
         Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
         Product product = ProductService.selectById(product_id);
         List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
+
         List<Propertyvalue> propertyvalues=propertyvalueService.getValueByProductId(product_id);
 
+        for(Propertyvalue propertyvalue:propertyvalues){
+            Map<String,Object> property = new HashMap<>();
+            property.put("propertyvalue",propertyvalue);
+            property.put("property",PropertyService.getPropertyById(propertyvalue.getPropertyid()));
+
+            commodityCategories.add(property);
+        }
+        mv.addObject("commodityCategories",commodityCategories);
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
-
         //设置返回页面
         mv.setViewName("productTest");
         return mv;

@@ -76,6 +76,7 @@
     where categoryId = #{id};
   </select>
 
+
   <insert id="addProperty" parameterType="Property">
     insert into property
     (categoryid, propertyname)
@@ -87,4 +88,11 @@
         from property
         where categoryId = #{categoryId}
     </select>
+
+  <select id="getPropertyById" parameterType="int" resultType="Property">
+    select *
+    from property
+    where id = #{propertyId};
+  </select>
+
 </mapper>
