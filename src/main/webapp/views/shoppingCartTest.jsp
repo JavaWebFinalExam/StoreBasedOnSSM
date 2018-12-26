@@ -44,13 +44,13 @@
     </ul>
     <ul class="message-r">
         <div class="topMessage home">
-            <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+            <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
             <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
         </div>
         <div class="topMessage favorite">
             <div class="menu-hd"><a href="#" target="_top"><i class=""></i><span></span></a></div>
@@ -141,7 +141,7 @@
                                 <div class="item-amount ">
                                     <div class="sl">
                                         <input class="min am-btn" name="" type="button" value="-" />
-                                        <input id="numberbox-${productPiece.cartid}" class="text_box numberbox" name="" type="text" value="1" style="width:30px;" />
+                                        <input id="numberbox-${productPiece.product.id}" class="text_box numberbox" name="" type="text" value="1" style="width:30px;" />
                                         <input class="add am-btn" name="" type="button" value="+" />
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
                                         <%--<span>删&nbsp;除</span></a>--%>
                                 <br/>
                                 <br/>
-                                    <button id="${productPiece.id}" type="button" class="am-btn am-btn-warning payingbtn">结算</button>
+                                    <button id="${productPiece.product.id}" type="button" class="am-btn am-btn-warning payingbtn">结算</button>
                                     <%--<a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">--%>
                                         <%--<span>结&nbsp;算</span></a>--%>
 

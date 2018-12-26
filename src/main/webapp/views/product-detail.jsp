@@ -56,13 +56,13 @@
     </ul>
     <ul class="message-r">
         <div class="topMessage home">
-            <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+            <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
             <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd"  target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+            <div class="menu-hd"><a id="mc-menu-hd"  target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
         </div>
         <div class="topMessage favorite">
     </ul>
@@ -81,7 +81,7 @@
     </div>
 </div>
 <ol class="am-breadcrumb am-breadcrumb-slash">
-    <li><a href="#">首页</a></li>
+    <li><a href="<%=basePath%>product/products">首页</a></li>
 
     <li class="am-active">内容</li>
 </ol>
@@ -132,34 +132,22 @@
             </script>
 
             <div class="tb-booth tb-pic tb-s310">
-                <a href="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg"><img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" alt="细节展示放大镜特效" rel="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" class="jqzoom" /></a>
+                <a href="<%=basePath%>${productimage[0].path}"><img src="<%=basePath%>${productimage[0].path}" alt="细节展示放大镜特效" rel="<%=basePath%>${productimage[0].path}" class="jqzoom" /></a>
             </div>
-            <ul class="tb-thumb" id="thumblist">
-                <li class="tb-selected">
-                    <div class="tb-pic tb-s40">
-                        <a href="#"><img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" mid="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" big="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg"></a>
-                    </div>
-                </li>
-                <li>
-                    <div class="tb-pic tb-s40">
-                        <a href="#"><img src="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" mid="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" big="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg"></a>
-                    </div>
-                </li>
-                <li>
-                    <div class="tb-pic tb-s40">
-                        <a href="#"><img src="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" mid="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" big="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg"></a>
-                    </div>
-                </li>
-            </ul>
+
         </div>
 
         <div class="clear"></div>
     </div>
+    <br>
+    <br>
+
 
     <div class="clearfixRight">
 
     <div class="clearfixRight">
-
+        <br>
+        <br>
         <!--规格属性-->
         <!--名称-->
         <div class="tb-detail-hd">
@@ -230,20 +218,8 @@
         </div>
         <div class="clear"></div>
 
-        <div class="btn-op">
-            <div class="btn am-btn am-btn-warning">确认</div>
-            <div class="btn close am-btn am-btn-warning">取消</div>
-        </div>
     </div>
-    <div class="theme-signin-right">
-        <div class="img-info">
-            <img src="../images/songzi.jpg" />
-        </div>
-        <div class="text-info">
-            <span class="J_Price price-now">¥39.00</span>
-            <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
-        </div>
-    </div>
+
 
     </form>
 </div>
@@ -258,7 +234,7 @@
 
 <div class="pay">
     <div class="pay-opt">
-        <a href="home.html"><span class="am-icon-home am-icon-fw">首页</span></a>
+        <a href="<%=basePath%>/product/products.html"><span class="am-icon-home am-icon-fw">首页</span></a>
         <a><span class="am-icon-heart am-icon-fw">收藏</span></a>
 
     </div>
@@ -284,6 +260,8 @@
 
 
 <!-- introduce-->
+<br>
+<br>
 
 <div class="introduce">
 
@@ -293,13 +271,11 @@
                 <li class="am-active">
                     <a href="#">
 
+
                         <span class="index-needs-dt-txt">宝贝详情</span></a>
-
                 </li>
-
                 <li>
                     <a href="#">
-
                         <span class="index-needs-dt-txt">全部评价</span></a>
 
                 </li>
@@ -331,12 +307,10 @@
                             <h4>商品细节</h4>
                         </div>
                         <div class="twlistNews">
-                            <img src="<%=basePath%>views/image/productSingle/${productimage[3].id}.jpg" />
-                            <img src="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" />
-                            <img src="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" />
-                            <img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" />
-
-
+                            <img src="<%=basePath%>${productimage[3].path}" />
+                            <img src="<%=basePath%>${productimage[2].path}" />
+                            <img src="<%=basePath%>${productimage[1].path}" />
+                            <img src="<%=basePath%>${productimage[0].path}" />
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -353,7 +327,7 @@
                             <li class="am-comment">
                                 <!-- 评论容器 -->
                                 <a href="">
-                                    <img class="am-comment-avatar" src="../images/hwbn40x40.jpg" />
+                                    <img class="am-comment-avatar" src="<%=basePath%>/views/image/productSingle/1.jpg" />
                                     <!-- 评论者头像 -->
                                 </a>
 
@@ -407,15 +381,7 @@
 
 
                     <!--分页 -->
-                    <ul class="am-pagination am-pagination-right">
-                        <li class="am-disabled"><a href="#">&laquo;</a></li>
-                        <li class="am-active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+
                     <div class="clear"></div>
 
                 </div>
