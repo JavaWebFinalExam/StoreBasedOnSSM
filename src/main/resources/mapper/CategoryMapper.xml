@@ -39,5 +39,11 @@
         where id= #{id};
     </select>
 
+    <select id="getCategoryByName" parameterType="String" resultType="Category">
+        select *
+        from category
+        where typeName = #{name}
+        limit 1;
+    </select>
 
 </mapper>

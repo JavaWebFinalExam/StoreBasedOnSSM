@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: danchun
-  Date: 2018/12/22
-  Time: 14:47
+  Date: 2018/12/26
+  Time: 10:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<html>
 <!doctype html>
 <html class="no-js">
 <head>
@@ -72,51 +72,22 @@
     <div class="admin-content">
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>Charge Category</small></div>
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">编辑分类</strong> / <small>Charge Category</small></div>
                 <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" id="doc-prompt-toggle-x" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
-                </span> 新增分类 </button></div>
+                </span> 新增属性 </button></div>
             </div>
 
             <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-x">
                 <div class="am-modal-dialog">
-                    <div class="am-modal-hd">新增分类</div>
+                    <div class="am-modal-hd">新增属性</div>
                     <div class="am-modal-bd">
-                        <form id="form-x" class="am-form" action="<%=basePath%>category/admin/addCategory" method="post">
+                        <form id="form-x" class="am-form" action="<%=basePath%>category/admin/addProperty" method="post">
                             <fieldset>
+                                <input type="hidden" name="categoryId" value="${categoryId}">
                                 <div class="am-form-group am-g">
-                                    <div class="am-u-lg-4"><label for="doc-input-x1">类别名称：</label></div>
+                                    <div class="am-u-lg-4"><label for="doc-input-x1">属性名称：</label></div>
                                     <div class="am-u-lg-8">
-                                        <input required name="categoryName" type="text" id="doc-input-x1" value="">
-                                    </div>
-                                </div>
-                                <div class="am-form-group am-g">
-                                    <div class="am-u-lg-4"><label for="doc-input-x2">属性一：</label></div>
-                                    <div class="am-u-lg-8">
-                                        <input required name="property1" type="text" id="doc-input-x2" value="">
-                                    </div>
-                                </div>
-                                <div class="am-form-group am-g">
-                                    <div class="am-u-lg-4"><label for="doc-input-x3">属性二：</label></div>
-                                    <div class="am-u-lg-8">
-                                        <input required name="property2" type="text" id="doc-input-x3" value="">
-                                    </div>
-                                </div>
-                                <div class="am-form-group am-g">
-                                    <div class="am-u-lg-4"><label for="doc-input-x4">属性三：</label></div>
-                                    <div class="am-u-lg-8">
-                                        <input required name="property3" type="text" id="doc-input-x4" value="">
-                                    </div>
-                                </div>
-                                <div class="am-form-group am-g">
-                                    <div class="am-u-lg-4"><label for="doc-input-x5">属性四：</label></div>
-                                    <div class="am-u-lg-8">
-                                        <input required name="property4" type="text" id="doc-input-x5" value="">
-                                    </div>
-                                </div>
-                                <div class="am-form-group am-g">
-                                    <div class="am-u-lg-4"><label for="doc-input-x6">属性五：</label></div>
-                                    <div class="am-u-lg-8">
-                                        <input required name="property5" type="text" id="doc-input-x6" value="">
+                                        <input required name="propertyName" type="text" id="doc-input-x1">
                                     </div>
                                 </div>
                             </fieldset>
@@ -134,48 +105,39 @@
             <div class="am-g">
                 <div class="am-u-sm-12 am-u-md-5 am-u-md-push-10"></div>
                 <div class="am-u-sm-12 am-u-md-7 am-u-md-pull-3">
-                        <table class="am-table am-table-striped am-table-hover table-main">
-                            <thead>
-                            <tr>
-                                <th class="table-type">分类id</th>
-                                <th class="table-type">分类名称</th>
-                                <th class="table-type">商品属性数</th>
-                                <th class="table-type">拥有商品数</th>
-                                <th class="table-set">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                        <tr>
+                            <th class="table-type">属性id</th>
+                            <th class="table-type">属性名称</th>
+                            <th class="table-set">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                            <%--循环显示数据--%>
-                            <c:if test="${categories != null}">
-                                <c:forEach var="category" items="${categories}">
-                                    <tr>
-                                        <td>${category.id}</td>
-                                        <td>${category.typeName}</td>
-                                        <td>${category.propertyNum}</td>
-                                        <td>${category.productNum}</td>
+                        <%--循环显示数据--%>
+                        <c:if test="${properties != null}">
+                            <c:forEach var="property" items="${properties}">
+                                <tr>
+                                    <td>${property.id}</td>
+                                    <td>${property.propertyname}</td>
 
-                                        <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                    <button id="btn-${category.id}" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
-                                                    <script type="text/javascript">
-                                                        $('#btn-${category.id}').click(function () {
-                                                            console.log("点击编辑");
-                                                            window.location.href="<%=basePath%>adminPage/propertyCharge?categoryId=${category.id}";
-                                                        });
-                                                    </script>
-                                                    <button id="${category.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
-                                                        <span class="am-icon-trash-o"></span> 删除</button>
-                                                </div>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button id="btn-${property.id}" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
+
+                                                <button id="${property.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
+                                                    <span class="am-icon-trash-o"></span> 删除</button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </c:if>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:if>
 
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -196,12 +158,12 @@
         var ID = this.id;
 
         var json_data = {
-            "categoryId": ID
+            "propertyId": ID
         };
         var jason_str = JSON.stringify(json_data);
 
         $.ajax({
-            url :"<%=basePath%>category/admin/deleteCategory",
+            url :"<%=basePath%>category/admin/deleteProperty",
             cache : true,
             type : "post",
             datatype : "json",
@@ -236,4 +198,3 @@
 </script>
 </body>
 </html>
-
