@@ -141,7 +141,7 @@
                                 <div class="item-amount ">
                                     <div class="sl">
                                         <input class="min am-btn" name="" type="button" value="-" />
-                                        <input class="text_box" name="" type="text" value="3" style="width:30px;" />
+                                        <input id="numberbox-${productPiece.cartid}" class="text_box numberbox" name="" type="text" value="1" style="width:30px;" />
                                         <input class="add am-btn" name="" type="button" value="+" />
                                     </div>
                                 </div>
@@ -156,12 +156,12 @@
                         <li class="td td-op">
                             <div class="td-inner">
 
-                                    <button type="button" class="am-btn am-btn-default">删除</button>
+                                    <button id="${productPiece.cartid}" type="button" class="am-btn am-btn-default delete-btn">删除</button>
                                     <%--<a href="pay.html" id="J_Go" class="-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">--%>
                                         <%--<span>删&nbsp;除</span></a>--%>
                                 <br/>
                                 <br/>
-                                    <button type="button" class="am-btn am-btn-warning">结算</button>
+                                    <button id="${productPiece.id}" type="button" class="am-btn am-btn-warning payingbtn">结算</button>
                                     <%--<a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">--%>
                                         <%--<span>结&nbsp;算</span></a>--%>
 
@@ -202,8 +202,55 @@
             window.location.href="<%=basePath%>userPage/ordAndCart/showUserOrders";
         });
     </script>
-<!--操作页面-->
 
+    <%--结算--%>
+    <script>
+        $(".payingbtn").click(function () {
+            var product_id=this.id;
+            var productNum = $("#numberbox-"+product_id)[0].value;
+            console.log(productNum);
+
+            window.location.href="<%=basePath%>userPage/ordAndCart/showTransction?product_id="+product_id+"&productNum="+productNum;
+        });
+    </script>
+
+<%--删除购物车--%>
+    <script type="text/javascript">
+        $(".delete-btn").click(function () {
+            console.log(this.id);
+
+            var ID = this.id;
+
+            var json_data = {
+                "shoppingCart_id": ID
+            };
+            var jason_str = JSON.stringify(json_data);
+
+            $.ajax({
+                url :"<%=basePath%>userPage/ordAndCart/deleteShoppingCart",
+                cache : true,
+                type : "post",
+                datatype : "json",
+                contentType : "application/json; charset=utf-8",
+                data : jason_str,
+
+                success : function (data){
+                    console.log(data.state + data.message);
+                    if (data.state == true){
+                        console.log(data.message);
+                        location.reload();
+                    } else {
+                        alert(data.message);
+                        location.reload();
+                    }
+                },
+                error:function (data) {
+                    console.log(data);
+                    alert("请求出错，请检查网络或服务器是否开启");
+                }
+            });
+        });
+    </script>
 <!--引导 -->
 
 </body>
