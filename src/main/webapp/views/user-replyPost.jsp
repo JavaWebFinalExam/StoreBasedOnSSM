@@ -105,7 +105,6 @@
         </div>
 
     </div>
-    <div class="am_info_line">Copyright(c)2018 <span>PetShow</span> All Rights Reserved </div>
 </footer>
 
 

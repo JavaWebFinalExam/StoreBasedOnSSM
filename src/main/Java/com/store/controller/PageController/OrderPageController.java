@@ -211,7 +211,7 @@ public class OrderPageController {
         for (Shoppingcart cart : shoppingcarts) {
             Map<String, Object> productPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + cart.getProductid()));
-           int productimage=ProductimageService.getImageIdByProductId(product.getId());
+           Productimage productimage=ProductimageService.getImageIdByProductId(product.getId());
             //获取单个商品对象
             productPiece.put("product", product);
             productPiece.put("productNum", cart.getProductnum());
@@ -297,7 +297,7 @@ public class OrderPageController {
         int productNum = Integer.valueOf("" + request.getParameter("productNum"));
         Product product = ProductService.selectById(product_id);
         float amount=product.getPromoteprice()*productNum;
-        int productimage = ProductimageService.getImageIdByProductId(product_id);
+        Productimage productimage = ProductimageService.getImageIdByProductId(product_id);
 
 
         mv.addObject("product", product);
@@ -411,7 +411,7 @@ public class OrderPageController {
         for (Order oneOrder: orders) {
             Map<String, Object> orderPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + oneOrder.getProductid()));
-            int productimage=ProductimageService.getImageIdByProductId(Integer.valueOf("" + oneOrder.getProductid()));
+            Productimage productimage=ProductimageService.getImageIdByProductId(Integer.valueOf("" + oneOrder.getProductid()));
             //获取单个商品对象
             orderPiece.put("product", product);
             //获取商品名称

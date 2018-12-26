@@ -67,7 +67,7 @@
                 <li>
                     <div class="am-gallery-item am_list_block">
                         <a href="/userPage/ordAndCart/productDetail?product_id=${commoditydDtail.productId}" class="am_img_bg">
-                            <img class="am_img" src="<%=basePath%>views/image/productSingle/${commoditydDtail.productImage}.jpg"
+                            <img class="am_img" src="<%=basePath%>${commoditydDtail.productImage.path}"
                                  alt="404"/>
                         </a>
                         <div class="am_listimg_info" style="text-align: center;color: blue">${commoditydDtail.productName}</div>

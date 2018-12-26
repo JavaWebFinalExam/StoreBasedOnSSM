@@ -101,13 +101,13 @@
         <div class="flexslider">
             <ul class="slides">
                 <li>
-                    <img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" title="pic" />
+                    <img src="<%=basePath%>${productimage[0].path}" title="pic" />
                 </li>
                 <li>
-                    <img src="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" />
+                    <img src="<%=basePath%>${productimage[1].path}" />
                 </li>
                 <li>
-                    <img src="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" />
+                    <img src="<%=basePath%>${productimage[2].path}" />
                 </li>
             </ul>
         </div>
