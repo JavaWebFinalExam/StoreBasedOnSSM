@@ -19,7 +19,7 @@ public class ProductimageServiceImpl implements ProductimageService {
     }
 
     @Override
-    public List<String> selectImageByProductId(Integer productId){
+    public     List<Productimage> selectImageByProductId(Integer productId){
         return productimageMapper.selectImageByProductId(productId);
     }
 

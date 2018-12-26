@@ -17,7 +17,7 @@ public interface ProductimageMapper {
 
     int updateByPrimaryKey(Productimage record);
 
-    List<String> selectImageByProductId(Integer productId);
+    List<Productimage> selectImageByProductId(Integer productId);
 
     Integer getImageIdByProductId(Integer productId);
 }
