@@ -45,6 +45,8 @@ public class OrderPageController {
     PropertyService PropertyService;
     @Autowired
     AccountService AccountService;
+    @Autowired
+    PropertyvalueService propertyvalueService;
 
 
     //商品详情页面ok
@@ -60,7 +62,8 @@ public class OrderPageController {
 
         Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
         Product product = ProductService.selectById(product_id);
-        List<String> productimage = ProductimageService.selectImageByProductId(product_id);
+        List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
+        List<Propertyvalue> propertyvalues=propertyvalueService.getValueByProductId(product_id);
 
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
@@ -187,6 +190,7 @@ public class OrderPageController {
     public ModelAndView selectByUserId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
+        session.setAttribute("userId",1);
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -198,18 +202,17 @@ public class OrderPageController {
             Product product = ProductService.selectById(Integer.valueOf("" + cart.getProductid()));
             //获取单个商品对象
             productPiece.put("product", product);
-
             productPiece.put("productNum", cart.getProductnum());
 
             products.add(productPiece);
-            mv.addObject("productPiece", products);
-        }
+
+        } mv.addObject("products", products);
 
         //设置返回页面
         mv.setViewName("shoppingCartTest");
         return mv;
-
     }
+
 
     //删除购物车OK
     @RequestMapping(
@@ -281,7 +284,7 @@ public class OrderPageController {
 
         int product_id = Integer.valueOf("" + request.getParameter("product_id"));
         Product product = ProductService.selectById(product_id);
-        List<String> productimage = ProductimageService.selectImageByProductId(product_id);
+        List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
 
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
@@ -391,14 +394,18 @@ public class OrderPageController {
         for (Order oneOrder: orders) {
             Map<String, Object> orderPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + oneOrder.getProductid()));
+            int productimage=ProductimageService.getImageIdByProductId(Integer.valueOf("" + oneOrder.getProductid()));
             //获取单个商品对象
             orderPiece.put("product", product);
             //获取商品名称
             orderPiece.put("oneOrder", oneOrder);
+            float price=oneOrder.getProductnum()*product.getPromoteprice();
+            orderPiece.put("productimage", productimage);
+            orderPiece.put("price", price);
             products.add(orderPiece);
-            mv.addObject("productPiece", products);
-        }
 
+        }
+        mv.addObject("products", products);
         //设置返回页面
         mv.setViewName("user-order");
         return mv;

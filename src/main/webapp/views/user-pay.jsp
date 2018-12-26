@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -15,14 +21,15 @@
 
     <title>结算页面</title>
 
-    <link href="../assets/css/payAmazeui.css" rel="stylesheet" type="text/css" />
 
-    <link href="../assets/css/payDemo.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/payCartstyle.css" rel="stylesheet" type="text/css" />
 
-    <link href="../assets/css/payJsstyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/payAmazeui.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/payDemo.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/payCartstyle.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="../assets/js/payAddress.js"></script>
+    <link href="<%=basePath%>views/assets/css/payJsstyle.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/payAddress.js"></script>
 
 </head>
 

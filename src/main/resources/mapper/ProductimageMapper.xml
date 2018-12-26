@@ -77,8 +77,8 @@
   </update>
 
   <!--以下为后续添加内容-->
-  <select id="selectImageByProductId" resultType="String" parameterType="java.lang.Integer">
-    select path
+  <select id="selectImageByProductId" resultType="Productimage" parameterType="java.lang.Integer">
+    select *
     from productimage
     where productId= #{productId,jdbcType=INTEGER}
   </select>
