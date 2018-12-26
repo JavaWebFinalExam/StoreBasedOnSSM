@@ -84,9 +84,7 @@
         <c:if test="${userPosts!=null}">
             <c:forEach items="${userPosts}" var="userPost" >
                 <article class="am-comment"> <!-- 评论容器 -->
-                    <a href="">
-                        <img class="am-comment-avatar" alt="404" src="<%=basePath%>${userPost.headPortrait}"/> <!-- 评论者头像 -->
-                    </a>
+
 
                     <div class="am-comment-main"> <!-- 评论内容容器 -->
                         <header class="am-comment-hd">
@@ -108,29 +106,7 @@
 
 
 
-<footer class="am_footer">
-    <div class="am_footer_con">
-        <div class="am_footer_link">
-            <span>关于商城</span>
-            <ul>
-                <li><a href="###">关于我们</a></li>
-                <li><a href="###">友情链接</a></li>
-            </ul>
-        </div>
 
-
-        <div class="am_footer_don">
-
-        </div>
-
-        <div class="am_footer_erweima">
-            <div class="am_footer_weixin"><img src="img/wx.jpg" alt=""><div class="am_footer_d_gzwx am-icon-weixin"> 关注微信</div></div>
-            <div class="am_footer_ddon"><img src="img/wx.jpg" alt=""><div class="am_footer_d_dxz am-icon-cloud-download"> 扫码下载</div></div>
-
-        </div>
-
-    </div>
-</footer>
 
 
 <script>
