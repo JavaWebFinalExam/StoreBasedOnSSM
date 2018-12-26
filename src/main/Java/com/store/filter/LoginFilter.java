@@ -13,6 +13,7 @@ public class LoginFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        System.out.println("进入拦截");
 
         HttpServletRequest request =  (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
@@ -26,6 +27,12 @@ public class LoginFilter implements Filter {
 
         String finalRequestURL = requestURL.substring(path.length());
         System.out.println(finalRequestURL);
+
+        //重定向主页
+        if(finalRequestURL.equals("/")){
+            response.sendRedirect( path + "product/products");
+            return;
+        }
 
         if (null == session.getAttribute("id")){
             if(finalRequestURL.equals("/Admin/checkLogin") || finalRequestURL.equals("/") || finalRequestURL.equals("/Admin/register")){
