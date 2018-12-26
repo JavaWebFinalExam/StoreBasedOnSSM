@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
@@ -51,7 +52,7 @@
             <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+            <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
             <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -98,8 +99,6 @@
                     <ul class="item-content clearfix">
                         <li class="td td-chk">
                             <div class="cart-checkbox ">
-                                <input class="check" id="J_CheckBox_170037950254" name="items[]" value="170037950254" type="checkbox">
-                                <label for="J_CheckBox_170037950254"></label>
                             </div>
                         </li>
                         <li class="td td-item">
@@ -155,8 +154,6 @@
 
 
         <div class="footer">
-
-            <div class="footer-bd">
                 <p>
                     <a href="#">石立军</a>
                     <a href="#">肖枢贤</a>
@@ -165,11 +162,30 @@
                     <a href="#">黄宁</a>
                     <em>计算机科学与技术161班 </em>
                 </p>
-            </div>
         </div>
+
 
     </div>
 </div>
+<%--跳转购物车--%>
+<script>
+    $("#mc-menu-hd").click(function () {
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/ordAndCart/showShoppingCart";
+    });
+</script>
+<%--跳转我的订单--%>
+<script>
+    $("#myorders").click(function () {
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/ordAndCart/showUserOrders";
+    });
+</script>
+
+
+
 </body>
 
 </html>

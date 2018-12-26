@@ -50,4 +50,21 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductsType(){
         return productMapper.getProductsType();
     }
+
+    @Override
+    public int getAllProductNum(){
+        return productMapper.getAllProductNum();
+    }
+
+    @Override
+    public List<Product> getAllProduct(int currIndex,int pageSize){
+        return productMapper.getAllProduct(currIndex, pageSize);
+    }
+
+    @Override
+    public List<Product> getProductBycategoryId(int categoryId){
+        return productMapper.getProductBycategoryId(categoryId);
+    }
+
+
 }

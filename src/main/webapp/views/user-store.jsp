@@ -82,11 +82,9 @@
 </div>
 
 <ul class="am-pagination am-pagination-centered">
-    <li class="am-disabled"><a href="#">&laquo;</a></li>
     <c:forEach items="${lengths}" var="length" >
         <li><a href="/userPage/postPage/storePage?storeId=${store.id}&currIndex=${length+1}">${length+1}</a></li>
     </c:forEach>
-    <li><a href="#">&raquo;</a></li>
 </ul>
 
 <footer class="am_footer">

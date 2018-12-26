@@ -7,6 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -16,19 +25,19 @@
 
     <title>商品页面</title>
 
-    <link href="../assets/css/adminproduct.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/amazeuiproduct.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/demoproduct.css" rel="stylesheet" type="text/css" />
-    <link type="text/css" href="../assets/css/productoptstyle.css" rel="stylesheet" />
-    <link type="text/css" href="../assets/css/productstyle.css" rel="stylesheet" />
+    <link href="<%=basePath%>views/assets/css/adminproduct.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/amazeuiproduct.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/demoproduct.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="<%=basePath%>views/assets/css/productoptstyle.css" rel="stylesheet" />
+    <link type="text/css" href="<%=basePath%>views/assets/css/productstyle.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="../js/quick_links.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery17.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/quick_links.js"></script>
 
-    <script type="text/javascript" src="../js/productamazeui.js"></script>
-    <script type="text/javascript" src="../js/productjquery.imagezoom.min.js"></script>
-    <script type="text/javascript" src="../js/productjquery.flexslider.js"></script>
-    <script type="text/javascript" src="../js/productlist.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.imagezoom.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/list.js"></script>
 
 </head>
 
@@ -50,13 +59,12 @@
             <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+            <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+            <div class="menu-hd"><a id="mc-menu-hd"  target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
         </div>
         <div class="topMessage favorite">
-            <div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
     </ul>
 </div>
 
@@ -66,18 +74,15 @@
 
 <!--分类-->
 <div class="nav-table">
-    <div class="long-title"><span class="all-goods">全部分类</span></div>
+    <div class="long-title"><span class="all-goods">首页</span></div>
     <div class="nav-cont">
-        <ul>
-            <li class="index"><a href="#">首页</a></li>
 
-        </ul>
 
     </div>
 </div>
 <ol class="am-breadcrumb am-breadcrumb-slash">
     <li><a href="#">首页</a></li>
-    <li><a href="#">分类</a></li>
+
     <li class="am-active">内容</li>
 </ol>
 <script type="text/javascript">
@@ -96,13 +101,13 @@
         <div class="flexslider">
             <ul class="slides">
                 <li>
-                    <img src="../images/01.jpg" title="pic" />
+                    <img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" title="pic" />
                 </li>
                 <li>
-                    <img src="../images/02.jpg" />
+                    <img src="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" />
                 </li>
                 <li>
-                    <img src="../images/03.jpg" />
+                    <img src="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" />
                 </li>
             </ul>
         </div>
@@ -127,22 +132,22 @@
             </script>
 
             <div class="tb-booth tb-pic tb-s310">
-                <a href="../images/01.jpg"><img src="../images/01_mid.jpg" alt="细节展示放大镜特效" rel="../images/01.jpg" class="jqzoom" /></a>
+                <a href="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg"><img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" alt="细节展示放大镜特效" rel="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" class="jqzoom" /></a>
             </div>
             <ul class="tb-thumb" id="thumblist">
                 <li class="tb-selected">
                     <div class="tb-pic tb-s40">
-                        <a href="#"><img src="../images/01_small.jpg" mid="../images/01_mid.jpg" big="../images/01.jpg"></a>
+                        <a href="#"><img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" mid="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" big="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg"></a>
                     </div>
                 </li>
                 <li>
                     <div class="tb-pic tb-s40">
-                        <a href="#"><img src="../images/02_small.jpg" mid="../images/02_mid.jpg" big="../images/02.jpg"></a>
+                        <a href="#"><img src="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" mid="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" big="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg"></a>
                     </div>
                 </li>
                 <li>
                     <div class="tb-pic tb-s40">
-                        <a href="#"><img src="../images/03_small.jpg" mid="../images/03_mid.jpg" big="../images/03.jpg"></a>
+                        <a href="#"><img src="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" mid="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" big="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg"></a>
                     </div>
                 </li>
             </ul>
@@ -153,11 +158,13 @@
 
     <div class="clearfixRight">
 
+    <div class="clearfixRight">
+
         <!--规格属性-->
         <!--名称-->
         <div class="tb-detail-hd">
             <h1>
-                良品铺子 手剥松子218g 坚果炒货 巴西松子
+               ${product.name}
             </h1>
         </div>
         <div class="tb-detail-list">
@@ -165,11 +172,11 @@
             <div class="tb-detail-price">
                 <li class="price iteminfo_price">
                     <dt>促销价</dt>
-                    <dd><em>¥</em><b class="sys_item_price">56.90</b>  </dd>
+                    <dd><em>¥</em><b class="sys_item_price">${product.promoteprice}</b>  </dd>
                 </li>
                 <li class="price iteminfo_mktprice">
                     <dt>原价</dt>
-                    <dd><em>¥</em><b class="sys_item_mktprice">98.00</b></dd>
+                    <dd><em>¥</em><b class="sys_item_mktprice">${product.originalprice}</b></dd>
                 </li>
                 <div class="clear"></div>
             </div>
@@ -179,20 +186,17 @@
             <!--销量-->
             <ul class="tm-ind-panel">
                 <li class="tm-ind-item tm-ind-sellCount canClick">
-                    <div class="tm-indcon"><span class="tm-label">月销量</span><span class="tm-count">1015</span></div>
                 </li>
                 <li class="tm-ind-item tm-ind-sumCount canClick">
-                    <div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count">6015</span></div>
                 </li>
                 <li class="tm-ind-item tm-ind-reviewCount canClick tm-line3">
-                    <div class="tm-indcon"><span class="tm-label">累计评价</span><span class="tm-count">640</span></div>
                 </li>
             </ul>
             <div class="clear"></div>
 
             <!--各种规格-->
             <dl class="iteminfo_parameter sys_item_specpara">
-                <dt class="theme-login"><div class="cart-title">可选规格<span class="am-icon-angle-right"></span></div></dt>
+                <dt class="theme-login"><div class="cart-title"><span class="am-icon-angle-right"></span></div></dt>
                 <dd>
                     <!--操作页面-->
 
@@ -209,21 +213,10 @@
                                 <div class="theme-signin-left">
 
                                     <div class="theme-options">
-                                        <div class="cart-title">口味</div>
-                                        <ul>
-                                            <li class="sku-line selected">原味<i></i></li>
-                                            <li class="sku-line">奶油<i></i></li>
-                                            <li class="sku-line">炭烧<i></i></li>
-                                            <li class="sku-line">咸香<i></i></li>
-                                        </ul>
+
                                     </div>
                                     <div class="theme-options">
-                                        <div class="cart-title">包装</div>
-                                        <ul>
-                                            <li class="sku-line selected">手袋单人份<i></i></li>
-                                            <li class="sku-line">礼盒双人份<i></i></li>
-                                            <li class="sku-line">全家福礼包<i></i></li>
-                                        </ul>
+
                                     </div>
                                     <div class="theme-options">
                                         <div class="cart-title number">数量</div>
@@ -231,7 +224,7 @@
                     <input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
                     <input id="text_box" name="" type="text" value="1" style="width:30px;" />
                     <input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
-                    <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+                    <span id="Stock" class="tb-hidden">库存<span class="stock">${product.stock}</span>件</span>
                 </dd>
 
         </div>
@@ -271,7 +264,7 @@
     </div>
     <li>
         <div class="clearfix tb-btn tb-btn-buy theme-login">
-            <a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
+            <a id="LikBuy" title="点此按钮到下一步确认购买信息">立即购买</a>
         </div>
     </li>
     <li>
@@ -323,16 +316,12 @@
                             <h4>产品参数：</h4></div>
                         <div class="clear"></div>
                         <ul id="J_AttrUL">
-                            <li title="">产品类型:&nbsp;烘炒类</li>
-                            <li title="">原料产地:&nbsp;巴基斯坦</li>
-                            <li title="">产地:&nbsp;湖北省武汉市</li>
-                            <li title="">配料表:&nbsp;进口松子、食用盐</li>
-                            <li title="">产品规格:&nbsp;210g</li>
-                            <li title="">保质期:&nbsp;180天</li>
-                            <li title="">产品标准号:&nbsp;GB/T 22165</li>
-                            <li title="">生产许可证编号：&nbsp;QS4201 1801 0226</li>
-                            <li title="">储存方法：&nbsp;请放置于常温、阴凉、通风、干燥处保存 </li>
-                            <li title="">食用方法：&nbsp;开袋去壳即食</li>
+                            <c:if test="${commodityCategories!=null}">
+
+                                <c:forEach items="${commodityCategories}" var="commodityCategory" >
+                                <li title=""> ${commodityCategory.property.propertyname}:${commodityCategory.propertyvalue.value}</li>
+                                </c:forEach>
+                            </c:if>
                         </ul>
                         <div class="clear"></div>
                     </div>
@@ -342,13 +331,12 @@
                             <h4>商品细节</h4>
                         </div>
                         <div class="twlistNews">
-                            <img src="../images/tw1.jpg" />
-                            <img src="../images/tw2.jpg" />
-                            <img src="../images/tw3.jpg" />
-                            <img src="../images/tw4.jpg" />
-                            <img src="../images/tw5.jpg" />
-                            <img src="../images/tw6.jpg" />
-                            <img src="../images/tw7.jpg" />
+                            <img src="<%=basePath%>views/image/productSingle/${productimage[3].id}.jpg" />
+                            <img src="<%=basePath%>views/image/productSingle/${productimage[2].id}.jpg" />
+                            <img src="<%=basePath%>views/image/productSingle/${productimage[1].id}.jpg" />
+                            <img src="<%=basePath%>views/image/productSingle/${productimage[0].id}.jpg" />
+
+
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -788,146 +776,13 @@
                         <div class="tb-rate-alert type-attention">购买前请查看该商品的 <a href="#" target="_blank">购物保障</a>，明确您的售后保障权益。</div>
                     </div>
 
+
+
+
+
+
                 </div>
 
-                <div class="am-tab-panel am-fade">
-                    <div class="like">
-                        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="i-pic limit">
-                                    <img src="../images/imgsearch1.jpg" />
-                                    <p>【良品铺子_开口松子】零食坚果特产炒货
-                                        <span>东北红松子奶油味</span></p>
-                                    <p class="price fl">
-                                        <b>¥</b>
-                                        <strong>298.00</strong>
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clear"></div>
 
                     <!--分页 -->
                     <ul class="am-pagination am-pagination-right">
@@ -958,7 +813,7 @@
                     <a href="#">陈俊卿</a>
                     <a href="#">简斌兵</a>
                     <a href="#">黄宁</a>
-                    <em>© 计算机科学与技术161班 版权所有</em>
+                    <em>© 计算机科学与技术161班</em>
                 </p>
             </div>
         </div>
@@ -966,6 +821,33 @@
 
 </div>
 </div>
+
+
+<script>
+    $("#LikBuy").click(function () {
+        var productNum = $("#text_box")[0].value;
+        console.log(productNum);
+
+        window.location.href="<%=basePath%>userPage/ordAndCart/showTransction?product_id=${product.id}&productNum="+productNum;
+    });
+</script>
+<%--//跳转购物车--%>
+<script>
+    $("#mc-menu-hd").click(function () {
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/ordAndCart/showShoppingCart";
+    });
+</script>
+<%--//我的订单--%>
+<script>
+    $("#myorders").click(function () {
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/ordAndCart/showUserOrders";
+    });
+</script>
+
 
 </body>
 
