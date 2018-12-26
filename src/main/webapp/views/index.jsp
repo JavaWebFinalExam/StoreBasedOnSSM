@@ -71,113 +71,104 @@
         </div>
     </div>
 </header>
-<div class="get">
-    <div class="am-g">
-        <div class="am-u-lg-12">
+
+<div style="max-width: 1200px;margin: 0 auto;">
+  <ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
+    <c:forEach items="${commodityInformation}" var="information">
+    <li>
+      <div class="am-gallery-item">
+        <a href="#" class="">
+          <img src="<%=basePath%>${information.productImage.path}"  alt="远方 有一个地方 那里种有我们的梦想"/>
+          <h3>${information.product.name}</h3>
+        </a>
+        <h1 class="am-gallery-title">
+          优惠价：￥${information.product.originalprice}<br>
+          优惠价：￥${information.product.promoteprice}<br>
+          库存数量：${information.product.stock}<br>
+        </h1>
+          <div class="gallery-desc"><small>店铺：${information.product.storeid}</small></div>
+          <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${information.product.id}">加入购物车</button>
+      </div>
+    </li>
+
+      <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${information.product.id}">
+        <div class="am-modal-dialog">
+          <div class="am-modal-hd">将${information.product.name}加入购物车</div>
+          <div class="am-modal-bd">
+            请输入添加数量：
+            <input id="input-${information.product.id}" required type="number" pattern="[0-9]*" class="am-modal-prompt-input">
+          </div>
+          <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+      <script>
+          $(function() {
+              $('#doc-prompt-toggle-${information.product.id}').on('click', function() {
+                  $('#my-prompt-${information.product.id}').modal({
+                      relatedTarget: this,
+                      onConfirm: function(e) {
+                          console.log(e.data);
+                          var length = $("#input-${information.product.id}")[0].value.length;
 
-<div class="am-g am-imglist">
-    <div class="am-u-md-12 am-u-sm-12">
+                          if (0 < length && length <= 11){
+                              var ID = ${information.product.id};
+                              var productNum = parseInt(e.data);
 
-        <c:forEach items="${commodityInformation}" var="information">
-            <article class="am-g blog-entry-article">
-                <div class="am-u-lg-4 am-u-md-12 am-u-sm-12 blog-entry-img">
-                    <img class="am-img-thumbnail am-img-bdrs" src="<%=basePath%>${information.productImage.path}" alt=""/>
-                </div>
-                <div class="am-u-lg-8 am-u-md-12 am-u-sm-12">
-                    <div class="gallery-title">
-                        <h1>${information.product.name}</h1>
-                    </div>
-                    <div class="gallery-desc"><small>店铺：${information.product.storeid}</small></div>
-                    <div class="gallery-desc">
-                        <small>优惠价：￥${information.product.originalprice}</small>
-                        <small>优惠价：￥${information.product.promoteprice}</small>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <small>库存数量：${information.product.stock}</small></div>
-                    <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${information.product.id}">加入购物车</button>
-                </div>
-            </article>
-            <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${information.product.id}">
-                <div class="am-modal-dialog">
-                    <div class="am-modal-hd">将${information.product.name}加入购物车</div>
-                    <div class="am-modal-bd">
-                        请输入添加数量：
-                        <input id="input-${information.product.id}" required type="number" pattern="[0-9]*" class="am-modal-prompt-input">
-                    </div>
-                    <div class="am-modal-footer">
-                        <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-                        <span class="am-modal-btn" data-am-modal-confirm>提交</span>
-                    </div>
-                </div>
-            </div>
-            <script>
-                $(function() {
-                    $('#doc-prompt-toggle-${information.product.id}').on('click', function() {
-                        $('#my-prompt-${information.product.id}').modal({
-                            relatedTarget: this,
-                            onConfirm: function(e) {
-                                console.log(e.data);
-                                var length = $("#input-${information.product.id}")[0].value.length;
+                              var json_data = {
+                                  "product_id": ID,
+                                  "productNum":productNum
+                              };
+                              var jason_str = JSON.stringify(json_data);
+                              console.log(jason_str);
 
-                                if (0 < length && length <= 11){
-                                    var ID = ${information.product.id};
-                                    var productNum = parseInt(e.data);
+                              $.ajax({
+                                  url :"<%=basePath%>userPage/ordAndCart/addProductToShoppingCart",
+                                  cache : true,
+                                  type : "post",
+                                  datatype : "json",
+                                  contentType : "application/json; charset=utf-8",
+                                  data : jason_str,
 
-                                    var json_data = {
-                                        "product_id": ID,
-                                        "productNum":productNum
-                                    };
-                                    var jason_str = JSON.stringify(json_data);
-                                    console.log(jason_str);
+                                  success : function (data){
+                                      console.log(data.state + data.message);
 
-                                    $.ajax({
-                                        url :"<%=basePath%>userPage/ordAndCart/addProductToShoppingCart",
-                                        cache : true,
-                                        type : "post",
-                                        datatype : "json",
-                                        contentType : "application/json; charset=utf-8",
-                                        data : jason_str,
-
-                                        success : function (data){
-                                            console.log(data.state + data.message);
-
-                                            if (data.state == true){
-                                                console.log(data.message);
-                                                location.reload();
-                                            } else {
-                                                alert(data.message);
-                                            }
-                                        },
-                                        error:function (data) {
-                                            console.log(data);
-                                            alert("请求出错，请检查网络或服务器是否开启");
-                                        }
-                                    });
-                                }else{
-                                    alert("请输入合法的数据！");
-                                }
-                            },
-                            onCancel: function(e) {
-                            }
-                        });
-                    });
-                });
-            </script>
-        </c:forEach>
-    </div>
-
-<hr>
+                                      if (data.state == true){
+                                          console.log(data.message);
+                                          location.reload();
+                                      } else {
+                                          alert(data.message);
+                                      }
+                                  },
+                                  error:function (data) {
+                                      console.log(data);
+                                      alert("请求出错，请检查网络或服务器是否开启");
+                                  }
+                              });
+                          }else{
+                              alert("请输入合法的数据！");
+                          }
+                      },
+                      onCancel: function(e) {
+                      }
+                  });
+              });
+          });
+      </script>
+    </c:forEach>
+  </ul>
 
   <c:if test="${isPage!=null}">
-  <div class="am-margin am-cf">
-    <hr/>
-    <ol class="am-pagination am-fr">
-      <c:forEach items="${lengths}" var="length">
-        <li ${page==length?"class=\"am-active\"":""}><a href="<%=basePath%>product/products?page=${length}">${length}</a></li>
-      </c:forEach>
-    </ol>
-  </div>
+    <div class="am-margin am-cf">
+      <hr/>
+      <ol class="am-pagination am-fr">
+        <c:forEach items="${lengths}" var="length">
+          <li ${page==length?"class=\"am-active\"":""}><a href="<%=basePath%>product/products?page=${length}">${length}</a></li>
+        </c:forEach>
+      </ol>
+    </div>
   </c:if>
 </div>
 

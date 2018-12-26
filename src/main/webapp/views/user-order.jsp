@@ -24,12 +24,9 @@
 
 
     <link href="<%=basePath%>views/assets/css/Amazeui.css" rel="stylesheet" type="text/css" />
-
     <link href="<%=basePath%>views/assets/css/orderDemo.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
-
     <link href="<%=basePath%>views/assets/css/optstyle.css" rel="stylesheet" type="text/css" />
-
 
     <script type="text/javascript" src="<%=basePath%>views/assets/js/orderAddress.js"></script>
 
@@ -41,7 +38,7 @@
 <div class="am-container header">
     <ul class="message-l">
     </ul>
-    <ul class="message-r">
+    <ul class="message-r am-cf">
         <div class="topMessage home">
             <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
         </div>

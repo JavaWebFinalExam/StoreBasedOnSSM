@@ -28,31 +28,45 @@
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css">
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/petshow.css?6">
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/animate.min.css">
-    <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.min.js"></script>
     <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/countUp.min.js"></script>
     <script src="<%=basePath%>views/assets/js/amazeui.lazyload.min.js"></script>
 
 </head>
 <body>
 <!--顶部导航条 -->
-<div class="am-container header">
-    <ul class="message-l">
-    </ul>
-    <ul class="message-r">
-        <div class="topMessage home">
-            <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
+<!--顶部导航条 -->
+<header class="am-topbar am-topbar-inverse">
+    <div class="amz-container">
+        <h1 class="am-topbar-brand">商城</h1>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-fl">
+                    <a href="<%=basePath%>product/products">
+                        首页
+                    </a>
+                </li>
+            </ul>
+            <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
+                    <i class="am-icon-shopping-cart"></i>&nbsp;购物车
+                </a>
+                </li>
+
+                <li class="am-dropdown am-fr" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <i class="am-icon-user"></i> &nbsp;用户<span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="<%=basePath%>userPage/ordAndCart/showUserOrders">查看订单</a></li>
+                        <li><a href="<%=basePath%>account/outLogin">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a id="myorders" href="<%=basePath%>userPage/ordAndCart/showUserOrders" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
-        </div>
-        <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="<%=basePath%>userPage/ordAndCart/showShoppingCart" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
-        </div>
-        <div class="topMessage favorite">
-            <div class="menu-hd"><a href="#" target="_top"><i class=""></i><span></span></a></div>
-        </div>
-    </ul>
-</div>
+    </div>
+</header>
 
 
 
