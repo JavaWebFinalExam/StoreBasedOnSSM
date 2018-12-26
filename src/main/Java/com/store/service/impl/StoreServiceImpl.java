@@ -87,4 +87,10 @@ public class StoreServiceImpl implements StoreService {
         storeMapper.checkStore(id,1);
     }
 
+    @Override
+    public  int insertStore(Store store){
+        return storeMapper.insertStore(store);
+    }
+
+
 }

@@ -154,7 +154,7 @@ public class AdminPageController {
 
     //显示注册界面
     @RequestMapping("/register")
-    public ModelAndView register(HttpServletRequest request){
+    public ModelAndView register(){
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("register");

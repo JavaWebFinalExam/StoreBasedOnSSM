@@ -191,6 +191,12 @@ public class BusinessPageController {
         return modelAndView;
     }
 
+    //商家注册页面
+    @RequestMapping(value = "/StoreRegister")
+    public String storeRegister(){
+        return "business-Register";
+    }
+
 
 
 

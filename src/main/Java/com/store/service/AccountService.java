@@ -19,4 +19,6 @@ public interface AccountService {
     Account selectById(int id);
 
     void updateUserInfor(Account account);
+
+    int insertStoreAccount(Account account);
 }
