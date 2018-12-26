@@ -58,9 +58,17 @@
             <input type="password" name="" id="password" value="">
             <br>
             <br />
-            <div class="am-cf">
-                <input type="submit" name="" value="登 录" class="am-btn am-btn-warning am-btn-sm am-fl">
-                <input type="submit" name="" value="注 册" class="am-btn am-btn-default am-btn-sm am-fr">
+            <div class="am-cf" id="doc-dropdown-justify-js">
+                <div class="am-dropdown" id="doc-dropdown-js">
+                <input type="submit" name="" value="登 录" class="am-btn am-btn-warning am-round am-btn-sm am-fl">
+                    <button class="am-btn am-btn-default am-dropdown-toggle am-round">注册<span class="am-icon-caret-down"></span></button>
+                    <div class="am-dropdown-content">
+                        <ul class="am-dropdown-content">
+                            <li><a href="#">用户注册</a></li>
+                            <li><a href="#">商家注册</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </form>
         <br/><br/><br/>
