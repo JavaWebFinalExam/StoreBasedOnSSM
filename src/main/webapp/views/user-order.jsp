@@ -24,12 +24,9 @@
 
 
     <link href="<%=basePath%>views/assets/css/Amazeui.css" rel="stylesheet" type="text/css" />
-
     <link href="<%=basePath%>views/assets/css/orderDemo.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
-
     <link href="<%=basePath%>views/assets/css/optstyle.css" rel="stylesheet" type="text/css" />
-
 
     <script type="text/javascript" src="<%=basePath%>views/assets/js/orderAddress.js"></script>
 
@@ -41,7 +38,7 @@
 <div class="am-container header">
     <ul class="message-l">
     </ul>
-    <ul class="message-r">
+    <ul class="message-r am-cf">
         <div class="topMessage home">
             <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
         </div>
@@ -101,7 +98,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="<%=basePath%>${product.productimage.path}" class="itempic J_ItemImg"></a>
+                                    <img width="80px" height="80px" src="<%=basePath%>${product.productimage.path}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">

@@ -21,41 +21,55 @@
 
     <title>结算页面</title>
 
-
-
-    <link href="<%=basePath%>views/assets/css/payAmazeui.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/Amazeui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/petshow.css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/animate.min.css">
     <link href="<%=basePath%>views/assets/css/payDemo.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>views/assets/css/payCartstyle.css" rel="stylesheet" type="text/css" />
 
     <link href="<%=basePath%>views/assets/css/payJsstyle.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<%=basePath%>views/assets/js/payAddress.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/countUp.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.lazyload.min.js"></script>
 
 </head>
 
 <body>
 
 <!--顶部导航条 -->
-<div class="am-container header">
-    <ul class="message-l">
-    </ul>
-    <ul class="message-r">
-        <div class="topMessage home">
-            <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
-        </div>
-        <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
-        </div>
-        <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
-        </div>
-        <div class="topMessage favorite">
-            <div class="menu-hd"><a href="#" target="_top"></a></div>
-    </ul>
-</div>
+<header class="am-topbar am-topbar-inverse">
+    <div class="amz-container">
+        <h1 class="am-topbar-brand">商城</h1>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-fl">
+                    <a href="<%=basePath%>product/products">
+                        首页
+                    </a>
+                </li>
+            </ul>
+            <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
+                    <i class="am-icon-shopping-cart"></i>&nbsp;购物车
+                </a>
+                </li>
 
-
-
+                <li class="am-dropdown am-fr" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <i class="am-icon-user"></i> &nbsp;用户<span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="<%=basePath%>userPage/ordAndCart/showUserOrders">查看订单</a></li>
+                        <li><a href="<%=basePath%>account/outLogin">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
 
 
 <!--订单 -->
@@ -150,7 +164,7 @@
         <div class="order-user-info">
             <div id="holyshit257" class="memo">
                 <label>买家留言：</label>
-                <input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）" placeholder="选填,建议填写和卖家达成一致的说明" class="memo-input J_MakePoint c2c-text-default memo-close">
+                <input id="usermessage" type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）" placeholder="选填,建议填写和卖家达成一致的说明" class="memo-input J_MakePoint c2c-text-default memo-close">
                 <div class="msg hidden J-msg">
                     <p class="error">最多输入500个字符</p>
                 </div>
@@ -176,16 +190,20 @@
                     <p class="buy-footer-address">
                         <span class="buy-line-title buy-line-title-type">寄送至：</span>
                         <span class="buy--address-detail">
-								   <span class="province"><input type="text" title="请填写收货地址" placeholder="请填写收货地址" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px"></span>
+								   <span class="province"><input id="addressis"  type="text" title="请填写收货地址" placeholder="请填写收货地址" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px"></span>
 												</span>
                         </span>
                     </p>
                     <p class="buy-footer-address">
                         <span class="buy-line-title">收货人：</span>
                         <span class="buy-address-detail">
-
-
-												<input type="text" title="必填，请填写您的姓名" placeholder="必填，请填写您的姓名" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px">
+												<input id="receiveris" type="text" title="必填，请填写您的姓名" placeholder="必填，请填写您的姓名" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px">
+												</span>
+                    </p>
+                    <p class="buy-footer-address">
+                        <span class="buy-line-title">电话号码：</span>
+                        <span class="buy-address-detail">
+												<input id="mobile" type="text" title="必填，请填写收货人的电话号码" placeholder="必填，请填写收货人的电话号码" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px">
 												</span>
                     </p>
                 </div>
@@ -193,7 +211,7 @@
 
             <div id="holyshit269" class="submitOrder">
                 <div class="go-btn-wrap">
-                    <a id="J_Go" href="success.html" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
+                    <a id="successful"  class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
                 </div>
             </div>
             <div class="clear"></div>
@@ -221,63 +239,7 @@
 <div class="theme-popover-mask"></div>
 <div class="theme-popover">
 
-    <!--标题 -->
-    <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">新增地址</strong> / <small>Add address</small></div>
-    </div>
-    <hr/>
 
-    <div class="am-u-md-12">
-        <form class="am-form am-form-horizontal">
-
-            <div class="am-form-group">
-                <label for="user-name" class="am-form-label">收货人</label>
-                <div class="am-form-content">
-                    <input type="text" id="user-name" placeholder="收货人">
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <label for="user-phone" class="am-form-label">手机号码</label>
-                <div class="am-form-content">
-                    <input id="user-phone" placeholder="手机号必填" type="email">
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <label for="user-phone" class="am-form-label">所在地</label>
-                <div class="am-form-content address">
-                    <select data-am-selected>
-                        <option value="a">浙江省</option>
-                        <option value="b">湖北省</option>
-                    </select>
-                    <select data-am-selected>
-                        <option value="a">温州市</option>
-                        <option value="b">武汉市</option>
-                    </select>
-                    <select data-am-selected>
-                        <option value="a">瑞安区</option>
-                        <option value="b">洪山区</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <label for="user-intro" class="am-form-label">详细地址</label>
-                <div class="am-form-content">
-                    <textarea class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
-                    <small>100字以内写出你的详细地址...</small>
-                </div>
-            </div>
-
-            <div class="am-form-group theme-poptit">
-                <div class="am-u-sm-9 am-u-sm-push-3">
-                    <div class="am-btn am-btn-danger">保存</div>
-                    <div class="am-btn am-btn-danger close">取消</div>
-                </div>
-            </div>
-        </form>
-    </div>
 
 </div>
 
@@ -297,6 +259,53 @@
         // var productNum = $("#text_box")[0].value;
         // console.log(productNum);
         window.location.href="<%=basePath%>userPage/ordAndCart/showUserOrders";
+    });
+</script>
+
+<script type="text/javascript">
+    $("#successful").click(function () {
+        console.log(this.id);
+
+        var productNum = ${productNum}
+        var product_id =${product.id}
+        var userMessage=$("#usermessage")[0].value;
+        var mobile = $("#mobile")[0].value;
+        var receiver = $("#receiveris")[0].value;
+        var address = $("#addressis")[0].value;
+
+        var json_data = {
+            "product_id":product_id,
+            "productNum":productNum,
+            "receiver":receiver,
+            "address":address,
+            "mobile":mobile,
+            "userMessage":userMessage
+        };
+        var jason_str = JSON.stringify(json_data);
+
+        $.ajax({
+            url :"<%=basePath%>userPage/ordAndCart/submitOrder",
+            cache : true,
+            type : "post",
+            datatype : "json",
+            contentType : "application/json; charset=utf-8",
+            data : jason_str,
+
+            success : function (data){
+                console.log(data.state + data.message);
+                if (data.state == true){
+                    console.log(data.message);
+                    location.reload();
+                } else {
+                    alert(data.message);
+                    location.reload();
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                alert("请求出错，请检查网络或服务器是否开启");
+            }
+        });
     });
 </script>
 
