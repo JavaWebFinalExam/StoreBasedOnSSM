@@ -51,10 +51,10 @@ public class AccountController {
 
         try {
             if (accountService.register((String)map.get("username"),(String)map.get("password"))){
-                ResponseMap.put("state",true);
+                ResponseMap.put("status",true);
                 ResponseMap.put("message","注册成功,请登录");
             }else {
-                ResponseMap.put("state", false);
+                ResponseMap.put("status", false);
                 ResponseMap.put("message","已有用户");
             }
         }catch (Exception e){

@@ -9,20 +9,28 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Login Page | Amaze UI Example</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>商城登录</title>
     <%
         String path = request.getContextPath();
         String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
     %>
-    <link rel="alternate icon" type="image/png" href="<%=basePath%>views/assets/i/favicon.png">
-    <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css"/>
-
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/petshow.css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/animate.min.css">
     <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/countUp.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.lazyload.min.js"></script>
     <style>
         .header {
             text-align: center;
@@ -60,23 +68,15 @@
             <input type="password" name="" id="password" value="">
             <br>
             <br />
-            <div class="am-cf" id="doc-dropdown-justify-js">
-                <div class="am-dropdown" id="doc-dropdown-js">
-                <input type="button" name="" id="login" value="登 录" class="am-btn am-btn-warning am-round am-btn-sm am-fl">
-                    <button class="am-btn am-btn-default am-dropdown-toggle am-round">注册<span class="am-icon-caret-down"></span></button>
-                    <div class="am-dropdown-content">
-                        <ul class="am-dropdown-content">
-                            <li><a href="#">用户注册</a></li>
-                            <li><a href="#">商家注册</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="am-cf">
+                <input type="button" name="" id="login" value="登 录" class="am-btn am-btn-danger am-round am-btn-sm am-fl">
+                <input type="button" id="sign" value="注 册" class="am-btn am-btn-default am-round am-btn-sm am-fr">
             </div>
         </form>
         <br/><br/><br/>
         <hr>
 
-        <footer>
+        <footer class="am_footer">
             <p style="text-align:center"><b>by 计算机科学与技术161班<br/>石立军&nbsp;&nbsp;肖枢贤&nbsp;&nbsp;简斌兵&nbsp;&nbsp;陈俊卿&nbsp;&nbsp;黄宁</b></p>
         </footer>
     </div>
@@ -114,7 +114,7 @@
 
                     if (data.status == true) {
                         console.log(data.message);
-                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
+                        window.location.href = "<%=basePath%>product/products";
                     } else {
                         alert(data.message);
                     }
@@ -122,7 +122,7 @@
                 error: function (data) {
                     console.log(data);
                     alert("请求出错，请检查网络或服务器是否开启");
-                }
+                },
             });
         }else {
             alert("请填写正确的用户名和密码");
@@ -130,43 +130,7 @@
     });
 
     $("#sign").click(function () {
-        let username = $("#username")[0].value;
-        let password = $("#password")[0].value;
-
-
-        if (username != "" && password != "") {
-            console.log(username + " : " + password);
-
-            let json_data = {
-                "username": username,
-                "password": password
-            };
-
-            //js对象转换成JSON字符串
-            let jason_str = JSON.stringify(json_data);
-
-            console.log(jason_str);
-
-            $.ajax({
-                url: "<%=basePath%>account/register",
-                cache: true,
-                type: "post",
-                datatype: "json",
-                contentType: "application/json; charset=utf-8",
-                data: jason_str,
-
-                success: function (data) {
-                    console.log(data.state);
-                    alert(data.message);
-                },
-                error: function (data) {
-                    console.log(data);
-                    alert("请求出错，请检查网络或服务器是否开启");
-                }
-            });
-        }else {
-            alert("请填写正确的用户名和密码");
-        }
+        window.location.href = "<%=basePath%>adminPage/register";
     });
     $("body").keydown(function() {
         if (event.keyCode == "13") {//keyCode=13是回车键
