@@ -39,6 +39,11 @@
                         首页
                     </a>
                 </li>
+              <li class="am-fl">
+                <a href="<%=basePath%>userPage/postPage/PostPage">
+                  帖子
+                </a>
+              </li>
                 <li class="am-dropdown" data-am-dropdown="">
                     <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
                         商品种类
@@ -53,7 +58,7 @@
                 </li>
             </ul>
             <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
-                <li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/ordAndCart/showShoppingCart">
                     <i class="am-icon-shopping-cart"></i>&nbsp;购物车
                 </a>
                 </li>
@@ -78,7 +83,7 @@
     <li>
       <div class="am-gallery-item">
         <a href="#" class="">
-          <img src="<%=basePath%>${information.productImage.path}"  alt="远方 有一个地方 那里种有我们的梦想"/>
+          <img src="<%=basePath%>${information.productImage.path}"  alt=""/>
           <h3>${information.product.name}</h3>
         </a>
         <h1 class="am-gallery-title">
@@ -86,7 +91,8 @@
           优惠价：￥${information.product.promoteprice}<br>
           库存数量：${information.product.stock}<br>
         </h1>
-          <div class="gallery-desc"><small>店铺：${information.product.storeid}</small></div>
+          <div class="gallery-desc"><a href="<%=basePath%>userPage/postPage/storePage?storeId=${information.product.storeid}">
+            店铺：${information.product.storeid}</a></div>
           <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${information.product.id}">加入购物车</button>
       </div>
     </li>

@@ -98,7 +98,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="<%=basePath%>${product.productimage.path}" class="itempic J_ItemImg"></a>
+                                    <img width="80px" height="80px" src="<%=basePath%>${product.productimage.path}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">

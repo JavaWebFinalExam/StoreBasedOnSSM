@@ -43,9 +43,14 @@
                         首页
                     </a>
                 </li>
+                <li class="am-fl">
+                    <a href="<%=basePath%>userPage/postPage/PostPage">
+                        帖子
+                    </a>
+                </li>
             </ul>
             <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
-                <li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/ordAndCart/showShoppingCart">
                     <i class="am-icon-shopping-cart"></i>&nbsp;购物车
                 </a>
                 </li>

@@ -49,9 +49,14 @@
                         首页
                     </a>
                 </li>
+              <li class="am-fl">
+                <a href="<%=basePath%>userPage/postPage/PostPage">
+                  帖子
+                </a>
+              </li>
             </ul>
             <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
-                <li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/ordAndCart/showShoppingCart">
                     <i class="am-icon-shopping-cart"></i>&nbsp;购物车
                 </a>
                 </li>
@@ -121,7 +126,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title= "${productPiece.product.name}"class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="<%=basePath%>${productPiece.productimage.path}" class="itempic J_ItemImg"></a>
+                                    <img width="80px" height="80px" src="<%=basePath%>${productPiece.productimage.path}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
