@@ -112,3 +112,5 @@ public class ProductController {
         response.sendRedirect("/BusinessPage/AddProductPage");
     }
 }
+
+
