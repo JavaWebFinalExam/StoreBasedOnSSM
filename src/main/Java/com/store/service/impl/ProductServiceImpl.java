@@ -12,9 +12,10 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductMapper productMapper;
+
     @Override
-    public List<Product> commodityPaging(Integer storeId,int currIndex,int pageSize){
-        return productMapper.commodityPaging(storeId, currIndex, pageSize);
+    public List<Product> commodityPaging(Integer storeId,int page,int pageSize){
+        return productMapper.commodityPaging(storeId, (page-1)*pageSize, pageSize);
     }
 
     @Override
@@ -57,8 +58,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProduct(int currIndex,int pageSize){
-        return productMapper.getAllProduct(currIndex, pageSize);
+    public List<Product> getAllProduct(int page,int pageSize){
+        return productMapper.getAllProduct((page-1)*pageSize, pageSize);
     }
 
     @Override

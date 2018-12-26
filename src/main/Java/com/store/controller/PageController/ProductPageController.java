@@ -47,24 +47,26 @@ public class ProductPageController {
     public ModelAndView getProductByType(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         List<Map<String,Object>> productList=new ArrayList<>();
+
         //显示所有的商品种类
         List<Category> categories = categoryService.getAllCategory();
         mv.addObject("categories",categories);
 
+        //显示所有商品
+        List<Map<String,Object>> commodityInformation=new ArrayList<>();
         int categoryId =  Integer.valueOf("" + request.getParameter("categoryId"));
         List<Product> products = productService.getProductsByCategoryId(categoryId);
-
         for(Product product:products){
             Map<String,Object> products1 = new HashMap<>();
             products1.put("product",product);
             products1.put("productImage",productimageService.getImageIdByProductId(product.getId()));
-            productList.add(products1);
+            commodityInformation.add(products1);
         }
 
-        mv.addObject("productList",productList);
+        mv.addObject("commodityInformation",commodityInformation);
 
         //设置返回页面
-        mv.setViewName("register");
+        mv.setViewName("index");
         return mv;
     }
 
@@ -72,36 +74,43 @@ public class ProductPageController {
     @RequestMapping("/products")
     public ModelAndView getAllTypes(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-        List<Map<String,Object>> commodityInformation=new ArrayList<>();
+
+        //获取当前页面
+        int page;
+        if (null!=request.getParameter("page")) {
+            page = Integer.valueOf("" + request.getParameter("page"));
+        }else {
+            page = 1;
+        }
+        modelAndView.addObject("page",page);
+
         //显示所有的商品种类
         List<Category> categories = categoryService.getAllCategory();
-        //按种类查询商品
-        int productNum1=productService.getAllProductNum();
+
+        //获取分页数量
+        int productNum=productService.getAllProductNum();
         int length=0;
-        if(productNum1%12==0){
-            length=productNum1/12;
+        if(productNum%12==0){
+            length=productNum/12;
         }else {
-            length=productNum1/12+1;
+            length=productNum/12+1;
         }
         List<Integer> lengths=new ArrayList<>();
         for(int i=0;i<length;i++){
-            lengths.add(i);
+            lengths.add(i+1);
         }
+
         //显示所有商品
-        int currIndex=0;
-        if(request.getParameter("currIndex")==null){
-            currIndex=1;
-        }else{
-            currIndex=Integer.valueOf(""+request.getParameter("currIndex"));
-        }
-        List<Product> products=productService.getAllProduct(currIndex,12);
-            for(Product product:products){
+        List<Map<String,Object>> commodityInformation=new ArrayList<>();
+        List<Product> products=productService.getAllProduct(page,12);
+        for(Product product:products){
             Map<String,Object> products1 = new HashMap<>();
             products1.put("product",product);
             products1.put("productImage",productimageService.getImageIdByProductId(product.getId()));
             commodityInformation.add(products1);
         }
 
+        modelAndView.addObject("isPage",true);
         modelAndView.addObject("lengths",lengths);
         modelAndView.addObject("categories",categories);
         modelAndView.addObject("commodityInformation",commodityInformation);
