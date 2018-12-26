@@ -54,6 +54,7 @@ color: #FFF;}
 .concent {margin-top:0;}
 #cartTable{margin-bottom:20px;}
 .item-content .item-pic {margin-left:0px ;}
+.item-content .item-pic .img{width: 100%;height:auto }
 .td.td-info .item-props,.td.td-price{left:90px;}
 .pay-phone{position: relative;overflow: hidden;padding-bottom:15px;}
 .bundle.bundle-last {border-bottom: none;}
