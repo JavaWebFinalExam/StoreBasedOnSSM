@@ -184,4 +184,23 @@
     where storeId = #{storeId,jdbcType=INTEGER}
     limit #{currIndex},#{pageSize}
   </select>
+
+  <select id="getProductBycategoryId" resultType="Product">
+    select *
+    from product
+    where categoryId=#{categoryId}
+
+  </select>
+
+  <select id="getAllProduct" resultType="Product">
+    select *
+    from product
+    limit #{currIndex},#{pageSize}
+  </select>
+
+  <select id="getAllProductNum" resultType="int">
+    select COUNT(*)
+    from product
+  </select>
+
 </mapper>

@@ -22,4 +22,13 @@ public interface ProductService {
 
     List<Product> getProductsType();
 
+
+    int getAllProductNum();
+
+    List<Product> getAllProduct(int currIndex,int pageSize);
+
+    List<Product> getProductBycategoryId(int categoryId);
+
+
+
 }
