@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -46,6 +48,15 @@
     </style>
 </head>
 <body>
+<%
+    if (request.getParameter("exist")!=null){
+        out.print(" <script type=\"text/javascript\">");
+        out.print(" alert(\"用户名已存在\")");
+        out.print("</script>");
+    }
+%>
+
+
 <div class="header">
     <div class="am-g">
         <h1>商&nbsp;&nbsp;城</h1>
