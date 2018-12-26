@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-<<<<<<< HEAD
-=======
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
->>>>>>> dev
 import java.util.List;
 import java.util.Map;
 
@@ -104,7 +101,6 @@ public class ProductPageController {
             products1.put("productImage",productimageService.getImageIdByProductId(product.getId()));
             commodityInformation.add(products1);
         }
-
 
         modelAndView.addObject("lengths",lengths);
         modelAndView.addObject("categories",categories);
