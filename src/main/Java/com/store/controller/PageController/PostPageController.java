@@ -50,12 +50,11 @@ ProductimageService productimageService;
     @ResponseBody
     public ModelAndView getEvaluationPage(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
-        HttpSession session = request.getSession();
+
         Integer order_id=Integer.valueOf(""+request.getParameter("order_id"));
         Integer productId=orderService.getProductId(order_id);
         Product product=productService.selectById(productId);
 
-        session.setAttribute("productId",productId);
         mv.addObject("product",product);
         mv.addObject("productImage",productimageService.getImageIdByProductId(product.getId()));
 

@@ -89,5 +89,4 @@
     where productId= #{productId,jdbcType=INTEGER}
     limit 1
   </select>
-
 </mapper>

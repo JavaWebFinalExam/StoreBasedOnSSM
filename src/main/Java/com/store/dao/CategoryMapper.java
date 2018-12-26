@@ -11,4 +11,5 @@ public interface CategoryMapper {
     void deleteCategoryById(int id);
     void updateCategoryById(Category category);
     Category getCategoryById(int id);
+    Category getCategoryByName(String name);
 }

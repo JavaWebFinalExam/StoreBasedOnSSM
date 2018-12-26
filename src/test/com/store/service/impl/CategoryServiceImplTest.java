@@ -30,7 +30,7 @@ public class CategoryServiceImplTest {
 
     @Test
     public void addCategory() {
-        categoryService.addCategory("童装");
+//        categoryService.addCategory(15,"童装");
     }
 
     @Test

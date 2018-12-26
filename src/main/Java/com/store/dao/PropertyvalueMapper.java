@@ -19,5 +19,4 @@ public interface PropertyvalueMapper {
 
     List<Propertyvalue> getValueByProductId(int productId);
 
-
 }

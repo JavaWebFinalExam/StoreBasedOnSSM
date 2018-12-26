@@ -8,5 +8,6 @@ public interface PropertyvalueService {
 
     List<Propertyvalue> getValueByProductId(int productId);
 
+
 }
 

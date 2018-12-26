@@ -127,7 +127,7 @@
                                                         <div class="am-form-group am-g">
                                                             <div class="am-u-lg-4"><label for="doc-input-${user.id}">用户名：</label></div>
                                                             <div class="am-u-lg-8">
-                                                                <input name="userName" type="text" id="doc-input-${user.id}" value="${user.username}">
+                                                                <input required name="userName" type="text" id="doc-input-${user.id}" value="${user.username}">
                                                             </div>
                                                         </div>
                                                         <div class="am-form-group am-g">
