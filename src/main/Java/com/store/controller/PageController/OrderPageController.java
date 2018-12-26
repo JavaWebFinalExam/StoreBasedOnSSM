@@ -110,7 +110,7 @@ public class OrderPageController {
         Map<String, Object> ResponseMap = new HashMap<>();
 
         Shoppingcart shoppingcart = new Shoppingcart();
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 
@@ -195,8 +195,7 @@ public class OrderPageController {
     @ResponseBody
     public ModelAndView selectByUserId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
-        HttpSession session = request.getSession();
-
+        HttpSession session = request.getSession(true);
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -319,8 +318,7 @@ public class OrderPageController {
         Order order = new Order();
         HttpSession session = request.getSession();
 
-
-        int userId = Integer.valueOf("" + session.getAttribute("user_Id"));
+        int userId = Integer.valueOf("" + session.getAttribute("userId"));
         Integer product_id = Integer.valueOf("" +  map.get(("product_id")));
         Integer productNum = Integer.valueOf("" +  map.get("productNum"));
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
@@ -403,7 +401,7 @@ public class OrderPageController {
         HttpSession session = request.getSession();
 
 
-        int userId = Integer.valueOf("" + session.getAttribute("userId"));
+        int userId = Integer.valueOf(session.getAttribute("userId").toString());
 
         List<Order> orders = OrderService.selectByUserId(userId);
         List<Map<String, Object>> products = new ArrayList<>();

@@ -161,7 +161,7 @@
                                 <div class="item-amount ">
                                     <div class="sl">
                                         <input class="min am-btn" name="" type="button" value="-" />
-                                        <input id="numberbox-${productPiece.product.id}" class="text_box numberbox" name="" type="text" value="1" style="width:30px;" />
+                                        <input id="numberbox-${productPiece.product.id}" class="text_box numberbox" name="" type="text" value="${productPiece.productNum}" style="width:30px;" />
                                         <input class="add am-btn" name="" type="button" value="+" />
                                     </div>
                                 </div>

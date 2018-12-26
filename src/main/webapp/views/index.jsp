@@ -82,7 +82,7 @@
     <c:forEach items="${commodityInformation}" var="information">
     <li>
       <div class="am-gallery-item">
-        <a href="#" class="">
+        <a href="<%=basePath%>userPage/ordAndCart/productDetail?product_id=${information.product.id}" class="">
           <img src="<%=basePath%>${information.productImage.path}"  alt=""/>
           <h3>${information.product.name}</h3>
         </a>

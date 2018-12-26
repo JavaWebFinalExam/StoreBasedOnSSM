@@ -13,7 +13,7 @@
   </sql>
   <insert id="insertAccount">
         insert into account(username, password, identity )
-        value(#{username},#{password},0)
+        value(#{username},#{password},1)
   </insert>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

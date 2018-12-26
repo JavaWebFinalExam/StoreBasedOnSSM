@@ -110,7 +110,7 @@
                         </div>
                         <div class="clear"></div>
                         <div class="item-comment">
-                            <textarea id="user-input" placeholder="请写下对宝贝的感受吧，对他人帮助很大哦！"></textarea>
+                            <textarea required id="user-input" placeholder="请写下对宝贝的感受吧，对他人帮助很大哦！"></textarea>
                         </div>
                     </div>
                     <div class="info-btn">
@@ -161,7 +161,7 @@
                     console.log(data.state);
 
                     if (data.state == true) {
-                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
+                        window.location.href = "<%=basePath%>userPage/ordAndCart/showUserOrders";
                     } else {
                         alert(data.message);
                     }
@@ -172,7 +172,7 @@
                 }
             });
         }else {
-            alert("请求出错！");
+            alert("请输入合法的数据");
         }
     });
 </script>
