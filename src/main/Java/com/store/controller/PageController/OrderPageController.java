@@ -187,6 +187,7 @@ public class OrderPageController {
     public ModelAndView selectByUserId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
+        session.setAttribute("userId",1);
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -198,18 +199,17 @@ public class OrderPageController {
             Product product = ProductService.selectById(Integer.valueOf("" + cart.getProductid()));
             //获取单个商品对象
             productPiece.put("product", product);
-
             productPiece.put("productNum", cart.getProductnum());
 
             products.add(productPiece);
-            mv.addObject("productPiece", products);
-        }
+
+        } mv.addObject("products", products);
 
         //设置返回页面
         mv.setViewName("shoppingCartTest");
         return mv;
-
     }
+
 
     //删除购物车OK
     @RequestMapping(
@@ -382,6 +382,7 @@ public class OrderPageController {
     public ModelAndView showUserOrders(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
+
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 

@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -15,14 +21,12 @@
 
     <title>订单页面</title>
 
-    <link href="../assets/css/orderAmazeui.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/orderAmazeui.css" rel="stylesheet" type="text/css" />
 
-    <link href="../assets/css/orderDemo.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/orderStyle.css" rel="stylesheet" type="text/css" />
-
-    <link href="../assets/css/orderJsstyle.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="../assets/js/orderAddress.js"></script>
+    <link href="<%=basePath%>views/assets/css/orderDemo.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/orderStyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/orderJsstyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/orderAddress.js"></script>
 
 </head>
 
