@@ -46,7 +46,7 @@ public class OrderPageController {
     @Autowired
     AccountService AccountService;
     @Autowired
-    PropertyvalueService propertyvalueService;
+    PropertyValueService propertyvalueService;
 
 
     //商品详情页面ok

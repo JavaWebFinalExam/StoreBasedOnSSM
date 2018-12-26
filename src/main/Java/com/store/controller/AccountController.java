@@ -25,20 +25,22 @@ public class AccountController {
     @ResponseBody//响应体  用于向前端返回数据
     public Map<String, Object> Login(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map, HttpServletRequest request) {
         Map<String,Object> responseMap = new HashMap<>();
-        HttpSession session = request.getSession();//将id放入session
+        HttpSession session = request.getSession();
 
         String username = "" + map.get("username");
         String password = "" + map.get("password");
-        Account account = accountService.selectByUsername(username);
-        session.setAttribute("userId",account.getId());
 
-        if(accountService.checkLogin(username,password)){
-            responseMap.put("status",true);
-            responseMap.put("message","登陆成功");
-        }else {
-            responseMap.put("status",false);
-            responseMap.put("message","密码错误或用户不存在");
+        if (accountService.checkLogin(username, password)) {
+            Account user =accountService.selectByUsername(username);
+            session.setAttribute("userId",user.getId());
+            responseMap.put("status", true);
+            responseMap.put("identity",user.getIdentity());
+            responseMap.put("message", "登陆成功");
+        } else {
+            responseMap.put("status", false);
+            responseMap.put("message", "密码错误或用户不存在");
         }
+
         return responseMap;
     }
 
