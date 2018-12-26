@@ -69,8 +69,8 @@
             <br>
             <br />
             <div class="am-cf">
-                    <input type="button" id="login" value="登 录" class="am-btn am-btn-default am-round am-btn-sm am-fl">
-                    <input type="button" id="sign" value="注 册" class="am-btn am-btn-danger am-round am-btn-sm am-fr">
+                  <input type="button" id="login" value="登 录" class="am-btn am-btn-default am-round am-btn-sm am-fl">
+                  <input type="button" id="sign" value="注 册" class="am-btn am-btn-danger am-round am-btn-sm am-fr">
             </div>
         </form>
         <br/><br/><br/>
