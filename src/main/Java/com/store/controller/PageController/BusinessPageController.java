@@ -45,23 +45,18 @@ public class BusinessPageController {
 
 
     @RequestMapping(value = "/PersonalCenter")
-    public ModelAndView StoreInformation(HttpServletRequest request){
+    public ModelAndView StoreInformation(HttpServletRequest request) {
         System.out.println("进入个人中心");
         ModelAndView modelAndView = new ModelAndView();
         HttpSession session = request.getSession();
-        int userId=0;
-        if (session.getAttribute("userId").toString()!=null) {
-             userId = Integer.parseInt(session.getAttribute("userId").toString());
-             System.out.println("用户的id为" + userId);
-        }else
-            System.out.print("用户名为空");
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        System.out.println("用户的id为" + userId);
 
-//        int userId = 0;
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
         System.out.println(store.getId() + "\t" + store.getUserid());
-        modelAndView.addObject("store",store);
-        modelAndView.addObject("username",account.getUsername());
+        modelAndView.addObject("store", store);
+        modelAndView.addObject("username", account.getUsername());
         modelAndView.setViewName("business-PersonalCenter");
         return modelAndView;
     }

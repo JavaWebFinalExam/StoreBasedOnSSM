@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/views/";
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html class="no-js">
@@ -22,19 +22,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="<%=basePath%>/business/assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="<%=basePath%>/business/assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="<%=basePath%>views/business/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="<%=basePath%>views/business/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="<%=basePath%>/business/assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="<%=basePath%>/business/assets/css/admin.css">
-    <script src="<%=basePath%>/business/assets/js/jquery.min.js"></script>
-    <script src="<%=basePath%>/business/assets/js/app.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>views/business/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>views/business/assets/css/admin.css">
+    <script src="<%=basePath%>views/business/assets/js/jquery.min.js"></script>
+    <script src="<%=basePath%>views/business/assets/js/app.js"></script>
 </head>
 
 <body>
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
 <header class="am-topbar admin-header">
-    <div class="am-topbar-brand"><img src="<%=basePath%>/business/assets/i/logo.png"></div>
+    <div class="am-topbar-brand"><img src="<%=basePath%>views/business/assets/i/logo.png"></div>
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
@@ -53,8 +53,7 @@
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowProductByStoreId">商品列表</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/Product/AddProduct">添加新商品</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">用户评论</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/AddProductPage">添加新商品</a></li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
@@ -92,7 +91,7 @@
                 <span data-am-modal-close class="am-close">&times;</span>
             </div>
             <div class="am-popup-bd am-scrollable-vertical" style="height: 450px;">
-                <form class="am-form tjlanmu" action="/Store/UpdateStore" method="post">
+                <form class="am-form tjlanmu" action="<%=basePath%>/Store/UpdateStore" method="post">
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
@@ -119,7 +118,7 @@
                 <span data-am-modal-close class="am-close">&times;</span>
             </div>
             <div class="am-popup-bd am-scrollable-vertical" style="height: 450px;">
-                <form class="am-form tjlanmu" action="/Store/UpdateStore" method="post">
+                <form class="am-form tjlanmu" action="<%=basePath%>/Store/UpdateStore" method="post">
                     <div class="am-form-group am-cf">
                         <div class="zuo">店铺简介：</div>
                         <div class="you">
@@ -145,10 +144,10 @@
                 <span data-am-modal-close class="am-close">&times;</span>
             </div>
             <div class="am-popup-bd am-scrollable-vertical" style="height: 450px;">
-                <form class="am-form tjlanmu" enctype="multipart/form-data" action="/Store/UpdateStorePicture" method="post">
+                <form class="am-form tjlanmu" enctype="multipart/form-data" action="<%=basePath%>/Store/UpdateStorePicture" method="post">
                     <div class="am-form-group am-cf">
                         <div class="zuo">店铺封面：</div>
-                        <img class="am-img-thumbnail am-radius" src="${store.image}" width="140" height="140"/>
+                        <img class="am-img-thumbnail am-radius" src="<%=basePath%>${store.image}" width="140" height="140"/>
                         <br>
                         <br>
                         <div class="you" style="height: 45px;">
@@ -177,7 +176,7 @@
                 <span data-am-modal-close class="am-close">&times;</span>
             </div>
             <div class="am-popup-bd am-scrollable-vertical" style="height: 450px;">
-                <form class="am-form tjlanmu" action="/Store/UpdateStore" method="post">
+                <form class="am-form tjlanmu" action="<%=basePath%>/Store/UpdateStore" method="post">
                     <div class="am-form-group">
                         <div class="zuo">店铺名字：</div>
                         <div class="you">
@@ -280,7 +279,7 @@
                     </tr>
                     <tr>
                         <td class="am-hide-sm-only">店铺封面</td>
-                        <td class="am-hide-sm-only"><img class="am-img-thumbnail am-radius" src="${store.image}" width="140" height="140"/></td>
+                        <td class="am-hide-sm-only"><img class="am-img-thumbnail am-radius" src="<%=basePath%>${store.image}" width="140" height="140"/></td>
                         <td>
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
@@ -310,13 +309,13 @@
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="<%=basePath%>/business/assets/js/polyfill/rem.min.js"></script>
-<script src="<%=basePath%>/business/assets/js/polyfill/respond.min.js"></script>
-<script src="<%=basePath%>/business/assets/js/amazeui.legacy.js"></script>
+<script src="<%=basePath%>views/business/assets/js/polyfill/rem.min.js"></script>
+<script src="<%=basePath%>views/business/assets/js/polyfill/respond.min.js"></script>
+<script src="<%=basePath%>views/business/assets/js/amazeui.legacy.js"></script>
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="<%=basePath%>/business/assets/js/amazeui.min.js"></script>
+<script src="<%=basePath%>views/business/assets/js/amazeui.min.js"></script>
 <!--<![endif]-->
 
 </body>

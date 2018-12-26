@@ -57,8 +57,7 @@
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowProductByStoreId">商品列表</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/Product/AddProduct">添加新商品</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">用户评论</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/AddProductPage">添加新商品</a></li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
@@ -316,8 +315,8 @@
 
                             success: function (data) {
                                 if (data.status == true) {
-                                    window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";
                                     alert(data.message);
+                                    window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";
                                 } else {
                                     alert(data.message);
                                 }

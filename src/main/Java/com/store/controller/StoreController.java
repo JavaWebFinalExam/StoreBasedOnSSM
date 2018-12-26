@@ -42,7 +42,6 @@ public class StoreController {
         int userId = Integer.parseInt(session.getAttribute("userId").toString());
 //        int userId = 0;
         Store store = storeService.selectByUserId(userId);
-        PrintWriter writer = response.getWriter();
         if (request.getParameter("name")!=null){
             store.setName(request.getParameter("name"));
 //            System.out.println("修改的商店名字" + store.getName());
@@ -59,11 +58,10 @@ public class StoreController {
 
         try {
             int id = storeService.updateStore(store);
-            System.out.println("你修改的是商店的id是" + id);
-            writer.write("<script language=javascript>alert('修改成功')</script>");
+            System.out.println("你修改的是商店的id是" + store.getId());
+
         }catch (Exception e){
             e.printStackTrace();
-            writer.write("<script language=javascript>alert('修改失败')</script>");
         }
        response.sendRedirect("/BusinessPage/PersonalCenter");
 
@@ -117,8 +115,7 @@ public class StoreController {
     @RequestMapping(value = "/UpdateStorePicture")
     public void updateStorePicture(HttpServletRequest request, HttpServletResponse response, MultipartFile picture)throws IOException{
         HttpSession session = request.getSession();
-        //int userId = Integer.parseInt(session.getAttribute("userId").toString());
-        int userId = 0;
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
         Store store = storeService.selectByUserId(userId);
         if (picture!=null){
             //获取原来的的图片url
@@ -130,6 +127,7 @@ public class StoreController {
                 System.out.println("没有旧图片");
             else {
                 System.out.println("有旧图片，删除旧图片");
+                System.out.println("旧图片url为：" + oldUrl);
                 oldFIle.delete();
             }
             //使用UUID给图片重命名，并去掉四个“-”
@@ -183,6 +181,7 @@ public class StoreController {
                 System.out.println(url);
                 //以绝对路径保存重名命后的图片
                 picture.transferTo(new File(url + "/" + name + "." + ext));
+                System.out.println("图片保存位置" + url + "/" + name + "." + ext);
                 //保存到数据库的图片路径
                 String dataPath = "/views/image/storeImages/" + name + "." + ext;
 
