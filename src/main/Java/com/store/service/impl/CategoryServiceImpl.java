@@ -39,15 +39,15 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void addCategory(String typeName,List<String> properties){
+    public void addCategory(String typeName,List<String> properties) {
         Category category = categoryMapper.getCategoryByName(typeName);
 
         if (category == null) {
             categoryMapper.addCategory(typeName);
             category = categoryMapper.getCategoryByName(typeName);
 
-            for (String property:properties){
-                propertyMapper.addProperty(category.getId(),category.getTypeName());
+            for (String property : properties) {
+                propertyMapper.addProperty(category.getId(), category.getTypeName());
             }
         }
     }

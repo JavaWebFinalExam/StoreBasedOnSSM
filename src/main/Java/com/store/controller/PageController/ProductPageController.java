@@ -27,7 +27,7 @@ public class ProductPageController {
     @Autowired
     ProductService productService;
 
-    //获取一个种类的所有图书
+    //获取一个种类的所有商品
     @RequestMapping(
             value="/getProductByType",
             method = RequestMethod.GET,
@@ -48,6 +48,23 @@ public class ProductPageController {
     }
 
     //获取商品种类
+    @RequestMapping(
+            value="/getProductsType",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView getProductsType(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
 
+        int categoryId =  Integer.valueOf("" + request.getParameter("categoryId"));
+        List<Product> categoryId1 = productService.getProductsType();
+
+        mv.addObject("products",categoryId1);
+
+        //设置返回页面
+        mv.setViewName("productsPage");
+        return mv;
+    }
 
 }

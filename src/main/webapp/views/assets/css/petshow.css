@@ -70,7 +70,11 @@ ul.am-dropdown-content>li>a:focus, ul.am-dropdown-content>li>a:hover { backgroun
 .am_imglist_user_ico img { width: 20px;height: 20px; border-radius:50%;}
 .am_imglist_user_font { font-size: 12px;}
 .am_img_bg { background: url(../img/loading.gif) no-repeat center; display: block;}
+<<<<<<< HEAD
 .am_footer { background: #222324; width: 100%;padding: 35px 0 0 0;}
+=======
+.am_footer { background: #222324; width: 100%;color:#787878; padding: 35px 0 0 0;}
+>>>>>>> dev
 .am_footer_con { max-width: 1500px; text-align: center; margin: 0 auto; overflow: hidden; padding: 0 10px 40px;-webkit-box-sizing: border-box;box-sizing: border-box;}
 .am_footer_link { overflow: hidden;  display: inline-block; vertical-align: top; margin-right: 80px;}
 .am_footer_link span , .am_footer_don span{ text-align:left;  font-size: 17px; color: #d3d3d3; padding-bottom: 10px; display: block; }

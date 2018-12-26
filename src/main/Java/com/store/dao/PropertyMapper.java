@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+import java.util.List;
+
 public interface PropertyMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -21,6 +23,7 @@ public interface PropertyMapper {
 
     int getPropertyNumByCategoryId(int id);
 
+
     Property getByProductId(int productId);
 
     void addProperty(@Param("id")int id,@Param("name")String name);
@@ -28,4 +31,6 @@ public interface PropertyMapper {
     List<Property> getPropertiesByCategoryId(int categoryId);
 
     void changePropertyName(@Param("id")int id,@Param("propertyName")String propertyName);
+
+    Property getPropertyById(int propertyId);
 }

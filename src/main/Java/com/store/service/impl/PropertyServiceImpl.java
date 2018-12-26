@@ -16,14 +16,19 @@ public class PropertyServiceImpl implements PropertyService{
     @Autowired
     PropertyMapper propertyMapper;
 
+
     @Override
     public List<Property> getPropertiesByCategoryId(int categoryId) {
         return propertyMapper.getPropertiesByCategoryId(categoryId);
     }
 
     @Override
-    public Property getByProductId(int productId){
+    public Property getByProductId(int productId) {
         return propertyMapper.getByProductId(productId);
+    }
+    @Override
+    public Property getPropertyById(int propertyId){
+        return propertyMapper.getPropertyById(propertyId);
     }
 
     @Override
