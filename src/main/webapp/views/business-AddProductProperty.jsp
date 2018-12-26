@@ -90,96 +90,33 @@
         <div class="admin-biaogelist">
 
             <div class="listbiaoti am-cf">
-                <ul class="am-icon-flag on"> 添加商品</ul>
-                <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">添加商品</a></dl>
+                <ul class="am-icon-flag on"> 添加属性</ul>
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">添加属性</a></dl>
 
             </div>
 
             <div class="fbneirong">
-                <form class="am-form" action="<%=basePath%>/Product/AddProduct" method="post"  enctype="multipart/form-data">
+                <form class="am-form" action="<%=basePath%>/Product/AddProperty" method="post"  enctype="multipart/form-data">
                     <div class="am-form-group am-cf">
-                        <div class="zuo">商品：</div>
+                        <div class="zuo"></div>
                         <div class="you">
-                            <input type="text" class="am-input-sm"  placeholder="请输入商品标题" name="name" required>
+                            <input type="hidden" class="am-input-sm"  name="productId" value="${productId}" required>
                         </div>
                     </div>
+                    <c:forEach var="property" items="${properties}">
                     <div class="am-form-group am-cf">
-                        <div class="zuo">原价：</div>
+                        <div class="zuo">${property.propertyname}：</div>
                         <div class="you">
-                            <input type="number" class="am-input-sm"  placeholder="请输入原价" name="originalprice" required>
+                            <input type="text" class="am-input-sm"  name="property_${property.id}" required>
                         </div>
                     </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">优惠价：</div>
-                        <div class="you">
-                            <input type="number" class="am-input-sm"  placeholder="请输入优惠价" name="promoteprice" required>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">库存：</div>
-                        <div class="you">
-                            <input type="number" class="am-input-sm"  placeholder="请输入库存数量" name="stock" required>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">描述：</div>
-                        <div class="you">
-                            <textarea class="" rows="2" id="doc-ta-1" name="description" required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">种类：</div>
-                        <div class="you">
-                            <select id="doc-select-1" name="categoryid">
-                                <c:forEach var="category" items="${categories}">
-                                <option value="${category.id}">${category.typeName}</option>
-                                </c:forEach>
-                            </select>
-                            <span class="am-form-caret"></span>
-                        </div>
-                    </div>
-
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">图片1：</div>
-                        <div class="you" style="height: 45px;">
-                            <input type="file" name="picture1">
-                            <p class="am-form-help" required>请选择要上传的文件...</p>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">图片2：</div>
-                        <div class="you" style="height: 45px;">
-                            <input type="file" name="picture2" required>
-                            <p class="am-form-help">请选择要上传的文件...</p>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">图片3：</div>
-                        <div class="you" style="height: 45px;">
-                            <input type="file" name="picture3" required>
-                            <p class="am-form-help">请选择要上传的文件...</p>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">图片4：</div>
-                        <div class="you" style="height: 45px;">
-                            <input type="file" name="picture4" required>
-                            <p class="am-form-help">请选择要上传的文件...</p>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="zuo">图片5：</div>
-                        <div class="you" style="height: 45px;">
-                            <input type="file" name="picture5" required>
-                            <p class="am-form-help">请选择要上传的文件...</p>
-                        </div>
-                    </div>
+                    </c:forEach>
                     <div class="am-form-group am-cf">
                         <div class="you" style="margin-left: 11%;">
-                            <button type="submit" class="am-btn am-btn-success am-radius">上传商品</button>
+                            <button type="submit" class="am-btn am-btn-success am-radius ">提交</button>
                         </div>
                     </div>
+
                 </form>
             </div>
 

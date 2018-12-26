@@ -14,4 +14,10 @@ public interface ProductimageService {
     int insertProductImage(Productimage productimage);
 
     int updateProductImage(Productimage productimage);
+
+    List<Productimage> getImagesByProduct(int productId);
+
+    int deleteProductImage(int id);
+
+
 }

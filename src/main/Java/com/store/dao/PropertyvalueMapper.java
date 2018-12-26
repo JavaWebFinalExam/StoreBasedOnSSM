@@ -14,4 +14,6 @@ public interface PropertyvalueMapper {
     int updateByPrimaryKeySelective(Propertyvalue record);
 
     int updateByPrimaryKey(Propertyvalue record);
+
+    int insertPropertyValue(Propertyvalue propertyvalue);
 }

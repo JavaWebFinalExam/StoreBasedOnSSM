@@ -176,4 +176,9 @@
     from product
     where storeId = #{id};
   </select>
+
+  <delete id="deleteProductById" parameterType="int">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
 </mapper>

@@ -37,4 +37,14 @@ public class ProductimageServiceImpl implements ProductimageService {
     public int updateProductImage(Productimage productimage){
         return productimageMapper.updateByPrimaryKey(productimage);
     }
+
+    @Override
+    public List<Productimage> getImagesByProduct(int productId){
+        return productimageMapper.getImagesByProductId(productId);
+    }
+
+    @Override
+    public int deleteProductImage(int id){
+        return productimageMapper.deleteByPrimaryKey(id);
+    }
 }

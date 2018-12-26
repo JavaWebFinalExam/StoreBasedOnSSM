@@ -90,4 +90,11 @@
     limit 1
   </select>
 
+  <!--通过商品id获取图片-->
+  <select id="getImagesByProductId" parameterType="Integer" resultType="com.store.entity.Productimage">
+    select *
+    from productimage
+    where productId = #{productId,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

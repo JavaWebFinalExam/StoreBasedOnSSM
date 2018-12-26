@@ -21,10 +21,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.store.entity.Store" >
-    insert into store (id, userId, storeType, 
-      description)
+    insert into store (id, userId, storeType, description,image)
     values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{storetype,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR})
+      #{description,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.store.entity.Store" >
     insert into store
@@ -41,6 +40,9 @@
       <if test="description != null" >
         description,
       </if>
+      <if test="image != null" >
+        image,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -54,6 +56,9 @@
       </if>
       <if test="description != null" >
         #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -69,6 +74,9 @@
       <if test="description != null" >
         description = #{description,jdbcType=VARCHAR},
       </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -76,7 +84,8 @@
     update store
     set userId = #{userid,jdbcType=INTEGER},
       storeType = #{storetype,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR}
+      description = #{description,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

@@ -40,4 +40,7 @@ public class Propertyvalue {
     public void setValue(String value) {
         this.value = value == null ? null : value.trim();
     }
+
+    public Propertyvalue() {
+    }
 }
