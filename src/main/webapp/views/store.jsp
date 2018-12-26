@@ -1,3 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +20,13 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="css/amazeui.min.css">
-    <link rel="stylesheet" href="css/petshow.css?6">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/amazeui.min.js"></script>
-    <script src="js/countUp.min.js"></script>
-    <script src="js/amazeui.lazyload.min.js"></script>
-
-
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/petshow.css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/animate.min.css">
+    <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/countUp.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.lazyload.min.js"></script>
 </head>
 <body>
 <header class="am-topbar am-topbar-inverse">
@@ -49,16 +54,14 @@
                         </span>
                     </a>
                     <ul class="am-dropdown-content">
-                        <c:if test="${types != null}">
-                            <c:forEach var="type" items="${types}">
-                                <li><a href="<%=basePath%>userPage/bookPage?bookType=${type}">${type}</a></li>
-                            </c:forEach>
-                        </c:if>
+                        <c:forEach var="category" items="${categories}">
+                        <li><a href="<%=basePath%>product/getProductsByType?categoryId=${category.id}">${category.typeName}</a></li>
+                        </c:forEach>
                     </ul>
 				</li>
 				</ul>
 				<ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
-				<li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/getShoppingCart">
+				<li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
 						<i class="am-icon-shopping-cart"></i>&nbsp;购物车
 					</a>
 				</li>
@@ -68,8 +71,8 @@
 					<i class="am-icon-user"></i> &nbsp;用户<span class="am-icon-caret-down"></span>
 					</a>
 					<ul class="am-dropdown-content">
-						<li><a href="#">查看订单</a></li>
-						<li><a href="#">退出登录</a></li>
+						<li><a href="<%=basePath%>userPage/ordAndCart/showUserOrders">查看订单</a></li>
+						<li><a href="account/outLogin">退出登录</a></li>
 					</ul>
 				</li>
 				</ul>
@@ -85,39 +88,97 @@
 
 <div class="am-g am-imglist">
     <div class="am-u-md-12 am-u-sm-12">
+
+        <c:if test="${book != null}">
         <article class="am-g blog-entry-article">
             <div class="am-u-lg-4 am-u-md-12 am-u-sm-12 blog-entry-img">
                 <img class="am-img-thumbnail am-img-bdrs" src="<%=basePath%>${produces.image}" alt=""/>
             </div>
             <div class="am-u-lg-8 am-u-md-12 am-u-sm-12">
                 <div class="gallery-title">
-                    <h1>《${book.bookName}》</h1>
+                    <h1>《${product.name}》</h1>
                 </div>
-                <div class="gallery-desc"><small>店铺：${book.store}</small></div>
-                <div class="gallery-desc"><small>单价：￥${book.price}</small>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <small>库存数量：${book.press}</small></div>
+                <div class="gallery-desc"><small>店铺：${product.store}</small></div>
+                <div class="gallery-desc">
+                    <small>优惠价：￥${product.originalPrice}</small>
+                    <small>优惠价：￥${product.promotePrice}</small>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <small>库存数量：${product.stock}</small></div>
                 <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${book.bookId}">加入购物车</button>
             </div>
         </article>
-            <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${book.bookId}">
+            <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${product.id}">
                 <div class="am-modal-dialog">
-                    <div class="am-modal-hd">将《${book.bookName}》加入购物车</div>
+                    <div class="am-modal-hd">将《${product.name}》加入购物车</div>
                     <div class="am-modal-bd">
                         请输入添加数量：
-                        <input id="input-${book.bookId}" required type="number" pattern="[0-9]*" class="am-modal-prompt-input">
+                        <input id="input-${product.productNum}" required type="number" pattern="[0-9]*" class="am-modal-prompt-input">
                     </div>
                     <div class="am-modal-footer">
                         <span class="am-modal-btn" data-am-modal-cancel>取消</span>
                         <span class="am-modal-btn" data-am-modal-confirm>提交</span>
                     </div>
                 </div>
-            </div>	
+            </div>
+        <script>
+            $(function() {
+                $('#doc-prompt-toggle-${product.id}').on('click', function() {
+                    $('#my-prompt-${product.id}').modal({
+                        relatedTarget: this,
+                        onConfirm: function(e) {
+                            console.log(e.data);
+                            var length = $("#input-${product.id}")[0].value.length;
+
+                            if (0 < length && length <= 11){
+                                var ID = ${product.id};
+                                var productNum = parseInt(e.data);
+
+                                var json_data = {
+                                    "productId": ID,
+                                    "productNum":productNum
+                                };
+                                var jason_str = JSON.stringify(json_data);
+                                console.log(jason_str);
+
+                                $.ajax({
+                                    url :"<%=basePath%>userPage/ordAndCart/addProductToShoppingCart",
+                                    cache : true,
+                                    type : "post",
+                                    datatype : "json",
+                                    contentType : "application/json; charset=utf-8",
+                                    data : jason_str,
+
+                                    success : function (data){
+                                        console.log(data.state + data.message);
+
+                                        if (data.state == true){
+                                            alert(data.message);
+                                            location.reload();
+                                        } else {
+                                            alert(data.message);
+                                        }
+                                    },
+                                    error:function (data) {
+                                        console.log(data);
+                                        alert("请求出错，请检查网络或服务器是否开启");
+                                    }
+                                });
+                            }else{
+                                alert("请输入合法的数据！");
+                            }
+                        },
+                        onCancel: function(e) {
+                        }
+                    });
+                });
+            });
+        </script>
+        </c:if>
 	</div>
 </div>
 <footer class="am_footer">
     <p style="text-align:center"><b>by 计算机科学与技术161班<br/>石立军&nbsp;&nbsp;肖枢贤&nbsp;&nbsp;简斌兵&nbsp;&nbsp;陈俊卿&nbsp;&nbsp;黄宁</b></p>
     <div class="am_info_line">Copyright(c)2018 <span>stroe</span> All Rights Reserved</div>
 </footer>
-<script src="js/petshow.js"></script>
+
 </body>
 </html>

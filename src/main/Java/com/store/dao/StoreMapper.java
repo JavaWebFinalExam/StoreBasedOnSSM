@@ -26,4 +26,5 @@ public interface StoreMapper {
     Store getStoreById(Integer id);
 
     void checkStore(@Param("id")int id, @Param("status") int status);
+
 }

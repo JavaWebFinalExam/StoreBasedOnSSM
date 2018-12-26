@@ -86,4 +86,5 @@ public class StoreServiceImpl implements StoreService {
     public void checkStore(int id){
         storeMapper.checkStore(id,1);
     }
+
 }

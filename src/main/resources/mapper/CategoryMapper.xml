@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.store.dao.CategoryMapper" >
 
-    <select id="getAllCategory" resultType="Category">
+    <select id="getAllCategory" resultType="com.store.entity.Category">
         select *
         from category;
     </select>
