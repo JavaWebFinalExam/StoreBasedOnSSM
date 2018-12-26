@@ -6,10 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -19,8 +15,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
+    <link rel="alternate icon" type="image/png" href="<%=basePath%>views/assets/i/favicon.png">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css"/>
+
+    <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
     <style>
         .header {
             text-align: center;
@@ -60,7 +62,7 @@
             <br />
             <div class="am-cf" id="doc-dropdown-justify-js">
                 <div class="am-dropdown" id="doc-dropdown-js">
-                <input type="submit" name="" value="登 录" class="am-btn am-btn-warning am-round am-btn-sm am-fl">
+                <input type="button" name="" id="login" value="登 录" class="am-btn am-btn-warning am-round am-btn-sm am-fl">
                     <button class="am-btn am-btn-default am-dropdown-toggle am-round">注册<span class="am-icon-caret-down"></span></button>
                     <div class="am-dropdown-content">
                         <ul class="am-dropdown-content">
@@ -82,20 +84,20 @@
 
 <script>
     $("#login").click(function () {
-        var username = $("#username")[0].value;
-        var password = $("#password")[0].value;
+        let username = $("#username")[0].value;
+        let password = $("#password")[0].value;
 
         if (username != "" && password != "") {
 
             console.log(username + " : " + password);
 
-            var json_data = {
+            let json_data = {
                 "username": username,
                 "password": password
             };
 
             //js对象转换成JSON字符串
-            var jason_str = JSON.stringify(json_data);
+            let jason_str = JSON.stringify(json_data);
 
             console.log(jason_str);
 
@@ -108,13 +110,11 @@
                 data: jason_str,
 
                 success: function (data) {
-                    console.log(data.state);
+                    console.log(data.status);
 
-                    if (data.state == true) {
-                        if (data.isManager == true)
-                            window.location.href = "<%=basePath%>adminPage/";
-                        else
-                            window.location.href = "<%=basePath%>userPage/";
+                    if (data.status == true) {
+                        console.log(data.message);
+                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
                     } else {
                         alert(data.message);
                     }
@@ -130,20 +130,20 @@
     });
 
     $("#sign").click(function () {
-        var username = $("#username")[0].value;
-        var password = $("#password")[0].value;
+        let username = $("#username")[0].value;
+        let password = $("#password")[0].value;
 
 
         if (username != "" && password != "") {
             console.log(username + " : " + password);
 
-            var json_data = {
+            let json_data = {
                 "username": username,
                 "password": password
             };
 
             //js对象转换成JSON字符串
-            var jason_str = JSON.stringify(json_data);
+            let jason_str = JSON.stringify(json_data);
 
             console.log(jason_str);
 

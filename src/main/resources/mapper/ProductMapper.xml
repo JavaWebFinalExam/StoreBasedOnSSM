@@ -184,6 +184,4 @@
     where storeId = #{storeId,jdbcType=INTEGER}
     limit #{currIndex},#{pageSize}
   </select>
-  
-  <select id=""
 </mapper>
