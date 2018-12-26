@@ -28,7 +28,6 @@ public class AccountTest {
         System.out.println(accountService.checkLogin("dan", "6130116053"));
     }
 
-
     @Test
     public void testGetUser() throws Exception {
         List<Account> users = accountService.getAllAccount();

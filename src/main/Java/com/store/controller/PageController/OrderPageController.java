@@ -66,40 +66,42 @@ public class OrderPageController {
         List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
 
         List<Propertyvalue> propertyvalues=propertyvalueService.getValueByProductId(product_id);
-
+        List<Evaluation> evaluationList = EvaluationService.getEvaluationByProductId(product_id);
         for(Propertyvalue propertyvalue:propertyvalues){
             Map<String,Object> property = new HashMap<>();
             property.put("propertyvalue",propertyvalue);
             property.put("property",PropertyService.getPropertyById(propertyvalue.getPropertyid()));
 
+
             commodityCategories.add(property);
         }
+        mv.addObject("evaluation", evaluationList);
         mv.addObject("commodityCategories",commodityCategories);
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
         //设置返回页面
-        mv.setViewName("productTest");
+        mv.setViewName("product-detail");
         return mv;
     }
 
-    //显示评价ok
-    @RequestMapping(
-            value = "/showProductEvaluation",
-            method = RequestMethod.GET,
-            produces = "application/json;charset=UTF-8"
-    )
-    @ResponseBody
-    public ModelAndView getEvaluationByProductId(HttpServletRequest request) {
-        ModelAndView mv = new ModelAndView();
-        Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
-
-        Evaluation evaluation = EvaluationService.getEvaluationByProductId(product_id);
-        mv.addObject("evaluation", evaluation);
-
-        mv.setViewName("productTest");
-
-        return mv;
-    }
+//    //显示评价ok
+//    @RequestMapping(
+//            value = "/showProductEvaluation",
+//            method = RequestMethod.GET,
+//            produces = "application/json;charset=UTF-8"
+//    )
+//    @ResponseBody
+//    public ModelAndView getEvaluationByProductId(HttpServletRequest request) {
+//        ModelAndView mv = new ModelAndView();
+//        Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
+//
+//        Evaluation evaluation = EvaluationService.getEvaluationByProductId(product_id);
+//        mv.addObject("evaluation", evaluation);
+//
+//        mv.setViewName("productTest");
+//
+//        return mv;
+//    }
 
     //将商品加入购物车ok
     @RequestMapping(
@@ -199,7 +201,7 @@ public class OrderPageController {
     public ModelAndView selectByUserId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
-        session.setAttribute("userId",1);
+        session.setAttribute("userId",1);//这句代码最后要删
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -209,7 +211,7 @@ public class OrderPageController {
         for (Shoppingcart cart : shoppingcarts) {
             Map<String, Object> productPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + cart.getProductid()));
-           int productimage=ProductimageService.getImageIdByProductId(product.getId());
+           Productimage productimage=ProductimageService.getImageIdByProductId(product.getId());
             //获取单个商品对象
             productPiece.put("product", product);
             productPiece.put("productNum", cart.getProductnum());
@@ -287,7 +289,6 @@ public class OrderPageController {
             method = RequestMethod.GET,
             produces = "application/json;charset=UTF-8"
     )
-
     @ResponseBody
     public ModelAndView showTransction(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
@@ -295,12 +296,14 @@ public class OrderPageController {
         int product_id = Integer.valueOf("" + request.getParameter("product_id"));
         int productNum = Integer.valueOf("" + request.getParameter("productNum"));
         Product product = ProductService.selectById(product_id);
-        int productimage = ProductimageService.getImageIdByProductId(product_id);
+        float amount=product.getPromoteprice()*productNum;
+        Productimage productimage = ProductimageService.getImageIdByProductId(product_id);
 
 
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
         mv.addObject("productNum", productNum);
+        mv.addObject("amount", amount);
 
         //设置返回页面
         mv.setViewName("user-pay");
@@ -398,6 +401,7 @@ public class OrderPageController {
     public ModelAndView showUserOrders(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
+        session.setAttribute("userId",1);
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -407,7 +411,7 @@ public class OrderPageController {
         for (Order oneOrder: orders) {
             Map<String, Object> orderPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + oneOrder.getProductid()));
-            int productimage=ProductimageService.getImageIdByProductId(Integer.valueOf("" + oneOrder.getProductid()));
+            Productimage productimage=ProductimageService.getImageIdByProductId(Integer.valueOf("" + oneOrder.getProductid()));
             //获取单个商品对象
             orderPiece.put("product", product);
             //获取商品名称

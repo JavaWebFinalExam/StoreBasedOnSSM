@@ -102,7 +102,7 @@
             console.log(jason_str);
 
             $.ajax({
-                url: "<%=basePath%>account/checkLogin",
+                url: "<%=basePath%>account/login",
                 cache: true,
                 type: "post",
                 datatype: "json",
@@ -111,11 +111,11 @@
 
                 success: function (data) {
                     console.log(data.status);
-
                     if (data.status == true) {
                         console.log(data.message);
                         window.location.href = "<%=basePath%>product/products";
                     } else {
+                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
                         alert(data.message);
                     }
                 },

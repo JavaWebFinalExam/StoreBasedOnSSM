@@ -165,7 +165,9 @@
                                         });
                                     });
                                     $('#btn-${property.id}').click(function () {
-                                        $('#form-${property.id}').submit();
+                                        if ($('#doc-input-${property.id}')[0].value!=""){
+                                            $('#form-${property.id}').submit();
+                                        }
                                     });
                                 </script>
 
@@ -229,7 +231,9 @@
         });
     });
     $('#btn-x').click(function () {
-        $('#form-x').submit();
+        if ($('#doc-input-x1')[0].value!="") {
+            $('#form-x').submit();
+        }
     });
 </script>
 </body>

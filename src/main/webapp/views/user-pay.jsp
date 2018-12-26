@@ -50,7 +50,7 @@
             <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+            <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
             <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -99,7 +99,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" class="J_MakePoint">
-                                    <img src="<%=basePath%>views/image/productSingle/${productimage}.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="<%=basePath%>${productimage.path}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
@@ -174,27 +174,24 @@
             <div class="box">
                 <div tabindex="0" id="holyshit267" class="realPay"><em class="t">实付款：</em>
                     <span class="price g_price ">
-                                    <span>¥</span> <em class="style-large-bold-red " id="J_ActualFee">这里需要计算一个金额</em>
+                                    <span>¥</span> <em class="style-large-bold-red " id="J_ActualFee">${amount}</em>
 											</span>
                 </div>
-
                 <div id="holyshit268" class="pay-address">
 
                     <p class="buy-footer-address">
                         <span class="buy-line-title buy-line-title-type">寄送至：</span>
                         <span class="buy--address-detail">
-								   <span class="province">江西</span>省
-												<span class="city">南昌</span>市
-												<span class="dist">新建</span>区
-												<span class="street">学府大道999号(南昌大学)</span>
+								   <span class="province"><input type="text" title="请填写收货地址" placeholder="请填写收货地址" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px"></span>
 												</span>
                         </span>
                     </p>
                     <p class="buy-footer-address">
                         <span class="buy-line-title">收货人：</span>
                         <span class="buy-address-detail">
-                                         <span class="buy-user">石立军君酱 </span>
-												<span class="buy-phone">800-820-8820 DHC d=====(￣▽￣*)b</span>
+
+
+												<input type="text" title="必填，请填写您的姓名" placeholder="必填，请填写您的姓名" class="memo-input J_MakePoint c2c-text-default memo-close" style="width: 70px">
 												</span>
                     </p>
                 </div>
@@ -291,6 +288,24 @@
 </div>
 
 <div class="clear"></div>
+<%--//跳转购物车--%>
+<script>
+    $("#mc-menu-hd").click(function () {
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/ordAndCart/showShoppingCart";
+    });
+</script>
+
+<%--//跳转我的订单--%>
+<script>
+    $("#myorders").click(function () {
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/ordAndCart/showUserOrders";
+    });
+</script>
+
 </body>
 
 </html>

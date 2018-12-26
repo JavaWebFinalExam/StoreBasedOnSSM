@@ -109,8 +109,4 @@
     select * from account
     where username = #{username};
   </select>
-
-
-
-
 </mapper>

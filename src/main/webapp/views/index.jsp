@@ -177,7 +177,6 @@
 </div>
 <footer class="am_footer">
     <p style="text-align:center"><b>by 计算机科学与技术161班<br/>石立军&nbsp;&nbsp;肖枢贤&nbsp;&nbsp;简斌兵&nbsp;&nbsp;陈俊卿&nbsp;&nbsp;黄宁</b></p>
-    <div class="am_info_line">Copyright(c)2018 <span>stroe</span> All Rights Reserved</div>
 </footer>
 
 </body>

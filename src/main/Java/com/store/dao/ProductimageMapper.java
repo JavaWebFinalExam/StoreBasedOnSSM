@@ -19,5 +19,5 @@ public interface ProductimageMapper {
 
     List<Productimage> selectImageByProductId(Integer productId);
 
-    Integer getImageIdByProductId(Integer productId);
+    Productimage getImageIdByProductId(Integer productId);
 }
