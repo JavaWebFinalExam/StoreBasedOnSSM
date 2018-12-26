@@ -109,4 +109,25 @@ public class CategoryController {
             e.printStackTrace();
         }
     }
+
+    //编辑属性
+    @RequestMapping("/admin/changeProperty")
+    public void changeProperty(HttpServletRequest request, HttpServletResponse response){
+
+        System.out.println(""+request.getParameter("propertyId")+request.getParameter("propertyName"));
+
+        int propertyId = Integer.valueOf("" + request.getParameter("propertyId"));
+        int categoryId = Integer.valueOf("" + request.getParameter("categoryId"));
+        String propertyName = ""+request.getParameter("propertyName");
+
+        System.out.println(propertyId+":"+propertyName);
+
+        propertyService.updateProperty(propertyId,propertyName);
+
+        try {
+            response.sendRedirect("/adminPage/propertyCharge?categoryId="+categoryId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

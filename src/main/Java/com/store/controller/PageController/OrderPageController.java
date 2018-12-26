@@ -59,15 +59,24 @@ public class OrderPageController {
     @ResponseBody
     public ModelAndView selectById(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
+        List<Map<String,Object>> commodityCategories=new ArrayList<>();
 
         Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
         Product product = ProductService.selectById(product_id);
         List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
+
         List<Propertyvalue> propertyvalues=propertyvalueService.getValueByProductId(product_id);
 
+        for(Propertyvalue propertyvalue:propertyvalues){
+            Map<String,Object> property = new HashMap<>();
+            property.put("propertyvalue",propertyvalue);
+            property.put("property",PropertyService.getPropertyById(propertyvalue.getPropertyid()));
+
+            commodityCategories.add(property);
+        }
+        mv.addObject("commodityCategories",commodityCategories);
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
-
         //设置返回页面
         mv.setViewName("productTest");
         return mv;
@@ -200,10 +209,11 @@ public class OrderPageController {
         for (Shoppingcart cart : shoppingcarts) {
             Map<String, Object> productPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + cart.getProductid()));
+           int productimage=ProductimageService.getImageIdByProductId(product.getId());
             //获取单个商品对象
             productPiece.put("product", product);
             productPiece.put("productNum", cart.getProductnum());
-
+            productPiece.put("productimage", productimage);
             products.add(productPiece);
 
         } mv.addObject("products", products);
@@ -283,11 +293,14 @@ public class OrderPageController {
         ModelAndView mv = new ModelAndView();
 
         int product_id = Integer.valueOf("" + request.getParameter("product_id"));
+        int productNum = Integer.valueOf("" + request.getParameter("productNum"));
         Product product = ProductService.selectById(product_id);
-        List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
+        int productimage = ProductimageService.getImageIdByProductId(product_id);
+
 
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
+        mv.addObject("productNum", productNum);
 
         //设置返回页面
         mv.setViewName("user-pay");
