@@ -108,7 +108,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title= "${productPiece.product.name}"class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="<%=basePath%>views/image/productSingle/${productPiece.productimage}.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="<%=basePath%>${productPiece.productimage.path}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">

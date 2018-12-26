@@ -50,7 +50,7 @@
                     <div class="comment-list">
                         <div class="item-pic">
                             <a href="#" class="J_MakePoint">
-                                <img src="<%=basePath%>views/image/productSingle/${productImage}.jpg" class="itempic">
+                                <img src="<%=basePath%>${productImage.path}" class="itempic">
                             </a>
                         </div>
 

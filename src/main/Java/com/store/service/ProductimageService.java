@@ -9,7 +9,7 @@ public interface ProductimageService {
 
     List<Productimage> selectImageByProductId(Integer productId);
 
-    Integer getImageIdByProductId(Integer productId);
+    Productimage getImageIdByProductId(Integer productId);
 
     int insertProductImage(Productimage productimage);
 
