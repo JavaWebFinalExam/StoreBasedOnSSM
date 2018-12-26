@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,12 +21,12 @@
 
     <title>购物车页面</title>
 
-    <link href="../assets/css/amazeuishoppingCart1.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/shoppingCartdemo.css.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/cartOptstyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/amazeuishoppingCart1.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/shoppingCartdemo.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartOptstyle.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="<%=basePath%>views/js/jquery.min.js"></script>
 
 </head>
 
@@ -54,8 +59,6 @@
 
 <!--悬浮搜索框-->
 
-
-
 <!--购物车 -->
 <div class="concent">
     <div id="cartTable">
@@ -85,6 +88,10 @@
         </div>
         <div class="clear"></div>
 
+
+
+<c:if test="${products!=null}">
+    <c:forEach items="${products}" var="productPiece" >
         <tr class="item-list">
             <div class="bundle  bundle-last ">
 
@@ -99,12 +106,12 @@
                         </li>
                         <li class="td td-item">
                             <div class="item-pic">
-                                <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                <a href="#" target="_blank" data-title= "${productPiece.product.name}"class="J_MakePoint" data-point="tbcart.8.12">
+                                    <img src="<%=basePath%>views/image/productSingle/${productPiece.product.productimage}.jpg" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
-                                    <a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
+                                    <a href="#" target="_blank" title="${productPiece.product.name}" class="item-title J_MakePoint" data-point="tbcart.8.11">${productPiece.product.name}</a>
                                 </div>
                             </div>
                         </li>
@@ -120,10 +127,10 @@
                             <div class="item-price price-promo-promo">
                                 <div class="price-content">
                                     <div class="price-line">
-                                        <em class="price-original">78.00</em>
+                                        <em class="price-original">${productPiece.product.originalprice}</em>
                                     </div>
                                     <div class="price-line">
-                                        <em class="J_Price price-now" tabindex="0">39.00</em>
+                                        <em class="J_Price price-now" tabindex="0">${productPiece.product.promoteprice}</em>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +148,7 @@
                         </li>
                         <li class="td td-sum">
                             <div class="td-inner">
-                                <em tabindex="0" class="J_ItemSum number">117.00</em>
+                                <em tabindex="0" class="J_ItemSum number">${productPiece.product.promoteprice*productPiece.productnum}</em>
                             </div>
                         </li>
                         <li class="td td-op">
@@ -154,152 +161,20 @@
                         </li>
                     </ul>
 
-
-
-
-                    <ul class="item-content clearfix">
-                        <li class="td td-chk">
-                            <div class="cart-checkbox ">
-                                <input class="check" id="J_CheckBox_170037950254" name="items[]" value="170037950254" type="checkbox">
-                                <label for="J_CheckBox_170037950254"></label>
-                            </div>
-                        </li>
-                        <li class="td td-item">
-                            <div class="item-pic">
-                                <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
-                            </div>
-                            <div class="item-info">
-                                <div class="item-basic-info">
-                                    <a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="td td-info">
-                            <div class="item-props ">
-                                <span class="sku-line">颜色：12#川南玛瑙</span>
-                                <span class="sku-line">包装：裸装</span>
-                                <span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-                                <i class="theme-login am-icon-sort-desc"></i>
-                            </div>
-                        </li>
-                        <li class="td td-price">
-                            <div class="item-price price-promo-promo">
-                                <div class="price-content">
-                                    <div class="price-line">
-                                        <em class="price-original">78.00</em>
-                                    </div>
-                                    <div class="price-line">
-                                        <em class="J_Price price-now" tabindex="0">39.00</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="td td-amount">
-                            <div class="amount-wrapper ">
-                                <div class="item-amount ">
-                                    <div class="sl">
-                                        <input class="min am-btn" name="" type="button" value="-" />
-                                        <input class="text_box" name="" type="text" value="3" style="width:30px;" />
-                                        <input class="add am-btn" name="" type="button" value="+" />
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="td td-sum">
-                            <div class="td-inner">
-                                <em tabindex="0" class="J_ItemSum number">117.00</em>
-                            </div>
-                        </li>
-                        <li class="td td-op">
-                            <div class="td-inner">
-
-                                <a href="javascript:;" data-point-url="#" class="delete">
-                                    删除</a>
-                            </div>
-                        </li>
-                    </ul>
-
-
-
-
                 </div>
             </div>
         </tr>
         <div class="clear"></div>
+    </c:forEach>
+</c:if>
 
-        <tr class="item-list">
-            <div class="bundle  bundle-last ">
 
-                <div class="clear"></div>
-                <div class="bundle-main">
-                    <ul class="item-content clearfix">
-                        <li class="td td-chk">
-                            <div class="cart-checkbox ">
-                                <input class="check" id="J_CheckBox_170769542747" name="items[]" value="170769542747" type="checkbox">
-                                <label for="J_CheckBox_170769542747"></label>
-                            </div>
-                        </li>
-                        <li class="td td-item">
-                            <div class="item-pic">
-                                <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
-                            </div>
-                            <div class="item-info">
-                                <div class="item-basic-info">
-                                    <a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="td td-info">
-                            <div class="item-props ">
-                                <span class="sku-line">颜色：10#蜜橘色</span>
-                                <span class="sku-line">包装：两支手袋装（送彩带）</span>
-                                <span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-                                <i class="theme-login am-icon-sort-desc"></i>
-                            </div>
-                        </li>
-                        <li class="td td-price">
-                            <div class="item-price price-promo-promo">
-                                <div class="price-content">
-                                    <div class="price-line">
-                                        <em class="price-original">78.00</em>
-                                    </div>
-                                    <div class="price-line">
-                                        <em class="J_Price price-now" tabindex="0">39.00</em>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="td td-amount">
-                            <div class="amount-wrapper ">
-                                <div class="item-amount ">
-                                    <div class="sl">
-                                        <input class="min am-btn" name="" type="button" value="-" />
-                                        <input class="text_box" name="" type="text" value="3" style="width:30px;" />
-                                        <input class="add am-btn" name="" type="button" value="+" />
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="td td-sum">
-                            <div class="td-inner">
-                                <em tabindex="0" class="J_ItemSum number">117.00</em>
-                            </div>
-                        </li>
-                        <li class="td td-op">
-                            <div class="td-inner">
 
-                                <a href="javascript:;" data-point-url="#" class="delete">
-                                    删除</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </tr>
-    </div>
-    <div class="clear"></div>
+
+
+
+
+
 
     <div class="float-bar-wrapper">
         <div id="J_SelectAll2" class="select-all J_SelectAll">
@@ -409,12 +284,7 @@
     </div>
 </div>
 <!--引导 -->
-<div class="navCir">
-    <li><a href="home.html"><i class="am-icon-home "></i>首页</a></li>
-    <li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-    <li class="active"><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
-    <li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>
-</div>
+
 </body>
 
 </html>

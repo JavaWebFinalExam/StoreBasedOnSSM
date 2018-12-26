@@ -6,8 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+=======
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> dev
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,12 +26,14 @@
 
     <title>订单页面</title>
 
+
     <link href="<%=basePath%>views/assets/css/Amazeui.css" rel="stylesheet" type="text/css" />
 
     <link href="<%=basePath%>views/assets/css/orderDemo.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
 
     <link href="<%=basePath%>views/assets/css/optstyle.css" rel="stylesheet" type="text/css" />
+
 
     <script type="text/javascript" src="<%=basePath%>views/assets/js/orderAddress.js"></script>
 
