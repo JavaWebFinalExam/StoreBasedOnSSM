@@ -3,6 +3,8 @@ package com.store.dao;
 import com.store.entity.Evaluation;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface EvaluationMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -20,7 +22,7 @@ public interface EvaluationMapper {
 
     int getUsersPostNum(int userId);
 
-    Evaluation getEvaluationByProductId(int productId);
+    List<Evaluation> getEvaluationByProductId(int productId);
 
 
 }
