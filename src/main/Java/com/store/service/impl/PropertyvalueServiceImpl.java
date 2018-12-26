@@ -1,5 +1,6 @@
 package com.store.service.impl;
 
+import com.store.dao.PropertyMapper;
 import com.store.dao.PropertyvalueMapper;
 import com.store.entity.Propertyvalue;
 
@@ -13,7 +14,6 @@ import java.util.List;
 public class PropertyValueServiceImpl implements PropertyValueService {
     @Autowired
     PropertyvalueMapper propertyvalueMapper;
-
     @Override
     public List<Propertyvalue> getValueByProductId(int productId){
         return propertyvalueMapper.getValueByProductId(productId);
