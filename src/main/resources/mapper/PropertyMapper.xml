@@ -75,4 +75,10 @@
     from property
     where categoryId = #{id};
   </select>
+
+  <select id="getPropertyById" parameterType="int" resultType="Property">
+    select *
+    from property
+    where id = #{propertyId};
+  </select>
 </mapper>

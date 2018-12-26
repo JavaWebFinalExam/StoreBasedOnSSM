@@ -20,6 +20,12 @@
     </c:forEach>
 </c:if>
 
+<c:if test="${commodityCategories!=null}">
+    <c:forEach items="${commodityCategories}" var="commodityCategory" >
+        <h1>${commodityCategory.property.propertyname}:${commodityCategory.propertyvalue.value}</h1>
+    </c:forEach>
+</c:if>
+
 <br>
 <h1>商品详情</h1>
 <h1>${product.name}</h1><br>
@@ -28,8 +34,8 @@ ${product.promoteprice}<br>
 ${product.stock}<br>
 ${product.description}<br>
 ${product.createdate}<br>
-<h1>商品评价</h1>
-${evaluation.content}<br>
+<%--<h1>商品评价</h1>--%>
+<%--${evaluation.content}<br>--%>
 
 
 

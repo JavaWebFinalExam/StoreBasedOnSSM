@@ -7,6 +7,7 @@ import com.store.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 @Service
@@ -14,9 +15,10 @@ public class PropertyServiceImpl implements PropertyService{
     @Autowired
     PropertyMapper propertyMapper;
 
+
     @Override
-    public Property getByProductId(int productId){
-        return propertyMapper.getByProductId(productId);
+    public     Property getPropertyById(int propertyId){
+        return propertyMapper.getPropertyById(propertyId);
     }
 
 

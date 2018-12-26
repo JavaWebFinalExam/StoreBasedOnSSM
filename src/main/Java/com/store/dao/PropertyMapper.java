@@ -2,6 +2,8 @@ package com.store.dao;
 
 import com.store.entity.Property;
 
+import java.util.List;
+
 public interface PropertyMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -17,5 +19,6 @@ public interface PropertyMapper {
 
     int getPropertyNumByCategoryId(int id);
 
-    Property getByProductId(int productId);
+
+    Property getPropertyById(int propertyId);
 }
