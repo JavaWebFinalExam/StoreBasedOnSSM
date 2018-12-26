@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css">
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/admin.css">
 
+    <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
 </head>
 <body>
 <header class="am-topbar am-topbar-inverse admin-header">
@@ -72,8 +73,60 @@
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
                 <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>Charge Category</small></div>
-                <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
+                <div class="am-fr am-cf" style="margin-right: 25%"><button type="button" id="doc-prompt-toggle-x" class="am-btn am-btn-default am-btn-lg"><span class="am-icon-plus">
                 </span> 新增分类 </button></div>
+            </div>
+
+            <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-x">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd">新增分类</div>
+                    <div class="am-modal-bd">
+                        <form id="form-x" class="am-form" action="<%=basePath%>category/admin/addCategory" method="post">
+                            <fieldset>
+                                <div class="am-form-group am-g">
+                                    <div class="am-u-lg-4"><label for="doc-input-x1">类别名称：</label></div>
+                                    <div class="am-u-lg-8">
+                                        <input required name="categoryName" type="text" id="doc-input-x1" value="">
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-g">
+                                    <div class="am-u-lg-4"><label for="doc-input-x2">属性一：</label></div>
+                                    <div class="am-u-lg-8">
+                                        <input required name="property1" type="text" id="doc-input-x2" value="">
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-g">
+                                    <div class="am-u-lg-4"><label for="doc-input-x3">属性二：</label></div>
+                                    <div class="am-u-lg-8">
+                                        <input required name="property2" type="text" id="doc-input-x3" value="">
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-g">
+                                    <div class="am-u-lg-4"><label for="doc-input-x4">属性三：</label></div>
+                                    <div class="am-u-lg-8">
+                                        <input required name="property3" type="text" id="doc-input-x4" value="">
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-g">
+                                    <div class="am-u-lg-4"><label for="doc-input-x5">属性四：</label></div>
+                                    <div class="am-u-lg-8">
+                                        <input required name="property4" type="text" id="doc-input-x5" value="">
+                                    </div>
+                                </div>
+                                <div class="am-form-group am-g">
+                                    <div class="am-u-lg-4"><label for="doc-input-x6">属性五：</label></div>
+                                    <div class="am-u-lg-8">
+                                        <input required name="property5" type="text" id="doc-input-x6" value="">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="am-modal-footer">
+                        <span class="am-modal-btn">取消</span>
+                        <span class="am-modal-btn" id="btn-x">提交</span>
+                    </div>
+                </div>
             </div>
 
             <hr>
@@ -81,7 +134,6 @@
             <div class="am-g">
                 <div class="am-u-sm-12 am-u-md-5 am-u-md-push-10"></div>
                 <div class="am-u-sm-12 am-u-md-7 am-u-md-pull-3">
-                    <form class="am-form">
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
@@ -106,7 +158,13 @@
                                         <td>
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
+                                                    <button id="btn-${category.id}" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
+                                                    <script type="text/javascript">
+                                                        $('#btn-${category.id}').click(function () {
+                                                            console.log("点击编辑");
+                                                            window.location.href="<%=basePath%>adminPage/propertyCharge?categoryId=${category.id}";
+                                                        });
+                                                    </script>
                                                     <button id="${category.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
                                                         <span class="am-icon-trash-o"></span> 删除</button>
                                                 </div>
@@ -118,7 +176,6 @@
 
                             </tbody>
                         </table>
-                    </form>
                 </div>
             </div>
         </div>
@@ -132,8 +189,53 @@
     <!-- content end -->
 </div>
 
-<script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
 <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+<script type="text/javascript">
+    $(".delete-btn").click(function () {
+        console.log(this.id);
+        var ID = this.id;
+
+        var json_data = {
+            "categoryId": ID
+        };
+        var jason_str = JSON.stringify(json_data);
+
+        $.ajax({
+            url :"<%=basePath%>category/admin/deleteCategory",
+            cache : true,
+            type : "post",
+            datatype : "json",
+            contentType : "application/json; charset=utf-8",
+            data : jason_str,
+
+            success : function (data){
+                console.log(data.state + data.message);
+                if (data.state == true){
+                    console.log(data.message);
+                    location.reload();
+                } else {
+                    alert(data.message);
+                    location.reload();
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                alert("请求出错，请检查网络或服务器是否开启");
+            }
+        });
+    });
+
+    $(function() {
+        $('#doc-prompt-toggle-x').on('click', function() {
+            $('#my-prompt-x').modal();
+        });
+    });
+    $('#btn-x').click(function () {
+        if ($('#doc-input-x1')[0].value!="") {
+            $('#form-x').submit();
+        }
+    });
+</script>
 </body>
 </html>
 

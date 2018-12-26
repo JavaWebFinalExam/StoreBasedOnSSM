@@ -98,7 +98,7 @@
                                     <p>店铺描述：${store.description}</p><br>
                                 </div>
                             </a>
-                            <button type="button" class="am-btn am-btn-default am-btn-sm am-fl doc-prompt-toggle" id="doc-prompt-toggle-${store.id}">通过审核</button>
+                            <button type="button" ${store.status==0?"":"disabled=\"disabled\""} class="am-btn am-btn-default am-btn-sm am-fl doc-prompt-toggle check-btn" id="${store.id}">通过审核</button>
                             <button type="button" id="${store.id}" class="am-btn am-btn-warning am-btn-sm am-fr delete-btn">删除店铺</button>
                         </li>
                     </c:forEach>
@@ -119,6 +119,86 @@
 
 <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
 <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+<script type="text/javascript">
+    $(".delete-btn").click(function () {
+        console.log(this.id);
+        var ID = this.id;
+
+        var json_data = {
+            "storeId": ID
+        };
+        var jason_str = JSON.stringify(json_data);
+
+        $.ajax({
+            url :"<%=basePath%>Store/admin/deleteStoreById",
+            cache : true,
+            type : "post",
+            datatype : "json",
+            contentType : "application/json; charset=utf-8",
+            data : jason_str,
+
+            success : function (data){
+                console.log(data.state + data.message);
+                if (data.state == true){
+                    console.log(data.message);
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                alert("请求出错，请检查网络或服务器是否开启");
+            }
+        });
+    });
+
+    $('.check-btn').click(function () {
+        var ID = this.id;
+
+        var json_data = {
+            "storeId": ID
+        };
+        var jason_str = JSON.stringify(json_data);
+
+        console.log(jason_str);
+
+        $.ajax({
+            url :"<%=basePath%>Store/admin/checkStore",
+            cache : true,
+            type : "post",
+            datatype : "json",
+            contentType : "application/json; charset=utf-8",
+            data : jason_str,
+
+            success : function (data){
+                console.log(data.state + data.message);
+                if (data.state == true){
+                    console.log(data.message);
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            },
+            error:function (data) {
+                console.log(data);
+                alert("请求出错，请检查网络或服务器是否开启");
+            }
+        });
+    });
+
+    $('#doc-prompt-toggle').click((function () {
+        $('#my-prompt').modal({
+            relatedTarget: this,
+            onConfirm: function(e) {
+                console.log(e.data);
+            },
+            onCancel: function(e) {
+
+            }
+        });
+    }));
+</script>
 </body>
 </html>
 

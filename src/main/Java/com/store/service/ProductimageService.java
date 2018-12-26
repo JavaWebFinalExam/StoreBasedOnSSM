@@ -7,9 +7,9 @@ import java.util.List;
 public interface ProductimageService {
     Productimage selectByPrimaryKey(Integer id);
 
-    List<String> selectImageByProductId(Integer productId);
+    List<Productimage> selectImageByProductId(Integer productId);
 
-    Integer getImageIdByProductId(Integer productId);
+    Productimage getImageIdByProductId(Integer productId);
 
     int insertProductImage(Productimage productimage);
 

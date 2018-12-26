@@ -35,6 +35,8 @@ public class AdminPageController {
     CategoryService categoryService;
     @Autowired
     StoreService storeService;
+    @Autowired
+    PropertyService propertyService;
 
     //用户管理页面
     @RequestMapping(
@@ -118,5 +120,44 @@ public class AdminPageController {
         //设置返回页面
         mv.setViewName("admin-chargePost");
         return mv;
+    }
+
+    //商品分类属性管理页面
+    @RequestMapping(
+            value="/propertyCharge",
+            method = RequestMethod.GET,
+            produces = "application/json;charset=UTF-8"
+    )
+    @ResponseBody
+    public ModelAndView propertyCharge(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+
+        if (request.getParameter("categoryId")!=null) {
+            int categoryId = Integer.valueOf(""+request.getParameter("categoryId"));
+            mv.addObject("categoryId", categoryId);
+            mv.addObject("properties", propertyService.getPropertiesByCategoryId(categoryId));
+        }
+
+        //设置返回页面
+        mv.setViewName("admin-chargeProperty");
+        return mv;
+    }
+
+    //显示登录界面
+    @RequestMapping("/login")
+    public ModelAndView login(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+
+    //显示注册界面
+    @RequestMapping("/register")
+    public ModelAndView register(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("register");
+        return modelAndView;
     }
 }

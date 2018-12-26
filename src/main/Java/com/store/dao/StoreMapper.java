@@ -1,6 +1,7 @@
 package com.store.dao;
 
 import com.store.entity.Store;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,4 +24,7 @@ public interface StoreMapper {
     void deleteStoreById(int id);
 
     Store getStoreById(Integer id);
+
+    void checkStore(@Param("id")int id, @Param("status") int status);
+
 }

@@ -22,5 +22,7 @@ public interface StoreService {
     //获取所有店铺的简略信息
     List<Map<String,Object>> getAllStoreInformation();
 
-    Store getStoreById(Integer id);
+    Store getStoreById(Integer id);;
+
+    void checkStore(int id);
 }

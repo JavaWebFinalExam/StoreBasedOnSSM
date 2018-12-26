@@ -80,5 +80,29 @@
     select *
     from property
     where categoryId = #{categoryId,jdbcType=INTEGER}
+    </select>
+
+  <insert id="addProperty" parameterType="Property">
+    insert into property
+    (categoryid, propertyname)
+    values (#{id},#{name});
+  </insert>
+
+  <select id="getPropertiesByCategoryId" parameterType="int" resultType="Property">
+        select *
+        from property
+        where categoryId = #{categoryId}
+  </select>
+
+  <update id="changePropertyName">
+    update property
+    set propertyName = #{propertyName}
+    where id=#{id};
+  </update>
+
+  <select id="getPropertyById" parameterType="int" resultType="Property">
+    select *
+    from property
+    where id = #{propertyId};
   </select>
 </mapper>

@@ -6,6 +6,8 @@ import com.store.service.EvaluationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EvaluationServiceImpl implements EvaluationService {
     @Autowired
@@ -23,7 +25,7 @@ public class EvaluationServiceImpl implements EvaluationService {
     }
 
     @Override
-    public Evaluation getEvaluationByProductId(int productId){
+    public List<Evaluation> getEvaluationByProductId(int productId){
         return evaluationMapper.getEvaluationByProductId(productId);
     }
 }

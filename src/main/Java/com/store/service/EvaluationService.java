@@ -3,6 +3,8 @@ package com.store.service;
 
 import com.store.entity.Evaluation;
 
+import java.util.List;
+
 public interface EvaluationService {
 
     //根据用户id和商品id插入评价
@@ -11,5 +13,5 @@ public interface EvaluationService {
     //获取用户帖子数量
     int getUsersPostNum(int userId);
 
-    Evaluation getEvaluationByProductId(int productId);
+    List<Evaluation> getEvaluationByProductId(int productId);
 }

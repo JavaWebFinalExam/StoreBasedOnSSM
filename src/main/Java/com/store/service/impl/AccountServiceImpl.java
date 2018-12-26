@@ -44,10 +44,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public boolean register(String username, String password){
 
-        Account admin = accountMapper.selectByUsername(username);
-        if(admin==null)
+        Account account = accountMapper.selectByUsername(username);
+        if(account==null)
         {
-            accountMapper.insertAdmin(username, password);
+            accountMapper.insertAccount(username, password);
             return true;
         }
         else
@@ -66,5 +66,8 @@ public class AccountServiceImpl implements AccountService {
         return accountMapper.selectByPrimaryKey(id);
     }
 
-
+    @Override
+    public void updateUserInfor(Account account){
+        accountMapper.updateByPrimaryKeySelective(account);
+    }
 }

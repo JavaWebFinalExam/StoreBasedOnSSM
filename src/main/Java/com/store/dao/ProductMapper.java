@@ -2,6 +2,7 @@ package com.store.dao;
 
 import com.store.entity.Product;
 import com.store.entity.ProductKey;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,4 +32,13 @@ public interface ProductMapper {
     int getProductNumByCategoryId(int id);
 
     int getProductNumByStoreId(int id);
+
+    List<Product> getProductBycategoryId(int categoryId);
+
+    int getAllProductNum();
+
+    List<Product> getAllProduct(@Param("currIndex")int currIndex, @Param("pageSize")int pageSize);
+    //    分页
+    List<Product> commodityPaging(@Param("storeId")Integer storeId, @Param("currIndex")int currIndex, @Param("pageSize")int pageSize);
+
 }

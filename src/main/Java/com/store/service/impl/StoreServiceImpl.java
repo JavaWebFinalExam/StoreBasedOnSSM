@@ -81,4 +81,10 @@ public class StoreServiceImpl implements StoreService {
     public Store getStoreById(Integer id){
         return storeMapper.getStoreById(id);
     }
+
+    @Override
+    public void checkStore(int id){
+        storeMapper.checkStore(id,1);
+    }
+
 }
