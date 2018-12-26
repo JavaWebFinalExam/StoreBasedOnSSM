@@ -34,7 +34,7 @@
         <h1 class="am-topbar-brand">商城</h1>
         <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
             <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li class="am-fl am-active">
+                <li class="am-fl">
                     <a href="<%=basePath%>product/products">
                         首页
                     </a>
@@ -84,7 +84,7 @@
         <c:forEach items="${commodityInformation}" var="information">
             <article class="am-g blog-entry-article">
                 <div class="am-u-lg-4 am-u-md-12 am-u-sm-12 blog-entry-img">
-                    <img class="am-img-thumbnail am-img-bdrs" src="<%=basePath%>views/image/productSingle/${information.productImage}.jpg" alt=""/>
+                    <img class="am-img-thumbnail am-img-bdrs" src="<%=basePath%>${information.productImage.path}" alt=""/>
                 </div>
                 <div class="am-u-lg-8 am-u-md-12 am-u-sm-12">
                     <div class="gallery-title">
