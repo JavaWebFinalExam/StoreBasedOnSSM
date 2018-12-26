@@ -142,4 +142,13 @@ public class AdminPageController {
         mv.setViewName("admin-chargeProperty");
         return mv;
     }
+
+    //显示首页
+    @RequestMapping("/login")
+    public ModelAndView login(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
 }

@@ -6,17 +6,13 @@ import com.store.service.CategoryService;
 import com.store.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -53,7 +49,7 @@ public class ProductPageController {
         mv.addObject("products",products);
 
         //设置返回页面
-        mv.setViewName("store");
+        mv.setViewName("register");
         return mv;
     }
 
@@ -69,7 +65,7 @@ public class ProductPageController {
 //        List<Product> products = productService.g(categoryId);
 
 //        mv.addObject("products",products);
-        modelAndView.setViewName("store");
+        modelAndView.setViewName("index");
         return modelAndView;
     }
 
