@@ -47,7 +47,7 @@
             <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+            <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
             <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -180,15 +180,6 @@
 </c:if>
 
 
-
-
-
-
-
-
-
-
-
     <div class="footer">
 
             <p>
@@ -203,65 +194,16 @@
     </div>
 
 </div>
-
+    <%--//跳转我的订单--%>
+    <script>
+        $("#myorders").click(function () {
+            // var productNum = $("#text_box")[0].value;
+            // console.log(productNum);
+            window.location.href="<%=basePath%>userPage/ordAndCart/showUserOrders";
+        });
+    </script>
 <!--操作页面-->
 
-<div class="theme-popover-mask"></div>
-
-<div class="theme-popover">
-    <div class="theme-span"></div>
-    <div class="theme-poptit h-title">
-        <a href="javascript:;" title="关闭" class="close">×</a>
-    </div>
-    <div class="theme-popbod dform">
-        <form class="theme-signin" name="loginform" action="" method="post">
-
-            <div class="theme-signin-left">
-
-                <li class="theme-options">
-                    <div class="cart-title">颜色：</div>
-                    <ul>
-                        <li class="sku-line selected">12#川南玛瑙<i></i></li>
-                        <li class="sku-line">10#蜜橘色+17#樱花粉<i></i></li>
-                    </ul>
-                </li>
-                <li class="theme-options">
-                    <div class="cart-title">包装：</div>
-                    <ul>
-                        <li class="sku-line selected">包装：裸装<i></i></li>
-                        <li class="sku-line">两支手袋装（送彩带）<i></i></li>
-                    </ul>
-                </li>
-                <div class="theme-options">
-                    <div class="cart-title number">数量</div>
-                    <dd>
-                        <input class="min am-btn am-btn-default" name="" type="button" value="-" />
-                        <input class="text_box" name="" type="text" value="1" style="width:30px;" />
-                        <input class="add am-btn am-btn-default" name="" type="button" value="+" />
-                        <span  class="tb-hidden">库存<span class="stock">1000</span>件</span>
-                    </dd>
-
-                </div>
-                <div class="clear"></div>
-                <div class="btn-op">
-                    <div class="btn am-btn am-btn-warning">确认</div>
-                    <div class="btn close am-btn am-btn-warning">取消</div>
-                </div>
-
-            </div>
-            <div class="theme-signin-right">
-                <div class="img-info">
-                    <img src="../images/kouhong.jpg_80x80.jpg" />
-                </div>
-                <div class="text-info">
-                    <span class="J_Price price-now">¥39.00</span>
-                    <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
-                </div>
-            </div>
-
-        </form>
-    </div>
-</div>
 <!--引导 -->
 
 </body>
