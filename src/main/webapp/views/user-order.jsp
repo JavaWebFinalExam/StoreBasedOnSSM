@@ -85,6 +85,9 @@
                 <div class="th th-sum">
                     <div class="td-inner">金额</div>
                 </div>
+                <div class="th th-sum">
+                    <div class="td-inner">操作</div>
+                </div>
             </div>
         </div>
         <div class="clear"></div>
@@ -143,6 +146,11 @@
                                 <em tabindex="0" class="J_ItemSum number">${product.price}</em>
                             </div>
                         </li>
+                        <li class="td td-sum">
+                            <div class="td-inner">
+                                <button id="${product.oneOrder.id}" type="button" class="am-btn am-btn-default evaluation-btn">评价</button>
+                            </div>
+                        </li>
                     </ul>
 
 
@@ -184,7 +192,14 @@
     });
 </script>
 
-
+<script>
+    $(".evaluation-btn").click(function () {
+        var storeId = this.id;
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/postPage/evaluationPage?order_id="+storeId;
+    });
+</script>
 
 </body>
 
