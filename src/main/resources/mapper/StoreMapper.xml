@@ -120,5 +120,10 @@
     where id=#{id};
   </update>
 
+  <insert id="insertStore" parameterType="com.store.entity.Store">
+    insert into store(userId, storeType, description, name, image)
+    values ( #{userid,jdbcType=INTEGER}, #{storetype,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
+      #{description,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR})
+  </insert>
 
 </mapper>

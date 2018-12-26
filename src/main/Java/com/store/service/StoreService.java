@@ -25,4 +25,6 @@ public interface StoreService {
     Store getStoreById(Integer id);;
 
     void checkStore(int id);
+
+    int insertStore(Store store);
 }

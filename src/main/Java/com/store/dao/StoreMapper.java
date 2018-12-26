@@ -27,4 +27,6 @@ public interface StoreMapper {
 
     void checkStore(@Param("id")int id, @Param("status") int status);
 
+    int insertStore(Store store);
+
 }

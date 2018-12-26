@@ -70,4 +70,9 @@ public class AccountServiceImpl implements AccountService {
     public void updateUserInfor(Account account){
         accountMapper.updateByPrimaryKeySelective(account);
     }
+
+    @Override
+    public  int insertStoreAccount(Account account){
+        return accountMapper.insertStoreAccount(account);
+    }
 }

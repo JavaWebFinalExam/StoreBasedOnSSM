@@ -4,12 +4,14 @@ import com.store.entity.Account;
 import com.store.entity.Store;
 import com.store.service.AccountService;
 import com.store.service.StoreService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,10 +19,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/Store")
@@ -108,6 +112,84 @@ public class StoreController {
         }
 
         return ResponseMap;
+    }
+
+    @RequestMapping(value = "/UpdateStorePicture")
+    public void updateStorePicture(HttpServletRequest request, HttpServletResponse response, MultipartFile picture)throws IOException{
+        HttpSession session = request.getSession();
+        //int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        int userId = 0;
+        Store store = storeService.selectByUserId(userId);
+        if (picture!=null){
+            //获取原来的的图片url
+            String oldUrl = request.getSession().getServletContext().getRealPath(store.getImage());
+            //创建旧图片对象
+            File oldFIle = new File(oldUrl);
+            //删除旧图片
+            if (oldFIle==null)
+                System.out.println("没有旧图片");
+            else {
+                System.out.println("有旧图片，删除旧图片");
+                oldFIle.delete();
+            }
+            //使用UUID给图片重命名，并去掉四个“-”
+            String name = UUID.randomUUID().toString().replaceAll("-", "");
+            //获取文件的扩展名
+            String ext = FilenameUtils.getExtension(picture.getOriginalFilename());
+            //设置图片上传路径
+            String url = request.getSession().getServletContext().getRealPath("/views/image/storeImages");
+            System.out.println(url);
+            //以绝对路径保存重名命后的图片
+            picture.transferTo(new File(url + "/" + name + "." + ext));
+            //保存到数据库的图片路径
+            String dataPath = "/views/image/storeImages/" + name + "." + ext;
+
+            store.setImage(dataPath);
+            System.out.println("图片路径为：" + store.getImage());
+
+            try {
+                storeService.updateStore(store);
+                System.out.println("更新商店表");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        response.sendRedirect("/BusinessPage/PersonalCenter");
+    }
+
+    @RequestMapping(value = "/StoreRegister")
+    public void storeRegister(HttpServletRequest request, HttpServletResponse response, Account account, Store store, MultipartFile picture)throws IOException {
+        account.setIdentity(2);
+        int id = accountService.insertStoreAccount(account);
+        store.setUserid(id);
+        store.setStatus(0);
+
+        if (picture != null) {
+            //获取原来的的图片url
+
+            //使用UUID给图片重命名，并去掉四个“-”
+            String name = UUID.randomUUID().toString().replaceAll("-", "");
+            //获取文件的扩展名
+            String ext = FilenameUtils.getExtension(picture.getOriginalFilename());
+            //设置图片上传路径
+            String url = request.getSession().getServletContext().getRealPath("/views/image/storeImages");
+            System.out.println(url);
+            //以绝对路径保存重名命后的图片
+            picture.transferTo(new File(url + "/" + name + "." + ext));
+            //保存到数据库的图片路径
+            String dataPath = "/views/image/storeImages/" + name + "." + ext;
+
+            store.setImage(dataPath);
+            System.out.println("图片路径为：" + store.getImage());
+
+            try {
+                storeService.insertStore(store);
+                System.out.println("更新商店表");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        response.sendRedirect("/adminPage/login");
     }
 
 }
