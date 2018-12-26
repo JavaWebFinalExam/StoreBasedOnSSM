@@ -47,7 +47,7 @@
         <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
             <ul class="am-nav am-nav-pills am-topbar-nav">
                 <li class="am-active">
-                    <a href="#">
+                    <a href="<%=basePath%>product/products">
                         首页
                     </a>
                 </li>
@@ -55,6 +55,8 @@
         </div>
     </div>
 </header>
+
+
 <div class="get" style="background-image: url(<%=basePath%>${store.image})">
 </div>
 
