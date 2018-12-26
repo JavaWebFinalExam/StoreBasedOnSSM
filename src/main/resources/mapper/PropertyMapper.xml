@@ -86,5 +86,11 @@
         select *
         from property
         where categoryId = #{categoryId}
-    </select>
+  </select>
+
+  <update id="changePropertyName">
+    update property
+    set propertyName = #{propertyName}
+    where id=#{id};
+  </update>
 </mapper>

@@ -35,4 +35,9 @@ public class PropertyServiceImpl implements PropertyService{
     public void addProperty(String propertyName,int categoryId){
         propertyMapper.addProperty(categoryId,propertyName);
     }
+
+    @Override
+    public void updateProperty(int propertyId,String propertyName){
+        propertyMapper.changePropertyName(propertyId,propertyName);
+    }
 }

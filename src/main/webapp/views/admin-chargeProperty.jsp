@@ -125,7 +125,7 @@
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <button id="btn-${property.id}" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
+                                                <button id="doc-prompt-toggle-${property.id}" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑 </button>
 
                                                 <button id="${property.id}" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only delete-btn">
                                                     <span class="am-icon-trash-o"></span> 删除</button>
@@ -133,6 +133,42 @@
                                         </div>
                                     </td>
                                 </tr>
+
+                                <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${property.id}">
+                                    <div class="am-modal-dialog">
+                                        <div class="am-modal-hd">编辑属性</div>
+                                        <div class="am-modal-bd">
+                                            <form id="form-${property.id}" class="am-form" action="<%=basePath%>category/admin/changeProperty" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="propertyId" value="${property.id}">
+                                                    <input type="hidden" name="categoryId" value="${categoryId}">
+                                                    <div class="am-form-group am-g">
+                                                        <div class="am-u-lg-4"><label for="doc-input-${property.id}">属性名称：</label></div>
+                                                        <div class="am-u-lg-8">
+                                                            <input required name="propertyName" type="text" id="doc-input-${property.id}">
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                        <div class="am-modal-footer">
+                                            <span class="am-modal-btn">取消</span>
+                                            <span class="am-modal-btn" id="btn-${property.id}">提交</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    $(function() {
+                                        $('#doc-prompt-toggle-${property.id}').on('click', function() {
+                                            $('#my-prompt-${property.id}').modal();
+                                        });
+                                    });
+                                    $('#btn-${property.id}').click(function () {
+                                        $('#form-${property.id}').submit();
+                                    });
+                                </script>
+
                             </c:forEach>
                         </c:if>
 

@@ -26,4 +26,6 @@ public interface PropertyMapper {
     void addProperty(@Param("id")int id,@Param("name")String name);
 
     List<Property> getPropertiesByCategoryId(int categoryId);
+
+    void changePropertyName(@Param("id")int id,@Param("propertyName")String propertyName);
 }
