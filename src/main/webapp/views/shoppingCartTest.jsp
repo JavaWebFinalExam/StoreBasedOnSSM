@@ -39,6 +39,7 @@
 <body>
 
 <!--顶部导航条 -->
+
 <header class="am-topbar am-topbar-inverse">
     <div class="amz-container">
         <h1 class="am-topbar-brand">商城</h1>
@@ -71,6 +72,7 @@
                     </ul>
                 </li>
             </ul>
+
         </div>
     </div>
 </header>
@@ -159,7 +161,7 @@
                                 <div class="item-amount ">
                                     <div class="sl">
                                         <input class="min am-btn" name="" type="button" value="-" />
-                                        <input id="numberbox-${productPiece.cartid}" class="text_box numberbox" name="" type="text" value="1" style="width:30px;" />
+                                        <input id="numberbox-${productPiece.product.id}" class="text_box numberbox" name="" type="text" value="${productPiece.productNum}" style="width:30px;" />
                                         <input class="add am-btn" name="" type="button" value="+" />
                                     </div>
                                 </div>
@@ -179,7 +181,7 @@
                                         <%--<span>删&nbsp;除</span></a>--%>
                                 <br/>
                                 <br/>
-                                    <button id="${productPiece.id}" type="button" class="am-btn am-btn-warning payingbtn">结算</button>
+                                    <button id="${productPiece.product.id}" type="button" class="am-btn am-btn-warning payingbtn">结算</button>
                                     <%--<a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">--%>
                                         <%--<span>结&nbsp;算</span></a>--%>
 

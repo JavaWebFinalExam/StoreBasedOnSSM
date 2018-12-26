@@ -110,7 +110,7 @@ public class OrderPageController {
         Map<String, Object> ResponseMap = new HashMap<>();
 
         Shoppingcart shoppingcart = new Shoppingcart();
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 
@@ -195,8 +195,7 @@ public class OrderPageController {
     @ResponseBody
     public ModelAndView selectByUserId(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
-        HttpSession session = request.getSession();
-        session.setAttribute("userId",1);//这句代码最后要删
+        HttpSession session = request.getSession(true);
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
@@ -318,9 +317,8 @@ public class OrderPageController {
         Map<String, Object> responseMap = new HashMap<>();
         Order order = new Order();
         HttpSession session = request.getSession();
-        session.setAttribute("user_Id",1);
 
-        int userId = Integer.valueOf("" + session.getAttribute("user_Id"));
+        int userId = Integer.valueOf("" + session.getAttribute("userId"));
         Integer product_id = Integer.valueOf("" +  map.get(("product_id")));
         Integer productNum = Integer.valueOf("" +  map.get("productNum"));
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
@@ -369,7 +367,8 @@ public class OrderPageController {
 
         Map<String, Object> ResponseMap = new HashMap<>();
         HttpSession session=request.getSession();
-        session.setAttribute("userId",1);
+
+
 
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
         Account account=AccountService.selectById(userId);
@@ -400,9 +399,9 @@ public class OrderPageController {
     public ModelAndView showUserOrders(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
-        session.setAttribute("userId",1);
 
-        int userId = Integer.valueOf("" + session.getAttribute("userId"));
+
+        int userId = Integer.valueOf(session.getAttribute("userId").toString());
 
         List<Order> orders = OrderService.selectByUserId(userId);
         List<Map<String, Object>> products = new ArrayList<>();
