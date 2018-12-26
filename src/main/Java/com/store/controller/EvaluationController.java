@@ -26,7 +26,6 @@ public class EvaluationController {
 
         Map<String,Object> ResponseMap = new HashMap<>();
         HttpSession session = request.getSession();
-        session.setAttribute("userId",0);
         try {
             //从input中获取值
             String content = "" + map.get("content");

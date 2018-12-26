@@ -382,7 +382,7 @@ public class OrderPageController {
     public ModelAndView showUserOrders(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         HttpSession session = request.getSession();
-
+        session.setAttribute("userId",0);
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
 
         List<Order> orders = OrderService.selectByUserId(userId);
@@ -391,14 +391,18 @@ public class OrderPageController {
         for (Order oneOrder: orders) {
             Map<String, Object> orderPiece = new HashMap<>();
             Product product = ProductService.selectById(Integer.valueOf("" + oneOrder.getProductid()));
+            int productimage=ProductimageService.getImageIdByProductId(Integer.valueOf("" + oneOrder.getProductid()));
             //获取单个商品对象
             orderPiece.put("product", product);
             //获取商品名称
             orderPiece.put("oneOrder", oneOrder);
+            float price=oneOrder.getProductnum()*product.getPromoteprice();
+            orderPiece.put("productimage", productimage);
+            orderPiece.put("price", price);
             products.add(orderPiece);
-            mv.addObject("productPiece", products);
-        }
 
+        }
+        mv.addObject("products", products);
         //设置返回页面
         mv.setViewName("user-order");
         return mv;
