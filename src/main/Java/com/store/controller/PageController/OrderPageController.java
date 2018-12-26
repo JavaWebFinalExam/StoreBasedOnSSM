@@ -149,8 +149,8 @@ public class OrderPageController {
     public Map<String, Object> purchaseProducts(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map, HttpServletRequest request) {
         Map<String, Object> ResponseMap = new HashMap<>();
         Order order = new Order();
-
-        int product_id = (int) map.get("product_id");
+        int product_id = Integer.valueOf(""+map.get("product_id"));
+        int productNum = Integer.valueOf(""+map.get("productNum"));
         HttpSession session = request.getSession();
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
         int status=0;//已下单标志
@@ -162,7 +162,7 @@ public class OrderPageController {
         order.setReceiver((String) map.get("receiver"));
         order.setAddress((String) map.get("address"));
         order.setMobile((String) map.get("mobile"));
-        order.setProductnum((int) map.get("productNum"));
+        order.setProductnum(productNum);
         order.setUserMessage((String) map.get("userMessage"));
         order.setConfirmdate("暂未进行确认");
         order.setStatus(status);
@@ -209,6 +209,7 @@ public class OrderPageController {
            Productimage productimage=ProductimageService.getImageIdByProductId(product.getId());
             //获取单个商品对象
             productPiece.put("product", product);
+            productPiece.put("cartid",cart.getId());
             productPiece.put("productNum", cart.getProductnum());
             productPiece.put("productimage", productimage);
             products.add(productPiece);
@@ -231,7 +232,7 @@ public class OrderPageController {
     public Map<String, Object> deleteByPrimaryKey(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map, HttpServletRequest request) {
         Map<String, Object> ResponseMap = new HashMap<>();
 
-        int shoppingCart_id = (int) map.get("shoppingCart_id");
+        int shoppingCart_id = Integer.valueOf(""+map.get("shoppingCart_id")) ;
 
 
         try {
@@ -291,7 +292,8 @@ public class OrderPageController {
         int product_id = Integer.valueOf("" + request.getParameter("product_id"));
         int productNum = Integer.valueOf("" + request.getParameter("productNum"));
         Product product = ProductService.selectById(product_id);
-        float amount=product.getPromoteprice()*productNum;
+        float productValue=product.getPromoteprice();
+        float amount=productValue*productNum;
         Productimage productimage = ProductimageService.getImageIdByProductId(product_id);
 
 
@@ -312,10 +314,11 @@ public class OrderPageController {
             produces = "application/json;charset=UTF-8"
     )
     @ResponseBody
-    public ModelAndView submitOrder(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map,  HttpServletRequest request) {
-        ModelAndView mv = new ModelAndView();
+    public Map<String, Object> submitOrder(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map,  HttpServletRequest request) {
+        Map<String, Object> responseMap = new HashMap<>();
         Order order = new Order();
         HttpSession session = request.getSession();
+        session.setAttribute("user_Id",1);
 
         int userId = Integer.valueOf("" + session.getAttribute("user_Id"));
         Integer product_id = Integer.valueOf("" +  map.get(("product_id")));
@@ -344,13 +347,14 @@ public class OrderPageController {
         try {
             OrderService.insertSelective(order);
 
+            responseMap.put("state", true);
+            responseMap.put("message", "删除成功");
         } catch (Exception e) {
             System.out.println("error");
             System.out.println(e.getMessage());
         }
-        //设置返回页面
-        mv.setViewName("user-pay");
-        return mv;
+
+        return responseMap;
     }
 
 
@@ -476,7 +480,8 @@ public class OrderPageController {
     public Map<String, Object> confirmReceiving(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map, HttpServletRequest request) {
         Map<String, Object> ResponseMap = new HashMap<>();
 
-        int order_id = (int) map.get("order_id");
+
+        int order_id = Integer.valueOf(""+map.get("order_id")) ;
 
         //int order_id = Integer.valueOf("" + request.getParameter("order_id"));
 
