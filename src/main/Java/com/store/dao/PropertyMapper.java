@@ -1,12 +1,9 @@
 package com.store.dao;
 
-import com.store.entity.Category;
 import com.store.entity.Property;
 import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
-import java.util.List;
 
 public interface PropertyMapper {
     int deleteByPrimaryKey(Integer id);
@@ -23,6 +20,7 @@ public interface PropertyMapper {
 
     int getPropertyNumByCategoryId(int id);
 
+    List<Property> selectByCategoryId(int categoryId);
 
     Property getByProductId(int productId);
 

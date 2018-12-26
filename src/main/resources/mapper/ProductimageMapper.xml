@@ -83,10 +83,18 @@
     where productId= #{productId,jdbcType=INTEGER}
   </select>
 
-  <select id="getImageIdByProductId" resultType="Integer" parameterType="java.lang.Integer">
-     select id
+  <select id="getImageIdByProductId" resultType="Productimage" parameterType="java.lang.Integer">
+     select *
     from productimage
     where productId= #{productId,jdbcType=INTEGER}
     limit 1
   </select>
+
+  <!--通过商品id获取图片-->
+  <select id="getImagesByProductId" parameterType="Integer" resultType="com.store.entity.Productimage">
+    select *
+    from productimage
+    where productId = #{productId,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

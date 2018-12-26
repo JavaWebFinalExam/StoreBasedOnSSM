@@ -9,9 +9,15 @@ public interface ProductimageService {
 
     List<Productimage> selectImageByProductId(Integer productId);
 
-    Integer getImageIdByProductId(Integer productId);
+    Productimage getImageIdByProductId(Integer productId);
 
     int insertProductImage(Productimage productimage);
 
     int updateProductImage(Productimage productimage);
+
+    List<Productimage> getImagesByProduct(int productId);
+
+    int deleteProductImage(int id);
+
+
 }

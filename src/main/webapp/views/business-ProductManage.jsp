@@ -55,23 +55,15 @@
         <div class="sideMenu">
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
-                <li>商品列表</li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='<%=basePath%>/views/business/images/msn.gif'><a href="">添加新商品</a></li>
-                <li>商品分类</li>
-                <li>用户评论</li>
-                <li>商品回收站</li>
-                <li>库存管理 </li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowProductByStoreId">商品列表</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/Product/AddProduct">添加新商品</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">用户评论</a></li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
-                <li>订单列表</li>
-                <li>已完成订单</li>
-                <li>未完成订单</li>
-
-            </ul>
-            <h3 class="am-icon-users"><em></em> <a href="#">会员管理</a></h3>
-            <ul>
-                <li>会员列表 </li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowOrdersByStoreId">订单列表</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/CompletedOrder">已完成订单</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/UnfulfilledOrder">已完成订单</a></li>
             </ul>
         </div>
         <!-- sideMenu End -->
@@ -109,41 +101,68 @@
                 <span data-am-modal-close class="am-close">&times;</span>
             </div>
             <div class="am-popup-bd am-scrollable-vertical " style="height: 450px;">
-                <form class="am-form tjlanmu">
+                <form class="am-form tjlanmu" action="<%=basePath%>/Product/UpdateProduct" method="post" enctype="multipart/form-data">
                     <div class="am-form-group">
                         <div class="zuo">商品名称：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="name-${product.id}" value="${product.name}">
+                            <input type="text" class="am-input-sm" id="name-${product.id}" value="${product.name}" name="name" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo"> </div>
                         <div class="you">
                             <!-- <input type="text" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入标题"> -->
+                            <input type="hidden" class="am-input-sm" id="id-${product.id}" value="${product.id}" name="id" required>
+                            <input type="hidden" class="am-input-sm" id="storeid-${product.id}" value="${product.storeid}" name="storeid" required>
+                            <input type="hidden" class="am-input-sm" id="storeid-${product.id}" value="${product.createdate}" name="createdate" required>
+
                         </div>
                     </div>
+                    <!--商品id，隐藏-->
+                    <%--<div class="am-form-group">--%>
+                        <%--<div class="zuo"></div>--%>
+                        <%--<div class="you">--%>
+                            <%--<input type="hidden" class="am-input-sm" id="id-${product.id}" value="${product.id}" name="id" required>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <!--商品的店铺id,隐藏-->
+                    <%--<div class="am-form-group">--%>
+                        <%--<div class="zuo"></div>--%>
+                        <%--<div class="you">--%>
+                            <%--<input type="hidden" class="am-input-sm" id="storeid-${product.id}" value="${product.storeid}" name="storeid" required>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--商品的添加时间，隐藏--%>
+                    <%--<div class="am-form-group">--%>
+                        <%--<div class="zuo"></div>--%>
+                        <%--<div class="you">--%>
+                            <%--<input type="hidden" class="am-input-sm" id="storeid-${product.id}" value="${product.storeid}" name="storeid" required>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+
+
                     <div class="am-form-group">
                         <div class="zuo">商品原价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="originalPrice-${product.id}" value="${product.originalprice}">
+                            <input type="text" class="am-input-sm" id="originalPrice-${product.id}" value="${product.originalprice}" name="originalprice" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">商品优惠价：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="promoteprice-${product.id}" value="${product.promoteprice}">
+                            <input type="text" class="am-input-sm" id="promoteprice-${product.id}" value="${product.promoteprice}" name="promoteprice" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">商品库存：</div>
                         <div class="you">
-                            <input type="text" class="am-input-sm" id="stock-${product.id}" value="${product.stock}">
+                            <input type="text" class="am-input-sm" id="stock-${product.id}" value="${product.stock}" name="stock" required>
                         </div>
                     </div>
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
-                            <select id="doc-select-1">
+                            <select id="doc-select-1" name="categoryid">
                                 <c:forEach var="category" items="${categories}">
                                     <c:if test="${product.categoryid==category.id}">
                                         <option value="${category.id}">${category.typeName}</option>
@@ -159,48 +178,58 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">商品描述：</div>
                         <div class="you">
-                            <textarea class="" rows="5" id="description-${product.id}">${product.description}</textarea>
+                            <textarea class="" rows="5" id="description-${product.id}" name="description" required>${product.description}</textarea>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
-                        <div class="zuo">商品图片：</div>
+                        <div class="zuo">原始图片：</div>
+                        <div class="you">
+                            <c:forEach var="productImage" items="${productImages}">
+                                <c:if test="${productImage.productid==product.id}">
+                                <img class="am-img-thumbnail am-radius" src="<%=basePath%>views/image/test/${productImage.id}${productImage.path}" width="400" height="400"/><br>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">商品图片1：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file">
+                            <input type="file" name="picture1" required >
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
-                        <div class="zuo">商品图片：</div>
+                        <div class="zuo">商品图片2：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file">
+                            <input type="file" name="picture2" required>
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
-                        <div class="zuo">商品图片：</div>
+                        <div class="zuo">商品图片3：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file">
+                            <input type="file" name="picture3" required>
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
-                        <div class="zuo">商品图片：</div>
+                        <div class="zuo">商品图片4：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file">
+                            <input type="file" name="picture4" required>
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
-                        <div class="zuo">商品图片：</div>
+                        <div class="zuo">商品图片5：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="file">
+                            <input type="file" name="picture5" required>
                             <p class="am-form-help">请选择要上传的文件...</p>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="you">
                             <p>
-                                <button type="button" class="am-btn am-btn-success am-radius">提交</button>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
                             </p>
                         </div>
                     </div>
@@ -256,7 +285,7 @@
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
                                     <a class="am-btn am-btn-default am-btn-xs am-text-success am-round" data-am-modal="{target: '#my-popups-${product.id}'}" title="修改"><span class="am-icon-pencil-square-o" ></span></a>
-                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除"><span class="am-icon-trash-o"></span></button>
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除" onclick="deleteProduct(this)" id="${product.id}"><span class="am-icon-trash-o"></span></button>
                                 </div>
                             </div>
                         </td>
@@ -264,6 +293,42 @@
                     </c:forEach>
                     </tbody>
                 </table>
+
+                <script type="text/javascript">
+                    function deleteProduct(bt) {
+                        let id = bt.id;
+
+                        let product_json = {
+                            "id" : id,
+                        }
+
+                        let order = JSON.stringify(product_json);
+                        alert("确认删除")
+
+                        $.ajax({
+                            url: "<%=basePath%>/Product/DeleteProduct",
+                            cache: true,
+                            type: "post",
+                            datatype: "json",
+                            contentType: "application/json; charset=utf-8",
+                            data: order,
+
+                            success: function (data) {
+                                if (data.status == true) {
+                                    window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";
+                                    alert(data.message);
+                                } else {
+                                    alert(data.message);
+                                }
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                alert("请求出错，请检查网络或服务器是否开启");
+                            }
+                        });
+                    }
+
+                </script>
                 <ul class="am-pagination am-fr">
                     <li class="am-disabled"><a href="#">«</a></li>
                     <li class="am-active"><a href="#">1</a></li>

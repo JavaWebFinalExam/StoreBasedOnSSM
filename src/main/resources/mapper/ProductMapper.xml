@@ -177,6 +177,10 @@
     where storeId = #{id};
   </select>
 
+  <delete id="deleteProductById" parameterType="int">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <!--分页-->
   <select id="commodityPaging" resultType="Product">
     select *

@@ -143,12 +143,21 @@ public class AdminPageController {
         return mv;
     }
 
-    //显示首页
+    //显示登录界面
     @RequestMapping("/login")
     public ModelAndView login(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("login");
+        return modelAndView;
+    }
+
+    //显示注册界面
+    @RequestMapping("/register")
+    public ModelAndView register(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("register");
         return modelAndView;
     }
 }

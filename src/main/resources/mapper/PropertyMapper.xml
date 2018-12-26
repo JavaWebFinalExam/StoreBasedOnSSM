@@ -76,6 +76,11 @@
     where categoryId = #{id};
   </select>
 
+  <select id="selectByCategoryId" parameterType="int" resultType="com.store.entity.Property">
+    select *
+    from property
+    where categoryId = #{categoryId,jdbcType=INTEGER}
+    </select>
 
   <insert id="addProperty" parameterType="Property">
     insert into property

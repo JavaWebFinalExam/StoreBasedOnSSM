@@ -19,12 +19,12 @@ public class ProductimageServiceImpl implements ProductimageService {
     }
 
     @Override
-    public     List<Productimage> selectImageByProductId(Integer productId){
+    public List<Productimage> selectImageByProductId(Integer productId){
         return productimageMapper.selectImageByProductId(productId);
     }
 
     @Override
-    public Integer getImageIdByProductId(Integer productId){
+    public Productimage getImageIdByProductId(Integer productId){
         return productimageMapper.getImageIdByProductId(productId);
     }
 
@@ -36,5 +36,15 @@ public class ProductimageServiceImpl implements ProductimageService {
     @Override
     public int updateProductImage(Productimage productimage){
         return productimageMapper.updateByPrimaryKey(productimage);
+    }
+
+    @Override
+    public List<Productimage> getImagesByProduct(int productId){
+        return productimageMapper.getImagesByProductId(productId);
+    }
+
+    @Override
+    public int deleteProductImage(int id){
+        return productimageMapper.deleteByPrimaryKey(id);
     }
 }

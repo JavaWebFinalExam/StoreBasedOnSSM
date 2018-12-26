@@ -1,9 +1,8 @@
 package com.store.service.impl;
 
 import com.store.dao.PropertyMapper;
-import com.store.entity.Category;
 import com.store.entity.Property;
-import com.store.entity.Propertyvalue;
+
 import com.store.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +10,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
+
 @Service
 public class PropertyServiceImpl implements PropertyService{
     @Autowired
     PropertyMapper propertyMapper;
 
+    @Override
+    public List<Property> selectByCategoryId(int categoryId) {
+        return propertyMapper.selectByCategoryId(categoryId);
+    }
 
     @Override
     public List<Property> getPropertiesByCategoryId(int categoryId) {

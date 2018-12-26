@@ -17,6 +17,7 @@ public interface PropertyvalueMapper {
 
     int updateByPrimaryKey(Propertyvalue record);
 
-    List<Propertyvalue> getValueByProductId(int productId);
+    int insertPropertyValue(Propertyvalue propertyvalue);
 
+    List<Propertyvalue> getValueByProductId(int productId);
 }

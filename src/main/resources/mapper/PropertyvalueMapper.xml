@@ -21,10 +21,11 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.store.entity.Propertyvalue" >
-    insert into propertyvalue (id, productId, propertyId, 
-      value)
-    values (#{id,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER}, #{propertyid,jdbcType=INTEGER}, 
-      #{value,jdbcType=VARCHAR})
+    insert into propertyvalue (id, productId, propertyId, value)
+    values (#{id,jdbcType=INTEGER},
+    #{productid,jdbcType=INTEGER},
+    #{propertyid,jdbcType=INTEGER},
+    #{value,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.store.entity.Propertyvalue" >
     insert into propertyvalue
@@ -82,12 +83,18 @@
   </update>
 
   <!--以下为后续添加内容-->
+<!--插入数据-->
+  <insert id="insertPropertyValue" parameterType="com.store.entity.Propertyvalue">
+    insert into propertyvalue(productId, propertyId, value)
+    values (#{productid,jdbcType=INTEGER},
+    #{propertyid,jdbcType=INTEGER},
+    #{value,jdbcType=VARCHAR})
+  </insert>
   <select id="getValueByProductId" parameterType="int" resultType="Propertyvalue">
     select *
     from propertyvalue
     where productId=#{productId};
 
   </select>
-
 
 </mapper>
