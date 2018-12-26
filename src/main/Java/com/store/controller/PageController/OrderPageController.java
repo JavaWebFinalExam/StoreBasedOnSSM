@@ -116,13 +116,14 @@ public class OrderPageController {
 
         Shoppingcart shoppingcart = new Shoppingcart();
         HttpSession session = request.getSession();
+        session.setAttribute("userId",1);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 
         //构建插入的购物车
         int userId = Integer.valueOf("" + session.getAttribute("userId"));
-        int product_id = (int) map.get("product_id");
-        int productNum = (int) map.get("productNum");
+        int product_id = Integer.valueOf(""+map.get("product_id"));
+        int productNum = Integer.valueOf(""+map.get("productNum"));
 
         shoppingcart.setProductid(product_id);
         shoppingcart.setProductnum(productNum);

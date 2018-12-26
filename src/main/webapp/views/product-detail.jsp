@@ -269,7 +269,7 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+            <a id="LikBasket" title="加入购物车"><i></i>加入购物车</a>
         </div>
     </li>
 </div>
@@ -447,7 +447,7 @@
 
 <script>//购买商品
     $("#LikBuy").click(function () {
-        var productNum = $("#text_box")[0].value;
+        var productNum = $("#number_box")[0].value;
         console.log(productNum);
 
         window.location.href="<%=basePath%>userPage/ordAndCart/showTransction?product_id=${product.id}&productNum="+productNum;
@@ -474,20 +474,20 @@
 
 <%--加入购物车--%>
 <script type="text/javascript">
-    $("#LikBasket-btn").click(function () {
-        var productnun = $("#number_box")[0].value;
+    $("#LikBasket").click(function () {
+        var productNum = $("#number_box")[0].value;
 
-        if (productnun != "") {
-            console.log(productnun);
+        if (productNum != "") {
+            console.log(productNum);
 
         var json_data = {
-            "productnun": productnun,
-            "productid":${product.id}
+            "productNum": productNum,
+            "product_id":${product.id}
         };
         var jason_str = JSON.stringify(json_data);
 
         $.ajax({
-            url :"<%=basePath%>/userPage/ordAndCart/showTransction",
+            url :"<%=basePath%>/userPage/ordAndCart/addProductToShoppingCart",
             cache : true,
             type : "post",
             datatype : "json",
