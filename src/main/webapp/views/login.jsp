@@ -60,7 +60,7 @@
             <br />
             <div class="am-cf" id="doc-dropdown-justify-js">
                 <div class="am-dropdown" id="doc-dropdown-js">
-                <input type="submit" name="" value="登 录" class="am-btn am-btn-warning am-round am-btn-sm am-fl">
+                <input type="submit" id="login" value="登 录" class="am-btn am-btn-warning am-round am-btn-sm am-fl">
                     <button class="am-btn am-btn-default am-dropdown-toggle am-round">注册<span class="am-icon-caret-down"></span></button>
                     <div class="am-dropdown-content">
                         <ul class="am-dropdown-content">
@@ -100,7 +100,7 @@
             console.log(jason_str);
 
             $.ajax({
-                url: "<%=basePath%>account/checkLogin",
+                url: "<%=basePath%>account/login",
                 cache: true,
                 type: "post",
                 datatype: "json",
@@ -111,11 +111,12 @@
                     console.log(data.state);
 
                     if (data.state == true) {
-                        if (data.isManager == true)
-                            window.location.href = "<%=basePath%>adminPage/";
-                        else
-                            window.location.href = "<%=basePath%>userPage/";
+
+                            window.location.href = "<%=basePath%>userPage/postPage/PostPage";
+
+
                     } else {
+                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
                         alert(data.message);
                     }
                 },
