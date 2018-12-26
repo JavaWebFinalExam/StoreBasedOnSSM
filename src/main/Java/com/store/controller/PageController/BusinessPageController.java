@@ -49,8 +49,8 @@ public class BusinessPageController {
         ModelAndView modelAndView = new ModelAndView();
 
         HttpSession session = request.getSession();
-       // int userId = Integer.parseInt(session.getAttribute("userId").toString());
-        int userId = 0;
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+//        int userId = 0;
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
         System.out.println(store.getId() + "\t" + store.getUserid());

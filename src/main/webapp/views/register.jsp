@@ -69,11 +69,15 @@
             <br>
             <br />
             <div class="am-cf">
-                    <input type="button" id="login" value="登 录" class="am-btn am-btn-default am-round am-btn-sm am-fl">
-                    <input type="button" id="sign" value="注 册" class="am-btn am-btn-danger am-round am-btn-sm am-fr">
+                  <input type="button" id="login" value="登 录" class="am-btn am-btn-default am-round am-btn-sm am-fl">
+                  <input type="button" id="sign" value="注 册" class="am-btn am-btn-danger am-round am-btn-sm am-fr">
             </div>
         </form>
         <br/><br/><br/>
+        <br/><br/><br/>
+        <br/><br/><br/>
+        <br/><br/><br/>
+
         <hr>
 
         <footer class="am_footer">
@@ -95,10 +99,10 @@
                "password": password
            };
 
-    //js对象转换成JSON字符串
-       let jason_str = JSON.stringify(json_data);
+        //js对象转换成JSON字符串
+        let jason_str = JSON.stringify(json_data);
 
-       console.log(jason_str);
+        console.log(jason_str);
 
        $.ajax({
          url: "<%=basePath%>account/register",
@@ -110,28 +114,28 @@
 
            success: function (data) {
                if(data.status==true){
-                   console.log(data.message);
+                   alert(data.message);
                    window.location.href = "<%=basePath%>adminPage/login";
                }
                else{
                    alert(data.message);
+                   location.reload();
                }
            },
            error: function (data) {
                 console.log(data);
                 alert("请求出错，请检查网络或服务器是否开启");
            },
-           });
-
-           }
-   });
+         });
+       }
+    });
     $("#login").click(function () {
         window.location.href = "<%=basePath%>adminPage/login";
     });
     $("body").keydown(function() {
-    if (event.keyCode == "13") {//keyCode=13是回车键
-    $('#register').click();
-    }
+        if (event.keyCode == "13") {//keyCode=13是回车键
+            $('#register').click();
+        }
     });
 </script>
 

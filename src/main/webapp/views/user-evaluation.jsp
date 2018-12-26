@@ -18,6 +18,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
     <title>发表评论</title>
+    <link href="<%=basePath%>views/assets/css/amazeuishoppingCart1.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/shoppingCartdemo.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartOptstyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.js"></script>
 
     <link href="<%=basePath%>views/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="<%=basePath%>views/assets/css/amazeui.css" rel="stylesheet" type="text/css">
@@ -27,15 +32,26 @@
 </head>
 
 <body>
-<div class="nav-table">
-    <div class="nav-cont">
-        <ul>
-            <li class="index"><a href="#">首页</a></li>
-        </ul>
-    </div>
+<!--顶部导航条 -->
+<div class="am-container header">
+    <ul class="message-l">
+    </ul>
+    <ul class="message-r">
+        <div class="topMessage home">
+            <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
+        </div>
+        <div class="topMessage my-shangcheng">
+            <div class="menu-hd MyShangcheng"><a id="myorders" href="<%=basePath%>userPage/ordAndCart/showUserOrders" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
+        </div>
+        <div class="topMessage mini-cart">
+            <div class="menu-hd"><a id="mc-menu-hd" href="<%=basePath%>userPage/ordAndCart/showShoppingCart" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+        </div>
+        <div class="topMessage favorite">
+            <div class="menu-hd"><a href="#" target="_top"><i class=""></i><span></span></a></div>
+        </div>
+    </ul>
 </div>
 
-<b class="line"></b>
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">

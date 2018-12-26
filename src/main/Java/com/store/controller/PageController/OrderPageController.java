@@ -44,6 +44,7 @@ public class OrderPageController {
     PropertyValueService propertyValueService;
 
 
+
     //商品详情页面ok
     @RequestMapping(
             value = "/productDetail",
@@ -104,14 +105,12 @@ public class OrderPageController {
             method = RequestMethod.POST,
             produces = "application/json;charset=UTF-8"
     )
-
     @ResponseBody
     public Map<String, Object> addProductToShoppingCart(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map, HttpServletRequest request) {
         Map<String, Object> ResponseMap = new HashMap<>();
 
         Shoppingcart shoppingcart = new Shoppingcart();
         HttpSession session = request.getSession();
-        session.setAttribute("userId",1);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 
