@@ -45,6 +45,8 @@ public class OrderPageController {
     PropertyService PropertyService;
     @Autowired
     AccountService AccountService;
+    @Autowired
+    PropertyvalueService propertyvalueService;
 
 
     //商品详情页面ok
@@ -60,7 +62,8 @@ public class OrderPageController {
 
         Integer product_id = Integer.valueOf("" + request.getParameter("product_id"));
         Product product = ProductService.selectById(product_id);
-        List<String> productimage = ProductimageService.selectImageByProductId(product_id);
+        List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
+        List<Propertyvalue> propertyvalues=propertyvalueService.getValueByProductId(product_id);
 
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
@@ -281,7 +284,7 @@ public class OrderPageController {
 
         int product_id = Integer.valueOf("" + request.getParameter("product_id"));
         Product product = ProductService.selectById(product_id);
-        List<String> productimage = ProductimageService.selectImageByProductId(product_id);
+        List<Productimage> productimage = ProductimageService.selectImageByProductId(product_id);
 
         mv.addObject("product", product);
         mv.addObject("productimage", productimage);
