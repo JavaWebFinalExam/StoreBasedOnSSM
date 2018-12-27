@@ -316,7 +316,8 @@
                             success: function (data) {
                                 if (data.status == true) {
                                     alert(data.message);
-                                    window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";
+                                    <%--window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";--%>
+                                    window.location.reload();
                                 } else {
                                     alert(data.message);
                                 }
