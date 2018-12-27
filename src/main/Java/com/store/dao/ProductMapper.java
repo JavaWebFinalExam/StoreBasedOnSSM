@@ -38,7 +38,7 @@ public interface ProductMapper {
     int getAllProductNum();
 
     List<Product> getAllProduct(@Param("currIndex")int currIndex, @Param("pageSize")int pageSize);
-    //    分页
+    //分页
     List<Product> commodityPaging(@Param("storeId")Integer storeId, @Param("currIndex")int currIndex, @Param("pageSize")int pageSize);
 
 }

@@ -32,21 +32,18 @@
 <header class="am-topbar am-topbar-inverse">
     <div class="amz-container">
         <h1 class="am-topbar-brand">商城</h1>
-        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
-                data-am-collapse="{target: '#doc-topbar-collapse-5'}">
-            <span class="am-sr-only">
-                导航切换
-            </span>
-            <span class="am-icon-bars">
-            </span>
-        </button>
         <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
             <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li class="am-fl am-active">
-                    <a href="#">
+                <li class="am-fl">
+                    <a href="<%=basePath%>product/products">
                         首页
                     </a>
                 </li>
+              <li class="am-fl">
+                <a href="<%=basePath%>userPage/postPage/PostPage">
+                  帖子
+                </a>
+              </li>
                 <li class="am-dropdown" data-am-dropdown="">
                     <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
                         商品种类
@@ -61,7 +58,7 @@
                 </li>
             </ul>
             <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
-                <li><a class="am-round am-topbar-right" href="<%=basePath%>/userPage/ordAndCart/showShoppingCart">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/ordAndCart/showShoppingCart">
                     <i class="am-icon-shopping-cart"></i>&nbsp;购物车
                 </a>
                 </li>
@@ -72,109 +69,117 @@
                     </a>
                     <ul class="am-dropdown-content">
                         <li><a href="<%=basePath%>userPage/ordAndCart/showUserOrders">查看订单</a></li>
-                        <li><a href="account/outLogin">退出登录</a></li>
+                        <li><a href="<%=basePath%>account/outLogin">退出登录</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </header>
-<div class="get">
-    <div class="am-g">
-        <div class="am-u-lg-12">
+
+<div style="max-width: 1200px;margin: 0 auto;">
+  <ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
+    <c:forEach items="${commodityInformation}" var="information">
+    <li>
+      <div class="am-gallery-item">
+        <a href="<%=basePath%>userPage/ordAndCart/productDetail?product_id=${information.product.id}" class="">
+          <img src="<%=basePath%>${information.productImage.path}"  alt=""/>
+          <h3>${information.product.name}</h3>
+        </a>
+        <h1 class="am-gallery-title">
+          优惠价：￥${information.product.originalprice}<br>
+          优惠价：￥${information.product.promoteprice}<br>
+          库存数量：${information.product.stock}<br>
+        </h1>
+          <div class="gallery-desc"><a href="<%=basePath%>userPage/postPage/storePage?storeId=${information.product.storeid}">
+            店铺：${information.product.storeid}</a></div>
+          <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${information.product.id}">加入购物车</button>
+      </div>
+    </li>
+
+      <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${information.product.id}">
+        <div class="am-modal-dialog">
+          <div class="am-modal-hd">将${information.product.name}加入购物车</div>
+          <div class="am-modal-bd">
+            请输入添加数量：
+            <input id="input-${information.product.id}" required type="number" pattern="[0-9]*" class="am-modal-prompt-input">
+          </div>
+          <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+          </div>
         </div>
+      </div>
+      <script>
+          $(function() {
+              $('#doc-prompt-toggle-${information.product.id}').on('click', function() {
+                  $('#my-prompt-${information.product.id}').modal({
+                      relatedTarget: this,
+                      onConfirm: function(e) {
+                          console.log(e.data);
+                          var length = $("#input-${information.product.id}")[0].value.length;
+
+                          if (0 < length && length <= 11){
+                              var ID = ${information.product.id};
+                              var productNum = parseInt(e.data);
+
+                              var json_data = {
+                                  "product_id": ID,
+                                  "productNum":productNum
+                              };
+                              var jason_str = JSON.stringify(json_data);
+                              console.log(jason_str);
+
+                              $.ajax({
+                                  url :"<%=basePath%>userPage/ordAndCart/addProductToShoppingCart",
+                                  cache : true,
+                                  type : "post",
+                                  datatype : "json",
+                                  contentType : "application/json; charset=utf-8",
+                                  data : jason_str,
+
+                                  success : function (data){
+                                      console.log(data.state + data.message);
+
+                                      if (data.state == true){
+                                          console.log(data.message);
+                                          location.reload();
+                                      } else {
+                                          alert(data.message);
+                                      }
+                                  },
+                                  error:function (data) {
+                                      console.log(data);
+                                      alert("请求出错，请检查网络或服务器是否开启");
+                                  }
+                              });
+                          }else{
+                              alert("请输入合法的数据！");
+                          }
+                      },
+                      onCancel: function(e) {
+                      }
+                  });
+              });
+          });
+      </script>
+    </c:forEach>
+  </ul>
+
+  <c:if test="${isPage!=null}">
+    <div class="am-margin am-cf">
+      <hr/>
+      <ol class="am-pagination am-fr">
+        <c:forEach items="${lengths}" var="length">
+          <li ${page==length?"class=\"am-active\"":""}><a href="<%=basePath%>product/products?page=${length}">${length}</a></li>
+        </c:forEach>
+      </ol>
     </div>
+  </c:if>
 </div>
 
-<div class="am-g am-imglist">
-    <div class="am-u-md-12 am-u-sm-12">
 
-        <c:if test="${book != null}">
-            <article class="am-g blog-entry-article">
-                <div class="am-u-lg-4 am-u-md-12 am-u-sm-12 blog-entry-img">
-                    <img class="am-img-thumbnail am-img-bdrs" src="<%=basePath%>${produces.image}" alt=""/>
-                </div>
-                <div class="am-u-lg-8 am-u-md-12 am-u-sm-12">
-                    <div class="gallery-title">
-                        <h1>《${product.name}》</h1>
-                    </div>
-                    <div class="gallery-desc"><small>店铺：${product.store}</small></div>
-                    <div class="gallery-desc">
-                        <small>优惠价：￥${product.originalPrice}</small>
-                        <small>优惠价：￥${product.promotePrice}</small>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <small>库存数量：${product.stock}</small></div>
-                    <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${book.bookId}">加入购物车</button>
-                </div>
-            </article>
-            <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-${product.id}">
-                <div class="am-modal-dialog">
-                    <div class="am-modal-hd">将《${product.name}》加入购物车</div>
-                    <div class="am-modal-bd">
-                        请输入添加数量：
-                        <input id="input-${product.productNum}" required type="number" pattern="[0-9]*" class="am-modal-prompt-input">
-                    </div>
-                    <div class="am-modal-footer">
-                        <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-                        <span class="am-modal-btn" data-am-modal-confirm>提交</span>
-                    </div>
-                </div>
-            </div>
-            <script>
-                $(function() {
-                    $('#doc-prompt-toggle-${product.id}').on('click', function() {
-                        $('#my-prompt-${product.id}').modal({
-                            relatedTarget: this,
-                            onConfirm: function(e) {
-                                console.log(e.data);
-                                var length = $("#input-${product.id}")[0].value.length;
-
-                                if (0 < length && length <= 11){
-                                    var ID = ${product.id};
-                                    var productNum = parseInt(e.data);
-
-                                    var json_data = {
-                                        "productId": ID,
-                                        "productNum":productNum
-                                    };
-                                    var jason_str = JSON.stringify(json_data);
-                                    console.log(jason_str);
-
-                                    $.ajax({
-                                        url :"<%=basePath%>userPage/ordAndCart/addProductToShoppingCart",
-                                        cache : true,
-                                        type : "post",
-                                        datatype : "json",
-                                        contentType : "application/json; charset=utf-8",
-                                        data : jason_str,
-
-                                        success : function (data){
-                                            console.log(data.state + data.message);
-
-                                            if (data.state == true){
-                                                alert(data.message);
-                                                location.reload();
-                                            } else {
-                                                alert(data.message);
-                                            }
-                                        },
-                                        error:function (data) {
-                                            console.log(data);
-                                            alert("请求出错，请检查网络或服务器是否开启");
-                                        }
-                                    });
-                                }else{
-                                    alert("请输入合法的数据！");
-                                }
-                            },
-                            onCancel: function(e) {
-                            }
-                        });
-                    });
-                });
-            </script>
-        </c:if>
-    </div>
-</div>
+<hr>
 <footer class="am_footer">
     <p style="text-align:center"><b>by 计算机科学与技术161班<br/>石立军&nbsp;&nbsp;肖枢贤&nbsp;&nbsp;简斌兵&nbsp;&nbsp;陈俊卿&nbsp;&nbsp;黄宁</b></p>
 </footer>

@@ -24,12 +24,9 @@
 
 
     <link href="<%=basePath%>views/assets/css/Amazeui.css" rel="stylesheet" type="text/css" />
-
     <link href="<%=basePath%>views/assets/css/orderDemo.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
-
     <link href="<%=basePath%>views/assets/css/optstyle.css" rel="stylesheet" type="text/css" />
-
 
     <script type="text/javascript" src="<%=basePath%>views/assets/js/orderAddress.js"></script>
 
@@ -40,22 +37,18 @@
 <!--顶部导航条 -->
 <div class="am-container header">
     <ul class="message-l">
-        <div class="topMessage">
-            <div class="menu-hd">
-                <a href="#" target="_top" class="h">亲，请登录</a>
-                <a href="#" target="_top">免费注册</a>
-            </div>
-        </div>
     </ul>
-    <ul class="message-r">
+    <ul class="message-r am-cf">
         <div class="topMessage home">
-            <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+            <div class="menu-hd"><a href="<%=basePath%>product/products" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a id="myorders" href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
+            <div class="menu-hd MyShangcheng"><a id="myorders" href="<%=basePath%>userPage/ordAndCart/showUserOrders" target="_top"><i class="am-icon-user am-icon-fw"></i>我的订单</a></div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+
+            <div class="menu-hd"><a id="mc-menu-hd" href="<%=basePath%>userPage/ordAndCart/showShoppingCart" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+
         </div>
     </ul>
 </div>
@@ -85,6 +78,9 @@
                 <div class="th th-sum">
                     <div class="td-inner">金额</div>
                 </div>
+                <div class="th th-sum">
+                    <div class="td-inner">操作</div>
+                </div>
             </div>
         </div>
         <div class="clear"></div>
@@ -104,7 +100,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-                                    <img src="<%=basePath%>${product.productimage.path}" class="itempic J_ItemImg"></a>
+                                    <img width="80px" height="80px" src="<%=basePath%>${product.productimage.path}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">
@@ -141,6 +137,11 @@
                         <li class="td td-sum">
                             <div class="td-inner">
                                 <em tabindex="0" class="J_ItemSum number">${product.price}</em>
+                            </div>
+                        </li>
+                        <li class="td td-sum">
+                            <div class="td-inner">
+                                <button id="${product.oneOrder.id}" type="button" class="am-btn am-btn-default evaluation-btn">评价</button>
                             </div>
                         </li>
                     </ul>
@@ -184,7 +185,14 @@
     });
 </script>
 
-
+<script>
+    $(".evaluation-btn").click(function () {
+        var storeId = this.id;
+        // var productNum = $("#text_box")[0].value;
+        // console.log(productNum);
+        window.location.href="<%=basePath%>userPage/postPage/evaluationPage?order_id="+storeId;
+    });
+</script>
 
 </body>
 

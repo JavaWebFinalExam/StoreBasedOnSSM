@@ -18,32 +18,57 @@
     <title>Document</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="<%=basePath%>views/assets/css/amazeuishoppingCart1.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/shoppingCartdemo.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartOptstyle.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.js"></script>
+
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/amazeui.min.css">
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/petshow.css?6">
     <link rel="stylesheet" href="<%=basePath%>views/assets/css/animate.min.css">
-    <script src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.min.js"></script>
     <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/countUp.min.js"></script>
     <script src="<%=basePath%>views/assets/js/amazeui.lazyload.min.js"></script>
+
 
 </head>
 <body>
+<!--顶部导航条 -->
 <header class="am-topbar am-topbar-inverse">
     <div class="amz-container">
-
-        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
-                data-am-collapse="{target: '#doc-topbar-collapse-5'}">
-            <span class="am-sr-only">
-                导航切换
-            </span>
-            <span class="am-icon-bars">
-            </span>
-        </button>
+        <h1 class="am-topbar-brand">商城</h1>
         <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
             <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li class="am-active">
-                    <a href="#">
+                <li class="am-fl">
+                    <a href="<%=basePath%>product/products">
                         首页
                     </a>
+                </li>
+                <li class="am-fl">
+                    <a href="<%=basePath%>userPage/postPage/PostPage">
+                        帖子
+                    </a>
+                </li>
+            </ul>
+            <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/ordAndCart/showShoppingCart">
+                    <i class="am-icon-shopping-cart"></i>&nbsp;购物车
+                </a>
+                </li>
+
+                <li class="am-dropdown am-fr" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <i class="am-icon-user"></i> &nbsp;用户<span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="<%=basePath%>userPage/ordAndCart/showUserOrders">查看订单</a></li>
+                        <li><a href="<%=basePath%>account/outLogin">退出登录</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -59,9 +84,7 @@
         <c:if test="${userPosts!=null}">
             <c:forEach items="${userPosts}" var="userPost" >
                 <article class="am-comment"> <!-- 评论容器 -->
-                    <a href="">
-                        <img class="am-comment-avatar" alt="404" src="<%=basePath%>${userPost.headPortrait}"/> <!-- 评论者头像 -->
-                    </a>
+
 
                     <div class="am-comment-main"> <!-- 评论内容容器 -->
                         <header class="am-comment-hd">
@@ -83,29 +106,7 @@
 
 
 
-<footer class="am_footer">
-    <div class="am_footer_con">
-        <div class="am_footer_link">
-            <span>关于商城</span>
-            <ul>
-                <li><a href="###">关于我们</a></li>
-                <li><a href="###">友情链接</a></li>
-            </ul>
-        </div>
 
-
-        <div class="am_footer_don">
-
-        </div>
-
-        <div class="am_footer_erweima">
-            <div class="am_footer_weixin"><img src="img/wx.jpg" alt=""><div class="am_footer_d_gzwx am-icon-weixin"> 关注微信</div></div>
-            <div class="am_footer_ddon"><img src="img/wx.jpg" alt=""><div class="am_footer_d_dxz am-icon-cloud-download"> 扫码下载</div></div>
-
-        </div>
-
-    </div>
-</footer>
 
 
 <script>

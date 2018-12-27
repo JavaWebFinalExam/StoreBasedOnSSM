@@ -4,12 +4,17 @@ import com.store.entity.Account;
 import com.store.entity.Store;
 import com.store.service.AccountService;
 import com.store.service.StoreService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+<<<<<<< HEAD
+=======
+import org.springframework.web.multipart.MultipartFile;
+>>>>>>> 6f5bf1305c38decf726726e056b626b10df66a1f
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,10 +22,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+<<<<<<< HEAD
+=======
+import java.util.UUID;
+>>>>>>> 6f5bf1305c38decf726726e056b626b10df66a1f
 
 @Controller
 @RequestMapping("/Store")
@@ -35,10 +45,9 @@ public class StoreController {
     public void updateStore(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         response.setContentType("text/html; charset=utf-8");
         HttpSession session = request.getSession();
-        //int userId = Integer.parseInt(session.getAttribute("userId").toString());
-        int userId = 0;
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+//        int userId = 0;
         Store store = storeService.selectByUserId(userId);
-        PrintWriter writer = response.getWriter();
         if (request.getParameter("name")!=null){
             store.setName(request.getParameter("name"));
 //            System.out.println("修改的商店名字" + store.getName());
@@ -55,11 +64,10 @@ public class StoreController {
 
         try {
             int id = storeService.updateStore(store);
-            System.out.println("你修改的是商店的id是" + id);
-            writer.write("<script language=javascript>alert('修改成功')</script>");
+            System.out.println("你修改的是商店的id是" + store.getId());
+
         }catch (Exception e){
             e.printStackTrace();
-            writer.write("<script language=javascript>alert('修改失败')</script>");
         }
        response.sendRedirect("/BusinessPage/PersonalCenter");
 
@@ -110,4 +118,94 @@ public class StoreController {
         return ResponseMap;
     }
 
+<<<<<<< HEAD
+=======
+    @RequestMapping(value = "/UpdateStorePicture")
+    public void updateStorePicture(HttpServletRequest request, HttpServletResponse response, MultipartFile picture)throws IOException{
+        HttpSession session = request.getSession();
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        Store store = storeService.selectByUserId(userId);
+        if (picture!=null){
+            //获取原来的的图片url
+            String oldUrl = request.getSession().getServletContext().getRealPath(store.getImage());
+            //创建旧图片对象
+            File oldFIle = new File(oldUrl);
+            //删除旧图片
+            if (oldFIle==null)
+                System.out.println("没有旧图片");
+            else {
+                System.out.println("有旧图片，删除旧图片");
+                System.out.println("旧图片url为：" + oldUrl);
+                oldFIle.delete();
+            }
+            //使用UUID给图片重命名，并去掉四个“-”
+            String name = UUID.randomUUID().toString().replaceAll("-", "");
+            //获取文件的扩展名
+            String ext = FilenameUtils.getExtension(picture.getOriginalFilename());
+            //设置图片上传路径
+            String url = request.getSession().getServletContext().getRealPath("/views/image/storeImages");
+            System.out.println(url);
+            //以绝对路径保存重名命后的图片
+            picture.transferTo(new File(url + "/" + name + "." + ext));
+            //保存到数据库的图片路径
+            String dataPath = "/views/image/storeImages/" + name + "." + ext;
+
+            store.setImage(dataPath);
+            System.out.println("图片路径为：" + store.getImage());
+
+            try {
+                storeService.updateStore(store);
+                System.out.println("更新商店表");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        response.sendRedirect("/BusinessPage/PersonalCenter");
+    }
+
+    @RequestMapping(value = "/StoreRegister")
+    public void storeRegister(HttpServletRequest request, HttpServletResponse response, Account account, Store store, MultipartFile picture)throws IOException {
+
+        if (accountService.selectByUsername(account.getUsername())!=null){
+            response.sendRedirect("/BusinessPage/StoreRegister?exist=1");
+        }
+        else {
+            account.setIdentity(2);
+            accountService.insertStoreAccount(account);
+            int id = account.getId();
+            System.out.println("账户id为" + id);
+            store.setUserid(id);
+            store.setStatus(0);
+
+            if (picture != null) {
+                //获取原来的的图片url
+
+                //使用UUID给图片重命名，并去掉四个“-”
+                String name = UUID.randomUUID().toString().replaceAll("-", "");
+                //获取文件的扩展名
+                String ext = FilenameUtils.getExtension(picture.getOriginalFilename());
+                //设置图片上传路径
+                String url = request.getSession().getServletContext().getRealPath("/views/image/storeImages");
+                System.out.println(url);
+                //以绝对路径保存重名命后的图片
+                picture.transferTo(new File(url + "/" + name + "." + ext));
+                System.out.println("图片保存位置" + url + "/" + name + "." + ext);
+                //保存到数据库的图片路径
+                String dataPath = "/views/image/storeImages/" + name + "." + ext;
+
+                store.setImage(dataPath);
+                System.out.println("图片路径为：" + store.getImage());
+
+                try {
+                    storeService.insertStore(store);
+                    System.out.println("更新商店表");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            response.sendRedirect("/adminPage/login");
+        }
+    }
+
+>>>>>>> 6f5bf1305c38decf726726e056b626b10df66a1f
 }

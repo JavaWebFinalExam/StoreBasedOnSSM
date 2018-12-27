@@ -42,7 +42,8 @@
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
             <li class="kuanjie">
 
-                <a href="#">个人中心</a>
+                <a href="/BusinessPage/PersonalCenter">个人中心</a>
+                <<a href="/account/outLogin">退出登录</a>
 
             </li>
         </ul>
@@ -56,8 +57,7 @@
             <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
             <ul>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowProductByStoreId">商品列表</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/Product/AddProduct">添加新商品</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">用户评论</a></li>
+                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/AddProductPage">添加新商品</a></li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>
@@ -186,7 +186,7 @@
                         <div class="you">
                             <c:forEach var="productImage" items="${productImages}">
                                 <c:if test="${productImage.productid==product.id}">
-                                <img class="am-img-thumbnail am-radius" src="<%=basePath%>views/image/test/${productImage.id}${productImage.path}" width="400" height="400"/><br>
+                                <img class="am-img-thumbnail am-radius" src="<%=basePath%>${productImage.path}" width="400" height="400"/><br>
                                 </c:if>
                             </c:forEach>
                         </div>
@@ -315,8 +315,8 @@
 
                             success: function (data) {
                                 if (data.status == true) {
-                                    window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";
                                     alert(data.message);
+                                    window.location.href="<%=basePath%>BusinessPage/ShowProductByStoreId";
                                 } else {
                                     alert(data.message);
                                 }

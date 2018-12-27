@@ -13,7 +13,7 @@
   </sql>
   <insert id="insertAccount">
         insert into account(username, password, identity )
-        value(#{username},#{password},0)
+        value(#{username},#{password},1)
   </insert>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -30,6 +30,7 @@
       avatar, identity)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{avatar,jdbcType=VARCHAR}, #{identity,jdbcType=INTEGER})
+
   </insert>
   <insert id="insertSelective" parameterType="com.store.entity.Account" >
     insert into account
@@ -109,4 +110,13 @@
     select * from account
     where username = #{username};
   </select>
+
+  <insert id="insertStoreAccount" parameterType="com.store.entity.Account" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into account(username, password, avatar, identity)
+    values ( #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{avatar,jdbcType=VARCHAR}, #{identity,jdbcType=INTEGER})
+    <selectKey resultType="int" keyProperty="id" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
 </mapper>

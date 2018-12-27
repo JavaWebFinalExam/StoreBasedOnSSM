@@ -60,7 +60,7 @@
         <br>
         <br>
 
-        <form method="post" class="am-form">
+        <form class="am-form">
             <label for="username">用户名:</label>
             <input type="text" name="username" id="username" value="">
             <br>
@@ -69,11 +69,15 @@
             <br>
             <br />
             <div class="am-cf">
-                <input type="button" name="" id="login" value="登 录" class="am-btn am-btn-danger am-round am-btn-sm am-fl">
+                <input type="button" id="login" value="登 录" class="am-btn am-btn-danger am-round am-btn-sm am-fl">
                 <input type="button" id="sign" value="注 册" class="am-btn am-btn-default am-round am-btn-sm am-fr">
             </div>
         </form>
         <br/><br/><br/>
+        <br/><br/><br/>
+        <br/><br/><br/>
+        <br/><br/><br/>
+
         <hr>
 
         <footer class="am_footer">
@@ -102,7 +106,7 @@
             console.log(jason_str);
 
             $.ajax({
-                url: "<%=basePath%>account/login",
+                url: "<%=basePath%>account/checkLogin",
                 cache: true,
                 type: "post",
                 datatype: "json",
@@ -113,10 +117,17 @@
                     console.log(data.status);
                     if (data.status == true) {
                         console.log(data.message);
-                        window.location.href = "<%=basePath%>product/products";
+                        if (data.identity==1) {
+                            window.location.href = "<%=basePath%>product/products";
+                        }else if (data.identity==2) {
+                            window.location.href = "<%=basePath%>BusinessPage/PersonalCenter";
+                        }else if(data.identity==3){
+                            window.location.href = "<%=basePath%>adminPage/categoryCharge";
+                        }
+
                     } else {
-                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
                         alert(data.message);
+                        location.reload();
                     }
                 },
                 error: function (data) {

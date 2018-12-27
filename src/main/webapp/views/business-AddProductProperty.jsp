@@ -41,8 +41,8 @@
         <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
 
             <li class="kuanjie">
-                <a href="#">个人中心</a>
-            </li>
+                <a href="/BusinessPage/PersonalCenter">个人中心</a>
+                <<a href="/account/outLogin">退出登录</a>            </li>
         </ul>
     </div>
 </header>
@@ -55,7 +55,6 @@
             <ul>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowProductByStoreId">商品列表</a></li>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/Product/AddProduct">添加新商品</a></li>
-                <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="">用户评论</a></li>
             </ul>
             <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
             <ul>

@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -46,6 +48,15 @@
     </style>
 </head>
 <body>
+<%
+    if (request.getParameter("exist")!=null){
+        out.print(" <script type=\"text/javascript\">");
+        out.print(" alert(\"用户名已存在\")");
+        out.print("</script>");
+    }
+%>
+
+
 <div class="header">
     <div class="am-g">
         <h1>商&nbsp;&nbsp;城</h1>
@@ -55,29 +66,30 @@
 </div>
 <div class="am-g">
     <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <h3>用户注册</h3>
+        <h3>商家注册</h3>
         <hr>
         <br>
         <br>
 
-        <form method="post" class="am-form">
-            <label for="username">用户名:</label>
-            <input type="text" name="username" id="username" value="">
-            <br>
-            <label for="password">密码:</label>
-            <input type="password" name="" id="password" value="">
-            <br>
-            <br />
-            <div class="am-cf">
-                  <input type="button" id="login" value="登 录" class="am-btn am-btn-default am-round am-btn-sm am-fl">
-                  <input type="button" id="sign" value="注 册" class="am-btn am-btn-danger am-round am-btn-sm am-fr">
-            </div>
+        <form class="am-form" enctype="multipart/form-data" action="/Store/StoreRegister" method="post">
+            <fieldset class="am-form-set">
+                <input type="text" placeholder="用户名" name="username" required><br>
+                <input type="password" placeholder="密码" name="password" required><br>
+                <input type="text" placeholder="店铺名字" name="name" required><br>
+                <input type="text" placeholder="店铺类型" name="storetype" required><br>
+                <input type="text" placeholder="店铺描述" name="description" required><br>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">封面：</div>
+                    <div class="you" style="height: 45px;">
+                        <input type="file" name="picture" required><br>
+                        <p class="am-form-help" required>请选择要上传的文件...</p>
+                    </div>
+                </div>
+
+            </fieldset>
+            <button type="submit" class="am-btn am-btn-primary am-btn-block">注册</button>
         </form>
         <br/><br/><br/>
-        <br/><br/><br/>
-        <br/><br/><br/>
-        <br/><br/><br/>
-
         <hr>
 
         <footer class="am_footer">
@@ -85,59 +97,6 @@
         </footer>
     </div>
 </div>
-
-<script>
-    $("#sign").click(function () {
-       let username = $("#username")[0].value;
-       let password = $("#password")[0].value;
-
-       if (username != "" && password != "") {
-           console.log(username + " : " + password);
-
-           let json_data = {
-               "username": username,
-               "password": password
-           };
-
-        //js对象转换成JSON字符串
-        let jason_str = JSON.stringify(json_data);
-
-        console.log(jason_str);
-
-       $.ajax({
-         url: "<%=basePath%>account/register",
-         cache: true,
-         type: "post",
-         datatype: "json",
-         contentType: "application/json; charset=utf-8",
-         data: jason_str,
-
-           success: function (data) {
-               if(data.status==true){
-                   alert(data.message);
-                   window.location.href = "<%=basePath%>adminPage/login";
-               }
-               else{
-                   alert(data.message);
-                   location.reload();
-               }
-           },
-           error: function (data) {
-                console.log(data);
-                alert("请求出错，请检查网络或服务器是否开启");
-           },
-         });
-       }
-    });
-    $("#login").click(function () {
-        window.location.href = "<%=basePath%>adminPage/login";
-    });
-    $("body").keydown(function() {
-        if (event.keyCode == "13") {//keyCode=13是回车键
-            $('#register').click();
-        }
-    });
-</script>
 
 </body>
 </html>

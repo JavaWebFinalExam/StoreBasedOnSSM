@@ -18,24 +18,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
     <title>发表评论</title>
+    <link href="<%=basePath%>views/assets/css/amazeuishoppingCart1.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/shoppingCartdemo.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>views/assets/css/cartOptstyle.css" rel="stylesheet" type="text/css" />
 
     <link href="<%=basePath%>views/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="<%=basePath%>views/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/petshow.css">
+    <link rel="stylesheet" href="<%=basePath%>views/assets/css/animate.min.css">
     <link href="<%=basePath%>views/assets/css/personal.css" rel="stylesheet" type="text/css">
     <link href="<%=basePath%>views/assets/css/appstyle.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="<%=basePath%>views/assets/js/jquery.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/countUp.min.js"></script>
+    <script src="<%=basePath%>views/assets/js/amazeui.lazyload.min.js"></script>
 </head>
 
 <body>
-<div class="nav-table">
-    <div class="nav-cont">
-        <ul>
-            <li class="index"><a href="#">首页</a></li>
-        </ul>
-    </div>
-</div>
+<!--顶部导航条 -->
+<header class="am-topbar am-topbar-inverse">
+    <div class="amz-container">
+        <h1 class="am-topbar-brand">商城</h1>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-fl">
+                    <a href="<%=basePath%>product/products">
+                        首页
+                    </a>
+                </li>
+                <li class="am-fl">
+                    <a href="<%=basePath%>userPage/postPage/PostPage">
+                        帖子
+                    </a>
+                </li>
+            </ul>
+            <ul class="am-nav  am-topbar-right am-topbar-nav am-nav-pills">
+                <li><a class="am-round am-topbar-right" href="<%=basePath%>userPage/ordAndCart/showShoppingCart">
+                    <i class="am-icon-shopping-cart"></i>&nbsp;购物车
+                </a>
+                </li>
 
-<b class="line"></b>
+                <li class="am-dropdown am-fr" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <i class="am-icon-user"></i> &nbsp;用户<span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="<%=basePath%>userPage/ordAndCart/showUserOrders">查看订单</a></li>
+                        <li><a href="<%=basePath%>account/outLogin">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
@@ -72,7 +110,7 @@
                         </div>
                         <div class="clear"></div>
                         <div class="item-comment">
-                            <textarea id="user-input" placeholder="请写下对宝贝的感受吧，对他人帮助很大哦！"></textarea>
+                            <textarea required id="user-input" placeholder="请写下对宝贝的感受吧，对他人帮助很大哦！"></textarea>
                         </div>
                     </div>
                     <div class="info-btn">
@@ -123,7 +161,7 @@
                     console.log(data.state);
 
                     if (data.state == true) {
-                        window.location.href = "<%=basePath%>userPage/postPage/PostPage";
+                        window.location.href = "<%=basePath%>userPage/ordAndCart/showUserOrders";
                     } else {
                         alert(data.message);
                     }
@@ -134,7 +172,7 @@
                 }
             });
         }else {
-            alert("请求出错！");
+            alert("请输入合法的数据");
         }
     });
 </script>

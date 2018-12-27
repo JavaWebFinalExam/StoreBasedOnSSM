@@ -50,8 +50,8 @@ public class ProductController {
         System.out.println("到达添加商品位置");
 
         HttpSession session = request.getSession();
-//        int userId = Integer.parseInt(session.getAttribute("userId").toString());
-        int userId = 0;
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+//        int userId = 0;
         Store store = storeService.selectByUserId(userId);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
@@ -94,7 +94,7 @@ public class ProductController {
                     //获取文件的扩展名
                     String ext = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
                     //设置图片上传路径
-                    String url = request.getSession().getServletContext().getRealPath("/views/image/test");
+                    String url = request.getSession().getServletContext().getRealPath("/views/image/productSingle");
                     System.out.println(url);
                     //以绝对路径保存重名命后的图片
 //                multipartFile.transferTo(new File(url + "/" + name + "." + ext));
@@ -103,7 +103,7 @@ public class ProductController {
 //                String dataPath = "/views/assets/i/upload/" + name + "." + ext;
 
                     System.out.println(multipartFile.getName() + ":" + multipartFile.getSize());
-                    productimage.setPath("." + ext);
+                    productimage.setPath(  "/views/image/productSingle/" + productimage.getId() + "." + ext);
                     productimageService.updateProductImage(productimage);
                 }catch (Exception e){
                     e.printStackTrace();
@@ -122,11 +122,11 @@ public class ProductController {
         List<MultipartFile> multipartFileList = new ArrayList<>();
         int productId = product.getId();
 
-        String url = request.getSession().getServletContext().getRealPath("/views/image/test");
+        String url = request.getSession().getServletContext().getRealPath("/");
         List<Productimage> productimages = productimageService.getImagesByProduct(productId);
         //删除旧图片
         for (Productimage productimage:productimages){
-            String oldUrl = url + productimage.getId() + productimage.getPath();
+            String oldUrl = url + productimage.getPath();
             File file = new File(oldUrl);
             if (file!=null) {
                 file.delete();
@@ -150,9 +150,9 @@ public class ProductController {
                 String name = String.valueOf(imageId);
                 //获取图片的拓展名
                 String ext = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
-                productimage.setPath("." + ext);
+                productimage.setPath( "views/image/productSingle/" + productimage.getId()+ "." + ext);
                 try {
-                    multipartFile.transferTo(new File(url + "/" + name + "." + ext));
+                    multipartFile.transferTo(new File(url + "views/image/productSingle/" + name + "." + ext));
                     productimageService.updateProductImage(productimage);
                 }catch (Exception e){
                     e.printStackTrace();
@@ -171,11 +171,11 @@ public class ProductController {
     @ResponseBody
     public Map<String,Object> deleteProduct(@RequestBody Map<String,Object>map,HttpServletRequest request){
         Map<String,Object> ResponseMap = new HashMap<>();
-        String url = request.getSession().getServletContext().getRealPath("/views/image/test/");
+        String url = request.getSession().getServletContext().getRealPath("/");
         int productId = Integer.parseInt(map.get("id").toString());
         List<Productimage> productImageList = productimageService.getImagesByProduct(productId);
         for (Productimage productimage:productImageList){
-            String realUrl = url + productimage.getId() + productimage.getPath();
+            String realUrl = url +  productimage.getPath();
             File file = new File(realUrl);
             if (file.isFile()){
                 file.delete();
@@ -227,8 +227,6 @@ public class ProductController {
         }
         response.sendRedirect("/BusinessPage/AddProductPage");
     }
-
-
 }
 
 

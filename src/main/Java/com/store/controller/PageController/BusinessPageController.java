@@ -45,17 +45,18 @@ public class BusinessPageController {
 
 
     @RequestMapping(value = "/PersonalCenter")
-    public ModelAndView StoreInformation(HttpServletRequest request){
+    public ModelAndView StoreInformation(HttpServletRequest request) {
+        System.out.println("进入个人中心");
         ModelAndView modelAndView = new ModelAndView();
-
         HttpSession session = request.getSession();
-       // int userId = Integer.parseInt(session.getAttribute("userId").toString());
-        int userId = 0;
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        System.out.println("用户的id为" + userId);
+
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
         System.out.println(store.getId() + "\t" + store.getUserid());
-        modelAndView.addObject("store",store);
-        modelAndView.addObject("username",account.getUsername());
+        modelAndView.addObject("store", store);
+        modelAndView.addObject("username", account.getUsername());
         modelAndView.setViewName("business-PersonalCenter");
         return modelAndView;
     }
@@ -63,9 +64,9 @@ public class BusinessPageController {
     @RequestMapping(value = "/ShowOrdersByStoreId")
     public ModelAndView showAllOrders(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-        int userId = 0;
+//        int userId = 0;
         HttpSession session = request.getSession();
-//        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
         List<Order> orderList = new ArrayList<>();
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
@@ -85,9 +86,9 @@ public class BusinessPageController {
     @RequestMapping(value = "/ShowProductByStoreId")
     public ModelAndView showProductByStoreId(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-        int userId = 0;
+//        int userId = 0;
         HttpSession session = request.getSession();
-//        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
         List<Category> categoryList = categoryService.getAllCategory();
@@ -109,9 +110,9 @@ public class BusinessPageController {
     @RequestMapping(value = "/AddProductPage")
     public ModelAndView AddProductPage(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-        int userId = 0;
+//        int userId = 0;
         HttpSession session = request.getSession();
-//      int userId = Integer.parseInt(session.getAttribute("userId").toString());
+      int userId = Integer.parseInt(session.getAttribute("userId").toString());
         Account account = accountService.selectById(userId);
         modelAndView.addObject("username",account.getUsername());
         modelAndView.setViewName("business-AddProduct");
@@ -124,9 +125,9 @@ public class BusinessPageController {
     //未完成订单
     @RequestMapping(value = "/UnfulfilledOrder")
     public ModelAndView unfulfilledOrder (HttpServletRequest request){
-        int userId = 0;
+//        int userId = 0;
         HttpSession session = request.getSession();
-//        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
         List<Order> orderList = new ArrayList<>();
@@ -148,11 +149,11 @@ public class BusinessPageController {
     //未完成订单
     @RequestMapping(value = "/CompletedOrder")
     public ModelAndView completedOrder (HttpServletRequest request){
-        int userId = 0;
+//        int userId = 0;
         List<Order> orderList = new ArrayList<>();
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
-//        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
         Account account = accountService.selectById(userId);
         Store store = storeService.selectByUserId(userId);
 
@@ -174,9 +175,9 @@ public class BusinessPageController {
     @RequestMapping(value = "/AddProductPropertyPage")
     public ModelAndView addProductPropertyPage(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-        int userId = 0;
+//        int userId = 0;
         HttpSession session = request.getSession();
-        //      int userId = Integer.parseInt(session.getAttribute("userId").toString());
+              int userId = Integer.parseInt(session.getAttribute("userId").toString());
         Account account = accountService.selectById(userId);
         int productId = Integer.parseInt(session.getAttribute("productId").toString());
         session.removeAttribute("productId");
@@ -189,6 +190,12 @@ public class BusinessPageController {
         modelAndView.addObject("productId",productId);
         modelAndView.setViewName("business-AddProductProperty");
         return modelAndView;
+    }
+
+    //商家注册页面
+    @RequestMapping(value = "/StoreRegister")
+    public String storeRegister(){
+        return "business-Register";
     }
 
 

@@ -26,5 +26,7 @@ public interface AccountMapper {
 
     void insertAccount(@Param("username") String username, @Param("password") String password);
 
+    int insertStoreAccount(Account account);
+
 
 }
