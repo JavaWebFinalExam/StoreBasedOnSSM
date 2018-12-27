@@ -11,26 +11,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-<<<<<<< HEAD
-=======
-import org.springframework.web.multipart.MultipartFile;
->>>>>>> 6f5bf1305c38decf726726e056b626b10df66a1f
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
+import org.springframework.web.multipart.MultipartFile;
+
+
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.HashMap;
 import java.util.Map;
-<<<<<<< HEAD
-=======
+
 import java.util.UUID;
->>>>>>> 6f5bf1305c38decf726726e056b626b10df66a1f
 
 @Controller
 @RequestMapping("/Store")
@@ -118,8 +114,7 @@ public class StoreController {
         return ResponseMap;
     }
 
-<<<<<<< HEAD
-=======
+
     @RequestMapping(value = "/UpdateStorePicture")
     public void updateStorePicture(HttpServletRequest request, HttpServletResponse response, MultipartFile picture)throws IOException{
         HttpSession session = request.getSession();
@@ -207,5 +202,5 @@ public class StoreController {
         }
     }
 
->>>>>>> 6f5bf1305c38decf726726e056b626b10df66a1f
+
 }
