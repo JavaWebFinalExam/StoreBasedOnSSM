@@ -37,21 +37,21 @@ public class StoreController {
     @Autowired
     AccountService accountService;
 
-    @RequestMapping(value = "/UpdateStore",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
-    public void updateStore(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    @RequestMapping(value = "/UpdateStore",method = RequestMethod.POST)
+    public void updateStore(HttpServletRequest request, HttpServletResponse response)throws IOException {
+        System.out.println("进入修改店铺信息");
         response.setContentType("text/html; charset=utf-8");
         HttpSession session = request.getSession();
         int userId = Integer.parseInt(session.getAttribute("userId").toString());
 //        int userId = 0;
         Store store = storeService.selectByUserId(userId);
+        System.out.println("商店id为" + store.getId());
         if (request.getParameter("name")!=null){
             store.setName(request.getParameter("name"));
-//            System.out.println("修改的商店名字" + store.getName());
-//            System.out.println("修改的商店的id是"  + store.getId());
-//            System.out.println(store);
-
+            System.out.println("修改后得名字为" + store.getName());
         }else if (request.getParameter("storeType")!=null){
             store.setStoretype(request.getParameter("storeType"));
+            System.out.println("修改后得商店类型为" + store.getStoretype());
         }else if (request.getParameter("description")!=null){
             store.setDescription(request.getParameter("description"));
         }else {
@@ -60,7 +60,6 @@ public class StoreController {
 
         try {
             int id = storeService.updateStore(store);
-            System.out.println("你修改的是商店的id是" + store.getId());
 
         }catch (Exception e){
             e.printStackTrace();

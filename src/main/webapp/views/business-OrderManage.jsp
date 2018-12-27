@@ -41,17 +41,7 @@
 
             <li class="kuanjie">
                 <a href="/BusinessPage/PersonalCenter">个人中心</a>
-                <<a href="/account/outLogin">退出登录</a>            </li>
-            <li class="soso">
-                <p>
-                    <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
-                        <option value="b">全部</option>
-                        <option value="o">产品</option>
-                        <option value="o">会员</option>
-                    </select>
-                </p>
-                <p class="ycfg"><input type="text" class="am-form-field am-input-sm" /></p>
-                <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button></p>
+                <<a href="/account/outLogin">退出登录</a>
             </li>
         </ul>
     </div>
@@ -318,16 +308,6 @@
                     }
                 </script>
 
-
-                <ul class="am-pagination am-fr">
-                    <li class="am-disabled"><a href="#">«</a></li>
-                    <li class="am-active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
                 <hr />
             </form>
 

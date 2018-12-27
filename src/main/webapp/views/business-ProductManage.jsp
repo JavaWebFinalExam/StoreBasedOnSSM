@@ -54,7 +54,7 @@
     <div class="nav-navicon admin-main admin-sidebar">
         <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎商家：${username}</div>
         <div class="sideMenu">
-            <h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
+            <h3 class="am-icon-flag"><em></em> <a href="/BusinessPage/ShowProductByStoreId">商品管理</a></h3>
             <ul>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/ShowProductByStoreId">商品列表</a></li>
                 <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'><a href="/BusinessPage/AddProductPage">添加新商品</a></li>
@@ -247,7 +247,7 @@
                     商品栏目管理
                 </ul>
                 <dl class="am-icon-home" style="float: right;">
-                    当前位置： 首页 > <a href="#">商品列表</a>
+                    当前位置： 首页 > <a href="/BusinessPage/ShowProductByStoreId">商品列表</a>
                 </dl>
 
             </div>
@@ -329,21 +329,13 @@
                     }
 
                 </script>
-                <ul class="am-pagination am-fr">
-                    <li class="am-disabled"><a href="#">«</a></li>
-                    <li class="am-active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
+
                 <hr />
             </form>
 
             <div class="foods">
                 <ul>
-                    版权所有@2015
+                    版权所有
                 </ul>
                 <dl>
                     <a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a>

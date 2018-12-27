@@ -121,6 +121,15 @@ public class ProductController {
     public void updateProduct(Product product,MultipartFile picture1,MultipartFile picture2,MultipartFile picture3,MultipartFile picture4,MultipartFile picture5,HttpServletRequest request,HttpServletResponse response) throws IOException{
         List<MultipartFile> multipartFileList = new ArrayList<>();
         int productId = product.getId();
+//        Product realProduct = productService.selectById(productId);
+//        realProduct.setName(product.getName());
+//        realProduct.setOriginalprice(product.getOriginalprice());
+//        realProduct.setPromoteprice(product.getPromoteprice());
+//        realProduct.setStock(product.getStock());
+//        realProduct.setDescription(product.getDescription());
+//        realProduct.setCategoryid(product.getCategoryid());
+//        realProduct.setStoreid(product.getStoreid());
+        productService.updateProduct(product);
 
         String url = request.getSession().getServletContext().getRealPath("/");
         List<Productimage> productimages = productimageService.getImagesByProduct(productId);

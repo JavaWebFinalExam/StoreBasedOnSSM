@@ -83,6 +83,7 @@
   <update id="updateByPrimaryKey" parameterType="com.store.entity.Store" >
     update store
     set userId = #{userid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
       storeType = #{storetype,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       image = #{image,jdbcType=VARCHAR}

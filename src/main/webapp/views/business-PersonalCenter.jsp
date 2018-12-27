@@ -95,7 +95,7 @@
                     <div class="am-form-group">
                         <div class="zuo">种类：</div>
                         <div class="you">
-                            <input type="text" name="storetype" class="am-input-sm" value="${store.storetype}" required>
+                            <input type="text" name="storeType" class="am-input-sm" value="${store.storetype}" required>
                             <span class="am-form-caret"></span>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                     店铺信息管理
                 </ul>
                 <dl class="am-icon-home" style="float: right;">
-                    当前位置： 首页 > <a href="#">个人中心</a>
+                    当前位置： 首页 > <a href="/BusinessPage/PersonalCenter">个人中心</a>
                 </dl>
 
             </div>
