@@ -216,4 +216,10 @@
     from order_
     where id = #{order_id};
   </select>
+<select id="selectByUserId" parameterType="int" resultType="com.store.entity.Order">
+  select *
+  from order_
+  where userID=#{userId}
+  order by createDate asc ;
+</select>
 </mapper>

@@ -24,6 +24,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     ProductMapper productMapper;
 
+
     @Override
     public List<Category> getAllCategory(){
         return categoryMapper.getAllCategory();
@@ -38,8 +39,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void addCategory(String typeName){
-        categoryMapper.addCategory(typeName);
+    public void addCategory(String typeName,List<String> properties) {
+        Category category = categoryMapper.getCategoryByName(typeName);
+
+        if (category == null) {
+            categoryMapper.addCategory(typeName);
+            category = categoryMapper.getCategoryByName(typeName);
+
+            for (String property : properties) {
+                propertyMapper.addProperty(category.getId(), category.getTypeName());
+            }
+        }
     }
 
     @Override
@@ -50,7 +60,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void changeCategory(int id,String typeName){
         Category category = new Category(id,typeName);
-
         categoryMapper.updateCategoryById(category);
     }
 
@@ -69,7 +78,11 @@ public class CategoryServiceImpl implements CategoryService {
 
             informations.add(information);
         }
-
         return informations;
+    }
+
+    @Override
+    public Category getCategoryById(int id){
+        return categoryMapper.getCategoryById(id);
     }
 }

@@ -2,6 +2,8 @@ package com.store.dao;
 
 import com.store.entity.Propertyvalue;
 
+import java.util.List;
+
 public interface PropertyvalueMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,6 @@ public interface PropertyvalueMapper {
     int updateByPrimaryKey(Propertyvalue record);
 
     int insertPropertyValue(Propertyvalue propertyvalue);
+
+    List<Propertyvalue> getValueByProductId(int productId);
 }

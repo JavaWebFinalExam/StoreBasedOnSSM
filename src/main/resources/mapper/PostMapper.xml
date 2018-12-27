@@ -126,7 +126,7 @@
 
   <delete id="deletePostById" parameterType="int">
     delete from post
-    where id = #{id};
+    where id = #{id} or themeId = #{id};
   </delete>
 
 

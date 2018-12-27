@@ -21,6 +21,19 @@ public class PostController {
     @ResponseBody
     public Map<String,Object> deletePostById(@RequestBody Map<String,Object> map){
         Map<String,Object> ResponseMap = new HashMap<>();
+
+        int postId = Integer.valueOf(""+map.get("postId"));
+
+        try {
+            postService.deletePostById(postId);
+            ResponseMap.put("state",true);
+            ResponseMap.put("message","删除成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            ResponseMap.put("state",false);
+            ResponseMap.put("message","删除失败");
+        }
+
         return ResponseMap;
     }
 

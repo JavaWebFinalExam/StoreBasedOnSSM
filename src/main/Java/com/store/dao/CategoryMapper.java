@@ -10,4 +10,6 @@ public interface CategoryMapper {
     void addCategory(String typeName);
     void deleteCategoryById(int id);
     void updateCategoryById(Category category);
+    Category getCategoryById(int id);
+    Category getCategoryByName(String name);
 }

@@ -42,7 +42,7 @@ public class ProductController {
     PropertyService propertyService;
 
     @Autowired
-    PropertyValueService propertyValueService;
+    PropertyvalueService propertyValueService;
 
     @RequestMapping(value = "/AddProduct")
     @ResponseBody
@@ -218,7 +218,7 @@ public class ProductController {
             propertyvalue.setValue(request.getParameter("property_" + property.getId()));
             System.out.println("开始插入属性值");
             try {
-                int i = propertyValueService.insertPropertyValue(propertyvalue);
+                int i = propertyValueService.(propertyvalue);
                 System.out.println("插入" + i + "条数据");
             }catch (Exception e ){
                 e.printStackTrace();
@@ -230,3 +230,5 @@ public class ProductController {
 
 
 }
+
+

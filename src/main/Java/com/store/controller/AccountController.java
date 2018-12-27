@@ -21,7 +21,7 @@ public class AccountController {
     AccountService accountService;
 
     //登录验证
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/checkLogin", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody//响应体  用于向前端返回数据
     public Map<String, Object> Login(@RequestBody/*请求体。用于接收前端传来的数据*/ Map<String, Object> map, HttpServletRequest request) {
         Map<String,Object> responseMap = new HashMap<>();
@@ -39,7 +39,6 @@ public class AccountController {
             responseMap.put("status",false);
             responseMap.put("message","密码错误或用户不存在");
         }
-
         return responseMap;
     }
 
@@ -52,10 +51,10 @@ public class AccountController {
 
         try {
             if (accountService.register((String)map.get("username"),(String)map.get("password"))){
-                ResponseMap.put("state",true);
+                ResponseMap.put("status",true);
                 ResponseMap.put("message","注册成功,请登录");
             }else {
-                ResponseMap.put("state", false);
+                ResponseMap.put("status", false);
                 ResponseMap.put("message","已有用户");
             }
         }catch (Exception e){
@@ -67,7 +66,7 @@ public class AccountController {
     }
 
     //删除用户
-    @RequestMapping(value = "/Admin/deleteUserById", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/admin/deleteUserById", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody//响应体  用于向前端返回数据
     public Map<String,Object> deleteUserById(@RequestBody Map<String,Object> map, HttpServletRequest request){
         Map<String, Object> ResponseMap = new HashMap<>();
@@ -104,4 +103,36 @@ public class AccountController {
         return "login";
     }
 
+    //修改用户信息
+    @RequestMapping(value = "/admin/changeUserInformation", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody//响应体  用于向前端返回数据
+    public Map<String,Object> changeUserInformation(@RequestBody Map<String,Object> map, HttpServletRequest request){
+        Map<String, Object> ResponseMap = new HashMap<>();
+
+        int id = Integer.valueOf(""+map.get("userId"));
+        String userName = ""+map.get("userName");
+        int identity = Integer.valueOf(""+map.get("identity"));
+
+        Account account=accountService.selectById(id);
+
+        if (account!=null){
+            account.setUsername(userName);
+            account.setIdentity(identity);
+
+            try {
+                accountService.updateUserInfor(account);
+                ResponseMap.put("state", true);
+                ResponseMap.put("message", "修改成功");
+            } catch (Exception e) {
+                e.printStackTrace();
+                ResponseMap.put("state", false);
+                ResponseMap.put("message", "修改失败");
+            }
+        }else {
+            ResponseMap.put("state", false);
+            ResponseMap.put("message", "修改失败，用户不存在");
+        }
+
+        return ResponseMap;
+    }
 }

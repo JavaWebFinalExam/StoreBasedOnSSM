@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ProductService {
 
+    List<Product> commodityPaging(Integer storeId,int currIndex,int pageSize);
 
     List<Product> selectByStoreId(Integer storeId);
 
@@ -20,5 +21,14 @@ public interface ProductService {
     int updateProduct(Product product);
 
     List<Product> getProductsType();
+
+
+    int getAllProductNum();
+
+    List<Product> getAllProduct(int currIndex,int pageSize);
+
+    List<Product> getProductBycategoryId(int categoryId);
+
+
 
 }

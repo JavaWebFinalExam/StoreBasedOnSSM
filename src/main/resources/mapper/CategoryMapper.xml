@@ -2,10 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.store.dao.CategoryMapper" >
 
-    <select id="getAllCategory" resultType="Category">
+    <select id="getAllCategory" resultType="com.store.entity.Category">
         select *
         from category;
     </select>
+
 
     <insert id="insertCategory" parameterType="Category">
         insert into category
@@ -30,5 +31,20 @@
         set typeName = #{typeName}
         where id = #{id};
     </update>
+
+
+    <!--//以下为添加-->
+    <select id="getCategoryById" parameterType="int" resultType="com.store.entity.Category" >
+        select *
+        from category
+        where id= #{id};
+    </select>
+
+    <select id="getCategoryByName" parameterType="String" resultType="Category">
+        select *
+        from category
+        where typeName = #{name}
+        limit 1;
+    </select>
 
 </mapper>

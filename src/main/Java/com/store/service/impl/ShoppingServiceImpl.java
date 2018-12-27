@@ -15,37 +15,44 @@ public class ShoppingServiceImpl implements ShoppingService {
     @Autowired
     ShoppingcartMapper shoppingcartMapper;
 
-@Override
-    public void  addProductToShoppingCart(int id,int productId,int userId){
-    shoppingcartMapper.addProductToShoppingCart(id,productId,userId);
+    @Override
+    public void addProductToShoppingCart(int id, int productId, int userId) {
+        shoppingcartMapper.addProductToShoppingCart(id, productId, userId);
     }
 
-@Override
-    public List<Shoppingcart> selectByUserId(Integer userId){
-     return shoppingcartMapper.selectByUserId(userId);
+    @Override
+    public List<Shoppingcart> selectByUserId(Integer userId) {
+        return shoppingcartMapper.selectByUserId(userId);
 
     }
 
-@Override
-    public int  deleteByPrimaryKey(Integer id){
-    if(id!=null) {
-        shoppingcartMapper.deleteByPrimaryKey(id);
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        if (id != null) {
+            shoppingcartMapper.deleteByPrimaryKey(id);
+            return 1;
+        } else
+            return 0;
+
+    }
+
+    @Override
+    public Shoppingcart selectByPrimaryKey(Integer id) {
+        return shoppingcartMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void updateByPrimaryKeySelective(Shoppingcart record) {
+        if (record != null) {
+            shoppingcartMapper.updateByPrimaryKeySelective(record);
+        }
+    }
+
+    @Override
+    public int insertSelective(Shoppingcart record) {
+        if (record != null) {
+            shoppingcartMapper.insertSelective(record);
+        }
         return 1;
     }
-    else
-        return 0;
-
-    }
-
-@Override
-    public Shoppingcart selectByPrimaryKey(Integer id){
-    return shoppingcartMapper.selectByPrimaryKey(id);
-}
-
-@Override
-    public void updateByPrimaryKeySelective(Shoppingcart record){
-    if(record!=null) {
-        shoppingcartMapper.updateByPrimaryKeySelective(record);
-    }
-}
 }

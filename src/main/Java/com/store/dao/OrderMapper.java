@@ -25,5 +25,8 @@ public interface OrderMapper {
 
     List<Order> selectByProductId(int productId);
 
+    List<Order> selectByUserId(int userId);
+
+
 
 }
