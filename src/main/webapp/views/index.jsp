@@ -51,9 +51,9 @@
                         </span>
                     </a>
                     <ul class="am-dropdown-content">
-                        <c:forEach var="category" items="${categories}">
-                            <li><a href="<%=basePath%>product/getProductsByType?categoryId=${category.id}">${category.typeName}</a></li>
-                        </c:forEach>
+                      <c:forEach var="category" items="${categories}">
+                          <li><a href="<%=basePath%>product/getProductsByType?categoryId=${category.id}">${category.typeName}</a></li>
+                      </c:forEach>
                     </ul>
                 </li>
             </ul>
@@ -92,7 +92,7 @@
           库存数量：${information.product.stock}<br>
         </h1>
           <div class="gallery-desc"><a href="<%=basePath%>userPage/postPage/storePage?storeId=${information.product.storeid}">
-            店铺：${information.product.storeid}</a></div>
+            店铺：${information.storeName}</a><br></div>
           <button type="button" class="am-btn am-btn-danger am-btn-sm doc-prompt-toggle" id="doc-prompt-toggle-${information.product.id}">加入购物车</button>
       </div>
     </li>

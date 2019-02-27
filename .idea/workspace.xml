@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="StoreBasedOnSSM:war" />
+      <artifact name="StoreBasedOnSSM:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/Java/com/store/dao/CategoryMapper.java" line="13" mnemonic="9" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ead1fbf2-0aaa-46d0-b888-5ed3c7ffad55" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/StoreBasedOnSSM_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/ProductPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/ProductPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/EvaluationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/EvaluationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/AdminPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/AdminPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/BusinessPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/BusinessPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/OrderPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/OrderPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/PostPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/PostPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/ProductPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/controller/PageController/ProductPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/AccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/AccountMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/EvaluationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/EvaluationMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/OrderMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/PostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/ProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/ProductMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/ProductimageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/ProductimageMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/PropertyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/PropertyMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/PropertyvalueMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/PropertyvalueMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/ShoppingcartMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/ShoppingcartMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/dao/StoreMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/dao/StoreMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Propertyvalue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Propertyvalue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/entity/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/entity/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/filter/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/filter/LoginFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/EvaluationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/EvaluationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/ProductimageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/ProductimageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/PropertyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/PropertyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/ShoppingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/ShoppingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/StoreService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/EvaluationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/EvaluationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/PostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/ProductimageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/ProductimageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/ShoppingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/ShoppingServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/store/service/impl/StoreServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/store/service/impl/StoreServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/AccountMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EvaluationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/EvaluationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ProductimageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ProductimageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PropertyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PropertyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PropertyvalueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PropertyvalueMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ShoppingcartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ShoppingcartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/store/AccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/store/AccountTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mall@47.107.120.64" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mall@47.107.120.64" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mall@47.107.120.64" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mall: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-themePosts.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1100">
+              <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-evaluation.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3828">
+              <caret line="174" column="27" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin-chargeCategory.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1936">
+              <caret line="88" column="55" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1254">
+              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/AccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/AdminPageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2838">
+              <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/ProductPageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1408">
+              <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/ProductController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="48" column="63" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="814">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/PostPageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="FxmlFile" />
+        <option value="Tag Library Descriptor" />
+        <option value="Interface" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getProductsByCategoryId</find>
+      <find>getPropertyNumByCategoryId</find>
+      <find>selectImageByProductId</find>
+      <find>selectById</find>
+      <find>Product</find>
+      <find>id=</find>
+      <find>id=&quot;${store.id}&quot;</find>
+      <find>老子</find>
+      <find>String</find>
+      <find>doc-input-x1</find>
+      <find>am-gallery-defa</find>
+      <find>userId</find>
+      <find>requi</find>
+      <find>input</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/impl/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/StoreService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin-chargeStore.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/StoreController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/StoreMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/dao/StoreMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/impl/StoreServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/dao/CategoryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/CategoryService.java" />
+        <option value="$PROJECT_DIR$/src/test/com/store/service/impl/CategoryServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/impl/CategoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/AdminPageController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/impl/PropertyServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/CategoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PropertyMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/PropertyService.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/dao/PropertyMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/PropertyvalueService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin-chargeProperty.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin-chargeUser.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin-chargeCategory.jsp" />
+        <option value="$PROJECT_DIR$/src/test/com/store/AccountTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/dao/ProductMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/impl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/service/impl/PropertyValueServiceImpl.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/business/assets/css/amazeui.css" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/BusinessPageController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/PostPageController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/user-replyPost.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/user-store.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/user-themePosts.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/user-order.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/filter/LoginFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/shoppingCartTest.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/OrderPageController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/AccountMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/product-detail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/user-pay.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/user-evaluation.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/ProductPageController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/index.jsp" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ssm Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ssm Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="558" />
+    <option name="y" value="53" />
+    <option name="width" value="974" />
+    <option name="height" value="1087" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="PageController" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StoreBasedOnSSM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StoreBasedOnSSM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545854128995" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../报告/2018-2019-1-万明,刘涛老师-石立军(6130116053)-WEB程序设计-实验报告和程序代码/实验代码/实验8" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSP" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.90">
+    <configuration name="CategoryServiceImplTest.getAllCategoryMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StoreBasedOnSSM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.store.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.store.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.store.service.impl.CategoryServiceImplTest" />
+      <option name="METHOD_NAME" value="getAllCategoryMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceImplTest.getAllPostsInformation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StoreBasedOnSSM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.store.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.store.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.store.service.impl.PostServiceImplTest" />
+      <option name="METHOD_NAME" value="getAllPostsInformation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceImplTest.getAllThemePost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StoreBasedOnSSM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.store.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.store.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.store.service.impl.PostServiceImplTest" />
+      <option name="METHOD_NAME" value="getAllThemePost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 7.0.90" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.90" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="StoreBasedOnSSM:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_StoreBasedOnSSM_2" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51274" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="StoreBasedOnSSM:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.CategoryServiceImplTest.getAllCategoryMessage" />
+      <item itemvalue="JUnit.PostServiceImplTest.getAllThemePost" />
+      <item itemvalue="JUnit.PostServiceImplTest.getAllPostsInformation" />
+      <item itemvalue="Tomcat Server.Tomcat 7.0.90" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CategoryServiceImplTest.getAllCategoryMessage" />
+        <item itemvalue="JUnit.PostServiceImplTest.getAllPostsInformation" />
+        <item itemvalue="JUnit.PostServiceImplTest.getAllThemePost" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ead1fbf2-0aaa-46d0-b888-5ed3c7ffad55" name="Default Changelist" comment="" />
+      <created>1541682927838</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541682927838</updated>
+      <workItem from="1541682929212" duration="6217000" />
+      <workItem from="1541732570642" duration="1957000" />
+      <workItem from="1541818182361" duration="9030000" />
+      <workItem from="1541837152527" duration="10499000" />
+      <workItem from="1541863959338" duration="492000" />
+      <workItem from="1541936289145" duration="2590000" />
+      <workItem from="1541944885624" duration="2479000" />
+      <workItem from="1542007531129" duration="7647000" />
+      <workItem from="1542017778793" duration="404000" />
+      <workItem from="1542019294244" duration="8497000" />
+      <workItem from="1542097964491" duration="35000" />
+      <workItem from="1542194297541" duration="1725000" />
+      <workItem from="1542354787292" duration="2903000" />
+      <workItem from="1542362633050" duration="3618000" />
+      <workItem from="1542372866004" duration="3968000" />
+      <workItem from="1542376938234" duration="1942000" />
+      <workItem from="1542421850406" duration="849000" />
+      <workItem from="1542422764616" duration="3677000" />
+      <workItem from="1542433955561" duration="1588000" />
+      <workItem from="1542435566963" duration="22282000" />
+      <workItem from="1542511714574" duration="14030000" />
+      <workItem from="1542548547195" duration="1765000" />
+      <workItem from="1542552911070" duration="27000" />
+      <workItem from="1542613488414" duration="323000" />
+      <workItem from="1542614596463" duration="101000" />
+      <workItem from="1542615193977" duration="372000" />
+      <workItem from="1542624490152" duration="852000" />
+      <workItem from="1542631762492" duration="719000" />
+      <workItem from="1542796009039" duration="1470000" />
+      <workItem from="1542803130145" duration="3919000" />
+      <workItem from="1542861797346" duration="597000" />
+      <workItem from="1542887757283" duration="1549000" />
+      <workItem from="1542895927949" duration="599000" />
+      <workItem from="1542898200379" duration="182000" />
+      <workItem from="1542898444232" duration="46000" />
+      <workItem from="1542898585746" duration="30000" />
+      <workItem from="1542951594724" duration="13000" />
+      <workItem from="1542925558053" duration="718000" />
+      <workItem from="1542926355782" duration="519000" />
+      <workItem from="1542958582473" duration="9831000" />
+      <workItem from="1542979507897" duration="3998000" />
+      <workItem from="1543055324728" duration="165000" />
+      <workItem from="1543141424758" duration="5717000" />
+      <workItem from="1543149362289" duration="188000" />
+      <workItem from="1543580834134" duration="7676000" />
+      <workItem from="1543630685687" duration="5144000" />
+      <workItem from="1543644529117" duration="8126000" />
+      <workItem from="1543669379219" duration="1050000" />
+      <workItem from="1543749049627" duration="16461000" />
+      <workItem from="1543836594858" duration="4850000" />
+      <workItem from="1543843155543" duration="4608000" />
+      <workItem from="1543882084325" duration="29779000" />
+      <workItem from="1543974583571" duration="9337000" />
+      <workItem from="1543991399463" duration="10250000" />
+      <workItem from="1544008416745" duration="32000" />
+      <workItem from="1544009749273" duration="8989000" />
+      <workItem from="1544085095875" duration="1647000" />
+      <workItem from="1544087032953" duration="21000" />
+      <workItem from="1544087090419" duration="109000" />
+      <workItem from="1544087297334" duration="2722000" />
+      <workItem from="1544093719468" duration="14227000" />
+      <workItem from="1544147999176" duration="5082000" />
+      <workItem from="1544173190208" duration="771000" />
+      <workItem from="1544186181950" duration="10728000" />
+      <workItem from="1544234432150" duration="189000" />
+      <workItem from="1544243209018" duration="76000" />
+      <workItem from="1544259859358" duration="3829000" />
+      <workItem from="1544339141457" duration="31000" />
+      <workItem from="1544579263737" duration="1881000" />
+      <workItem from="1544583097857" duration="32000" />
+      <workItem from="1545096114421" duration="11695000" />
+      <workItem from="1545183903468" duration="5183000" />
+      <workItem from="1545218933717" duration="68000" />
+      <workItem from="1545271803826" duration="16146000" />
+      <workItem from="1545379253874" duration="1191000" />
+      <workItem from="1545393575483" duration="7813000" />
+      <workItem from="1545443205433" duration="22728000" />
+      <workItem from="1545480533830" duration="10267000" />
+      <workItem from="1545532956861" duration="15869000" />
+      <workItem from="1545633571221" duration="1117000" />
+      <workItem from="1545703332674" duration="24577000" />
+      <workItem from="1545788728605" duration="15306000" />
+      <workItem from="1545824799307" duration="24027000" />
+      <workItem from="1546006504581" duration="47000" />
+      <workItem from="1546420015575" duration="2877000" />
+      <workItem from="1546441414282" duration="35000" />
+    </task>
+    <task id="LOCAL-00001" summary="Default Changelist">
+      <created>1543882175439</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543882175439</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Default Changelist">
+      <created>1543990355237</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543990355237</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Default Changelist">
+      <created>1544085167600</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544085167600</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="CategoryServiceImplTest_getAllCategoryMessage - 2018.12.22 at 20h 20m 48s.xml">
+      <configuration name="CategoryServiceImplTest.getAllCategoryMessage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryServiceImplTest_getAllCategoryMessage - 2018.12.22 at 20h 24m 50s.xml">
+      <configuration name="CategoryServiceImplTest.getAllCategoryMessage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryServiceImplTest_getAllCategoryMessage - 2018.12.22 at 20h 27m 49s.xml">
+      <configuration name="CategoryServiceImplTest.getAllCategoryMessage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryServiceImplTest_getAllCategoryMessage - 2018.12.22 at 20h 30m 07s.xml">
+      <configuration name="CategoryServiceImplTest.getAllCategoryMessage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryServiceImplTest_getAllCategoryMessage - 2018.12.22 at 21h 45m 21s.xml">
+      <configuration name="CategoryServiceImplTest.getAllCategoryMessage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PostServiceImplTest_getAllThemePost - 2018.12.23 at 10h 49m 28s.xml">
+      <configuration name="PostServiceImplTest.getAllThemePost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PostServiceImplTest_getAllThemePost - 2018.12.23 at 12h 29m 09s.xml">
+      <configuration name="PostServiceImplTest.getAllThemePost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PostServiceImplTest_getAllPostsInformation - 2018.12.23 at 15h 56m 33s.xml">
+      <configuration name="PostServiceImplTest.getAllPostsInformation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PostServiceImplTest_getAllPostsInformation - 2018.12.23 at 16h 08m 06s.xml">
+      <configuration name="PostServiceImplTest.getAllPostsInformation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryServiceImplTest_getAllCategoryMessage - 2018.12.23 at 22h 15m 12s.xml">
+      <configuration name="CategoryServiceImplTest.getAllCategoryMessage" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="94233000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Web" order="4" sideWeight="0.09508882" side_tool="true" weight="0.14552239" />
+      <window_info id="Designer" order="5" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.90491116" visible="true" weight="0.24087983" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" order="0" weight="0.3291536" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32978722" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32943678" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.32446808" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" weight="0.3291536" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.3291536" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3287234" />
+      <window_info anchor="bottom" id="Message" order="8" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.32776618" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.4670213" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32978722" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="right" id="JSF" order="0" weight="0.32994652" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Maven Projects" order="2" weight="0.25373134" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.18991417" />
+      <window_info anchor="right" id="CDI" order="6" weight="0.32994652" />
+      <window_info anchor="right" id="Bean Validation" order="7" weight="0.32994652" />
+      <window_info anchor="right" id="Palette" order="8" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="9" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="10" weight="0.24946351" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="12" weight="0.3299356" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Web" order="4" sideWeight="0.09508882" side_tool="true" weight="0.14552239" />
+      <window_info id="Designer" order="5" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.90491116" visible="true" weight="0.23122318" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" order="0" weight="0.3291536" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32978722" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32943678" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.32446808" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" weight="0.3291536" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.3291536" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3287234" />
+      <window_info anchor="bottom" id="Message" order="8" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.32776618" />
+      <window_info active="true" anchor="bottom" id="Run" order="10" visible="true" weight="0.35957447" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32978722" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="right" id="JSF" order="0" weight="0.32994652" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Maven Projects" order="2" weight="0.25373134" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.18991417" />
+      <window_info anchor="right" id="CDI" order="6" weight="0.32994652" />
+      <window_info anchor="right" id="Bean Validation" order="7" weight="0.32994652" />
+      <window_info anchor="right" id="Palette" order="8" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="9" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="10" weight="0.24946351" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="12" weight="0.3299356" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Default Changelist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Default Changelist" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test/com/store/AccountTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/store/service/impl/PostServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/business-AddProduct.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/business-OrderManage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/ProductimageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/entity/ProductKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/entity/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="197" column="21" selection-start-line="197" selection-start-column="21" selection-end-line="197" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/dao/ProductMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="41" column="96" selection-start-line="41" selection-start-column="91" selection-end-line="41" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/impl/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/impl/PropertyValueServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/PropertyValueService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/StoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/business/assets/css/amazeui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="626" column="17" selection-start-line="626" selection-start-column="17" selection-end-line="626" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/business/assets/css/amazeui.mineeeee.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5716">
+          <caret column="190821" selection-start-column="190806" selection-end-column="190821" />
+          <folding>
+            <element signature="e#40639#40962#1" expanded="true" />
+            <element signature="e#158134#159485#2" expanded="true" />
+            <element signature="e#160240#160651#2" expanded="true" />
+            <element signature="e#160808#163199#2" expanded="true" />
+            <element signature="e#163346#165737#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/assets/css/amazeui.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/assets/css/amazeuiproduct.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/assets/css/amazeuishoppingCart1.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/service/impl/AccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/productTest.jsp" />
+    <entry file="das://6c0514b6-e860-41f3-95e5-eaf2c62c8261/schema/mall/table/shoppingcart">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6c0514b6-e860-41f3-95e5-eaf2c62c8261/schema/mall/table/account">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-success.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="122" column="92" selection-start-line="122" selection-start-column="78" selection-end-line="122" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/EvaluationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/BusinessPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/filter/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="99" column="22" lean-forward="true" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/shoppingCartTest.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="164" column="58" lean-forward="true" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-order.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-267">
+          <caret line="102" column="67" selection-start-line="102" selection-start-column="67" selection-end-line="102" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AccountMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/OrderPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="59" column="82" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/product-detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="224" selection-start-line="224" selection-end-line="224" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-pay.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6512">
+          <caret line="296" column="21" selection-start-line="296" selection-start-column="21" selection-end-line="296" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-replyPost.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1276">
+          <caret line="58" column="75" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-store.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="52" column="75" selection-start-line="52" selection-start-column="75" selection-end-line="52" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-themePosts.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/user-evaluation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3828">
+          <caret line="174" column="27" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin-chargeCategory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1936">
+          <caret line="88" column="55" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/AdminPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2838">
+          <caret line="143" column="5" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/ProductPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="48" column="63" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/com/store/controller/PageController/PostPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>StoreBasedOnSSM:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8 (1)</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>StoreBasedOnSSM</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

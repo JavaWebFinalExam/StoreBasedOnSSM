@@ -5,6 +5,7 @@ import com.store.entity.Product;
 import com.store.service.CategoryService;
 import com.store.service.ProductService;
 import com.store.service.ProductimageService;
+import com.store.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,9 @@ public class ProductPageController {
 
     @Autowired
     ProductimageService productimageService;
+
+    @Autowired
+    StoreService storeService;
 
     //获取一个种类的所有商品
     @RequestMapping(
@@ -107,6 +111,7 @@ public class ProductPageController {
             Map<String,Object> products1 = new HashMap<>();
             products1.put("product",product);
             products1.put("productImage",productimageService.getImageIdByProductId(product.getId()));
+            products1.put("storeName",storeService.getStoreById(product.getStoreid()).getName());
             commodityInformation.add(products1);
         }
 
